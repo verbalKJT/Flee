@@ -1,0 +1,400 @@
+Using pre-set license
+Built from '6000.0/staging' branch; Version is '6000.0.42f1 (feb9a7235030) revision 16693671'; Using compiler version '193933523'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26100) 64bit Professional' Language: 'ko' Physical Memory: 31831 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.42f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/myday/Flee/Flee
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+57380
+-job-worker-count
+7
+-background-job-worker-count
+8
+-gc-helper-count
+1
+Successfully changed project path to: C:/Users/myday/Flee/Flee
+C:/Users/myday/Flee/Flee
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [25976]  Target information:
+
+Player connection [25976]  * "[IP] 192.168.0.51 [Port] 0 [Flags] 2 [Guid] 1075819836 [EditorId] 1075819836 [Version] 1048832 [Id] WindowsEditor(7,군적금) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [25976]  * "[IP] 25.11.162.210 [Port] 0 [Flags] 2 [Guid] 1075819836 [EditorId] 1075819836 [Version] 1048832 [Id] WindowsEditor(7,군적금) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [25976] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [25976] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 7
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 3.44 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.42f1 (feb9a7235030)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.42f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/myday/Flee/Flee/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 4070 SUPER (ID=0x2783)
+    Vendor:   NVIDIA
+    VRAM:     11999 MB
+    Driver:   32.0.15.7628
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.42f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.42f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.42f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56628
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.42f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.005207 seconds.
+- Loaded All Assemblies, in  0.374 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.291 seconds
+Domain Reload Profiling: 660ms
+	BeginReloadAssembly (151ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (0ms)
+	RebuildCommonClasses (28ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (48ms)
+	LoadAllAssembliesAndSetupDomain (134ms)
+		LoadAssemblies (145ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (132ms)
+			TypeCache.Refresh (130ms)
+				TypeCache.ScanAssembly (117ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (291ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (256ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (21ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (38ms)
+			ProcessInitializeOnLoadAttributes (140ms)
+			ProcessInitializeOnLoadMethodAttributes (53ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.752 seconds
+Refreshing native plugins compatible for Editor in 1.56 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.590 seconds
+Domain Reload Profiling: 1334ms
+	BeginReloadAssembly (168ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (23ms)
+	RebuildCommonClasses (31ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (48ms)
+	LoadAllAssembliesAndSetupDomain (485ms)
+		LoadAssemblies (409ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (189ms)
+			TypeCache.Refresh (145ms)
+				TypeCache.ScanAssembly (129ms)
+			BuildScriptInfoCaches (35ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (591ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (490ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (103ms)
+			ProcessInitializeOnLoadAttributes (321ms)
+			ProcessInitializeOnLoadMethodAttributes (50ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (14ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 2.53 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 145 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5961 unused Assets / (6.4 MB). Loaded Objects now: 6536.
+Memory consumption went from 172.6 MB to 166.2 MB.
+Total: 39.110000 ms (FindLiveObjects: 0.971900 ms CreateObjectMapping: 0.744700 ms MarkObjects: 33.408900 ms  DeleteObjects: 3.983500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 8704.083019 seconds.
+  path: Assets/Edwardian _man/URP/URP_config.asset
+  artifactKey: Guid(5a8cadfa122959b41bd21a96a8347174) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Edwardian _man/URP/URP_config.asset using Guid(5a8cadfa122959b41bd21a96a8347174) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4e1185a02d108bfe167c02ad0602fe13') in 0.0503055 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 50
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Settings/Mobile_RPAsset.asset
+  artifactKey: Guid(5e6cbd92db86f4b18aec3ed561671858) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Settings/Mobile_RPAsset.asset using Guid(5e6cbd92db86f4b18aec3ed561671858) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '652f905a4eecb47b504f541784c8da89') in 0.0208858 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 55
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Little_Boy/Resources/URP_resources/Universal Render Pipeline Asset.asset
+  artifactKey: Guid(7be8b1ae59e98794e8229c65938cdd79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Little_Boy/Resources/URP_resources/Universal Render Pipeline Asset.asset using Guid(7be8b1ae59e98794e8229c65938cdd79) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '252e542270a355e72ab7440cce4008f1') in 0.0184818 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 50
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 2.52 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 31 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 31 unused Assets / (2.9 MB). Loaded Objects now: 6539.
+Memory consumption went from 140.6 MB to 137.7 MB.
+Total: 7.845300 ms (FindLiveObjects: 0.577900 ms CreateObjectMapping: 0.427900 ms MarkObjects: 5.910400 ms  DeleteObjects: 0.928400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 331.031541 seconds.
+  path: Assets/Horror_House/Textures/Noise.tga
+  artifactKey: Guid(3948ecb3ddda0914ab24867c36c4a45c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Textures/Noise.tga using Guid(3948ecb3ddda0914ab24867c36c4a45c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e31944f2a21453a43d9f049cbb7a03bd') in 0.0430289 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 41.586016 seconds.
+  path: Assets/Horror_House/Prefabs/Props/Candle_01.prefab
+  artifactKey: Guid(b8991699bf60e70469f60901c1c88e01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Prefabs/Props/Candle_01.prefab using Guid(b8991699bf60e70469f60901c1c88e01) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7bf5a8063b8e412653a483d63c705d1a') in 0.1196996 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 35
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Horror_House/Prefabs/Props/Candle_05.prefab
+  artifactKey: Guid(e9bb6e66a25e61d4897f61209c59502d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Prefabs/Props/Candle_05.prefab using Guid(e9bb6e66a25e61d4897f61209c59502d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8f6579628dcfe9b52de08301adc4bcd4') in 0.0228532 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 35
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Horror_House/Models/Props/Candle_03.fbx
+  artifactKey: Guid(a3eb7363baf2f364aa47ecde544c66a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Models/Props/Candle_03.fbx using Guid(a3eb7363baf2f364aa47ecde544c66a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '47dde1f90c4474df0be4af4356b39370') in 0.1140164 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 32
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Horror_House/Models/Props/Candle_05.fbx
+  artifactKey: Guid(3ce8337cfd6e7b644b583293010ddde2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Models/Props/Candle_05.fbx using Guid(3ce8337cfd6e7b644b583293010ddde2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ba938ca0d6dc6497155797d9dc5c687c') in 0.030795 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 32
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000009 seconds.
+  path: Assets/Horror_House/Models/Props/Candle_06.fbx
+  artifactKey: Guid(42226119f0f360e49ac930aee408e500) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Models/Props/Candle_06.fbx using Guid(42226119f0f360e49ac930aee408e500) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9e98fe62fa783e173fa1d3d11315e548') in 0.0317957 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 32
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Horror_House/Prefabs/Props/Candle_02.prefab
+  artifactKey: Guid(81951d49b45c58e44b247d3f595dfd63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Prefabs/Props/Candle_02.prefab using Guid(81951d49b45c58e44b247d3f595dfd63) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f7eb249ab37bc03c6aac80bf1e8ad666') in 0.0166276 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 35
+
+========================================================================
+Received Import Request.
+  Time since last request: 26.706827 seconds.
+  path: Assets/Horror_House/Textures/Props/Candles/Candles_AO.tga
+  artifactKey: Guid(616c22a354ac6094ba8f18dd5ed26456) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Textures/Props/Candles/Candles_AO.tga using Guid(616c22a354ac6094ba8f18dd5ed26456) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'be913d081515f309b9ee75c43a5eb17f') in 0.0127548 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.220295 seconds.
+  path: Assets/Horror_House/Textures/Props/Candles/Candles_N.tga
+  artifactKey: Guid(49ec0d96647d24641b0ae455de35e558) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Textures/Props/Candles/Candles_N.tga using Guid(49ec0d96647d24641b0ae455de35e558) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bb201d2b6de60c0ceca174cd6ba9a7ae') in 0.0145699 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 433.383324 seconds.
+  path: Assets/Mansion set/Furniture/Bed2_Fabricandwood_MetallicSmoothness.png
+  artifactKey: Guid(fb6c98cf514778f4d9654bffbf7ae8c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Furniture/Bed2_Fabricandwood_MetallicSmoothness.png using Guid(fb6c98cf514778f4d9654bffbf7ae8c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5318fc8eedf6701d84bc0e0e3921d8c5') in 0.0111318 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.013819 seconds.
+  path: Assets/Mansion set/Furniture/Bed_sheet_Fabricandwood_MetallicSmoothness.png
+  artifactKey: Guid(d63d0f286a2fc074b9c65e9fe6ee68ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Furniture/Bed_sheet_Fabricandwood_MetallicSmoothness.png using Guid(d63d0f286a2fc074b9c65e9fe6ee68ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '512557789324d54b86eb6800b4d45962') in 0.0081036 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Horror_House/Prefabs/Decals/Blood_Decals_04.prefab
+  artifactKey: Guid(3c4a2ed0c077c6d44ae0a165112b5bf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Prefabs/Decals/Blood_Decals_04.prefab using Guid(3c4a2ed0c077c6d44ae0a165112b5bf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '910092398af7775b131c5e654105cba3') in 0.015544 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Horror_House/Prefabs/Decals/Blood_Decals_03.prefab
+  artifactKey: Guid(68a4fd07cfb0eaf4cb217b355e386733) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Prefabs/Decals/Blood_Decals_03.prefab using Guid(68a4fd07cfb0eaf4cb217b355e386733) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cad8f3e9088f9cb903946d1c463c367e') in 0.0189795 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Horror_House/Prefabs/Decals/Blood_Decals_02.prefab
+  artifactKey: Guid(a0596cca2148e3a4ea41fc995b8e4c75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Prefabs/Decals/Blood_Decals_02.prefab using Guid(a0596cca2148e3a4ea41fc995b8e4c75) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9219d0740fbdb37fc1e16fe1d100ea1f') in 0.0150667 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Horror_House/Models/Decals/Blood_Decals_10.fbx
+  artifactKey: Guid(c43693540d1587547ad740c014b56550) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Models/Decals/Blood_Decals_10.fbx using Guid(c43693540d1587547ad740c014b56550) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b5cae001bbe299671f20b1dacaf282f1') in 0.0188378 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Horror_House/Models/Decals/Blood_Decals_09.fbx
+  artifactKey: Guid(08e8d66567402664388cb6008e22e922) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Models/Decals/Blood_Decals_09.fbx using Guid(08e8d66567402664388cb6008e22e922) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9365f997f153c1f1de544e83a54b55ec') in 0.0161789 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Horror_House/Prefabs/Decals/Blood_Decals_01.prefab
+  artifactKey: Guid(3b38893839150684eba6f83b15a5d261) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Prefabs/Decals/Blood_Decals_01.prefab using Guid(3b38893839150684eba6f83b15a5d261) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '816a1ecd81874b362cce8a51561c4c34') in 0.01639 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Mansion set/Furniture/Bed_sheet_Fabricandwood_AlbedoTransparency.png
+  artifactKey: Guid(a1dff62d6ed0ad4428b43540d4cb16f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Furniture/Bed_sheet_Fabricandwood_AlbedoTransparency.png using Guid(a1dff62d6ed0ad4428b43540d4cb16f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '55ce4a9ca02540f326a2eae32e5d0c16') in 0.0090669 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Horror_House/Prefabs/Decals/Blood_Decals_07.prefab
+  artifactKey: Guid(f61a6f11385509941b4872692b8632af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Prefabs/Decals/Blood_Decals_07.prefab using Guid(f61a6f11385509941b4872692b8632af) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1296a68938408fbc7b82f1be6cd62782') in 0.0131113 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Horror_House/Prefabs/Decals/Blood_Decals_05.prefab
+  artifactKey: Guid(641c6ee59e157eb49b742b8068e368e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Prefabs/Decals/Blood_Decals_05.prefab using Guid(641c6ee59e157eb49b742b8068e368e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5ad2bb0fc99b587d7fb900b5630ca04d') in 0.0136616 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Horror_House/Models/Decals/Blood_Decals_08.fbx
+  artifactKey: Guid(59f4a52eaa75cb24e87ca5145f65cef8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Models/Decals/Blood_Decals_08.fbx using Guid(59f4a52eaa75cb24e87ca5145f65cef8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4e15210b3bae7878897d9abf06ca6d71') in 0.0150711 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Horror_House/Models/Decals/Blood_Decals_07.fbx
+  artifactKey: Guid(ec032402e4f40ac44a5f7dd0653e487e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Models/Decals/Blood_Decals_07.fbx using Guid(ec032402e4f40ac44a5f7dd0653e487e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cfb6033f3c9bd60fadd9b65467342a89') in 0.0167017 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
