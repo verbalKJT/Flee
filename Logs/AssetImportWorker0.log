@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '6000.0/staging' branch; Version is '6000.0.42f1 (feb9a7235030) revision 16693671'; Using compiler version '193933523'; Build Type 'Release'
-OS: 'Windows 11  (10.0.26100) 64bit Professional' Language: 'ko' Physical Memory: 31831 MB
+OS: 'Windows 10  (10.0.19045) 64bit Core' Language: 'ko' Physical Memory: 16333 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
@@ -11,19 +11,19 @@ C:\Program Files\Unity\Hub\Editor\6000.0.42f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/myday/Flee/Flee
+C:/github/Flee
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-57380
+64061
 -job-worker-count
-7
+5
 -background-job-worker-count
 8
 -gc-helper-count
 1
-Successfully changed project path to: C:/Users/myday/Flee/Flee
-C:/Users/myday/Flee/Flee
+Successfully changed project path to: C:/github/Flee
+C:/github/Flee
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -59,15 +59,13 @@ C:/Users/myday/Flee/Flee
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [25976]  Target information:
+Player connection [17448]  Target information:
 
-Player connection [25976]  * "[IP] 192.168.0.51 [Port] 0 [Flags] 2 [Guid] 1075819836 [EditorId] 1075819836 [Version] 1048832 [Id] WindowsEditor(7,焙利陛) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [17448]  * "[IP] 112.161.79.44 [Port] 0 [Flags] 2 [Guid] 3040093004 [EditorId] 3040093004 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-VQK3L4M) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [25976]  * "[IP] 25.11.162.210 [Port] 0 [Flags] 2 [Guid] 1075819836 [EditorId] 1075819836 [Version] 1048832 [Id] WindowsEditor(7,焙利陛) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
-
-Player connection [25976] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [25976] Host joined alternative multi-casting on [225.0.0.222:34997]...
-JobSystem: Creating JobQueue using job-worker-count value 7
+Player connection [17448] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [17448] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 5
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
 [Physics::Module] Id: 0xdecafbad
@@ -78,59 +76,59 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 3.44 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 117.04 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.42f1 (feb9a7235030)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.42f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/myday/Flee/Flee/Assets
+[Subsystems] Discovering subsystems at path C:/github/Flee/Assets
 GfxDevice: creating device client; kGfxThreadingModeNonThreaded
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 4070 SUPER (ID=0x2783)
+    Renderer: NVIDIA GeForce GTX 1660 SUPER (ID=0x21c4)
     Vendor:   NVIDIA
-    VRAM:     11999 MB
-    Driver:   32.0.15.7628
+    VRAM:     5966 MB
+    Driver:   32.0.15.6094
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.42f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.42f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.42f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56628
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56908
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.42f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.005207 seconds.
-- Loaded All Assemblies, in  0.374 seconds
+Registered in 0.004488 seconds.
+- Loaded All Assemblies, in  0.436 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.291 seconds
-Domain Reload Profiling: 660ms
-	BeginReloadAssembly (151ms)
+- Finished resetting the current domain, in  0.372 seconds
+Domain Reload Profiling: 804ms
+	BeginReloadAssembly (161ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (0ms)
-	RebuildCommonClasses (28ms)
-	RebuildNativeTypeToScriptingClass (8ms)
-	initialDomainReloadingComplete (48ms)
-	LoadAllAssembliesAndSetupDomain (134ms)
-		LoadAssemblies (145ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (42ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (54ms)
+	LoadAllAssembliesAndSetupDomain (162ms)
+		LoadAssemblies (158ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (132ms)
-			TypeCache.Refresh (130ms)
-				TypeCache.ScanAssembly (117ms)
+		AnalyzeDomain (159ms)
+			TypeCache.Refresh (157ms)
+				TypeCache.ScanAssembly (144ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (291ms)
+	FinalizeReload (372ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (256ms)
+		SetupLoadedEditorAssemblies (323ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (21ms)
-			SetLoadedEditorAssemblies (3ms)
-			BeforeProcessingInitializeOnLoad (38ms)
-			ProcessInitializeOnLoadAttributes (140ms)
-			ProcessInitializeOnLoadMethodAttributes (53ms)
+			InitializePlatformSupportModulesInManaged (22ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (60ms)
+			ProcessInitializeOnLoadAttributes (172ms)
+			ProcessInitializeOnLoadMethodAttributes (65ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -139,260 +137,930 @@ Domain Reload Profiling: 660ms
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.752 seconds
-Refreshing native plugins compatible for Editor in 1.56 ms, found 3 plugins.
+- Loaded All Assemblies, in  4.801 seconds
+Refreshing native plugins compatible for Editor in 1.02 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.590 seconds
-Domain Reload Profiling: 1334ms
-	BeginReloadAssembly (168ms)
+- Finished resetting the current domain, in  0.788 seconds
+Domain Reload Profiling: 5583ms
+	BeginReloadAssembly (192ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (5ms)
+		DisableScriptedObjects (6ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (23ms)
-	RebuildCommonClasses (31ms)
-	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (48ms)
-	LoadAllAssembliesAndSetupDomain (485ms)
-		LoadAssemblies (409ms)
+		CreateAndSetChildDomain (31ms)
+	RebuildCommonClasses (40ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (40ms)
+	LoadAllAssembliesAndSetupDomain (4509ms)
+		LoadAssemblies (4373ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (189ms)
-			TypeCache.Refresh (145ms)
-				TypeCache.ScanAssembly (129ms)
-			BuildScriptInfoCaches (35ms)
-			ResolveRequiredComponents (7ms)
-	FinalizeReload (591ms)
+		AnalyzeDomain (252ms)
+			TypeCache.Refresh (194ms)
+				TypeCache.ScanAssembly (176ms)
+			BuildScriptInfoCaches (45ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (788ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (490ms)
+		SetupLoadedEditorAssemblies (630ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (2ms)
-			SetLoadedEditorAssemblies (4ms)
-			BeforeProcessingInitializeOnLoad (103ms)
-			ProcessInitializeOnLoadAttributes (321ms)
-			ProcessInitializeOnLoadMethodAttributes (50ms)
-			AfterProcessingInitializeOnLoad (11ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (118ms)
+			ProcessInitializeOnLoadAttributes (408ms)
+			ProcessInitializeOnLoadMethodAttributes (91ms)
+			AfterProcessingInitializeOnLoad (6ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (14ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
-Refreshing native plugins compatible for Editor in 2.53 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.02 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 145 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 5961 unused Assets / (6.4 MB). Loaded Objects now: 6536.
-Memory consumption went from 172.6 MB to 166.2 MB.
-Total: 39.110000 ms (FindLiveObjects: 0.971900 ms CreateObjectMapping: 0.744700 ms MarkObjects: 33.408900 ms  DeleteObjects: 3.983500 ms)
+Unloading 215 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5950 unused Assets / (4.4 MB). Loaded Objects now: 6658.
+Memory consumption went from 171.3 MB to 166.9 MB.
+Total: 10.213300 ms (FindLiveObjects: 0.878800 ms CreateObjectMapping: 0.771100 ms MarkObjects: 5.468900 ms  DeleteObjects: 3.092800 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 8704.083019 seconds.
-  path: Assets/Edwardian _man/URP/URP_config.asset
-  artifactKey: Guid(5a8cadfa122959b41bd21a96a8347174) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Edwardian _man/URP/URP_config.asset using Guid(5a8cadfa122959b41bd21a96a8347174) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4e1185a02d108bfe167c02ad0602fe13') in 0.0503055 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 50
+  Time since last request: 522473.478171 seconds.
+  path: Assets/Prefab/Bathroom.prefab
+  artifactKey: Guid(4346c815e97b95246b40b9db2f1b8360) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Bathroom.prefab using Guid(4346c815e97b95246b40b9db2f1b8360) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)The legacy Animation Clip "Toilet1_cap_Open" cannot be used in the State "Toilet_Open". Legacy AnimationClips are not allowed in Animator Controllers.To use this animation in this Animator Controller, you must reimport in as a Generic or Humanoid animation clip
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object,bool)
+UnityEditor.GameObjectInspector:GetPreviewData (bool)
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\build\output\unity\unity\Editor\Src\Animation\StateMachine.cpp line 447]
+
+The legacy Animation Clip "Toilet1_cap_Close" cannot be used in the State "Toilet_Close". Legacy AnimationClips are not allowed in Animator Controllers.To use this animation in this Animator Controller, you must reimport in as a Generic or Humanoid animation clip
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object,bool)
+UnityEditor.GameObjectInspector:GetPreviewData (bool)
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\build\output\unity\unity\Editor\Src\Animation\StateMachine.cpp line 447]
+
+The legacy Animation Clip "Switch1_OFF" cannot be used in the State "SwitchOff". Legacy AnimationClips are not allowed in Animator Controllers.To use this animation in this Animator Controller, you must reimport in as a Generic or Humanoid animation clip
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object,bool)
+UnityEditor.GameObjectInspector:GetPreviewData (bool)
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\build\output\unity\unity\Editor\Src\Animation\StateMachine.cpp line 447]
+
+The legacy Animation Clip "Switch1_ON" cannot be used in the State "SwitchOn". Legacy AnimationClips are not allowed in Animator Controllers.To use this animation in this Animator Controller, you must reimport in as a Generic or Humanoid animation clip
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object,bool)
+UnityEditor.GameObjectInspector:GetPreviewData (bool)
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\build\output\unity\unity\Editor\Src\Animation\StateMachine.cpp line 447]
+
+The legacy Animation Clip "Door2_Open" cannot be used in the State "Door_Open". Legacy AnimationClips are not allowed in Animator Controllers.To use this animation in this Animator Controller, you must reimport in as a Generic or Humanoid animation clip
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object,bool)
+UnityEditor.GameObjectInspector:GetPreviewData (bool)
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\build\output\unity\unity\Editor\Src\Animation\StateMachine.cpp line 447]
+
+The legacy Animation Clip "Door2_Close" cannot be used in the State "Door_Close". Legacy AnimationClips are not allowed in Animator Controllers.To use this animation in this Animator Controller, you must reimport in as a Generic or Humanoid animation clip
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object,bool)
+UnityEditor.GameObjectInspector:GetPreviewData (bool)
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\build\output\unity\unity\Editor\Src\Animation\StateMachine.cpp line 447]
+
+ -> (artifact id: '2f4ef13b65bcfdb06007957d651fd041') in 3.640349 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 679
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000011 seconds.
-  path: Assets/Settings/Mobile_RPAsset.asset
-  artifactKey: Guid(5e6cbd92db86f4b18aec3ed561671858) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Settings/Mobile_RPAsset.asset using Guid(5e6cbd92db86f4b18aec3ed561671858) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '652f905a4eecb47b504f541784c8da89') in 0.0208858 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 55
+  Time since last request: 105.921299 seconds.
+  path: Assets/Prefab/Bathroom.prefab
+  artifactKey: Guid(4346c815e97b95246b40b9db2f1b8360) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Bathroom.prefab using Guid(4346c815e97b95246b40b9db2f1b8360) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)The legacy Animation Clip "Toilet1_cap_Open" cannot be used in the State "Toilet_Open". Legacy AnimationClips are not allowed in Animator Controllers.To use this animation in this Animator Controller, you must reimport in as a Generic or Humanoid animation clip
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object,bool)
+UnityEditor.GameObjectInspector:GetPreviewData (bool)
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\build\output\unity\unity\Editor\Src\Animation\StateMachine.cpp line 447]
+
+The legacy Animation Clip "Toilet1_cap_Close" cannot be used in the State "Toilet_Close". Legacy AnimationClips are not allowed in Animator Controllers.To use this animation in this Animator Controller, you must reimport in as a Generic or Humanoid animation clip
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object,bool)
+UnityEditor.GameObjectInspector:GetPreviewData (bool)
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\build\output\unity\unity\Editor\Src\Animation\StateMachine.cpp line 447]
+
+The legacy Animation Clip "Switch1_OFF" cannot be used in the State "SwitchOff". Legacy AnimationClips are not allowed in Animator Controllers.To use this animation in this Animator Controller, you must reimport in as a Generic or Humanoid animation clip
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object,bool)
+UnityEditor.GameObjectInspector:GetPreviewData (bool)
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\build\output\unity\unity\Editor\Src\Animation\StateMachine.cpp line 447]
+
+The legacy Animation Clip "Switch1_ON" cannot be used in the State "SwitchOn". Legacy AnimationClips are not allowed in Animator Controllers.To use this animation in this Animator Controller, you must reimport in as a Generic or Humanoid animation clip
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object,bool)
+UnityEditor.GameObjectInspector:GetPreviewData (bool)
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\build\output\unity\unity\Editor\Src\Animation\StateMachine.cpp line 447]
+
+The legacy Animation Clip "Door2_Open" cannot be used in the State "Door_Open". Legacy AnimationClips are not allowed in Animator Controllers.To use this animation in this Animator Controller, you must reimport in as a Generic or Humanoid animation clip
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object,bool)
+UnityEditor.GameObjectInspector:GetPreviewData (bool)
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\build\output\unity\unity\Editor\Src\Animation\StateMachine.cpp line 447]
+
+The legacy Animation Clip "Door2_Close" cannot be used in the State "Door_Close". Legacy AnimationClips are not allowed in Animator Controllers.To use this animation in this Animator Controller, you must reimport in as a Generic or Humanoid animation clip
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object,bool)
+UnityEditor.GameObjectInspector:GetPreviewData (bool)
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\build\output\unity\unity\Editor\Src\Animation\StateMachine.cpp line 447]
+
+ -> (artifact id: 'bc1ad14b2a6b76904e03109f11631d1f') in 3.496887 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 679
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000010 seconds.
-  path: Assets/Little_Boy/Resources/URP_resources/Universal Render Pipeline Asset.asset
-  artifactKey: Guid(7be8b1ae59e98794e8229c65938cdd79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Little_Boy/Resources/URP_resources/Universal Render Pipeline Asset.asset using Guid(7be8b1ae59e98794e8229c65938cdd79) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '252e542270a355e72ab7440cce4008f1') in 0.0184818 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 50
+  Time since last request: 112.079397 seconds.
+  path: Assets/Script/MouseLook.cs
+  artifactKey: Guid(40706dfa8c301214495a04f905bf40ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/MouseLook.cs using Guid(40706dfa8c301214495a04f905bf40ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8af80314334ce2958b820e57368bea54') in 0.0012554 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 69.299256 seconds.
+  path: Assets/Script/IInteractable.cs
+  artifactKey: Guid(c1b893b24b320cf40864d033f45d381a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/IInteractable.cs using Guid(c1b893b24b320cf40864d033f45d381a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b77016a87f3c7af8d06dd7b3363fc2cc') in 0.0012807 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Prepare
-Refreshing native plugins compatible for Editor in 2.52 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.87 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 31 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 31 unused Assets / (2.9 MB). Loaded Objects now: 6539.
-Memory consumption went from 140.6 MB to 137.7 MB.
-Total: 7.845300 ms (FindLiveObjects: 0.577900 ms CreateObjectMapping: 0.427900 ms MarkObjects: 5.910400 ms  DeleteObjects: 0.928400 ms)
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5942 unused Assets / (3.9 MB). Loaded Objects now: 6813.
+Memory consumption went from 150.0 MB to 146.2 MB.
+Total: 17.341700 ms (FindLiveObjects: 1.388000 ms CreateObjectMapping: 0.412200 ms MarkObjects: 9.852600 ms  DeleteObjects: 5.687200 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 ========================================================================
 Received Import Request.
-  Time since last request: 331.031541 seconds.
-  path: Assets/Horror_House/Textures/Noise.tga
-  artifactKey: Guid(3948ecb3ddda0914ab24867c36c4a45c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Textures/Noise.tga using Guid(3948ecb3ddda0914ab24867c36c4a45c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e31944f2a21453a43d9f049cbb7a03bd') in 0.0430289 seconds
+  Time since last request: 119.538486 seconds.
+  path: Assets/Script/PlayerMouseLook.cs
+  artifactKey: Guid(40706dfa8c301214495a04f905bf40ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/PlayerMouseLook.cs using Guid(40706dfa8c301214495a04f905bf40ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b822d64517e19a594082e00596e9e923') in 0.0076213 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 1.19 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5941 unused Assets / (4.2 MB). Loaded Objects now: 6813.
+Memory consumption went from 150.0 MB to 145.8 MB.
+Total: 12.925200 ms (FindLiveObjects: 1.201200 ms CreateObjectMapping: 0.527300 ms MarkObjects: 7.467500 ms  DeleteObjects: 3.727000 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.951 seconds
+Refreshing native plugins compatible for Editor in 0.96 ms, found 3 plugins.
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.842 seconds
+Domain Reload Profiling: 1792ms
+	BeginReloadAssembly (304ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (23ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (67ms)
+	RebuildCommonClasses (38ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (34ms)
+	LoadAllAssembliesAndSetupDomain (558ms)
+		LoadAssemblies (533ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (194ms)
+			TypeCache.Refresh (12ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (165ms)
+			ResolveRequiredComponents (12ms)
+	FinalizeReload (843ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (581ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (129ms)
+			ProcessInitializeOnLoadAttributes (382ms)
+			ProcessInitializeOnLoadMethodAttributes (56ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (17ms)
+Refreshing native plugins compatible for Editor in 1.59 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 23 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5948 unused Assets / (4.2 MB). Loaded Objects now: 6707.
+Memory consumption went from 160.6 MB to 156.4 MB.
+Total: 8.796900 ms (FindLiveObjects: 1.008500 ms CreateObjectMapping: 0.511100 ms MarkObjects: 4.654700 ms  DeleteObjects: 2.621100 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 20.906590 seconds.
+  path: Assets/Script/PlayerMouseLook.cs
+  artifactKey: Guid(40706dfa8c301214495a04f905bf40ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/PlayerMouseLook.cs using Guid(40706dfa8c301214495a04f905bf40ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '71b9e0f42de2b2ab62a0f15461707523') in 0.015799 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.733 seconds
+Refreshing native plugins compatible for Editor in 0.91 ms, found 3 plugins.
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.781 seconds
+Domain Reload Profiling: 1511ms
+	BeginReloadAssembly (221ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (52ms)
+	RebuildCommonClasses (39ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (34ms)
+	LoadAllAssembliesAndSetupDomain (422ms)
+		LoadAssemblies (358ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (178ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (153ms)
+			ResolveRequiredComponents (16ms)
+	FinalizeReload (781ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (571ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (115ms)
+			ProcessInitializeOnLoadAttributes (381ms)
+			ProcessInitializeOnLoadMethodAttributes (61ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (17ms)
+Refreshing native plugins compatible for Editor in 1.09 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5948 unused Assets / (4.5 MB). Loaded Objects now: 6709.
+Memory consumption went from 158.7 MB to 154.2 MB.
+Total: 9.770400 ms (FindLiveObjects: 0.879100 ms CreateObjectMapping: 0.344800 ms MarkObjects: 5.253800 ms  DeleteObjects: 3.291500 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 218.967843 seconds.
+  path: Assets/Mansion set/Furniture/小over_Sofa.mat
+  artifactKey: Guid(08b23e2b7f3a74744bdbc50cda780886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Furniture/小over_Sofa.mat using Guid(08b23e2b7f3a74744bdbc50cda780886) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '40db25b2374067c30459d3863a47d023') in 0.5276999 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
 
 ========================================================================
 Received Import Request.
-  Time since last request: 41.586016 seconds.
-  path: Assets/Horror_House/Prefabs/Props/Candle_01.prefab
-  artifactKey: Guid(b8991699bf60e70469f60901c1c88e01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Prefabs/Props/Candle_01.prefab using Guid(b8991699bf60e70469f60901c1c88e01) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7bf5a8063b8e412653a483d63c705d1a') in 0.1196996 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 35
+  Time since last request: 1.432777 seconds.
+  path: Assets/Horror child pack/Possessed child/Base mesh/Materials/T_CharacterName_hair_Albedo_skin1.mat
+  artifactKey: Guid(dd6c7667cd6e60349a077924e3c6ed1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror child pack/Possessed child/Base mesh/Materials/T_CharacterName_hair_Albedo_skin1.mat using Guid(dd6c7667cd6e60349a077924e3c6ed1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '222a226995d85ffa77cddbe701751d78') in 0.0254055 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Horror_House/Prefabs/Props/Candle_05.prefab
-  artifactKey: Guid(e9bb6e66a25e61d4897f61209c59502d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Prefabs/Props/Candle_05.prefab using Guid(e9bb6e66a25e61d4897f61209c59502d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8f6579628dcfe9b52de08301adc4bcd4') in 0.0228532 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 35
+  Time since last request: 0.000061 seconds.
+  path: Assets/Mansion set/Bathroom/Toilet_cap2.mat
+  artifactKey: Guid(ee3291f2967bc86488e219370017f6b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Bathroom/Toilet_cap2.mat using Guid(ee3291f2967bc86488e219370017f6b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0da5c43d1b0323e6767fa88d8cc12bf9') in 0.0621371 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Mansion set/Walls/Wall_Arch_Basement.mat
+  artifactKey: Guid(e7508f5c2bf47de40b52786b6d20d360) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Walls/Wall_Arch_Basement.mat using Guid(e7508f5c2bf47de40b52786b6d20d360) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4619652d0953c8f8f6b913ebe226518d') in 0.0606088 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Horror_House/Models/Props/Toothpaste.fbx
+  artifactKey: Guid(6bba50c0ceb9fe04da79f0b2980104eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Models/Props/Toothpaste.fbx using Guid(6bba50c0ceb9fe04da79f0b2980104eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '14424f5e7f3b6e34427decf2a8144023') in 0.278066 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 17
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000074 seconds.
+  path: Assets/Horror_House/Materials/House/Wallpaper_01_(Sockets).mat
+  artifactKey: Guid(9a22d10568aa2e949a692f3d1590c092) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Materials/House/Wallpaper_01_(Sockets).mat using Guid(9a22d10568aa2e949a692f3d1590c092) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c51b9adc82041e79eba0aa5a1144bb03') in 2.9914103 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Mansion set/Wall3_4/Column2_Wall3_4_Wood&Metal.mat
+  artifactKey: Guid(4d24f274022ec3c4189169151fb43e7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Wall3_4/Column2_Wall3_4_Wood&Metal.mat using Guid(4d24f274022ec3c4189169151fb43e7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b5e1ccc51ba3bbbe59454788b29aa027') in 0.0602866 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Mansion set/Staircase1/Staircase1_Columns 12.mat
+  artifactKey: Guid(c7c8d0bdc83fad5428b3329a06776e6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Staircase1/Staircase1_Columns 12.mat using Guid(c7c8d0bdc83fad5428b3329a06776e6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c1ffc4dd46e7e9be33fa19468388ad48') in 0.0572972 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Mansion set/Gramophone/Vinyl DISC2.mat
+  artifactKey: Guid(8e33b92afdd8a964a909880cd447dbee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Gramophone/Vinyl DISC2.mat using Guid(8e33b92afdd8a964a909880cd447dbee) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3285058f32c10c2aefbe444b0f170a01') in 0.0698936 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Horror_House/Materials/Props/Washing_Machine.mat
+  artifactKey: Guid(8adb6ddcbdd9d1342ad57b237cb49dbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Materials/Props/Washing_Machine.mat using Guid(8adb6ddcbdd9d1342ad57b237cb49dbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7ada7a8e5b68f4a01edbef0ab4f21cce') in 0.0740583 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Horror child pack/Possessed child/Base mesh/Materials/Paint_bodyLP_defaultMat_BaseColor.1001.mat
+  artifactKey: Guid(96dbfcc778cd06f40a61c96695ccd2fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror child pack/Possessed child/Base mesh/Materials/Paint_bodyLP_defaultMat_BaseColor.1001.mat using Guid(96dbfcc778cd06f40a61c96695ccd2fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a93cabbf4ad1579b485b53e708062f90') in 0.0209474 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Horror child pack/Damn doll/Base mesh/Materials/paint_Body_BaseColor.mat
+  artifactKey: Guid(9c7451d02b05674489f70120d484f7bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror child pack/Damn doll/Base mesh/Materials/paint_Body_BaseColor.mat using Guid(9c7451d02b05674489f70120d484f7bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2259c5d5e7fd0170b735463dff382e1f') in 0.0198749 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Mansion set/Staircase1/Staircase1_2Columns 1.mat
+  artifactKey: Guid(f4c28444657f9b04fb5886ac13865f6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Staircase1/Staircase1_2Columns 1.mat using Guid(f4c28444657f9b04fb5886ac13865f6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '10b346e4e3af3dba7574fd8c59bae5a3') in 0.061155 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Mansion set/Wall3_4/Column1_Wall3_4_Wood&Metal2.mat
+  artifactKey: Guid(0c725ef4f3a69da4e8073170fb079f8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Wall3_4/Column1_Wall3_4_Wood&Metal2.mat using Guid(0c725ef4f3a69da4e8073170fb079f8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '35738d6aca67cad803cbd2f86afedd09') in 0.0609675 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Horror child pack/Damn doll/Base mesh/Materials/paint_Face1_BaseColor.mat
+  artifactKey: Guid(25d2fbc9797db0443b733b01bc9c8b6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror child pack/Damn doll/Base mesh/Materials/paint_Face1_BaseColor.mat using Guid(25d2fbc9797db0443b733b01bc9c8b6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '21b4abb7fbd73d8b96ce29a53c586413') in 0.0177616 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Mansion set/Bathroom/Toilet_cap.mat
+  artifactKey: Guid(e4df297dcc866dc4793a44d0252078bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Bathroom/Toilet_cap.mat using Guid(e4df297dcc866dc4793a44d0252078bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '73d53258fba3be906bbeb85eeb2c8b36') in 0.050442 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Mansion set/Staircase1/Staircase1_pColumns 2.mat
+  artifactKey: Guid(e1bfa706efd8dff46b112e37021f4bda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Staircase1/Staircase1_pColumns 2.mat using Guid(e1bfa706efd8dff46b112e37021f4bda) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7c58046c5794e6db4a5ed5f554c74bdc') in 0.0619699 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Mansion set/Walls/Column_Basement.mat
+  artifactKey: Guid(3653cbfe8452a264b9cefcb38a0bc160) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Walls/Column_Basement.mat using Guid(3653cbfe8452a264b9cefcb38a0bc160) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4b1fedcc605e83670c7e3d94592aaaca') in 0.0640936 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Horror_House/Materials/Exterior/Table_Bench.mat
+  artifactKey: Guid(fed1907763c3bf241b0e93e2fa6c372d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Materials/Exterior/Table_Bench.mat using Guid(fed1907763c3bf241b0e93e2fa6c372d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b25f4613ab4549fa2f9731930718c8c9') in 0.0931569 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/Mansion set/Gramophone/Vinyl DISC1.mat
+  artifactKey: Guid(515687f372d7b8f438c102e19ed2dc8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Gramophone/Vinyl DISC1.mat using Guid(515687f372d7b8f438c102e19ed2dc8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '67db216feb823ff22f87fc06c07d1aad') in 0.0642871 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000022 seconds.
   path: Assets/Horror_House/Models/Props/Candle_03.fbx
   artifactKey: Guid(a3eb7363baf2f364aa47ecde544c66a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Models/Props/Candle_03.fbx using Guid(a3eb7363baf2f364aa47ecde544c66a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '47dde1f90c4474df0be4af4356b39370') in 0.1140164 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 32
+Start importing Assets/Horror_House/Models/Props/Candle_03.fbx using Guid(a3eb7363baf2f364aa47ecde544c66a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e166e518b1ea5e417448225c0af1dc60') in 0.1474777 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 31
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000014 seconds.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Mansion set/Walls/Window1_Wood1.mat
+  artifactKey: Guid(093dee02583cbb447a64d0bf2912c119) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Walls/Window1_Wood1.mat using Guid(093dee02583cbb447a64d0bf2912c119) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2a1cda09ad1078c88c53d0dbb54e373b') in 0.0603221 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/Horror_House/Models/Props/Candle_04.fbx
+  artifactKey: Guid(24a484fefe4567d49b0be531b6dc971b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Models/Props/Candle_04.fbx using Guid(24a484fefe4567d49b0be531b6dc971b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4c243d5064d5f69faa7d7aefaec94e39') in 0.0744479 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 31
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
   path: Assets/Horror_House/Models/Props/Candle_05.fbx
   artifactKey: Guid(3ce8337cfd6e7b644b583293010ddde2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Models/Props/Candle_05.fbx using Guid(3ce8337cfd6e7b644b583293010ddde2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ba938ca0d6dc6497155797d9dc5c687c') in 0.030795 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 32
+Start importing Assets/Horror_House/Models/Props/Candle_05.fbx using Guid(3ce8337cfd6e7b644b583293010ddde2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6af1135d02cfafc3929a1d295e4c2353') in 0.0711442 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 31
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000009 seconds.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Mansion set/Furniture/Wardrobe_Wood&Metal.mat
+  artifactKey: Guid(1bb07ab6a46cd8d42882f93a0bb7c0fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Furniture/Wardrobe_Wood&Metal.mat using Guid(1bb07ab6a46cd8d42882f93a0bb7c0fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f8db42d090dd8aa8dcbbbf4bae411d27') in 0.0621852 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Horror_House/Materials/Furniture/Wardrobe.mat
+  artifactKey: Guid(f524c41db0af58c479b0665d787a6238) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Materials/Furniture/Wardrobe.mat using Guid(f524c41db0af58c479b0665d787a6238) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '30456b5eb854b65fcf8ff562517a2b56') in 0.0977075 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Mansion set/Walls/Wall_Tile_Tile_3.mat
+  artifactKey: Guid(61ee2a8927fb4934c910e3f236180f09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Walls/Wall_Tile_Tile_3.mat using Guid(61ee2a8927fb4934c910e3f236180f09) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f67f6a029bec57f744736ea2014b5902') in 0.0635047 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Mansion set/Walls/Wall_Tile_Wood&metal1.mat
+  artifactKey: Guid(2b8b4d671215e9e4396def7804936cbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Walls/Wall_Tile_Wood&metal1.mat using Guid(2b8b4d671215e9e4396def7804936cbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '944f6f5027411ca60a42e893a96ec3e5') in 0.0652138 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000070 seconds.
+  path: Assets/Horror_House/Materials/House/Wallpaper_01.mat
+  artifactKey: Guid(f041bc62be8502f45bed1c1cbdacd4d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Materials/House/Wallpaper_01.mat using Guid(f041bc62be8502f45bed1c1cbdacd4d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2e5c793d7523b602aa7217b589561376') in 0.0274362 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Horror_House/Materials/House/Wall_Tile_01.mat
+  artifactKey: Guid(da202bbcf37a7c243acc3f4da3fa337d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Materials/House/Wall_Tile_01.mat using Guid(da202bbcf37a7c243acc3f4da3fa337d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6a0cfe7264302c4e2930de14109da7e2') in 0.0784229 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Horror_House/Materials/Exterior/Water_Well.mat
+  artifactKey: Guid(a38dff79269a6704e925910e8a9e0513) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Materials/Exterior/Water_Well.mat using Guid(a38dff79269a6704e925910e8a9e0513) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2a617f443f814355d0df1c270f95ad66') in 0.1017908 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Mansion set/Walls/Window3_Wood2.mat
+  artifactKey: Guid(8df71dc101480854ea9c47cc8ce8368b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Walls/Window3_Wood2.mat using Guid(8df71dc101480854ea9c47cc8ce8368b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a4778f5712d69e0a4bb5e4568f769bc4') in 0.0364519 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Mansion set/Walls/Window2_Wood1.mat
+  artifactKey: Guid(b6bbb05fc98357748830814169a3d3bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Walls/Window2_Wood1.mat using Guid(b6bbb05fc98357748830814169a3d3bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e85ea99957f104e62f0d20e478bd526e') in 0.0618952 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Dary_Palasky/Doll_Bundle/Haunted_Doll/Renders/URP/Material/Cloth/M_Haunted_Doll_Coat.mat
+  artifactKey: Guid(f49523f9622e4337b9f4df45c2b5d4b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dary_Palasky/Doll_Bundle/Haunted_Doll/Renders/URP/Material/Cloth/M_Haunted_Doll_Coat.mat using Guid(f49523f9622e4337b9f4df45c2b5d4b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '970cde3d2c194c65a1a1d7b791df6107') in 4.2620617 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000071 seconds.
+  path: Assets/Horror_House/Materials/Props/Blood_Decals.mat
+  artifactKey: Guid(1587927a72a8d2743b400491f2d33959) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Materials/Props/Blood_Decals.mat using Guid(1587927a72a8d2743b400491f2d33959) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1b4102b7518a20d8ee509bea8a964554') in 3.41019 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/Mansion set/Bathroom/Bathtub_Faucet.mat
+  artifactKey: Guid(ae0a5caa24c517946b5128821191225e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Bathroom/Bathtub_Faucet.mat using Guid(ae0a5caa24c517946b5128821191225e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2e61b9459897e3eb5f1c5e67d7694745') in 0.0541779 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Horror_House/Materials/Vegetation/Aspen_01_Bark.mat
+  artifactKey: Guid(6470e42e3bab9ca45a9536081a4df712) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Materials/Vegetation/Aspen_01_Bark.mat using Guid(6470e42e3bab9ca45a9536081a4df712) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '14b572b7e015ce6e29d8bde160c35948') in 0.082918 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Mansion set/Furniture/Blanket3_Fabric.mat
+  artifactKey: Guid(931f60fe77e2bca45a69aa246ac5ec41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Furniture/Blanket3_Fabric.mat using Guid(931f60fe77e2bca45a69aa246ac5ec41) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '281fe53b62c3a46c38d5e3413ab471a3') in 0.0562973 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Mansion set/Furniture/Bed_sheet_Fabricandwood.mat
+  artifactKey: Guid(fc21fcd4b70b03543b521bbf9e03dbf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Furniture/Bed_sheet_Fabricandwood.mat using Guid(fc21fcd4b70b03543b521bbf9e03dbf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3ecf06de0cfe4d7947fdcea26f5fa4a8') in 0.0535913 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Mansion set/Furniture/bed1_Fabricandwood2.mat
+  artifactKey: Guid(96c62610737a4664ba8936d87d96bd55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Furniture/bed1_Fabricandwood2.mat using Guid(96c62610737a4664ba8936d87d96bd55) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd3ba74db50d48b9bbacb9206d50a8c39') in 0.0596926 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Mansion set/Furniture/Cabinet2_Wood2.mat
+  artifactKey: Guid(a7fa5c221c9c7d546bad42cd7a8bff7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Furniture/Cabinet2_Wood2.mat using Guid(a7fa5c221c9c7d546bad42cd7a8bff7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '450ad9b67b19cce21a101f3076ace6f6') in 0.0612711 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Mansion set/Furniture/bed1_Fabric.mat
+  artifactKey: Guid(7df6024cb8862cf4585ffc3e2e422360) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Furniture/bed1_Fabric.mat using Guid(7df6024cb8862cf4585ffc3e2e422360) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '264e843f406b572f81587ab6bf69b4ee') in 0.060161 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Horror_House/Materials/Furniture/Bathroom.mat
+  artifactKey: Guid(8ad3af87a8e9c674aa2f00b67722babd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Materials/Furniture/Bathroom.mat using Guid(8ad3af87a8e9c674aa2f00b67722babd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3a0170560cc9ef1e76dcfcbd3dfcbf25') in 0.0955718 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Horror Kids Pack/HorrorGirl/Materials/Material_Girl/Bear.mat
+  artifactKey: Guid(c22a2db9883ee1b428401b01559075cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror Kids Pack/HorrorGirl/Materials/Material_Girl/Bear.mat using Guid(c22a2db9883ee1b428401b01559075cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3d7310649fb8888ef2b3c24b2747d564') in 0.0717528 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Mansion set/Furniture/Cabinet1_Wood2.mat
+  artifactKey: Guid(771511825c772ed48814a109e3e64f88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Furniture/Cabinet1_Wood2.mat using Guid(771511825c772ed48814a109e3e64f88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0141706eadb560af0cc03fd6dfc9a308') in 0.0586327 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Mansion set/Bathroom/Bathtub.mat
+  artifactKey: Guid(e11f51630f2504345989fadebd84b95a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Bathroom/Bathtub.mat using Guid(e11f51630f2504345989fadebd84b95a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c7808deb9b1ffb9ff58a5fd651b429fa') in 0.0566781 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Mansion set/Furniture/小abinet3/Cabinet3_Glass2.mat
+  artifactKey: Guid(aa8eb8f3db01b3248949ce78ea34b4e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Furniture/小abinet3/Cabinet3_Glass2.mat using Guid(aa8eb8f3db01b3248949ce78ea34b4e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5a9a7115376f12f7dd65e46530485e86') in 2.6558846 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Horror_House/Models/Props/Candle_01.fbx
+  artifactKey: Guid(f2bea583b07dd8041b5af54dc3d87fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Models/Props/Candle_01.fbx using Guid(f2bea583b07dd8041b5af54dc3d87fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e0579026975ff4420aef1fbe7800ea7f') in 0.0885486 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 31
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Mansion set/Walls2/Wall4_Wood_RS2.mat
+  artifactKey: Guid(d2c4df6572db3184fa9ef295f145da13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Walls2/Wall4_Wood_RS2.mat using Guid(d2c4df6572db3184fa9ef295f145da13) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '92122dd049d37269c373514247fe1a51') in 0.0709915 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Mansion set/Furniture/bed1_Fabricandwood1.mat
+  artifactKey: Guid(da0f5d81f2e8f054abc26f2cc72075b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Furniture/bed1_Fabricandwood1.mat using Guid(da0f5d81f2e8f054abc26f2cc72075b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5a9d9e44bf8673accfee10766bc68c3a') in 0.0744419 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
   path: Assets/Horror_House/Models/Props/Candle_06.fbx
   artifactKey: Guid(42226119f0f360e49ac930aee408e500) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Models/Props/Candle_06.fbx using Guid(42226119f0f360e49ac930aee408e500) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9e98fe62fa783e173fa1d3d11315e548') in 0.0317957 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 32
+Start importing Assets/Horror_House/Models/Props/Candle_06.fbx using Guid(42226119f0f360e49ac930aee408e500) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bf82af62422ea759acc3e3935a7edb24') in 0.0636816 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 31
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000012 seconds.
-  path: Assets/Horror_House/Prefabs/Props/Candle_02.prefab
-  artifactKey: Guid(81951d49b45c58e44b247d3f595dfd63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Prefabs/Props/Candle_02.prefab using Guid(81951d49b45c58e44b247d3f595dfd63) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f7eb249ab37bc03c6aac80bf1e8ad666') in 0.0166276 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 35
+  Time since last request: 0.000025 seconds.
+  path: Assets/Horror_House/Materials/Base.mat
+  artifactKey: Guid(4832da98595f89449830a494e6b5bf4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Materials/Base.mat using Guid(4832da98595f89449830a494e6b5bf4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5881b9344b719fbfb47d58d3c06bd9cf') in 0.017676 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Import Request.
-  Time since last request: 26.706827 seconds.
-  path: Assets/Horror_House/Textures/Props/Candles/Candles_AO.tga
-  artifactKey: Guid(616c22a354ac6094ba8f18dd5ed26456) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Textures/Props/Candles/Candles_AO.tga using Guid(616c22a354ac6094ba8f18dd5ed26456) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'be913d081515f309b9ee75c43a5eb17f') in 0.0127548 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+  Time since last request: 0.000026 seconds.
+  path: Assets/Mansion set/Furniture/Bed2_Fabricandwood2.mat
+  artifactKey: Guid(d6bd1f5c47135d64ab0f98d3bd112c51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Furniture/Bed2_Fabricandwood2.mat using Guid(d6bd1f5c47135d64ab0f98d3bd112c51) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e828f5c818bfa457beb69cd5c276bd36') in 0.0992834 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.220295 seconds.
-  path: Assets/Horror_House/Textures/Props/Candles/Candles_N.tga
-  artifactKey: Guid(49ec0d96647d24641b0ae455de35e558) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Textures/Props/Candles/Candles_N.tga using Guid(49ec0d96647d24641b0ae455de35e558) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bb201d2b6de60c0ceca174cd6ba9a7ae') in 0.0145699 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+  Time since last request: 0.000032 seconds.
+  path: Assets/Horror child pack/Creepy baby/Base mesh/Materials/Paint_Face_BaseColor.1001.mat
+  artifactKey: Guid(04b1a4cbc0df5fc4eb5a9b681290e315) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror child pack/Creepy baby/Base mesh/Materials/Paint_Face_BaseColor.1001.mat using Guid(04b1a4cbc0df5fc4eb5a9b681290e315) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '58dbd9a9882755c468fd9161ead9ff95') in 0.0304826 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Import Request.
-  Time since last request: 433.383324 seconds.
-  path: Assets/Mansion set/Furniture/Bed2_Fabricandwood_MetallicSmoothness.png
-  artifactKey: Guid(fb6c98cf514778f4d9654bffbf7ae8c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mansion set/Furniture/Bed2_Fabricandwood_MetallicSmoothness.png using Guid(fb6c98cf514778f4d9654bffbf7ae8c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5318fc8eedf6701d84bc0e0e3921d8c5') in 0.0111318 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+  Time since last request: 0.000040 seconds.
+  path: Assets/Horror_House/Materials/House/Wall_Tile_02.mat
+  artifactKey: Guid(766240a30926f2f40862f045a6a9bf98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Materials/House/Wall_Tile_02.mat using Guid(766240a30926f2f40862f045a6a9bf98) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2c075f772ce383084478b4e217fab9c2') in 0.0709186 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.013819 seconds.
-  path: Assets/Mansion set/Furniture/Bed_sheet_Fabricandwood_MetallicSmoothness.png
-  artifactKey: Guid(d63d0f286a2fc074b9c65e9fe6ee68ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mansion set/Furniture/Bed_sheet_Fabricandwood_MetallicSmoothness.png using Guid(d63d0f286a2fc074b9c65e9fe6ee68ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '512557789324d54b86eb6800b4d45962') in 0.0081036 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+  Time since last request: 0.000024 seconds.
+  path: Assets/Mansion set/Walls/Window1_Metal&Glass.mat
+  artifactKey: Guid(742ac0e035216ee41b2b20f8e04466c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Walls/Window1_Metal&Glass.mat using Guid(742ac0e035216ee41b2b20f8e04466c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dce9be1f6828c733412d9f4641228eb5') in 0.0740741 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000011 seconds.
-  path: Assets/Horror_House/Prefabs/Decals/Blood_Decals_04.prefab
-  artifactKey: Guid(3c4a2ed0c077c6d44ae0a165112b5bf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Prefabs/Decals/Blood_Decals_04.prefab using Guid(3c4a2ed0c077c6d44ae0a165112b5bf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '910092398af7775b131c5e654105cba3') in 0.015544 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+  Time since last request: 0.000040 seconds.
+  path: Assets/Horror_House/Materials/House/Window.mat
+  artifactKey: Guid(1f2873e210ab0384c9bdd9af66975e06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Materials/House/Window.mat using Guid(1f2873e210ab0384c9bdd9af66975e06) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '70711c61fa6ff448f4533dad37c2859a') in 0.0919982 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Horror_House/Prefabs/Decals/Blood_Decals_03.prefab
-  artifactKey: Guid(68a4fd07cfb0eaf4cb217b355e386733) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Prefabs/Decals/Blood_Decals_03.prefab using Guid(68a4fd07cfb0eaf4cb217b355e386733) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cad8f3e9088f9cb903946d1c463c367e') in 0.0189795 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+  Time since last request: 0.000061 seconds.
+  path: Assets/Horror child pack/Scary child/Base mesh/Materials/T_CharacterName_hair_Albedo_skin1.mat
+  artifactKey: Guid(ffeb64aa5c6e04f419dc763c3ae0cc1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror child pack/Scary child/Base mesh/Materials/T_CharacterName_hair_Albedo_skin1.mat using Guid(ffeb64aa5c6e04f419dc763c3ae0cc1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '444b643e1ab0ed2ccb53c291fdc9d793') in 0.0218852 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/Horror_House/Prefabs/Decals/Blood_Decals_02.prefab
-  artifactKey: Guid(a0596cca2148e3a4ea41fc995b8e4c75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Prefabs/Decals/Blood_Decals_02.prefab using Guid(a0596cca2148e3a4ea41fc995b8e4c75) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9219d0740fbdb37fc1e16fe1d100ea1f') in 0.0150667 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+  Time since last request: 0.000050 seconds.
+  path: Assets/Mansion set/Walls/Window3_Metal&Glass.mat
+  artifactKey: Guid(4cf02f86e082fdd47af3b1d9189d29ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Walls/Window3_Metal&Glass.mat using Guid(4cf02f86e082fdd47af3b1d9189d29ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '45df955093e684e5313ca6918ba515f3') in 0.034625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000012 seconds.
-  path: Assets/Horror_House/Models/Decals/Blood_Decals_10.fbx
-  artifactKey: Guid(c43693540d1587547ad740c014b56550) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Models/Decals/Blood_Decals_10.fbx using Guid(c43693540d1587547ad740c014b56550) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b5cae001bbe299671f20b1dacaf282f1') in 0.0188378 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
+  Time since last request: 0.000032 seconds.
+  path: Assets/Mansion set/Walls/Window2_Metal&Glass.mat
+  artifactKey: Guid(79bbba74328329d4681e577c83fea718) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Walls/Window2_Metal&Glass.mat using Guid(79bbba74328329d4681e577c83fea718) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '42bf0aab06f98d89d8dc3b752218d68f') in 0.0650515 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Horror_House/Models/Decals/Blood_Decals_09.fbx
-  artifactKey: Guid(08e8d66567402664388cb6008e22e922) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Models/Decals/Blood_Decals_09.fbx using Guid(08e8d66567402664388cb6008e22e922) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9365f997f153c1f1de544e83a54b55ec') in 0.0161789 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
+  Time since last request: 0.000039 seconds.
+  path: Assets/Mansion set/Wall3_4/Column1_Wall3_4_Wood&Metal.mat
+  artifactKey: Guid(dcba9e52f0c4ca74cbc3bd99cde16821) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Wall3_4/Column1_Wall3_4_Wood&Metal.mat using Guid(dcba9e52f0c4ca74cbc3bd99cde16821) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '19e3da5ee568e9d07ed4dd7334fb7de2') in 0.0612159 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Horror_House/Prefabs/Decals/Blood_Decals_01.prefab
-  artifactKey: Guid(3b38893839150684eba6f83b15a5d261) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Prefabs/Decals/Blood_Decals_01.prefab using Guid(3b38893839150684eba6f83b15a5d261) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '816a1ecd81874b362cce8a51561c4c34') in 0.01639 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+  Time since last request: 0.000043 seconds.
+  path: Assets/Horror_House/Materials/Furniture/Bedside_Table.mat
+  artifactKey: Guid(e9b003f28e4914f499cb61ccc43408ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Materials/Furniture/Bedside_Table.mat using Guid(e9b003f28e4914f499cb61ccc43408ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c63f28357d51d126c0609b595529c695') in 0.100692 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000011 seconds.
-  path: Assets/Mansion set/Furniture/Bed_sheet_Fabricandwood_AlbedoTransparency.png
-  artifactKey: Guid(a1dff62d6ed0ad4428b43540d4cb16f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mansion set/Furniture/Bed_sheet_Fabricandwood_AlbedoTransparency.png using Guid(a1dff62d6ed0ad4428b43540d4cb16f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '55ce4a9ca02540f326a2eae32e5d0c16') in 0.0090669 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+  Time since last request: 0.000039 seconds.
+  path: Assets/Mansion set/Wall3_4/Wall3_4_Door.FBX
+  artifactKey: Guid(677b415648266fd4884da2db76ad5f07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Wall3_4/Wall3_4_Door.FBX using Guid(677b415648266fd4884da2db76ad5f07) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9ffa55e0c1a83d42ed066451f5037b02') in 0.0325626 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000010 seconds.
-  path: Assets/Horror_House/Prefabs/Decals/Blood_Decals_07.prefab
-  artifactKey: Guid(f61a6f11385509941b4872692b8632af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Prefabs/Decals/Blood_Decals_07.prefab using Guid(f61a6f11385509941b4872692b8632af) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1296a68938408fbc7b82f1be6cd62782') in 0.0131113 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+  Time since last request: 0.000036 seconds.
+  path: Assets/Horror_House/Materials/Vegetation/Aspen_Bark.mat
+  artifactKey: Guid(121a8f6a497e89d4fb2ec65bda8fef65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror_House/Materials/Vegetation/Aspen_Bark.mat using Guid(121a8f6a497e89d4fb2ec65bda8fef65) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '29250a481c82420d268681f485392f2a') in 0.0899462 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000011 seconds.
-  path: Assets/Horror_House/Prefabs/Decals/Blood_Decals_05.prefab
-  artifactKey: Guid(641c6ee59e157eb49b742b8068e368e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Prefabs/Decals/Blood_Decals_05.prefab using Guid(641c6ee59e157eb49b742b8068e368e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5ad2bb0fc99b587d7fb900b5630ca04d') in 0.0136616 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+  Time since last request: 0.000030 seconds.
+  path: Assets/Mansion set/Furniture/Cabinet1_Wood&Metal.mat
+  artifactKey: Guid(545a8bbdf82f3b84f9579b1b9ed83549) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Furniture/Cabinet1_Wood&Metal.mat using Guid(545a8bbdf82f3b84f9579b1b9ed83549) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9c78d6f6a82735008e86f383a5fe6f68') in 0.0552816 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000010 seconds.
-  path: Assets/Horror_House/Models/Decals/Blood_Decals_08.fbx
-  artifactKey: Guid(59f4a52eaa75cb24e87ca5145f65cef8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Models/Decals/Blood_Decals_08.fbx using Guid(59f4a52eaa75cb24e87ca5145f65cef8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4e15210b3bae7878897d9abf06ca6d71') in 0.0150711 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/Horror_House/Models/Decals/Blood_Decals_07.fbx
-  artifactKey: Guid(ec032402e4f40ac44a5f7dd0653e487e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Horror_House/Models/Decals/Blood_Decals_07.fbx using Guid(ec032402e4f40ac44a5f7dd0653e487e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cfb6033f3c9bd60fadd9b65467342a89') in 0.0167017 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
+  Time since last request: 0.000049 seconds.
+  path: Assets/Mansion set/Furniture/Wardrobe_Wood1.mat
+  artifactKey: Guid(a53278053e272134e8735369aaf47969) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mansion set/Furniture/Wardrobe_Wood1.mat using Guid(a53278053e272134e8735369aaf47969) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9161b915e54ee1cdb30175052575cbb2') in 0.0659189 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server
