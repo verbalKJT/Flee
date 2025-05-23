@@ -33,15 +33,29 @@ public class Letter : MonoBehaviour
 
     void OpenLetter()
     {
-        letterPanel.SetActive(true);   // UI 표시
-        Time.timeScale = 0f;           // 게임 일시정지
+        Debug.Log("OpenLetter 호출");
+
+        if (letterPanel == null)
+        {
+            Debug.LogError("❌ letterPanel 연결 안됨");
+            return;
+        }
+
+        letterPanel.SetActive(true);
+        Debug.Log("✅ letterPanel 활성화됨? " + letterPanel.activeInHierarchy);
+
+        var image = letterPanel.GetComponent<UnityEngine.UI.Image>();
+        if (image != null)
+        {
+            Debug.Log("🎨 이미지 알파값: " + image.color.a);
+        }
+
         isReading = true;
     }
 
     void CloseLetter()
     {
         letterPanel.SetActive(false); // UI 숨김
-        Time.timeScale = 1f;          // 게임 재개
         isReading = false;
     }
 }

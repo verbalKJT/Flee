@@ -20,6 +20,7 @@ public class EnemyAI : MonoBehaviour
     {
       agent = GetComponent<NavMeshAgent>();   
       animator = GetComponent<Animator>();
+      agent.speed = 3.5f;
       Debug.Log("NavMesh 위에 있음?: " + agent.isOnNavMesh); // NavMesh 상태 확인
     }
 
@@ -29,7 +30,6 @@ public class EnemyAI : MonoBehaviour
         {
             case EnemyState.IDLE:
                 LookForPlayer();
-                animator.SetFloat("Action",0f);
                 break;
             case EnemyState.PATROL :
                 Patrol();
@@ -41,6 +41,7 @@ public class EnemyAI : MonoBehaviour
                 break;
             case EnemyState.ATTACK:
                 AttackPlayer();
+                animator.SetFloat("Action",0f);
                 break;
         }
     }
@@ -102,7 +103,8 @@ public class EnemyAI : MonoBehaviour
     {
         // 목적지 플레이어 위치로
         agent.SetDestination(player.position);
-
+        // 달리기
+        agent.speed = 5f;
         // 플레이어 사이의 거리 계산
         float distance = Vector3.Distance(transform.position, player.position);
 
@@ -112,7 +114,7 @@ public class EnemyAI : MonoBehaviour
             // 공격
             currentState = EnemyState.ATTACK;
         }
-        else if (distance > sightRange * 1.2f) // 너무 멀어지면 다시 Patrol
+        else if (distance > sightRange * 1f) // 너무 멀어지면 다시 Patrol
         {
             currentState = EnemyState.PATROL;
         }
