@@ -1,4 +1,4 @@
-namespace Scripht
+namespace Script
 {
     public enum EnemyState
     {

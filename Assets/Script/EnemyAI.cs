@@ -1,4 +1,4 @@
-using Scripht;
+using Script;
 using UnityEngine;
 using UnityEngine.AI;
 
