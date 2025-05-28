@@ -50,8 +50,8 @@ public class EnemyAI : MonoBehaviour
         // 현재 목적지에 거의 도착 + 경로가 아직 계산 중이 아니면
         if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
         {
-            // 다음 목적지 설정
-            currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
+            // 다음 목적지 무작위 설정
+            currentPatrolIndex = Random.Range(0, patrolPoints.Length);
             agent.SetDestination(patrolPoints[currentPatrolIndex].position);
         }
         // 탐지

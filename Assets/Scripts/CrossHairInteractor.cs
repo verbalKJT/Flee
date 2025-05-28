@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CrosshairInteractor : MonoBehaviour
 {
-    public Camera cam;
+    public GameObject cam;
     public float distance = 3f;
     public LayerMask interactLayer;
 
