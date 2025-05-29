@@ -61,6 +61,11 @@ public class EnemyAI : MonoBehaviour
     {
         if (player == null) return;
 
+        //플레이어가 숨는 상태를 받아올 변수 선언
+        var hider = player.GetComponent<PlayerHider>();
+        //플레이어가 숨는 중이면 탐지 안되도록
+        if (hider != null && hider.IsHiding) return;
+
         // 플레이어 위치 - 적 위치 방향 벡터 계산
         Vector3 dirToPlayer = player.position - transform.position;
 
