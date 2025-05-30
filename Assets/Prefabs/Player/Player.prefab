@@ -2457,8 +2457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c0f316523faa3343ace38a0569b23c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 15
-  runSpeed: 5
+  walkSpeed: 7
+  runSpeed: 10
 --- !u!114 &8045422685957426787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4029,7 +4029,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1767310008238479403, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.084
+      value: 0.08400377
       objectReference: {fileID: 0}
     - target: {fileID: 1767310008238479403, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4037,7 +4037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1767310008238479403, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.137
+      value: 0.13701452
       objectReference: {fileID: 0}
     - target: {fileID: 1767310008238479403, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4071,10 +4071,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCam
       objectReference: {fileID: 0}
+    - target: {fileID: 7701581781538924780, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
+      propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 2358491201124568288}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6516186515217206120, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2671443374469566552}
   m_SourcePrefab: {fileID: 100100000, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
 --- !u!4 &3769461244133391361 stripped
 Transform:
@@ -4086,3 +4093,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6516186515217206120, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
   m_PrefabInstance: {fileID: 3227231629195879466}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2671443374469566552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8549884940879556418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346b648df46a7294db2616c89899adce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivity: 100
+  playerBody: {fileID: 2358491201124568288}
