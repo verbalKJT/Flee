@@ -7,10 +7,11 @@ public class Letter : MonoBehaviour
     public float interactionDistance = 3f; // 상호작용 거리
 
     [SerializeField] private GameObject letterImage; // 편지 UI 
-
+    [SerializeField] private Animator doorAnimator; // StartingRoom Animator
     private bool isInRange = false; // 플레이어가 범위 내에 있는지 여부
     private bool isReading = false; // 편지 UI가 열려있는지 여부
-
+    private bool isOpenDoor = false; // 문이 열려있는지
+    
     void Update()
     {
         // 플레이어와 편지 오브젝트 거리 계산
@@ -32,11 +33,9 @@ public class Letter : MonoBehaviour
 
     void OpenLetter()
     {
-
         letterImage.SetActive(true);
-      
-
         isReading = true;
+        doorAnimator.SetTrigger("Open");
     }
 
     void CloseLetter()
