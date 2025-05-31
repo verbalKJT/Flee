@@ -139,6 +139,9 @@ public class PlayerHider : MonoBehaviour
         animator.SetBool("isHiding", false);
         IsHiding = false;
 
+        if (qte != null)
+            qte.CancelQTE();
+
         if (hidePromptText != null)
         {
             hidePromptText.text = "Press E to hide";
@@ -169,6 +172,6 @@ public class PlayerHider : MonoBehaviour
     IEnumerator DelayedQTEStart(LibraryHidingQTE qte)
     {
         yield return new WaitForSeconds(1f);
-        yield return qte.StartQTE(OnQTEResult);
+        qte.BeginQTE(OnQTEResult);
     }
 }
