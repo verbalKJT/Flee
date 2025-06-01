@@ -5,48 +5,47 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     private Animator animator;
-    [SerializeField]private Transform player; // 플레이어 Transform 참조
-    [SerializeField]private float sightRange; // 인식 거리
-    [SerializeField]private float sightAngle; // 시야각
+    [SerializeField] private Transform player; // 플레이어 Transform 참조
+    [SerializeField] private float sightRange; // 인식 거리
+    [SerializeField] private float sightAngle; // 시야각
     [SerializeField] private float attackRange; // 공격 범위  
-    
-    
+
+
     public Transform[] patrolPoints; // 순찰할 지점들의 배열
     private int currentPatrolIndex = 0; // 인덱스
-    
+
     private EnemyState currentState = EnemyState.PATROL; // 적의 현재 상태
     private NavMeshAgent agent; // 이동 제어
+
     void Start()
     {
-      agent = GetComponent<NavMeshAgent>();   
-      animator = GetComponent<Animator>();
-      agent.speed = 3.5f;
-      Debug.Log("NavMesh 위에 있음?: " + agent.isOnNavMesh); // NavMesh 상태 확인
+        agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        agent.speed = 3.5f;
+        Debug.Log("NavMesh 위에 있음?: " + agent.isOnNavMesh); // NavMesh 상태 확인
     }
 
     void Update()
     {
         switch (currentState)
         {
-            case EnemyState.IDLE:
-                LookForPlayer();
-                break;
-            case EnemyState.PATROL :
+            case EnemyState.PATROL:
                 Patrol();
-                animator.SetFloat("Action",0.5f);
+                animator.SetFloat("Action", 0.5f);
                 break;
             case EnemyState.CHASE:
                 ChasePlayer();
-                animator.SetFloat("Action",1f);
+                animator.SetFloat("Action", 1f);
                 break;
             case EnemyState.ATTACK:
                 AttackPlayer();
-                animator.SetFloat("Action",0f);
+                animator.SetFloat("Action", 0f);
                 break;
         }
     }
+
     void Patrol()
-    {   
+    {
         // 현재 목적지에 거의 도착 + 경로가 아직 계산 중이 아니면
         if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
         {
@@ -54,13 +53,15 @@ public class EnemyAI : MonoBehaviour
             currentPatrolIndex = Random.Range(0, patrolPoints.Length);
             agent.SetDestination(patrolPoints[currentPatrolIndex].position);
         }
+
         // 탐지
         LookForPlayer();
     }
+
     void LookForPlayer()
     {
         if (player == null) return;
-
+        
         // 플레이어 위치 - 적 위치 방향 벡터 계산
         Vector3 dirToPlayer = player.position - transform.position;
 
@@ -99,12 +100,19 @@ public class EnemyAI : MonoBehaviour
             }
         }
     }
+
     void ChasePlayer()
     {
+        //플레이어가 숨는 상태를 받아올 변수 선언
+        var hider = player.GetComponent<PlayerHider>();
+        //플레이어가 숨는 중이면 탐지 안되도록
+        if (hider != null && hider.IsHiding) currentState = EnemyState.PATROL; 
+        
         // 목적지 플레이어 위치로
         agent.SetDestination(player.position);
         // 달리기
         agent.speed = 5f;
+        
         // 플레이어 사이의 거리 계산
         float distance = Vector3.Distance(transform.position, player.position);
 
@@ -114,7 +122,7 @@ public class EnemyAI : MonoBehaviour
             // 공격
             currentState = EnemyState.ATTACK;
         }
-        else if (distance > sightRange * 1f) // 너무 멀어지면 다시 Patrol
+        else if (distance > sightRange * 2f) // 너무 멀어지면 다시 Patrol
         {
             currentState = EnemyState.PATROL;
         }

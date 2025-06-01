@@ -1,15 +1,15 @@
 using UnityEngine;
-using TMPro;  // TMP »ç¿ë
+using TMPro;  // TMP ï¿½ï¿½ï¿½
 
 [RequireComponent(typeof(Animation))]
 public class Door2Opener : MonoBehaviour
 {
     [Header("References")]
-    public Transform player;           // ÇÃ·¹ÀÌ¾î Transform
-    public TMP_Text promptText;        // TMP ÅØ½ºÆ®
+    public Transform player;           // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ Transform
+     // TMP ï¿½Ø½ï¿½Æ®
 
     [Header("Settings")]
-    public float interactDistance = 3f; // ¹®ÀÌ¶û ÇÃ·¹ÀÌ¾î À§Ä¡
+    public float interactDistance = 3f; // ï¿½ï¿½ï¿½Ì¶ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½Ä¡
 
     private Animation anim;
     private bool isOpen = false;
@@ -17,35 +17,19 @@ public class Door2Opener : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animation>();
-
-        if (promptText != null)
-            promptText.gameObject.SetActive(false); // ¸ÕÀú Ã³À½ È­¸é»ó¿£ ¾Èº¸ÀÌ°Ô
     }
 
     void Update()
     {
-        if (promptText == null || player == null)
-        {
-            return;
-        }
-
         float dist = Vector3.Distance(player.position, transform.position);
 
         if (dist <= interactDistance)
         {
-            promptText.gameObject.SetActive(true);
-            promptText.text = isOpen ? "[E] ¹® ´Ý±â" : "[E] ¹® ¿­±â";
-
             if (Input.GetKeyDown(KeyCode.E))
             {
                 isOpen = !isOpen;
                 anim.Play(isOpen ? "Door2_Open" : "Door2_Close");
-                promptText.text = isOpen ? "[E] ¹® ´Ý±â" : "[E] ¹® ¿­±â";
             }
-        }
-        else
-        {
-            promptText.gameObject.SetActive(false);
-        }
+        }  
     }
 }
