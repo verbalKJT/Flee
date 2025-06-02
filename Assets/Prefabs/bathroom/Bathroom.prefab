@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 261098853369459132}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.7409992, y: 0.689, z: 0.20000002}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.06, y: 0.689, z: 1.46}
+  m_LocalScale: {x: 6.4123774, y: 1, z: 0.64742}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2836620105692504419}
@@ -199,7 +199,7 @@ Transform:
   m_GameObject: {fileID: 3539518341212047331}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.5622625, y: 2.7127151, z: 4.4943047}
+  m_LocalPosition: {x: -3.5622625, y: 2.7127151, z: 5.7238545}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2956155732978445123}
-  promptText: "[E] \uBB38 \uC5F4\uAE30"
+  isOpen: 0
 --- !u!1 &4412489410211071439
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,7 +625,7 @@ Transform:
   m_GameObject: {fileID: 6792566356313379636}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.71852, y: -0.35, z: -0.48955}
+  m_LocalPosition: {x: -0.71852, y: -0.35, z: 0.74}
   m_LocalScale: {x: 0.8, y: 0.67948, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -731,6 +731,74 @@ Transform:
   - {fileID: 3399218310254114734}
   m_Father: {fileID: 4388726716628143084}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8566665085965889742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 566670927943721787}
+  - component: {fileID: 389343452071236396}
+  - component: {fileID: 8811342957656430460}
+  m_Layer: 0
+  m_Name: DoorCloseTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &566670927943721787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8566665085965889742}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 1.47, y: -0.23064272, z: 1.609}
+  m_LocalScale: {x: 2.8618417, y: 1, z: 0.65994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3530547741347846899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &389343452071236396
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8566665085965889742}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8811342957656430460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8566665085965889742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5aa2ecb457ad1a489d229e14e968f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2956155732978445123}
+  isOpen: 1
 --- !u!1001 &359168562140712700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2026,6 +2094,9 @@ PrefabInstance:
     - {fileID: 7189271944504963364, guid: f0e3aacc9b6d27745a06a0087193b429, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1591349916230061247, guid: f0e3aacc9b6d27745a06a0087193b429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 566670927943721787}
     - targetCorrespondingSourceObject: {fileID: 1063665200511896934, guid: f0e3aacc9b6d27745a06a0087193b429, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4136006297157621349}
