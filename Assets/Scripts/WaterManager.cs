@@ -9,6 +9,7 @@ public class WaterManager : MonoBehaviour
     [Header("Water_Cam 할당")]
     public GameObject cameraOverlayObject;
 
+    public bool InWater;
     private float startY;
     private bool rising = false;      // 상승 중 여부
 
@@ -19,9 +20,9 @@ public class WaterManager : MonoBehaviour
 
     void Update()
     {
+        // 천천히 위로 이동
         if (rising && transform.position.y < maxHeight)
-        {
-            // 천천히 위로 이동
+        {            
             transform.position += Vector3.up * riseSpeed * Time.deltaTime;
         }
     }
@@ -32,9 +33,7 @@ public class WaterManager : MonoBehaviour
     {
         rising = true;
         Debug.Log("Water rising started");
-    }
-
-    
+    }    
     /// 외부에서 물 차오름을 멈추게 할 수도 있음 (선택)
     public void StopRising()
     {
@@ -42,15 +41,17 @@ public class WaterManager : MonoBehaviour
         Debug.Log("Water rising stopped");
     }
 
-    /// 트리거 진입 시 로그 출력 (테스트용)
+    /// 트리거 진입
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            //플래그 true
+            InWater = true;
             Debug.Log("플레이어 물에 닿음");
 
             //플레이어 이동
-            Rigidbody rb = other.GetComponent<Rigidbody>();
+           /* Rigidbody rb = other.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 // 플레이어를 부드럽게 위로 이동시킴
@@ -59,14 +60,29 @@ public class WaterManager : MonoBehaviour
                 // MovePosition으로 자연스러운 이동 유도
                 rb.MovePosition(targetPosition);
             }
-
-            //플레이어 카메라효과
-            
+           */
+            //플레이어 카메라효과            
             if ( cameraOverlayObject != null)
             {
-                cameraOverlayObject.SetActive(true);
-                Debug.Log(" 물 시야 오버레이 활성화됨");
+                cameraOverlayObject.SetActive(true);                
             }
+                       
         }
     }
-}
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("OnTriggerExit 호출됨: " + other.name);
+        if (other.CompareTag("Player"))
+        {
+            InWater = false;
+            Debug.Log("플레이어 물에서 나옴");
+
+            // 카메라 오버레이 해제
+            if (cameraOverlayObject != null)
+            {
+                cameraOverlayObject.SetActive(false);                
+            }            
+        }
+    }
+ }

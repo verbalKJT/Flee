@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
 
     private PlayerStamina stamina;      //플레이어 스태미나
 
+    [Header("Water_Object할당")]
+    public WaterManager InWater;
+    [Header("속도 계수")]
+    public float speedMultiplier = 0.5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -42,8 +46,16 @@ public class PlayerMovement : MonoBehaviour
 
         stamina.isRunning = isRunning;   //스태미나 조절을 위해 전달
 
-        float currentSpeed = isRunning ? runSpeed : walkSpeed;  
+        
+        //InWater조건에 따라 속도계수 조정
+        float speedFactor = 1f;
+        if (InWater != null && InWater.InWater)
+        {
+            speedFactor = speedMultiplier;
+        }
 
+        float currentSpeed = (isRunning ? runSpeed : walkSpeed) * speedFactor;
+       // Debug.Log("현재속도" + currentSpeed);
 
         controller.SimpleMove(move * currentSpeed);
 
