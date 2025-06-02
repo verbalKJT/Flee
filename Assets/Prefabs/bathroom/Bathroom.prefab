@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorObject: {fileID: 478612669894387936}
   wallObject: {fileID: 8013002702038429831}
+  triggered: 0
 --- !u!1 &2073744444462451051
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +420,8 @@ MonoBehaviour:
   player: {fileID: 0}
   roomResetTarget: {fileID: 868833757661156450}
   waterManager: {fileID: 3377538766717277213}
+  RoomEntryTrigger: {fileID: 7118771277318170426}
+  SinkHandleManager: {fileID: 5266127430928213573}
 --- !u!1 &5294271981737554166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1184,7 @@ MonoBehaviour:
   waterManager: {fileID: 3377538766717277213}
   delayBeforeRise: 3
   flickerLamp: {fileID: 2759225757066318772}
+  activated: 0
 --- !u!1001 &807655753570397948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1620,9 +1624,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4615946509190696250, guid: 2ed35a4f5b69f5844b37f5d5e0336403, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6931016887466792949}
-    - targetCorrespondingSourceObject: {fileID: 9183994713973663105, guid: 2ed35a4f5b69f5844b37f5d5e0336403, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 892887965992900560}
   m_SourcePrefab: {fileID: 100100000, guid: 2ed35a4f5b69f5844b37f5d5e0336403, type: 3}
 --- !u!4 &4562888522965904694 stripped
 Transform:
@@ -1649,6 +1650,7 @@ MonoBehaviour:
   riseSpeed: 0.1
   maxHeight: 5
   cameraOverlayObject: {fileID: 0}
+  InWater: 0
 --- !u!65 &6931016887466792949
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1669,27 +1671,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 20, y: 10, z: 20}
-  m_Center: {x: 1.39, y: -4.26, z: 0}
---- !u!1 &7346036321039994883 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9183994713973663105, guid: 2ed35a4f5b69f5844b37f5d5e0336403, type: 3}
-  m_PrefabInstance: {fileID: 1911293794989634946}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &892887965992900560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7346036321039994883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f4944bb73da02f4286ad59529262c59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  riseSpeed: 0.5
-  maxHeight: 5
-  cameraOverlayObject: {fileID: 0}
+  m_Center: {x: 1.39, y: -4.6, z: 0}
 --- !u!1001 &2399186823716615245
 PrefabInstance:
   m_ObjectHideFlags: 0

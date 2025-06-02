@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class CeilingWaterTrigger : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class CeilingWaterTrigger : MonoBehaviour
 
     public ResetBathroom roomResetTarget; // 초기화 대상 방
     public WaterManager waterManager;
+    public RoomEntryTrigger RoomEntryTrigger;
+    public SinkHandleManager SinkHandleManager;
 
     private bool triggered = false;
 
@@ -23,6 +26,7 @@ public class CeilingWaterTrigger : MonoBehaviour
             triggered = true;
             if (waterManager != null)
             {
+                
                 waterManager.StopRising();
                 
             }
@@ -54,8 +58,15 @@ public class CeilingWaterTrigger : MonoBehaviour
         if (cc != null)
         {
             cc.enabled = false;
-            player.transform.position = teleportTarget.position;
+            player.transform.position = teleportTarget.position;            
             cc.enabled = true;
+            triggered = false;
+            //물 에서 나옴
+            waterManager.InWater = false;
+            //문없어지는 트리거 초기화
+            RoomEntryTrigger.triggered = false;
+            //sink물 틀기 트리거 초기화
+            SinkHandleManager.activated = false;
         }
 
         // 방 상태 초기화

@@ -6,7 +6,7 @@ public class RoomEntryTrigger : MonoBehaviour
     public GameObject doorObject;  // 기존 문 오브젝트
     public GameObject wallObject;  // 문 대신 보여줄 벽
 
-    private bool triggered = false;
+    public bool triggered = false;
 
     private void OnTriggerEnter(Collider other)
     {

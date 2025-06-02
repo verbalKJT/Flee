@@ -17,7 +17,7 @@ public class SinkHandleManager : MonoBehaviour, IInteractable
     public FlickerLampManager flickerLamp;
 
 
-    private bool activated = false;
+    public bool activated = false;
 
     public void Interact()
     {
