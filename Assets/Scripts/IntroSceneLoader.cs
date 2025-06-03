@@ -12,10 +12,10 @@ public class IntroSceneLoader : MonoBehaviour
 
     void Start()
     {
-        // IntroCinematic ¾ÀÀ» ¹é±×¶ó¿îµå¿¡¼­ ¹Ì¸® ·Îµù
+        // IntroCinematic ì”¬ì„ ë°±ê·¸ë¼ìš´ë“œì—ì„œ ë¯¸ë¦¬ ë¡œë”©
         asyncLoad = SceneManager.LoadSceneAsync("IntroCinematic");
-        asyncLoad.allowSceneActivation = false; // ¾ÆÁ÷ ÀüÈ¯Àº ÇÏÁö ¾ÊÀ½
-        Debug.Log("¢º ¾À ¹é±×¶ó¿îµå ·Îµù ½ÃÀÛ");
+        asyncLoad.allowSceneActivation = false; // ì•„ì§ ì „í™˜ì€ í•˜ì§€ ì•ŠìŒ
+        Debug.Log("â–¶ ì”¬ ë°±ê·¸ë¼ìš´ë“œ ë¡œë”© ì‹œì‘");
     }
 
     public void OnClickStart()
@@ -25,8 +25,8 @@ public class IntroSceneLoader : MonoBehaviour
 
     IEnumerator FadeOutAndLoadScene(string sceneName)
     {
-        Debug.Log("¢º Fade ½ÃÀÛ");
-        // 1. ¾ËÆÄ 0 ¡æ 1 ·Î Á¡Á¡ ¾îµÓ°Ô
+        Debug.Log("â–¶ Fade ì‹œì‘");
+        // 1. ì•ŒíŒŒ 0 â†’ 1 ë¡œ ì ì  ì–´ë‘¡ê²Œ
         float timer = 0f;
         Color color = fadePanelImage.color;
 
@@ -37,12 +37,12 @@ public class IntroSceneLoader : MonoBehaviour
             fadePanelImage.color = new Color(color.r, color.g, color.b, alpha);
             yield return null;
         }
-        Debug.Log("¢º ¾À È°¼ºÈ­ ½ÃÀÛ");
-        asyncLoad.allowSceneActivation = true; // ¿©±â¼­ ½ÇÁ¦·Î ¾À ÀüÈ¯
+        Debug.Log("â–¶ ì”¬ í™œì„±í™” ì‹œì‘");
+        asyncLoad.allowSceneActivation = true; // ì—¬ê¸°ì„œ ì‹¤ì œë¡œ ì”¬ ì „í™˜
     }
     public void OnClickSettings()
     {
-        Debug.Log("È¯°æ¼³Á¤ UI ¿­±â");
+        Debug.Log("í™˜ê²½ì„¤ì • UI ì—´ê¸°");
     }
     public void OnClickQuit()
     {

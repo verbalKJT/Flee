@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class SinkHandleManager : MonoBehaviour, IInteractable
 {
-    [Header("¾Ö´Ï¸ŞÀÌ¼Ç")]
+    [Header("ì• ë‹ˆë©”ì´ì…˜")]
     public Animator animator;
     public string Open = "Open"; 
 
-    [Header("¿¬Ãâ ¿ÀºêÁ§Æ®")]
+    [Header("ì—°ì¶œ ì˜¤ë¸Œì íŠ¸")]
     public GameObject waterStream;
     public WaterManager waterManager;
 
-    [Header("Å¸ÀÌ¹Ö ¼³Á¤")]
+    [Header("íƒ€ì´ë° ì„¤ì •")]
     public float delayBeforeRise = 3f;
 
-    [Header("·¥ÇÁ ±ôºıÀÓ (¿ÀºêÁ§Æ® ±â¹İ)")]
+    [Header("ë¨í”„ ê¹œë¹¡ì„ (ì˜¤ë¸Œì íŠ¸ ê¸°ë°˜)")]
     public FlickerLampManager flickerLamp;
 
 
@@ -25,28 +25,28 @@ public class SinkHandleManager : MonoBehaviour, IInteractable
         if (activated) return;
 
         activated = true;
-        Debug.Log("¼ÕÀâÀÌ »óÈ£ÀÛ¿ëµÊ");
+        Debug.Log("ì†ì¡ì´ ìƒí˜¸ì‘ìš©ë¨");
 
-        // ¾Ö´Ï¸ŞÀÌ¼Ç bool ÆÄ¶ó¹ÌÅÍ Open= true
+        // ì• ë‹ˆë©”ì´ì…˜ bool íŒŒë¼ë¯¸í„° Open= true
         if (animator != null)
         {
             animator.SetBool(Open, true);
         }
 
-        // ¹°ÁÙ±â È¿°ú On
+        // ë¬¼ì¤„ê¸° íš¨ê³¼ On
         if (waterStream != null)
         {
             waterStream.SetActive(true);
         }
 
-        // 4. ·¥ÇÁ ±ôºıÀÌ±â ½ÃÀÛ
+        // 4. ë¨í”„ ê¹œë¹¡ì´ê¸° ì‹œì‘
         if (flickerLamp != null)
         {
             flickerLamp.StartFlicker();
         }
 
 
-        // nÃÊ ÈÄ ¹° Â÷¿À¸£±â ½ÃÀÛ
+        // nì´ˆ í›„ ë¬¼ ì°¨ì˜¤ë¥´ê¸° ì‹œì‘
         Invoke(nameof(StartWaterRise), delayBeforeRise);
     }
 
@@ -55,12 +55,12 @@ public class SinkHandleManager : MonoBehaviour, IInteractable
         if (waterManager != null)
         {
             waterManager.StartRising();
-            Debug.Log("¹°ÀÌ Â÷¿À¸£±â ½ÃÀÛÇÔ");
+            Debug.Log("ë¬¼ì´ ì°¨ì˜¤ë¥´ê¸° ì‹œì‘í•¨");
         }
     }
 
     public string GetPromptText()
     {
-        return "[E] ¹° Æ²±â";
+        return "[E] ë¬¼ í‹€ê¸°";
     }
 }

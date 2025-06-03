@@ -14,10 +14,10 @@ public class DoorManager : MonoBehaviour, IInteractable
 
     public string GetPromptText()
     {
-        return isOpen ? "[E] ¹® ´İ±â" : "[E] ¹® ¿­±â";
+        return isOpen ? "[E] ë¬¸ ë‹«ê¸°" : "[E] ë¬¸ ì—´ê¸°";
     }
 
-    //¹® ÀÚµ¿ ´İÈû Æ®¸®°Å
+    //ë¬¸ ìë™ ë‹«í˜ íŠ¸ë¦¬ê±°
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

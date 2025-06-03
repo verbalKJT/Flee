@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float walkSpeed = 1.5f;  //°È±â ¼Óµµ
-    public float runSpeed = 3f;     //´Þ¸®±â ¼Óµµ
+    public float walkSpeed = 1.5f;  //ê±·ê¸° ì†ë„
+    public float runSpeed = 3f;     //ë‹¬ë¦¬ê¸° ì†ë„
 
     private CharacterController controller;
     private Animator animator;
 
     private bool canMove = true;
 
-    private PlayerStamina stamina;      //ÇÃ·¹ÀÌ¾î ½ºÅÂ¹Ì³ª
+    private PlayerStamina stamina;      //í”Œë ˆì´ì–´ ìŠ¤íƒœë¯¸ë‚˜
 
-    [Header("Water_ObjectÇÒ´ç")]
+    [Header("Water_Objectí• ë‹¹")]
     public WaterManager InWater;
-    [Header("¼Óµµ °è¼ö")]
+    [Header("ì†ë„ ê³„ìˆ˜")]
     public float speedMultiplier = 0.5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,22 +32,22 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        float h = Input.GetAxis("Horizontal");      //¾ÕµÚ ÀÌµ¿ Å° ÀÔ·Â(w,s)
-        float v = Input.GetAxis("Vertical");        //¾ç¿· ÀÌµ¿ Å° ÀÔ·Â(a,d)
+        float h = Input.GetAxis("Horizontal");      //ì•žë’¤ ì´ë™ í‚¤ ìž…ë ¥(w,s)
+        float v = Input.GetAxis("Vertical");        //ì–‘ì˜† ì´ë™ í‚¤ ìž…ë ¥(a,d)
 
         Vector3 input = new Vector3(h, 0, v);
         Vector3 move = transform.TransformDirection(input.normalized);
 
-        bool isRunning = Input.GetKey(KeyCode.LeftShift);       //´Þ¸®±â Å° ÀÔ·Â(LShift)
+        bool isRunning = Input.GetKey(KeyCode.LeftShift);       //ë‹¬ë¦¬ê¸° í‚¤ ìž…ë ¥(LShift)
 
-        //½ºÅÂ¹Ì³ª°¡ 0ÀÌÇÏ¸é ´Þ¸®Áö ¸øÇÏµµ·Ï ¼³Á¤
+        //ìŠ¤íƒœë¯¸ë‚˜ê°€ 0ì´í•˜ë©´ ë‹¬ë¦¬ì§€ ëª»í•˜ë„ë¡ ì„¤ì •
         if (!stamina.CanRun)
             isRunning = false;
 
-        stamina.isRunning = isRunning;   //½ºÅÂ¹Ì³ª Á¶ÀýÀ» À§ÇØ Àü´Þ
+        stamina.isRunning = isRunning;   //ìŠ¤íƒœë¯¸ë‚˜ ì¡°ì ˆì„ ìœ„í•´ ì „ë‹¬
 
         
-        //InWaterÁ¶°Ç¿¡ µû¶ó ¼Óµµ°è¼ö Á¶Á¤
+        //InWaterì¡°ê±´ì— ë”°ë¼ ì†ë„ê³„ìˆ˜ ì¡°ì •
         float speedFactor = 1f;
         if (InWater != null && InWater.InWater)
         {
@@ -55,11 +55,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         float currentSpeed = (isRunning ? runSpeed : walkSpeed) * speedFactor;
-       // Debug.Log("ÇöÀç¼Óµµ" + currentSpeed);
+       // Debug.Log("í˜„ìž¬ì†ë„" + currentSpeed);
 
         controller.SimpleMove(move * currentSpeed);
 
-        // ÀÌµ¿ ¼Óµµ¸¦ ±â¹ÝÀ¸·Î ¾Ö´Ï¸ÞÀÌ¼Ç ÀüÀÌ
+        // ì´ë™ ì†ë„ë¥¼ ê¸°ë°˜ìœ¼ë¡œ ì• ë‹ˆë©”ì´ì…˜ ì „ì´
         animator.SetFloat("Speed", input.magnitude * currentSpeed);
         if(currentSpeed > 0)
         {

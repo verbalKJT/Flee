@@ -2,29 +2,29 @@ using UnityEngine;
 
 public class SwitchManager : MonoBehaviour, IInteractable
 {
-    [Header("¾Ö´Ï¸ŞÀÌ¼Ç")]
+    [Header("ì• ë‹ˆë©”ì´ì…˜")]
     public Animator animator;
     private bool isOn = false;
 
-    [Header("·¥ÇÁ ¿ÀºêÁ§Æ®")]
-    public GameObject lampOnObject;  // Lamp_ON ¿ÀºêÁ§Æ®
-    public GameObject lampOffObject; // Lamp_OFF ¿ÀºêÁ§Æ®
+    [Header("ë¨í”„ ì˜¤ë¸Œì íŠ¸")]
+    public GameObject lampOnObject;  // Lamp_ON ì˜¤ë¸Œì íŠ¸
+    public GameObject lampOffObject; // Lamp_OFF ì˜¤ë¸Œì íŠ¸
 
     public void Interact()
     {
         isOn = !isOn;
 
-        // ¾Ö´Ï¸ŞÀÌ¼Ç Æ®¸®°Å
+        // ì• ë‹ˆë©”ì´ì…˜ íŠ¸ë¦¬ê±°
         if (animator != null)
             animator.SetTrigger(isOn ? "SwitchOn" : "SwitchOff");
 
-        // ¿ÀºêÁ§Æ® on/off ÀüÈ¯
+        // ì˜¤ë¸Œì íŠ¸ on/off ì „í™˜
         if (lampOnObject != null) lampOnObject.SetActive(isOn);
         if (lampOffObject != null) lampOffObject.SetActive(!isOn);
     }
 
     public string GetPromptText()
     {
-        return isOn ? "[E] ½ºÀ§Ä¡ ²ô±â" : "[E] ½ºÀ§Ä¡ ÄÑ±â";
+        return isOn ? "[E] ìŠ¤ìœ„ì¹˜ ë„ê¸°" : "[E] ìŠ¤ìœ„ì¹˜ ì¼œê¸°";
     }
 }

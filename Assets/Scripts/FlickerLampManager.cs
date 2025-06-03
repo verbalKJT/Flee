@@ -3,11 +3,11 @@ using System.Collections;
 
 public class FlickerLampManager : MonoBehaviour
 {
-    [Header ("Á¶¸í ¿ÀºêÁ§Æ®")]
+    [Header ("ì¡°ëª… ì˜¤ë¸Œì íŠ¸")]
     public GameObject lampOnObject;
     public GameObject lampOffObject;
 
-    [Header ("±ôºıÀÓ ÁÖ±â")]
+    [Header ("ê¹œë¹¡ì„ ì£¼ê¸°")]
     public float minInterval = 0.1f;
     public float maxInterval = 0.6f;
 
@@ -29,7 +29,7 @@ public class FlickerLampManager : MonoBehaviour
             flickerRoutine = null;
         }
 
-        // »óÅÂ º¹¿ø (Ç×»ó Off »óÅÂ·Î)
+        // ìƒíƒœ ë³µì› (í•­ìƒ Off ìƒíƒœë¡œ)
         if (lampOnObject != null) lampOnObject.SetActive(false);
         if (lampOffObject != null) lampOffObject.SetActive(true);
     }
@@ -38,7 +38,7 @@ public class FlickerLampManager : MonoBehaviour
     {
         while (true)
         {
-            // Åä±Û
+            // í† ê¸€
             if (lampOnObject != null && lampOffObject != null)
             {
                 bool currentlyOn = lampOnObject.activeSelf;

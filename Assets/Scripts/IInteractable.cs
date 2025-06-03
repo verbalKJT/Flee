@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public interface IInteractable//Å©·Î½ºÇì¾î »óÈ£ÀÛ¿ëÀ» À§ÇÑ ÀÎÅÍÆäÀÌ½º
+public interface IInteractable//í¬ë¡œìŠ¤í—¤ì–´ ìƒí˜¸ì‘ìš©ì„ ìœ„í•œ ì¸í„°í˜ì´ìŠ¤
 {
     void Interact();
-    string GetPromptText(); // »óÈ£ÀÛ¿ë ¹®±¸ ¹İÈ¯¿ë
+    string GetPromptText(); // ìƒí˜¸ì‘ìš© ë¬¸êµ¬ ë°˜í™˜ìš©
 
 }

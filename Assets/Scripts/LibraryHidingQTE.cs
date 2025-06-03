@@ -3,15 +3,15 @@ using System.Collections;
 using TMPro;
 public class LibraryHidingQTE : MonoBehaviour
 {
-    public TextMeshProUGUI promptText; //È­¸é¿¡ ¶ç¿ï ÅØ½ºÆ®
-    public float timeLimit = 3f;    //Á¦ÇÑ ½Ã°£
+    public TextMeshProUGUI promptText; //í™”ë©´ì— ë„ìš¸ í…ìŠ¤íŠ¸
+    public float timeLimit = 3f;    //ì œí•œ ì‹œê°„
 
-    private bool isRunning = false;     //QTE ½ÇÇà ¿©ºÎ
+    private bool isRunning = false;     //QTE ì‹¤í–‰ ì—¬ë¶€
 
-    //ÇöÀç ½ÇÇà ÁßÀÎ QTE ÄÚ·çÆ¾ ÇÔ¼ö¸¦ ÀúÀå
+    //í˜„ì¬ ì‹¤í–‰ ì¤‘ì¸ QTE ì½”ë£¨í‹´ í•¨ìˆ˜ë¥¼ ì €ì¥
     private Coroutine currentQTECoroutine = null;  
 
-    //½ÇÇà ÁßÀÎ QTE¸¦ ÀúÀåÇÏ´Â ÇÔ¼ö
+    //ì‹¤í–‰ ì¤‘ì¸ QTEë¥¼ ì €ì¥í•˜ëŠ” í•¨ìˆ˜
     public void BeginQTE(System.Action<bool> onResult)
     {
         if (!isRunning)
@@ -20,31 +20,31 @@ public class LibraryHidingQTE : MonoBehaviour
         }
     }
 
-    //QTE ½ÇÇà ÄÚ·çÆ¾ÇÔ¼ö
+    //QTE ì‹¤í–‰ ì½”ë£¨í‹´í•¨ìˆ˜
     private IEnumerator StartQTE(System.Action<bool> onResult)
     {
-        //Áßº¹ ½ÇÇàÀÌ µÇÁö ¾Êµµ·Ï qte ½ÇÇà ÁßÀÌ¸é ÇÔ¼ö Á¾·á
+        //ì¤‘ë³µ ì‹¤í–‰ì´ ë˜ì§€ ì•Šë„ë¡ qte ì‹¤í–‰ ì¤‘ì´ë©´ í•¨ìˆ˜ ì¢…ë£Œ
         if (isRunning) yield break; 
         isRunning = true;
 
-        //qteÁß ÇÃ·¹ÀÌ¾î°¡ ´­·¯¾ß µÉ Å° ÀúÀå
+        //qteì¤‘ í”Œë ˆì´ì–´ê°€ ëˆŒëŸ¬ì•¼ ë  í‚¤ ì €ì¥
         KeyCode targetKey = GetRandomLetterKey();
-        //ÀúÀåµÈ Å°¸¦ UI·Î ¼³Á¤
+        //ì €ì¥ëœ í‚¤ë¥¼ UIë¡œ ì„¤ì •
         promptText.text = $"Press <b>{targetKey}</b>!";
-        //UI È°¼ºÈ­
+        //UI í™œì„±í™”
         promptText.gameObject.SetActive(true);
 
         
         float timer = timeLimit;
         bool success = false;
 
-        //Á¦ÇÑ½Ã°£ ¾È¿¡
+        //ì œí•œì‹œê°„ ì•ˆì—
         while (timer > 0f)
         {
-            //ÇÃ·¹ÀÌ¾î°¡ ¼³Á¤µÈ Å°¸¦ ´­·¶À¸¸é
+            //í”Œë ˆì´ì–´ê°€ ì„¤ì •ëœ í‚¤ë¥¼ ëˆŒë €ìœ¼ë©´
             if (Input.GetKeyDown(targetKey))
             {
-                //¼º°ø
+                //ì„±ê³µ
                 success = true;
                 break;
             }
@@ -58,12 +58,12 @@ public class LibraryHidingQTE : MonoBehaviour
         isRunning = false;
     }
 
-    //QTE ½ÇÇà Áß ÇÃ·¹ÀÌ¾î°¡ ¼û±â ÇØÁ¦ ÇßÀ» ¶§ QTE Á¾·á ½ÃÅ°´Â ÇÔ¼ö
+    //QTE ì‹¤í–‰ ì¤‘ í”Œë ˆì´ì–´ê°€ ìˆ¨ê¸° í•´ì œ í–ˆì„ ë•Œ QTE ì¢…ë£Œ ì‹œí‚¤ëŠ” í•¨ìˆ˜
     public void CancelQTE()
     {
         if (currentQTECoroutine != null)
         {
-            //QTE ½ÇÇà ÄÚ·çÆ¾ Á¾·á
+            //QTE ì‹¤í–‰ ì½”ë£¨í‹´ ì¢…ë£Œ
             StopCoroutine(currentQTECoroutine);
 
             promptText.gameObject.SetActive(false);
@@ -75,7 +75,7 @@ public class LibraryHidingQTE : MonoBehaviour
     }
     private KeyCode GetRandomLetterKey()
     {
-        //AÅ°ºÎÅÍ ZÅ°±îÁö ·£´ıÀ¸·Î ¼³Á¤
+        //Aí‚¤ë¶€í„° Zí‚¤ê¹Œì§€ ëœë¤ìœ¼ë¡œ ì„¤ì •
         int ascii = Random.Range((int)KeyCode.A, (int)KeyCode.Z + 1);   
         return (KeyCode)ascii;
     }

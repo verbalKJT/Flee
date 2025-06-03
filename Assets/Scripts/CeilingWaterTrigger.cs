@@ -10,7 +10,7 @@ public class CeilingWaterTrigger : MonoBehaviour
     public Transform teleportTarget;
     public GameObject player;
 
-    public ResetBathroom roomResetTarget; // ÃÊ±âÈ­ ´ë»ó ¹æ
+    public ResetBathroom roomResetTarget; // ì´ˆê¸°í™” ëŒ€ìƒ ë°©
     public WaterManager waterManager;
     public RoomEntryTrigger RoomEntryTrigger;
     public SinkHandleManager SinkHandleManager;
@@ -38,7 +38,7 @@ public class CeilingWaterTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(stayDuration);
 
-        // È­¸é ¾îµÎ¿öÁü
+        // í™”ë©´ ì–´ë‘ì›Œì§
         CanvasGroup cg = waterOverlayObject?.GetComponent<CanvasGroup>();
         if (cg != null)
         {
@@ -53,7 +53,7 @@ public class CeilingWaterTrigger : MonoBehaviour
             cg.alpha = 1f;
         }
 
-        // ¼ø°£ÀÌµ¿
+        // ìˆœê°„ì´ë™
         CharacterController cc = player.GetComponent<CharacterController>();
         if (cc != null)
         {
@@ -61,15 +61,15 @@ public class CeilingWaterTrigger : MonoBehaviour
             player.transform.position = teleportTarget.position;            
             cc.enabled = true;
             triggered = false;
-            //¹° ¿¡¼­ ³ª¿È
+            //ë¬¼ ì—ì„œ ë‚˜ì˜´
             waterManager.InWater = false;
-            //¹®¾ø¾îÁö´Â Æ®¸®°Å ÃÊ±âÈ­
+            //ë¬¸ì—†ì–´ì§€ëŠ” íŠ¸ë¦¬ê±° ì´ˆê¸°í™”
             RoomEntryTrigger.triggered = false;
-            //sink¹° Æ²±â Æ®¸®°Å ÃÊ±âÈ­
+            //sinkë¬¼ í‹€ê¸° íŠ¸ë¦¬ê±° ì´ˆê¸°í™”
             SinkHandleManager.activated = false;
         }
 
-        // ¹æ »óÅÂ ÃÊ±âÈ­
+        // ë°© ìƒíƒœ ì´ˆê¸°í™”
         if (roomResetTarget != null)
         {
             roomResetTarget.ResetRoom();

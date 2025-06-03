@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ResetBathroom : MonoBehaviour
 {
-    [Header("¸®¼Â ´ë»ó ¿ÀºêÁ§Æ®µé")]
+    [Header("ë¦¬ì…‹ ëŒ€ìƒ ì˜¤ë¸Œì íŠ¸ë“¤")]
     public GameObject Door;
     public GameObject Wall_Trigger;
     public GameObject Lamp;
@@ -10,12 +10,12 @@ public class ResetBathroom : MonoBehaviour
     public WaterManager waterManager;
     public GameObject Water_Cam;
 
-    [Header("ÃÊ±â ¹° À§Ä¡")]
+    [Header("ì´ˆê¸° ë¬¼ ìœ„ì¹˜")]
     private Vector3 waterInitialPosition;
 
     void Start()
     {
-        // °ÔÀÓ ½ÃÀÛ ½Ã ¹° À§Ä¡ ÀúÀå
+        // ê²Œì„ ì‹œì‘ ì‹œ ë¬¼ ìœ„ì¹˜ ì €ì¥
         if (waterManager != null)
         {
             waterInitialPosition = waterManager.transform.position;
@@ -49,6 +49,6 @@ public class ResetBathroom : MonoBehaviour
             Water_Cam.SetActive(false);
         }
 
-        Debug.Log("¹æ ÃÊ±âÈ­ ¿Ï·á");
+        Debug.Log("ë°© ì´ˆê¸°í™” ì™„ë£Œ");
     }
 }

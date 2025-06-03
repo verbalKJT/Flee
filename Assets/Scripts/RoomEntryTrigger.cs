@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class RoomEntryTrigger : MonoBehaviour
 {
-    [Header("ÀüÈ¯ ´ë»ó")]
-    public GameObject doorObject;  // ±âÁ¸ ¹® ¿ÀºêÁ§Æ®
-    public GameObject wallObject;  // ¹® ´ë½Å º¸¿©ÁÙ º®
+    [Header("ì „í™˜ ëŒ€ìƒ")]
+    public GameObject doorObject;  // ê¸°ì¡´ ë¬¸ ì˜¤ë¸Œì íŠ¸
+    public GameObject wallObject;  // ë¬¸ ëŒ€ì‹  ë³´ì—¬ì¤„ ë²½
 
     public bool triggered = false;
 
@@ -22,7 +22,7 @@ public class RoomEntryTrigger : MonoBehaviour
             if (wallObject != null)
                 wallObject.SetActive(true);
 
-            Debug.Log("¹æ ÀÔÀå - ¹® ¼û±â°í º® È°¼ºÈ­µÊ");
+            Debug.Log("ë°© ì…ì¥ - ë¬¸ ìˆ¨ê¸°ê³  ë²½ í™œì„±í™”ë¨");
         }
     }
 }

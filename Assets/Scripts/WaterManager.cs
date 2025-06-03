@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class WaterManager : MonoBehaviour
 {
-    [Header("ÃÊ´ç »ó½Â ¼Óµµ")]
+    [Header("ì´ˆë‹¹ ìƒìŠ¹ ì†ë„")]
     public float riseSpeed = 0.5f;
-    [Header(" ÃÖ´ë ³ôÀÌ")]
+    [Header(" ìµœëŒ€ ë†’ì´")]
     public float maxHeight = 5f;
-    [Header("Water_Cam ÇÒ´ç")]
+    [Header("Water_Cam í• ë‹¹")]
     public GameObject cameraOverlayObject;
 
     public bool InWater;
     private float startY;
-    private bool rising = false;      // »ó½Â Áß ¿©ºÎ
+    private bool rising = false;      // ìƒìŠ¹ ì¤‘ ì—¬ë¶€
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class WaterManager : MonoBehaviour
 
     void Update()
     {
-        // ÃµÃµÈ÷ À§·Î ÀÌµ¿
+        // ì²œì²œíˆ ìœ„ë¡œ ì´ë™
         if (rising && transform.position.y < maxHeight)
         {            
             transform.position += Vector3.up * riseSpeed * Time.deltaTime;
@@ -28,40 +28,40 @@ public class WaterManager : MonoBehaviour
     }
 
     
-    /// ¿ÜºÎ¿¡¼­ ¹° Â÷¿À¸§À» ½ÃÀÛÇÏ°Ô ÇÒ ¶§ È£Ãâ
+    /// ì™¸ë¶€ì—ì„œ ë¬¼ ì°¨ì˜¤ë¦„ì„ ì‹œì‘í•˜ê²Œ í•  ë•Œ í˜¸ì¶œ
     public void StartRising()
     {
         rising = true;
         Debug.Log("Water rising started");
     }    
-    /// ¿ÜºÎ¿¡¼­ ¹° Â÷¿À¸§À» ¸ØÃß°Ô ÇÒ ¼öµµ ÀÖÀ½ (¼±ÅÃ)
+    /// ì™¸ë¶€ì—ì„œ ë¬¼ ì°¨ì˜¤ë¦„ì„ ë©ˆì¶”ê²Œ í•  ìˆ˜ë„ ìˆìŒ (ì„ íƒ)
     public void StopRising()
     {
         rising = false;
         Debug.Log("Water rising stopped");
     }
 
-    /// Æ®¸®°Å ÁøÀÔ
+    /// íŠ¸ë¦¬ê±° ì§„ì…
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            //ÇÃ·¡±× true
+            //í”Œë˜ê·¸ true
             InWater = true;
-            Debug.Log("ÇÃ·¹ÀÌ¾î ¹°¿¡ ´êÀ½");
+            Debug.Log("í”Œë ˆì´ì–´ ë¬¼ì— ë‹¿ìŒ");
 
-            //ÇÃ·¹ÀÌ¾î ÀÌµ¿
+            //í”Œë ˆì´ì–´ ì´ë™
            /* Rigidbody rb = other.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                // ÇÃ·¹ÀÌ¾î¸¦ ºÎµå·´°Ô À§·Î ÀÌµ¿½ÃÅ´
+                // í”Œë ˆì´ì–´ë¥¼ ë¶€ë“œëŸ½ê²Œ ìœ„ë¡œ ì´ë™ì‹œí‚´
                 Vector3 targetPosition = rb.position + Vector3.up * riseSpeed * Time.deltaTime;
 
-                // MovePositionÀ¸·Î ÀÚ¿¬½º·¯¿î ÀÌµ¿ À¯µµ
+                // MovePositionìœ¼ë¡œ ìì—°ìŠ¤ëŸ¬ìš´ ì´ë™ ìœ ë„
                 rb.MovePosition(targetPosition);
             }
            */
-            //ÇÃ·¹ÀÌ¾î Ä«¸Ş¶óÈ¿°ú            
+            //í”Œë ˆì´ì–´ ì¹´ë©”ë¼íš¨ê³¼            
             if ( cameraOverlayObject != null)
             {
                 cameraOverlayObject.SetActive(true);                
@@ -72,13 +72,13 @@ public class WaterManager : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("OnTriggerExit È£ÃâµÊ: " + other.name);
+        Debug.Log("OnTriggerExit í˜¸ì¶œë¨: " + other.name);
         if (other.CompareTag("Player"))
         {
             InWater = false;
-            Debug.Log("ÇÃ·¹ÀÌ¾î ¹°¿¡¼­ ³ª¿È");
+            Debug.Log("í”Œë ˆì´ì–´ ë¬¼ì—ì„œ ë‚˜ì˜´");
 
-            // Ä«¸Ş¶ó ¿À¹ö·¹ÀÌ ÇØÁ¦
+            // ì¹´ë©”ë¼ ì˜¤ë²„ë ˆì´ í•´ì œ
             if (cameraOverlayObject != null)
             {
                 cameraOverlayObject.SetActive(false);                

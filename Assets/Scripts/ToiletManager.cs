@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class ToiletManager : MonoBehaviour, IInteractable
 {
-    [Header("¾Ö´Ï¸ŞÀÌ¼Ç")]
+    [Header("ì• ë‹ˆë©”ì´ì…˜")]
     public Animator animator;
     private bool isOpen = false;
 
     public void Interact()
     {
         isOpen = !isOpen;
-        Debug.Log("¹® ¿­¸² ½Ãµµ");
+        Debug.Log("ë¬¸ ì—´ë¦¼ ì‹œë„");
         animator.SetBool("Open", isOpen);
     }
 
     public string GetPromptText()
     {
-        return isOpen ? "[E] Ä¿¹ö ´İ±â" : "[E] Ä¿¹ö ¿­±â";
+        return isOpen ? "[E] ì»¤ë²„ ë‹«ê¸°" : "[E] ì»¤ë²„ ì—´ê¸°";
     }
 }

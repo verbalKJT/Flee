@@ -10,7 +10,7 @@ public class PlayerStamina : MonoBehaviour
     private bool isExhausted = false;
     public bool isRunning = false;
 
-    //Ã¼·Â ¼ÒÁø»óÅÂ°¡ ¾Æ´Ï¸é true¸¦ ¹İÈ¯ÇÏ´Â ÀÏ±â Àü¿ë ÇÁ·ÎÆÛÆ¼
+    //ì²´ë ¥ ì†Œì§„ìƒíƒœê°€ ì•„ë‹ˆë©´ trueë¥¼ ë°˜í™˜í•˜ëŠ” ì¼ê¸° ì „ìš© í”„ë¡œí¼í‹°
     public bool CanRun => !isExhausted;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,21 +22,21 @@ public class PlayerStamina : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //´Ş¸®´Â Áß Å»Áø»óÅÂ°¡ ¾Æ´Ï¸é
+        //ë‹¬ë¦¬ëŠ” ì¤‘ íƒˆì§„ìƒíƒœê°€ ì•„ë‹ˆë©´
         if (isRunning && !isExhausted)
         {
-            //½ºÅÂ¹Ì³ª ¼ÒÁø
+            //ìŠ¤íƒœë¯¸ë‚˜ ì†Œì§„
             currentStamina -= drainRate * Time.deltaTime;
-            //½ºÅÂ¹Ì³ª¸¦ ÇöÀç¿Í ÃÖ´ë »çÀÌ·Î Á¦ÇÑ
+            //ìŠ¤íƒœë¯¸ë‚˜ë¥¼ í˜„ì¬ì™€ ìµœëŒ€ ì‚¬ì´ë¡œ ì œí•œ
             currentStamina = Mathf.Clamp(currentStamina,0, maxStamina);
 
             if (currentStamina <= 0.01f)
                 isExhausted = true;
         }
-        //´Ş¸®´Â ÁßÀÌ ¾Æ´Ò ¶§
+        //ë‹¬ë¦¬ëŠ” ì¤‘ì´ ì•„ë‹ ë•Œ
         else
         {
-            //½ºÅÂ¹Ì³ª È¸º¹
+            //ìŠ¤íƒœë¯¸ë‚˜ íšŒë³µ
             currentStamina += regenRate * Time.deltaTime;
             currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
 

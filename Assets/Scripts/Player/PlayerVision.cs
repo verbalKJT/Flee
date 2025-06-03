@@ -6,7 +6,7 @@ public class PlayerVision : MonoBehaviour
 {
     public Image blackScreen;
 
-    public IEnumerator BlindForSeconds(float seconds) // ºÙÁýÈ÷°í ³­µÚ ¾ÏÀü ¼³Á¤
+    public IEnumerator BlindForSeconds(float seconds) // ë¶™ì§‘ížˆê³  ë‚œë’¤ ì•”ì „ ì„¤ì •
     {
         blackScreen.gameObject.SetActive(true);
         yield return new WaitForSeconds(seconds);

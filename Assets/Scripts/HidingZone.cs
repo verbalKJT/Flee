@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class HidingZone : MonoBehaviour
 {
-    public bool isQTERequired = true;   //QTE°¡ ÇÊ¿äÇÑÁö
-    public Transform hidingSpot;        //ÇÃ·¹ÀÌ¾î Ä³¸¯ÅÍ°¡ ¼û´Â À§Ä¡
-
+    public bool isQTERequired = true;   //QTEê°€ í•„ìš”í•œì§€
+    public Transform hidingSpot;        //í”Œë ˆì´ì–´ ìºë¦­í„°ê°€ ìˆ¨ëŠ” ìœ„ì¹˜
+	
+	
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
-            //null Á¶°Ç¿¬»êÀÚ, PlyaerHider°´Ã¼°¡ ³ÎÀÌ ¾Æ´Ò¶§¸¸ ¸Ş¼Òµå ½ÇÇà
+            //null ì¡°ê±´ì—°ì‚°ì, PlyaerHiderê°ì²´ê°€ ë„ì´ ì•„ë‹ë•Œë§Œ ë©”ì†Œë“œ ì‹¤í–‰
             other.GetComponent<PlayerHider>()?.EnterHidingZone(this);   
         }
     }
@@ -17,7 +18,7 @@ public class HidingZone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //null Á¶°Ç¿¬»êÀÚ, PlyaerHider°´Ã¼°¡ ³ÎÀÌ ¾Æ´Ò¶§¸¸ ¸Ş¼Òµå ½ÇÇà
+            //null ì¡°ê±´ì—°ì‚°ì, PlyaerHiderê°ì²´ê°€ ë„ì´ ì•„ë‹ë•Œë§Œ ë©”ì†Œë“œ ì‹¤í–‰
             other.GetComponent<PlayerHider>()?.ExitHidingZone();
         }
     }
