@@ -21,7 +21,7 @@ public class EnemyAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        agent.speed = 3.5f;
+        agent.speed = 5f;
         Debug.Log("NavMesh 위에 있음?: " + agent.isOnNavMesh); // NavMesh 상태 확인
     }
 
@@ -61,31 +61,23 @@ public class EnemyAI : MonoBehaviour
     void LookForPlayer()
     {
         if (player == null) return;
-        
         // 플레이어 위치 - 적 위치 방향 벡터 계산
         Vector3 dirToPlayer = player.position - transform.position;
-
         // 수평 시야각 계산
         float horizontalAngle = Vector3.Angle(transform.forward, dirToPlayer);
-
         // 시야 범위와 시야각 조건을 만족할 경우
         if (dirToPlayer.magnitude < sightRange && horizontalAngle < sightAngle / 2f)
         {
             // 레이 시작 위치: 적 캐릭터의 가슴 높이에서 시작
             Vector3 rayOrigin = transform.position + Vector3.up * 1.5f;
-
             // 레이 목표 위치: 플레이어의 가슴 또는 머리 높이
             Vector3 targetPoint = player.position + Vector3.up * 0.9f;
-
             // 레이 방향 계산
             Vector3 direction = (targetPoint - rayOrigin).normalized;
-
             // 레이 생성
             Ray ray = new Ray(rayOrigin, direction);
-
             // 디버그용 레이 시각화 (씬 뷰에서 빨간 선으로 확인 가능)
             Debug.DrawRay(rayOrigin, direction * sightRange, Color.red);
-
             // 레이캐스트 발사
             if (Physics.Raycast(ray, out RaycastHit hit, sightRange))
             {
@@ -111,7 +103,7 @@ public class EnemyAI : MonoBehaviour
         // 목적지 플레이어 위치로
         agent.SetDestination(player.position);
         // 달리기
-        agent.speed = 5f;
+        agent.speed =7.5f;
         
         // 플레이어 사이의 거리 계산
         float distance = Vector3.Distance(transform.position, player.position);
@@ -127,8 +119,7 @@ public class EnemyAI : MonoBehaviour
             currentState = EnemyState.PATROL;
         }
     }
-
-    // 공격
+    
     void AttackPlayer()
     {
         // 플레이어 사이의 거리

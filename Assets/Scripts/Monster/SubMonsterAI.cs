@@ -41,7 +41,7 @@ public class SubMonsterAI : MonoBehaviour
         {
             agent.isStopped = false;
             agent.SetDestination(player.position);
-            animator.SetFloat("Speed", agent.velocity.magnitude);
+            animator.SetFloat("Speed", agent.velocity.magnitude); // Debug로 확인한 결과 약 7f
 
             // 플레이어 처음 발견했을 때 효과음
             if (!hasPlayedSound && foundPlayerSound != null)
