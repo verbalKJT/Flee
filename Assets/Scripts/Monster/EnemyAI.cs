@@ -22,7 +22,6 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         agent.speed = 5f;
-        Debug.Log("NavMesh 위에 있음?: " + agent.isOnNavMesh); // NavMesh 상태 확인
     }
 
     void Update()
@@ -32,16 +31,18 @@ public class EnemyAI : MonoBehaviour
             case EnemyState.PATROL:
                 Patrol();
                 animator.SetFloat("Action", 0.5f);
+                animator.speed = agent.velocity.magnitude / agent.speed * 1.5f;
                 break;
             case EnemyState.CHASE:
                 ChasePlayer();
+                animator.speed = agent.velocity.magnitude / agent.speed * 1.8f;
                 animator.SetFloat("Action", 1f);
                 break;
             case EnemyState.ATTACK:
                 AttackPlayer();
                 animator.SetFloat("Action", 0f);
                 break;
-        }
+        }   
     }
 
     void Patrol()
@@ -53,7 +54,6 @@ public class EnemyAI : MonoBehaviour
             currentPatrolIndex = Random.Range(0, patrolPoints.Length);
             agent.SetDestination(patrolPoints[currentPatrolIndex].position);
         }
-
         // 탐지
         LookForPlayer();
     }
@@ -81,12 +81,9 @@ public class EnemyAI : MonoBehaviour
             // 레이캐스트 발사
             if (Physics.Raycast(ray, out RaycastHit hit, sightRange))
             {
-                Debug.Log("Raycast hit: " + hit.transform.name); // 어떤 오브젝트를 맞췄는지 출력
-
                 // 맞춘 대상이 플레이어일 경우
                 if (hit.transform == player)
                 {
-                    Debug.Log("플레이어 발견! 추격 시작");
                     currentState = EnemyState.CHASE; // 상태를 추격으로 전환
                 }
             }
