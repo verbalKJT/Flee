@@ -4,6 +4,7 @@ public class Letter : MonoBehaviour
 {
     [SerializeField] private Transform player; // 플레이어 트랜스폼
     [SerializeField] private Transform letterObject; // 편지 오브젝트 위치 (예: Newspapers_01)
+    [SerializeField] private GameObject openText;
     public float interactionDistance = 3f; // 상호작용 거리
 
     [SerializeField] private GameObject letterImage; // 편지 UI 
@@ -18,6 +19,15 @@ public class Letter : MonoBehaviour
         float dist = Vector3.Distance(player.position, letterObject.position);
         isInRange = dist <= interactionDistance;
 
+        if (isInRange  && !isReading)
+        {
+            openText.SetActive(true);
+        }
+        else
+        {
+            openText.SetActive(false);
+        }
+        
         // E 키 입력으로 편지 열기
         if (isInRange && !isReading && Input.GetKeyDown(KeyCode.E))
         {
