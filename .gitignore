@@ -25,18 +25,14 @@ Thumbs.db
 !Assets/**/*.metaLogs/
 
 
-# Unity 설정 관련 - Git 추적 제외할 항목
-UserSettings/
-*.dwlt
-*.csproj
-*.sln
-*.user
-*.log
-*.tmp
-
-# Rider/VSCode 등 IDE 설정
 .idea/
+
+# Unity Editor 개인 설정 무시
+UserSettings/
+.idea/
+UserSettings/
+
+
 .vscode/
 
-# Mac에서 생성되는 숨김 파일
-.DS_Store
+
