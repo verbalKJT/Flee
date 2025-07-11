@@ -23,3 +23,20 @@ Thumbs.db
 !Assets/**/*.prefab
 !Assets/**/*.unity
 !Assets/**/*.metaLogs/
+
+
+# Unity 설정 관련 - Git 추적 제외할 항목
+UserSettings/
+*.dwlt
+*.csproj
+*.sln
+*.user
+*.log
+*.tmp
+
+# Rider/VSCode 등 IDE 설정
+.idea/
+.vscode/
+
+# Mac에서 생성되는 숨김 파일
+.DS_Store
