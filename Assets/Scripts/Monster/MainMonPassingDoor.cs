@@ -15,7 +15,7 @@ public class MainMonPassingDoor : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.name == "MainMon")
+        if (other.CompareTag("MainMon"))
         {
             StartCoroutine(OpenDoor());
         }
@@ -30,9 +30,9 @@ public class MainMonPassingDoor : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        if (other.name == "MainMon")
+        if (other.CompareTag("MainMon"))
         {
-            anim.Play("Door2_Open");
+            anim.Play("Door2_Close");
             navMeshObstacle.enabled = true;
         }
     }
