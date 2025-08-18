@@ -1,32 +1,34 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animation), typeof(Collider))]
+[RequireComponent(typeof(Animator))]
 public class DoorOpener : MonoBehaviour
 {
-    public Transform player;
-    public float interactDistance = 10f;
-    public string openClip = "Door1_Open";
-    public string closeClip = "Door1_Close";
-
-    private Animation anim;
+    private Animator animator;
     private bool isOpen = false;
 
     void Start()
     {
-        anim = GetComponent<Animation>();
-        anim.Play("Door1_Close");
-
+        animator = GetComponent<Animator>();
     }
-    void Update()
-    {
-        if (Vector3.Distance(player.position, transform.position) > interactDistance)
-            return;
 
-        if (Input.GetKeyDown(KeyCode.E))
+    public void ToggleDoor()
+    {
+        isOpen = !isOpen;
+
+        if (isOpen)
         {
-            Debug.Log("E 키 입력 감지됨!");
-            isOpen = !isOpen;
-            anim.Play(isOpen ? "Door1_Open" : "Door1_Close");
+            animator.SetTrigger("Door1Open");
+            animator.SetTrigger("Door2Open");
         }
+        else
+        {
+            animator.SetTrigger("Door1Close");
+            animator.SetTrigger("Door2Close");
+        }
+    }
+
+    public bool IsOpen()
+    {
+        return isOpen;
     }
 }
