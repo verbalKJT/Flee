@@ -2,12 +2,9 @@ using UnityEngine;
 
 public class FadeOutMon : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject player;
     void Update()
     {
-        
+        transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
     }
 }

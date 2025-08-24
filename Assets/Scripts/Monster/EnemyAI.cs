@@ -76,8 +76,6 @@ public class EnemyAI : MonoBehaviour
             Vector3 direction = (targetPoint - rayOrigin).normalized;
             // 레이 생성
             Ray ray = new Ray(rayOrigin, direction);
-            // 디버그용 레이 시각화 (씬 뷰에서 빨간 선으로 확인 가능)
-            Debug.DrawRay(rayOrigin, direction * sightRange, Color.red);
             // 레이캐스트 발사
             if (Physics.Raycast(ray, out RaycastHit hit, sightRange))
             {
