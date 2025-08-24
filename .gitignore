@@ -12,4 +12,28 @@
 *.booproj
 *.svd
 .DS_Store
+.idea/
 Thumbs.db
+
+# 텍스처, 머티리얼, 프리팹, 메타 파일 Git에 포함시키기
+!Assets/**/*.png
+!Assets/**/*.jpg
+!Assets/**/*.tga
+!Assets/**/*.mat
+!Assets/**/*.prefab
+!Assets/**/*.unity
+!Assets/**/*.metaLogs/
+
+
+.idea/
+
+# Unity Editor 개인 설정 무시
+UserSettings/
+.idea/
+UserSettings/
+
+
+.vscode/
+
+
+Logs/**
