@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class SwitchManager : MonoBehaviour, IInteractable
 {
+    //세면대 위 조명 스위치로 조작하기
     [Header("애니메이션")]
     public Animator animator;
     private bool isOn = false;
