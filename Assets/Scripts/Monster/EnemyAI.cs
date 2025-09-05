@@ -38,14 +38,10 @@ public class EnemyAI : MonoBehaviour
                 animator.speed = agent.velocity.magnitude / agent.speed * 1.8f;
                 animator.SetFloat("Action", 1f);
                 break;
-            case EnemyState.ATTACK:
-                AttackPlayer();
-                animator.SetFloat("Action", 0f);
-                break;
-        }   
+        }
     }
 
-    void Patrol()
+    private void Patrol()
     {
         // 현재 목적지에 거의 도착 + 경로가 아직 계산 중이 아니면
         if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
@@ -58,7 +54,7 @@ public class EnemyAI : MonoBehaviour
         LookForPlayer();
     }
 
-    void LookForPlayer()
+    private void LookForPlayer()
     {
         if (player == null) return;
         // 플레이어 위치 - 적 위치 방향 벡터 계산
@@ -84,7 +80,7 @@ public class EnemyAI : MonoBehaviour
                 // 맞춘 대상이 플레이어일 경우
                 if (hit.transform == player)
                 {
-                    currentState = EnemyState.CHASE; // 상태를 추격으로 전환
+                    changeState(EnemyState.CHASE); // 상태를 추격으로 전환
                 }
             }
         }
@@ -95,36 +91,34 @@ public class EnemyAI : MonoBehaviour
         //플레이어가 숨는 상태를 받아올 변수 선언
         var hider = player.GetComponent<PlayerHider>();
         //플레이어가 숨는 중이면 탐지 안되도록
-        if (hider != null && hider.IsHiding) currentState = EnemyState.PATROL; 
-        
+        if (hider != null && hider.IsHiding) currentState = EnemyState.PATROL;
+
         // 목적지 플레이어 위치로
         agent.SetDestination(player.position);
         // 달리기
-        agent.speed =7.5f;
-        
+        agent.speed = 7.5f;
+
         // 플레이어 사이의 거리 계산
         float distance = Vector3.Distance(transform.position, player.position);
-
-        // 공격범위 내라면
-        if (distance <= attackRange)
+        if (distance > sightRange * 2f) // 너무 멀어지면 다시 Patrol
         {
-            // 공격
-            currentState = EnemyState.ATTACK;
-        }
-        else if (distance > sightRange * 2f) // 너무 멀어지면 다시 Patrol
-        {
-            currentState = EnemyState.PATROL;
+            changeState(EnemyState.PATROL);
         }
     }
-    
-    void AttackPlayer()
+    // 상태 변화 매소드로 분리
+    private void changeState(EnemyState newState)
     {
-        // 플레이어 사이의 거리
-        float distance = Vector3.Distance(transform.position, player.position);
-        if (distance > attackRange)
+        currentState = newState;
+        switch (newState)
         {
-            // 벗어나면 추격
-            currentState = EnemyState.CHASE;
+            case EnemyState.PATROL:
+                animator.SetFloat("Action", 0.5f);
+                animator.speed = agent.velocity.magnitude / agent.speed * 1.5f;
+                break;
+            case EnemyState.CHASE:
+                animator.speed = agent.velocity.magnitude / agent.speed * 1.8f;
+                animator.SetFloat("Action", 1f);
+                break;
         }
     }
 }
