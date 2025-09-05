@@ -1,47 +1,39 @@
 using UnityEngine;
 using TMPro;
 
-public class InteractableBook : MonoBehaviour
+public class InteractableBook : MonoBehaviour, IInteractable
 {
-     public Camera playerCamera;
-    public float interactDistance = 2f;
-    public LayerMask interactLayer;
-    public TextMeshProUGUI interactionText;
-    public GameObject hintUI; // 펼쳐진 책 이미지   
+    public GameObject hintUI;           // 펼쳐진 책 UI    
+    private bool hasRead = false;       // 책을 이미 읽었는지     
+    private bool isHintOpen = false;    // 책 UI가 열려 있는지
 
-    private bool hasRead = false;
-    private bool isHintOpen = false;
-
-    void Update()
+    public void Interact()
     {
-        // 가장 먼저 열려 있으면 닫는 처리
-        if (isHintOpen && Input.GetKeyDown(KeyCode.E))
+        // 책 펼쳐져 있으면 닫기
+        if (isHintOpen)
         {
             hintUI.SetActive(false);
             isHintOpen = false;
-            return; // 아래 상호작용 로직은 실행 안 함
         }
-
-        // Ray를 쏴서 책에 닿았는지 체크
-        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, interactDistance, interactLayer))
+        // 책 처음 읽기
+        else if (!hasRead)
         {
-            if (hit.collider.CompareTag("Book") && !hasRead)
-            {
-                interactionText.gameObject.SetActive(true);
-
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    hasRead = true;
-                    isHintOpen = true;
-                    interactionText.gameObject.SetActive(false);
-                    hintUI.SetActive(true);
-                }
-            }
-            else
-            {
-                interactionText.gameObject.SetActive(false);
-            }
+            hasRead = true;
+            isHintOpen = true;
+            hintUI.SetActive(true);
         }
+    }
+
+    public string GetPromptText()
+    {
+        if (isHintOpen) return "[E] 책 덮기";
+        if (!hasRead) return "[E] 책 읽기";
+        return ""; // 이미 읽었고, 닫힌 상태면 상호작용 없음
+    }
+    
+    // InteractionManager에서 열림 상태 확인용
+    public bool IsHintOpen()
+    {
+        return isHintOpen;
     }
 }
