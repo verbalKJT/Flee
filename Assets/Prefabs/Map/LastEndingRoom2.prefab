@@ -2341,6 +2341,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3428622426471887440}
     m_Modifications:
+    - target: {fileID: 114487403728583467, guid: 9a52fc852c8d05b43a597ac2d988c830, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2625105989476015266, guid: 9a52fc852c8d05b43a597ac2d988c830, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000971339856494452, guid: 9a52fc852c8d05b43a597ac2d988c830, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8339412045206038859, guid: 9a52fc852c8d05b43a597ac2d988c830, type: 3}
       propertyPath: m_RootOrder
       value: 42
@@ -2389,6 +2401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Piano
       objectReference: {fileID: 0}
+    - target: {fileID: 8714566153595188209, guid: 9a52fc852c8d05b43a597ac2d988c830, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2424,8 +2440,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.2385966, y: 1.3454261, z: 2.5187063}
-  m_Center: {x: 0.41130924, y: 0.7055565, z: -0.025844008}
+  m_Size: {x: 0.9302374, y: 1.3454261, z: 2.1506228}
+  m_Center: {x: 0.41232267, y: 0.70555663, z: -0.011466148}
 --- !u!114 &9014382352917851770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2439,7 +2455,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endingSceneName: EndingCinematic
-  interactionTextUI: {fileID: 0}
 --- !u!4 &4347336585672874970 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8339412045206038859, guid: 9a52fc852c8d05b43a597ac2d988c830, type: 3}

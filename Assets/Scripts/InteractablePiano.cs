@@ -1,44 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
-public class InteractablePiano : MonoBehaviour
+public class InteractablePiano : MonoBehaviour, IInteractable
 {
-    public string endingSceneName = "EndingCinematic"; // EndingCinematic Scene name
-    public TextMeshProUGUI interactionTextUI; // interaction E
-    private bool isPlayerNear = false;
-
-    private void Update()
-    {
-        if (isPlayerNear && Input.GetKeyDown(KeyCode.E))
-        {
-            LoadEndingScene();
-        }
-    }
-
-    private void LoadEndingScene()
+    public string endingSceneName = "EndingCinematic"; // 엔딩 시네마틱 씬 이름 
+    public void Interact()
     {
         SceneManager.LoadScene(endingSceneName);
     }
-
-    private void OnTriggerEnter(Collider other)
+    public string GetPromptText()
     {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("플레이어가 피아노에 접근했습니다.");
-            isPlayerNear = true;
-            if (interactionTextUI != null)
-            interactionTextUI.gameObject.SetActive(true); // 텍스트 켜기
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerNear = false;
-            if (interactionTextUI != null)
-            interactionTextUI.gameObject.SetActive(false); // 텍스트 끄기
-        }
+        return "[E] 피아노 연주하기";
     }
 }
