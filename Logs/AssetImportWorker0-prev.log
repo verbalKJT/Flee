@@ -1,0 +1,381 @@
+Unity Editor version:    6000.0.42f1 (feb9a7235030)
+Branch:                  6000.0/staging
+Build type:              Release
+Batch mode:              YES
+macOS version:           Version 15.6.1 (Build 24G90)
+Darwin version:          24.6.0
+Architecture:            arm64
+Running under Rosetta:   NO
+Available memory:        24576 MB
+Using pre-set license
+Pro License: YES
+
+COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/6000.0.42f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/Users/kimjintae/UnityS/Flee
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+52532
+-job-worker-count
+5
+-background-job-worker-count
+8
+-gc-helper-count
+1
+Successfully changed project path to: /Users/kimjintae/UnityS/Flee
+/Users/kimjintae/UnityS/Flee
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [8768446656]  Target information:
+
+Player connection [8768446656]  * "[IP] 172.30.1.68 [Port] 0 [Flags] 2 [Guid] 248285542 [EditorId] 248285542 [Version] 1048832 [Id] OSXEditor(0,kimjintaeui-MacBookPro.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" 
+
+Player connection [8768446656] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [8768446656] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 5
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 1.24 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.42f1 (feb9a7235030)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/6000.0.42f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/kimjintae/UnityS/Flee/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+ preferred device: Apple M4 Pro (high power)
+Metal devices available: 1
+0: Apple M4 Pro (high power)
+Using device Apple M4 Pro (high power)
+Initializing Metal device caps: Apple M4 Pro
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/6000.0.42f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/6000.0.42f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
+Mono config path = '/Applications/Unity/Hub/Editor/6000.0.42f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56880
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/6000.0.42f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/6000.0.42f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.000657 seconds.
+- Loaded All Assemblies, in  0.196 seconds
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.194 seconds
+Domain Reload Profiling: 390ms
+	BeginReloadAssembly (56ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (0ms)
+	RebuildCommonClasses (18ms)
+	RebuildNativeTypeToScriptingClass (6ms)
+	initialDomainReloadingComplete (24ms)
+	LoadAllAssembliesAndSetupDomain (92ms)
+		LoadAssemblies (59ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (88ms)
+			TypeCache.Refresh (87ms)
+				TypeCache.ScanAssembly (80ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (194ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (170ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (23ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (29ms)
+			ProcessInitializeOnLoadAttributes (76ms)
+			ProcessInitializeOnLoadMethodAttributes (39ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.389 seconds
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 0.19 ms, found 2 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Package Manager log level set to [2]
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.410 seconds
+Domain Reload Profiling: 799ms
+	BeginReloadAssembly (64ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (19ms)
+	RebuildCommonClasses (21ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (18ms)
+	LoadAllAssembliesAndSetupDomain (278ms)
+		LoadAssemblies (166ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (141ms)
+			TypeCache.Refresh (109ms)
+				TypeCache.ScanAssembly (98ms)
+			BuildScriptInfoCaches (22ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (410ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (327ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (1ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (56ms)
+			ProcessInitializeOnLoadAttributes (226ms)
+			ProcessInitializeOnLoadMethodAttributes (40ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (1ms)
+Launching external process: /Applications/Unity/Hub/Editor/6000.0.42f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Refreshing native plugins compatible for Editor in 0.32 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 241 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6421 unused Assets / (3.6 MB). Loaded Objects now: 7155.
+Memory consumption went from 195.7 MB to 192.2 MB.
+Total: 4.976666 ms (FindLiveObjects: 0.703958 ms CreateObjectMapping: 0.130500 ms MarkObjects: 3.088459 ms  DeleteObjects: 1.053458 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 60108.805790 seconds.
+  path: Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN
+  artifactKey: Guid(d7f80ba4e3a6e424591e60d9b64357ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN using Guid(d7f80ba4e3a6e424591e60d9b64357ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8cc839de5f3e3b0b49841c2fb2118ab4') in 0.002406791 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.054789 seconds.
+  path: Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Die Whisper 1_Kor.wav
+  artifactKey: Guid(595c17c809a4166489618581e22b27a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Die Whisper 1_Kor.wav using Guid(595c17c809a4166489618581e22b27a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6251702967a9a7fd4593e329e1d26b04') in 0.108215417 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_I told you to get out_Kor_Whisper 3.wav
+  artifactKey: Guid(bb9d2d9646b910e4090d090b8969b98d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_I told you to get out_Kor_Whisper 3.wav using Guid(bb9d2d9646b910e4090d090b8969b98d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8f2f2af9cfd5cf50e1f479c4bf975532') in 0.005164417 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Get Out 3_Kor.wav
+  artifactKey: Guid(4f167323251578c46b11705c12122c37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Get Out 3_Kor.wav using Guid(4f167323251578c46b11705c12122c37) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1f429b24b204e1e1e03028255035cb13') in 0.004635 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Go_Kor 3.wav
+  artifactKey: Guid(db8eec25995dfaa4da86549906175c3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Go_Kor 3.wav using Guid(db8eec25995dfaa4da86549906175c3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dca4c8d669d78082e6924e8f546a074e') in 0.005999417 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_I told you to leave_Kor 1.wav
+  artifactKey: Guid(27870e9cd34ea364ab856af9de8c7ced) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_I told you to leave_Kor 1.wav using Guid(27870e9cd34ea364ab856af9de8c7ced) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1b873b7a6b2c42951d248c34b7103421') in 0.005125083 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Dont Look Back_Kor 3.wav
+  artifactKey: Guid(8f8daa36e3c53ed4eaac0bcbc5f3f9f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Dont Look Back_Kor 3.wav using Guid(8f8daa36e3c53ed4eaac0bcbc5f3f9f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '28b721899257a7fa357bc5e7c1a5f58b') in 0.004503541 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Get Out 2_Kor.wav
+  artifactKey: Guid(5e9fc33afb966ec499b7191ab95a3330) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Get Out 2_Kor.wav using Guid(5e9fc33afb966ec499b7191ab95a3330) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c40b9b695f39ef92fec1a9f44ae9f86c') in 0.004512458 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Guess Who Am I_Kor 2.wav
+  artifactKey: Guid(432d48a17e190fc47a72a74d7221b85b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Guess Who Am I_Kor 2.wav using Guid(432d48a17e190fc47a72a74d7221b85b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'aabd4144245fbaa6dc904a0c1dc9518d') in 0.005338417 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Get Out Of My House_Kor 2.wav
+  artifactKey: Guid(53ba6b5ef926ac945bd5ecea8d6d8f7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Get Out Of My House_Kor 2.wav using Guid(53ba6b5ef926ac945bd5ecea8d6d8f7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e4b7980ad9759c00d4db3f7c5535b148') in 0.004949875 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Get Out Of My House_Kor 3.wav
+  artifactKey: Guid(91191be7d865d70439997e20d45432bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Get Out Of My House_Kor 3.wav using Guid(91191be7d865d70439997e20d45432bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7f750c653a0eeeb46324f270030b354c') in 0.005136209 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000112 seconds.
+  path: Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_I told you to get out_Kor_Whisper 5.wav
+  artifactKey: Guid(e37913452b72a8a43aa8c89e920f3eaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_I told you to get out_Kor_Whisper 5.wav using Guid(e37913452b72a8a43aa8c89e920f3eaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9de439b211bdbc53b4a38f5e5f870269') in 0.004845709 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Guess Where Am I_Kor 1.wav
+  artifactKey: Guid(0a365d5a19b669a4987c8ff4ae3044a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/GHOST VOICE SFX-KOREAN FEMALE, MALE/DRY_KOREAN/DRY_Guess Where Am I_Kor 1.wav using Guid(0a365d5a19b669a4987c8ff4ae3044a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7101a3f1e03fe2b807af9b0c8a41b4c1') in 0.00471725 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.725736 seconds.
+  path: Assets/Resources/Horror child pack
+  artifactKey: Guid(a321a53920c27364eb6af5a88f0ff224) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Horror child pack using Guid(a321a53920c27364eb6af5a88f0ff224) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd051b87956a40c02ddcef43c6ab93824') in 0.000335375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 76.919523 seconds.
+  path: Assets/Scenes/1stFloor/Lightmap-0_comp_light.exr
+  artifactKey: Guid(7c74ba831ed1a4e3f83eac30e6e28b67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/1stFloor/Lightmap-0_comp_light.exr using Guid(7c74ba831ed1a4e3f83eac30e6e28b67) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '30cb71b7cd6cec3c77dd91f940ef391e') in 0.049652917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Scenes/1stFloor/Lightmap-3_comp_light.exr
+  artifactKey: Guid(3584f54920d694cb0a5c817d74f0d54f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/1stFloor/Lightmap-3_comp_light.exr using Guid(3584f54920d694cb0a5c817d74f0d54f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f69ca8ddc262d093034e7bb4df537cd7') in 0.003845166 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Scenes/1stFloor/NavMesh-Floors.asset
+  artifactKey: Guid(690883d80569f4a0fbb1ec567be583d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/1stFloor/NavMesh-Floors.asset using Guid(690883d80569f4a0fbb1ec567be583d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '906041c3aa3a95943d534199fb80a67d') in 0.000819625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Scenes/1stFloor/Lightmap-2_comp_light.exr
+  artifactKey: Guid(0eabe3ed4cc8449bf8fc6766b44aa55f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/1stFloor/Lightmap-2_comp_light.exr using Guid(0eabe3ed4cc8449bf8fc6766b44aa55f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5414454f978bbd107f72d075221df636') in 0.003702292 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Scenes/1stFloor/Lightmap-1_comp_dir.png
+  artifactKey: Guid(7780c21e05b0f467c9466a53599a46a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/1stFloor/Lightmap-1_comp_dir.png using Guid(7780c21e05b0f467c9466a53599a46a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '25ec763aaeaa9b5b69ef3ce623b3a34b') in 0.004058792 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000098 seconds.
+  path: Assets/Scenes/1stFloor/Lightmap-1_comp_light.exr
+  artifactKey: Guid(b8c3c63bf1f0640bdafa35f9a3fe5cac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/1stFloor/Lightmap-1_comp_light.exr using Guid(b8c3c63bf1f0640bdafa35f9a3fe5cac) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dd57d7492ca698703b1a5da6f0531931') in 0.003183 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.349946 seconds.
+  path: Assets/Scenes/IntroCinematic/LightingData.asset
+  artifactKey: Guid(65ef054f62dfeee488a4581f5d2c97f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/IntroCinematic/LightingData.asset using Guid(65ef054f62dfeee488a4581f5d2c97f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '78465883e4b59a698dfcee77f1c537ce') in 0.003270209 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Scenes/IntroCinematic/ReflectionProbe-1.exr
+  artifactKey: Guid(c0d88e02f773e864ca56b0a991ad54ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/IntroCinematic/ReflectionProbe-1.exr using Guid(c0d88e02f773e864ca56b0a991ad54ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c7a36b06371bbb6bce973a83eb3925e1') in 0.192496959 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
