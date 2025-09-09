@@ -7,12 +7,12 @@ public class CinematicEnd : MonoBehaviour
     public PlayableDirector director;
     void Start()
     {
-        // íƒ€ì„ë¼ì¸ ì¬ìƒì´ ëë‚˜ë©´ ì´ë²¤íŠ¸ í˜¸ì¶œ
+        // Å¸ÀÓ¶óÀÎ Àç»ıÀÌ ³¡³ª¸é ÀÌº¥Æ® È£Ãâ
         director.stopped += OnTimelineFinished;
     }
     void OnTimelineFinished(PlayableDirector pd)
     {
-        // ë‹¤ìŒ ì”¬ìœ¼ë¡œ ì´ë™
+        // ´ÙÀ½ ¾ÀÀ¸·Î ÀÌµ¿
         SceneManager.LoadScene("1stFloor");
     }
 }

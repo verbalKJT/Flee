@@ -53,14 +53,16 @@ public class CeilingWaterTrigger : MonoBehaviour
             cg.alpha = 1f;
         }
 
-        // 순간이동
+        // 순간이동(CharacterController로 해야 순간이동 버그 없음)
         CharacterController cc = player.GetComponent<CharacterController>();
         if (cc != null)
         {
+            //잠시 없앤다음 순간위치로 이동후 생성
             cc.enabled = false;
             player.transform.position = teleportTarget.position;            
             cc.enabled = true;
             triggered = false;
+
             //물 에서 나옴
             waterManager.InWater = false;
             //문없어지는 트리거 초기화

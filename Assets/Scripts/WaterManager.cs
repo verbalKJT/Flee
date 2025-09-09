@@ -50,17 +50,6 @@ public class WaterManager : MonoBehaviour
             InWater = true;
             Debug.Log("플레이어 물에 닿음");
 
-            //플레이어 이동
-           /* Rigidbody rb = other.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                // 플레이어를 부드럽게 위로 이동시킴
-                Vector3 targetPosition = rb.position + Vector3.up * riseSpeed * Time.deltaTime;
-
-                // MovePosition으로 자연스러운 이동 유도
-                rb.MovePosition(targetPosition);
-            }
-           */
             //플레이어 카메라효과            
             if ( cameraOverlayObject != null)
             {

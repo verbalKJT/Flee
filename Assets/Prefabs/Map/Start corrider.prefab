@@ -5868,6 +5868,8 @@ GameObject:
   - component: {fileID: 5320271196730316502}
   - component: {fileID: 4662651428827000602}
   - component: {fileID: 3186119052958159315}
+  - component: {fileID: 1723903933118194952}
+  - component: {fileID: 6520309841623816833}
   m_Layer: 0
   m_Name: Door2_brown 1 (1)
   m_TagString: Untagged
@@ -5985,6 +5987,40 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
+--- !u!95 &1723903933118194952
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2902626844477645230}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7704b64279a2b534fa472bc65d2b1913, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6520309841623816833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2902626844477645230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b0a96857a098f458096503fdf12978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2904155414878468448
 GameObject:
   m_ObjectHideFlags: 0
