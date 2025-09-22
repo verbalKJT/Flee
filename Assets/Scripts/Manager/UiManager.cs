@@ -19,6 +19,11 @@ public class UiManager : MonoBehaviour
         settingPanel.SetActive(true);
     }
 
+    public void OffSetting()
+    {
+        settingPanel.SetActive(false);
+    }
+
     void FixedUpdate()
     {
         if (settingPanel.activeSelf && Input.GetKey(KeyCode.Escape))
@@ -26,5 +31,6 @@ public class UiManager : MonoBehaviour
             settingPanel.SetActive(false);
         }
     }
+    
     
 }

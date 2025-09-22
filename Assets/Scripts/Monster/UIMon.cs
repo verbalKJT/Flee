@@ -1,5 +1,4 @@
 using System.Collections;
-using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -7,9 +6,9 @@ using UnityEngine.Playables;
 public class UIMon : MonoBehaviour
 {
     [SerializeField] private Vector3 targetTransform1, targetTransform2;
-    [SerializeField] private PlayableDirector timeLine;
+    [SerializeField]private PlayableDirector timeLine;
     [SerializeField] private GameObject uiCam;
-    private CinemachineBasicMultiChannelPerlin noise;
+    private CinemachineBasicMultiChannelPerlin noise; // 화면 흔들림
     Animator animator;
 
     void Awake()
@@ -24,13 +23,13 @@ public class UIMon : MonoBehaviour
         StartCoroutine(TeleportWithAnim(4f, targetTransform2));
     }
     
-    private IEnumerator Teleport(float waitTime, Vector3 targetTransform)
+    private IEnumerator Teleport(float waitTime, Vector3 targetTransform) // 이동 -> 없앨 가능성 높음
     {
         yield return new WaitForSeconds(waitTime);
         transform.position = targetTransform;
     }
 
-    private IEnumerator TeleportWithAnim(float waitTime, Vector3 targetTransform)
+    private IEnumerator TeleportWithAnim(float waitTime, Vector3 targetTransform) // 이동 + 애니메이션 트리거
     {
         yield return new WaitForSeconds(waitTime);
         transform.position = targetTransform;
@@ -39,11 +38,10 @@ public class UIMon : MonoBehaviour
     // 헤딩 애니메이션 종료 후 이벤트 메소드
     public void OnAniFinished()
     {
-        Debug.Log("AniFinished");
         timeLine.Play();
     }
 
-    public void OnShake()
+    public void OnShake() // 화면 흔드는 메소드,코루틴
     {
         StartCoroutine(DoShake(3f, 5f, 0.7f));
     }
