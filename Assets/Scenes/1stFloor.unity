@@ -994,6 +994,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 6141689224119123658, guid: 526f079d60626449d939aa8505ce60a7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6213114595316061309, guid: 526f079d60626449d939aa8505ce60a7, type: 3}
       propertyPath: m_Convex
       value: 1
@@ -2120,9 +2124,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2721619789995295255, guid: 8528ce082a8aca349903efae280f7c75, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6082067440800317202, guid: 8528ce082a8aca349903efae280f7c75, type: 3}
       propertyPath: m_Name
       value: Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082067440800317202, guid: 8528ce082a8aca349903efae280f7c75, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

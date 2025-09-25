@@ -1,27 +1,30 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private GameObject UiMon; // 프리펩 받기
+
     void Start()
     {
-        
+        StartCoroutine(ActiveUiMonster(3f));
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator ActiveUiMonster(float spawnTime)
     {
-        
+        yield return new WaitForSeconds(spawnTime);
+        UiMon.SetActive(true);
     }
 
-    public void ReStartGame()
+    public void StartGame()
     {
-        SceneManager.LoadScene("1stFloor");
+        SceneManager.LoadScene("IntroCinematic");
     }
 
     public void ExitGame()
     {
         Application.Quit();
     }
+    
 }
