@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5555635518034242236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7350900999063289318}
+  - component: {fileID: 976032543549536234}
+  m_Layer: 0
+  m_Name: MiddleMonDeathController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7350900999063289318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5555635518034242236}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 36.017525, y: 15.505139, z: 57.62301}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &976032543549536234
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5555635518034242236}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 735fcf5c8d28ea84487adcfb2d1aa9f5, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 3086929841681846935, guid: 735fcf5c8d28ea84487adcfb2d1aa9f5, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -562459944029292336, guid: 735fcf5c8d28ea84487adcfb2d1aa9f5, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3953542697406698620, guid: 735fcf5c8d28ea84487adcfb2d1aa9f5, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7887394495405519699, guid: 735fcf5c8d28ea84487adcfb2d1aa9f5, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3808462912482828665, guid: 735fcf5c8d28ea84487adcfb2d1aa9f5, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References:
+    - 8050d4bd17de031469ddccef898e4644: {fileID: 0}
+    - b205c18c380e9274d8d6e983a4264b7b: {fileID: 0}
+    - 4fc9b2cdcdcfb224a9a3ea2184d7a885: {fileID: 0}
