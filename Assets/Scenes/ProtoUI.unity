@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256d0515373284ae7b30356be94403ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseCanvas: {fileID: 0}
   settingPanel: {fileID: 1948043872}
 --- !u!4 &188323771
 Transform:
@@ -1934,6 +1935,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 122889877423681092, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 122889877423681092, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1040066020591876937, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
       propertyPath: m_Name
       value: volumeScrollbar
@@ -1941,6 +1950,10 @@ PrefabInstance:
     - target: {fileID: 2746098836997304952, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
       propertyPath: m_Name
       value: SettingPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746098836997304952, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3109167680080798147, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
       propertyPath: m_Name

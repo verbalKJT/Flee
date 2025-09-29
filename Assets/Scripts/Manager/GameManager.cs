@@ -7,34 +7,21 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject UiMon; // ui mon
-
-    [SerializeField]private GameObject settingPanel; // 세팅 패널
-
-    // 세팅 패널 내 Drowdown 및 Silder
-    [SerializeField]private TMP_Dropdown windowDropdown;
-    [SerializeField]private TMP_Dropdown resolutionDropdown;
-    [SerializeField]private Scrollbar volumeScrollbar;
-
+    public static GameManager instance {get; private set;} // 싱글톤
     void Awake()
     {
-        DontDestroyOnLoad(gameObject); // 모든 씬에서 사용
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject); // 중복시 파괴
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject); // 씬 넘어가도 삭제 안되도록
     }
 
     void Start()
     {
         StartCoroutine(ActiveUiMonster(3f));
-    }
-
-    void Update()
-    {
-        if (SceneManager.GetActiveScene().name.Equals("1stFloor")) // Main 씬에서 SettingPanel 끄기
-        {
-            if (Input.GetKeyDown(KeyCode.Escape) && !settingPanel.activeSelf)
-            {
-                settingPanel.SetActive(true);
-                Time.timeScale = 0; // 일시 정지
-            }
-        }
     }
 
     private IEnumerator ActiveUiMonster(float spawnTime)
@@ -49,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("IntroCinematic");
+        SceneManager.LoadScene("1stFloor");
     }
 
     public void ExitGame()
@@ -59,25 +46,7 @@ public class GameManager : MonoBehaviour
 
     public void ApplySettings()
     {
-        // 창,전체
-        FullScreenMode mode = FullScreenMode.FullScreenWindow;
-        switch (windowDropdown.value)
-        {
-            case 0: mode = FullScreenMode.ExclusiveFullScreen; break;
-            case 1: mode = FullScreenMode.FullScreenWindow; break;
-        }
-        // 해상도 
-        string resolution = resolutionDropdown.options[resolutionDropdown.value].text;
-        string[] resolutonPart = resolution.Split('x');
-        int width = int.Parse(resolutonPart[0]);
-        int height = int.Parse(resolutonPart[1]);
-        Screen.SetResolution(width, height, mode);
-
-        // 볼륨 설정
-        float volume = volumeScrollbar.value;
-        AudioListener.volume = volume;
-        
-        Debug.Log(mode + " " + width + " " + height + " " + volume);
+        UiManager.instance.ApplySettings();
     }
     // 씬이 넘아가도 넘어간 씬의 SettingPanel을 찾을 수 있게
     void OnEnable()
@@ -91,24 +60,19 @@ public class GameManager : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name.Equals("1stFloor")) // 인트로랑 메인 씬에서만 찾도록
-        {
-            settingPanel = GameObject.Find("SettingPanel");
-            if (settingPanel != null)
-            {
-                windowDropdown = settingPanel.transform.Find("windowDropdown").GetComponent<TMP_Dropdown>();
-                resolutionDropdown = settingPanel.transform.Find("resolutionDropdown").GetComponent<TMP_Dropdown>();
-                volumeScrollbar = settingPanel.transform.Find("volumeScrollbar").GetComponent<Scrollbar>();
-            }
-        }
-        else
-        {
-            settingPanel = null;
-        }
-
         if (!scene.name.Equals("ProtoUI"))
         {
             UiMon =  null;
         }
+    }
+
+    public void continueGame()
+    {
+        Time.timeScale = 1;
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("ProtoUI");
     }
 }
