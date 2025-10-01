@@ -1,15 +1,19 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    //싱글톤으로 구현
     public static Inventory Instance { get; private set; }
 
+    //인벤토리 리스트
     public List <InventoryItem> inventory;
+    //아이템 슬롯 UI 배열(5칸)
+    public Image[] ItemSlotUI=new Image[5];    
 
-    //아이템 슬롯 UI 리ㅣ스트
-
+    //손에 드는 아이템
     public InventoryItem hand;
     public bool isHandEmty=true;
 
@@ -29,12 +33,30 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    //아이템 획득
+    //스토리용 아이템 획득
     public void AddInventory(InventoryItem item)
     {
         inventory.Add(item);
         Debug.Log(item.data.itemName + "획득");
         //슬롯에 이미지 띄우기
+        ItemSlotUpdate();
+    }
+
+    //아이템 슬롯 업데이트
+    public void ItemSlotUpdate()
+    {
+        //
+        int index = 0;
+
+        foreach (var item in inventory)
+        {
+            if (!item.data.isStoryItem) continue;
+            if (index >= ItemSlotUI.Length) break;
+
+            ItemSlotUI[index].sprite = item.data.icon;
+            ItemSlotUI[index].color = Color.white;
+            index++;
+        }
     }
 
     //인벤토리아이템 비우기
@@ -68,8 +90,9 @@ public class Inventory : MonoBehaviour
 
         //손 비움
         isHandEmty = true;
-        //슬롯이미지에서 삭제
+        
         
     }   
 
+    
 }
