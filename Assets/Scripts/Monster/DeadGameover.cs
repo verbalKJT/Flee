@@ -10,7 +10,7 @@ public class DeadGameover : MonoBehaviour
 
     [Header("Player Control")]
     [SerializeField] private GameObject playerObject; // Player 오브젝트
-    [SerializeField] private MonoBehaviour playerControllerScript; // 예: PlayerMovement, PlayerController 등
+    [SerializeField] private MonoBehaviour playerControllerScript; // PlayerMovement
 
     private bool hasPlayed = false;
 
@@ -34,9 +34,6 @@ public class DeadGameover : MonoBehaviour
             // 플레이어 조작 끄기
             if (playerControllerScript != null)
                 playerControllerScript.enabled = false;
-            
-            // MiddleMon 오브젝트 삭제
-            Destroy(gameObject); // 이 스크립트가 붙어있는 GameObject
 
             // Timeline 실행
             if (timeline != null)
@@ -55,7 +52,8 @@ public class DeadGameover : MonoBehaviour
         }
         else
         {
-            gameOverUI.SetActive(true); // fallback
+            gameOverUI.SetActive(true); 
+            Destroy(gameObject); // fallback
         }
     }
 
@@ -73,5 +71,8 @@ public class DeadGameover : MonoBehaviour
         }
 
         canvasGroup.alpha = 1f;
+        
+        // MiddleMon 오브젝트 삭제
+        Destroy(gameObject); 
     }
 }
