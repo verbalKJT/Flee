@@ -73,6 +73,6 @@ public class DeadGameover : MonoBehaviour
         canvasGroup.alpha = 1f;
         
         // MiddleMon 오브젝트 삭제
-        Destroy(gameObject); 
+        // Destroy(gameObject); 
     }
 }

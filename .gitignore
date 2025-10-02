@@ -1,38 +1,63 @@
+# Unity 기본 무시 폴더
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
 [Mm]emoryCaptures/
+[Ll]ogs/
+[Pp]rofile/
+
+# Unity 에디터 개인 설정
+UserSettings/
+
+# IDE / Editor 관련
+.vs/
+.idea/
+.vscode/
+
+# Visual Studio / Rider 생성 파일
 *.csproj
 *.unityproj
 *.sln
+*.suo
+*.tmp
 *.user
+*.userprefs
 *.pidb
 *.booproj
 *.svd
+*.iml
+
+# OS 별 불필요 파일
 .DS_Store
-.idea/
 Thumbs.db
 
-# 텍스처, 머티리얼, 프리팹, 메타 파일 Git에 포함시키기
+# Addressables / ShaderCache
+[Aa]ddressableAssetsData/*
+*.shadercache
+*.cginc
+
+# Crash Reports
+sysinfo.txt
+
+# 빌드 산출물
+*.apk
+*.aab
+*.ipa
+*.xcworkspace
+*.xcuserstate
+*.xcuserdatad
+*.xcsettings
+*.xcscmblueprint
+*.xcodeproj/*
+*.plist
+
+# 텍스처, 머티리얼, 프리팹, 메타 파일은 반드시 포함
 !Assets/**/*.png
 !Assets/**/*.jpg
 !Assets/**/*.tga
 !Assets/**/*.mat
 !Assets/**/*.prefab
 !Assets/**/*.unity
-!Assets/**/*.metaLogs/
-
-
-.idea/
-
-# Unity Editor 개인 설정 무시
-UserSettings/
-.idea/
-UserSettings/
-
-
-.vscode/
-
-
+!Assets/**/*.meta
