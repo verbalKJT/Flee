@@ -1,33 +1,23 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animation))]
 public class EndingRoomDoor : MonoBehaviour
 {
     public Transform player;
     public float interactDistance = 3f;
-    public AudioSource pianoMusic; // piano music
-    private Animation anim;
-    private bool isOpen = false;
-    private bool hasPlayedMusic = false;
+    public AudioSource pianoMusic;
 
-    void Start()
-    {
-        anim = GetComponent<Animation>();
-    }
+    private bool isOpened = false;
 
     void Update()
     {
-        float dist = Vector3.Distance(player.position, transform.position);
+        float distance = Vector3.Distance(player.position, transform.position);
 
-        if (dist <= interactDistance && !isOpen && Input.GetKeyDown(KeyCode.E))
+        if (distance <= interactDistance && !isOpened && Input.GetKeyDown(KeyCode.E))
         {
-            anim.Play("Door2_Open");
-            isOpen = true;
-
-            if (!hasPlayedMusic && pianoMusic != null)
+            if (pianoMusic != null && !pianoMusic.isPlaying)
             {
                 pianoMusic.Play();
-                hasPlayedMusic = true;
+                isOpened = true;
             }
         }
     }
