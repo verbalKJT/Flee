@@ -23,13 +23,12 @@ public class CrossHairDoor : MonoBehaviour
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // 카메라 중심에서 광선 쏘기
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, interactionDistance, doorLayer)) // 광선을 쏴서 Door 레이어에 닿으면 반응
+        if (Physics.Raycast(ray, out hit, interactionDistance, doorLayer))
         {
             DoorOpener door = hit.collider.GetComponentInParent<DoorOpener>(); // 문 컴포넌트 찾기
 
             if (door != null)
             {
-                Debug.Log("문 인식됨!");
                 interactionText.text = door.IsOpen() ? "[E] 문 닫기" : "[E] 문 열기";
                 interactionText.gameObject.SetActive(true);
 
