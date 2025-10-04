@@ -15,6 +15,7 @@ public class DoorOpener : MonoBehaviour
     {
         isOpen = !isOpen;
 
+        // 애니메이터를 통해 문의 열고 닫음을 해줌
         if (isOpen)
         {
             animator.SetTrigger("Door1Open");
