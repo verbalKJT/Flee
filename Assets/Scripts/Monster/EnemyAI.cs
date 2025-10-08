@@ -2,10 +2,10 @@ using Script;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : Monster
 {
     private Animator animator;
-    [SerializeField] private Transform player; // 플레이어 Transform 참조
+    // 플레이어 Transform 참조
     [SerializeField] private float sightRange; // 인식 거리
     [SerializeField] private float sightAngle; // 시야각
     [SerializeField] private float attackRange; // 공격 범위  
@@ -16,14 +16,7 @@ public class EnemyAI : MonoBehaviour
 
     private EnemyState currentState = EnemyState.PATROL; // 적의 현재 상태
     private NavMeshAgent agent; // 이동 제어
-
-    void Start()
-    {
-        agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-        agent.speed = 5f;
-    }
-
+    
     void Update()
     {
         switch (currentState)
@@ -121,4 +114,13 @@ public class EnemyAI : MonoBehaviour
                 break;
         }
     }
+
+    public override void OnPlayerSetupComplete()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        agent.speed = 5f;
+    }
+
+    
 }

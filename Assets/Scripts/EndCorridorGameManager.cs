@@ -1,39 +1,42 @@
+using System.Collections;
 using UnityEngine;
-// using UnityEngine.SceneManagement; // ¸¶Áö¸·¿¡ ¾À ÀüÈ¯ ¾µ °Å¸é ÁÖ¼® ÇØÁ¦
+// using UnityEngine.SceneManagement; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ ï¿½Å¸ï¿½ ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 public class EndCorridorGameManager : MonoBehaviour
 {
     public static EndCorridorGameManager I;
     void Awake() => I = this;
 
-    [Header("Prefabs & Refs")]
-    public GameObject holywayPrefab;   // º¹µµ ÇÁ¸®ÆÕ (Holyway ÄÄÆ÷³ÍÆ® Æ÷ÇÔ)
-    public Transform spawnRoot;        // º¹µµ »ý¼º ±âÁØ À§Ä¡/È¸Àü (GameManager ÀÚ½ÅÀ» ½áµµ OK)
-    public Transform player;           // ÇÃ·¹ÀÌ¾î Transform
+    [Header("Prefabs & Refs")] 
+    private GameObject holywayPrefab;   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (Holyway ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½)
+    public Transform spawnRoot;        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡/È¸ï¿½ï¿½ (GameManager ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½áµµ OK)
+    public Transform player;           // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ Transform
 
     [Header("Progress")]
-    public int totalStages = 4;        // ÃÑ ½ºÅ×ÀÌÁö °³¼ö (1..4)
-    private int currentStage = 1;      // ÇöÀç(´ÙÀ½¿¡ »ý¼ºÇÒ) ½ºÅ×ÀÌÁö ¹øÈ£
-    private holyway current;           // ÇöÀç »ì¾ÆÀÖ´Â º¹µµ
+    public int totalStages = 4;        // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (1..4)
+    private int currentStage = 1;      // ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+    private holyway current;           // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
     private CharacterController cc;
-    private bool inTransition = false; // Áßº¹ Æ®¸®°Å ¹æÁö
+    private bool inTransition = false; // ï¿½ßºï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-    void Start()
+    public void StartEndCorridor() // ê¸°ì¡´ Start í•¨ìˆ˜ ë‚´ìš©
     {
         cc = player.GetComponent<CharacterController>();
 
-        // ½ÃÀÛ: Ã¹ º¹µµ »ý¼º (Ã³À½¿£ ÅÚÆ÷¸¦ ÇÏÁö ¾Ê´Â ¿ä±¸¶ó¸é ´ÙÀ½ µÎ ÁÙ Áß Teleport¸¦ Á¦°Å)
-        current = SpawnNewRoom(currentStage);
-        // Ã³À½¿£ ÅÚÆ÷ÇÏÁö ¾Ê´Â´Ù ¡æ ÁÖ¼® À¯Áö
+        // ï¿½ï¿½ï¿½ï¿½: Ã¹ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ä±¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ Teleportï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+        if (holywayPrefab != null)
+        { ;
+            current = SpawnNewRoom(currentStage);
+        }
+        // Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½ ï¿½ï¿½ ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½
         // TeleportTo(current.startPoint.position);
     }
-
     public void OnEndReached(holyway ended)
     {
         if (inTransition || ended != current) return;
         inTransition = true;
 
-        // ´ÙÀ½ ½ºÅ×ÀÌÁö·Î ÁøÇàÇÒÁö °áÁ¤
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (currentStage >= totalStages)
         {
             OnFinishedAll();
@@ -41,14 +44,14 @@ public class EndCorridorGameManager : MonoBehaviour
             return;
         }
 
-        // ´ÙÀ½ º¹µµ »ý¼º
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         currentStage++;
         var next = SpawnNewRoom(currentStage);
 
-        // ¢º ¿ä±¸»çÇ×: ³¡¿¡ ´êÀ» ¶§¸¸, »õ º¹µµÀÇ ½ÃÀÛ Á¡À¸·Î ÅÚÆ÷
+        // ï¿½ï¿½ ï¿½ä±¸ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         TeleportTo(next.startPoint.position);
 
-        // ÀÌÀü º¹µµ Á¤¸®
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         current.OnBeforeDestroyed();
         Destroy(current.gameObject);
 
@@ -60,7 +63,7 @@ public class EndCorridorGameManager : MonoBehaviour
     {
         var go = Instantiate(holywayPrefab, spawnRoot.position, spawnRoot.rotation, spawnRoot);
         var hw = go.GetComponent<holyway>();
-        hw.OnSpawned(stageIndex); // ½ºÅ×ÀÌÁö ¹øÈ£ Àü´Þ ¡æ ½ºÅ×ÀÌÁöº° °¡±¸ ¹èÄ¡
+        hw.OnSpawned(stageIndex); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
         return hw;
     }
 
@@ -72,8 +75,13 @@ public class EndCorridorGameManager : MonoBehaviour
 
     void OnFinishedAll()
     {
-        Debug.Log("[CorridorGameManager] ¸ðµç ½ºÅ×ÀÌÁö Åë°ú ¿Ï·á!");
-        // ÇÊ¿ä ½Ã ¾À ÀüÈ¯/º¸½ºÀü µî
+        Debug.Log("[CorridorGameManager] ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½!");
+        // ï¿½Ê¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         // SceneManager.LoadScene("NextSceneName");
+    }
+
+    public void SetHolyway(GameObject holyway)
+    {
+        this.holywayPrefab = holyway;
     }
 }

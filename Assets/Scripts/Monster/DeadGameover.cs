@@ -2,15 +2,15 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class DeadGameover : MonoBehaviour
+public class DeadGameover : MonoBehaviour, IDeadMon
 {
     [Header("Timeline & UI")]
     [SerializeField] private PlayableDirector timeline;
-    [SerializeField] private GameObject gameOverUI;
+    private GameObject gameOverUI;
 
     [Header("Player Control")]
-    [SerializeField] private GameObject playerObject; // Player 오브젝트
-    [SerializeField] private MonoBehaviour playerControllerScript; // PlayerMovement
+    private GameObject playerObject; // Player 오브젝트
+    private MonoBehaviour playerControllerScript; // PlayerMovement
 
     private bool hasPlayed = false;
 
@@ -74,5 +74,11 @@ public class DeadGameover : MonoBehaviour
         
         // MiddleMon 오브젝트 삭제
         // Destroy(gameObject); 
+    }
+    public void SetPlayerWithUi(GameObject player,  MonoBehaviour playerController, GameObject gameOverUI)
+    {
+        this.playerObject = player;
+        this.playerControllerScript = playerController;
+        this.gameOverUI = gameOverUI;
     }
 }
