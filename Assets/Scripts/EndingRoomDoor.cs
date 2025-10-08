@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EndingRoomDoor : MonoBehaviour
 {
-    public Transform player;
+    private Transform player;
     public float interactDistance = 3f;
     public AudioSource pianoMusic;
 
@@ -20,5 +20,10 @@ public class EndingRoomDoor : MonoBehaviour
                 isOpened = true;
             }
         }
+    }
+
+    public void SetupPlayerTransform(Transform player)
+    {
+        this.player = player;
     }
 }

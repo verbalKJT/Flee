@@ -3,11 +3,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject UiMon; // ui mon
     public static GameManager instance {get; private set;} // 싱글톤
+    
+    [SerializeField]private string mapAddress; // 에셋 주소
+    private GameObject currentMap; // 생성된 맵 저장
     void Awake()
     {
         if (instance != null && instance != this)
@@ -64,8 +69,17 @@ public class GameManager : MonoBehaviour
         {
             UiMon =  null;
         }
-    }
 
+        if (scene.name.Equals("1stFloor"))
+        {
+            OnLoadMap();
+        }
+        else
+        {
+            DestroyMap();
+        } 
+    }
+    
     public void continueGame()
     {
         Time.timeScale = 1;
@@ -75,4 +89,46 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("ProtoUI");
     }
+
+    private void OnLoadMap()
+    {
+        if (currentMap != null)
+        {
+            Destroy(currentMap);
+        }
+        // 비동기 로드 시작
+        Addressables.LoadAssetAsync<GameObject>(mapAddress).Completed += OnMapLoadCompleted;
+    }
+    private void DestroyMap()
+    {
+        if (currentMap != null)
+        {
+            Destroy(currentMap);
+            currentMap = null;
+        }
+    }
+
+    private void OnMapLoadCompleted(AsyncOperationHandle<GameObject> handle)
+    {
+        if (handle.Status == AsyncOperationStatus.Succeeded)
+        {
+            // 로드 성공
+            GameObject map = handle.Result; // 로드된 프리팹 인스턴스화
+            currentMap = Instantiate(map,Vector3.zero,Quaternion.identity);
+            
+            MapInitializer initializer = currentMap.GetComponent<MapInitializer>();
+
+            if (initializer != null)
+            {
+                initializer.Initialize(this);
+                Debug.Log("Map initializer call.");
+            }
+            Debug.Log("Map loaded");
+        }
+        else
+        {
+            Debug.Log("Failed to load map");
+        }
+    }
+
 }

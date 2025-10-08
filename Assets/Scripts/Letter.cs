@@ -1,8 +1,21 @@
+using System.Collections;
 using UnityEngine;
 
 public class Letter : MonoBehaviour
 {
-    [SerializeField] private Transform player; // 플레이어 트랜스폼
+    [SerializeField] private Transform _player; // 플레이어 위치
+    
+    // 💡 PlayerTransform 속성: MapInitializer가 이 속성을 통해 값을 주입
+    public Transform PlayerTransform
+    {
+        set
+        {
+            _player = value; // 값 할당 (this._player = player; 역할)
+            Debug.Log("Player 참조 할당 완료."); // 주입 완료 로그
+        }
+    } 
+    
+    
     [SerializeField] private Transform letterObject; // 편지 오브젝트 위치 (예: Newspapers_01)
     [SerializeField] private GameObject openText;
     public float interactionDistance = 3f; // 상호작용 거리
@@ -12,11 +25,17 @@ public class Letter : MonoBehaviour
     private bool isInRange = false; // 플레이어가 범위 내에 있는지 여부
     private bool isReading = false; // 편지 UI가 열려있는지 여부
     private bool isOpenDoor = false; // 문이 열려있는지
-    
+
+    void Start()
+    {
+        gameObject.SetActive(false);
+    }
     void Update()
     {
+        if(_player == null)
+            return;
         // 플레이어와 편지 오브젝트 거리 계산
-        float dist = Vector3.Distance(player.position, letterObject.position);
+        float dist = Vector3.Distance(_player.position, letterObject.position);
         isInRange = dist <= interactionDistance;
 
         if (isInRange  && !isReading)
@@ -54,9 +73,17 @@ public class Letter : MonoBehaviour
         isReading = false;
     }
 
-    private System.Collections.IEnumerator DelayOpenLetter()
+    private IEnumerator DelayOpenLetter()
     {
         yield return null; // 한 프레임 대기
         OpenLetter();
+    }
+    public void SetupEnvironment(Animator doorAnim, GameObject interactionText, GameObject letterUI)
+    {
+        this.doorAnimator = doorAnim;
+        this.openText = interactionText;
+        this.letterImage = letterUI;
+        
+        Debug.Log("Letter 환경 설정 완료: Door Animator 및 UI 참조 할당.");
     }
 }

@@ -2,9 +2,8 @@
 using UnityEngine.AI;
 using System.Collections;
 
-public class SubMonsterAI : MonoBehaviour
+public class SubMonsterAI  : Monster
 {
-    public Transform player;
     public float chaseRange = 10f;  
     public float stopDistance = 1.5f;          // 정지 거리
     public AudioClip foundPlayerSound;         // 사운드 클립
@@ -14,15 +13,7 @@ public class SubMonsterAI : MonoBehaviour
     private Animator animator;
 
     private bool hasCaughtPlayer = false;
-
-    void Awake()
-    {
-        agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
-    }
+    
 
     void Update()
     {
@@ -78,5 +69,14 @@ public class SubMonsterAI : MonoBehaviour
         {
             yield return vision.BlindForSeconds(5f); // 5초동안 암전
         }
+    }
+
+    public override void OnPlayerSetupComplete()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 }
