@@ -10,11 +10,11 @@ public class MapInitializer : MonoBehaviour
     [Header("NavMeshMonsters")] [SerializeField]
     private Monster[] navMeshMons;
 
-    [Header("Starting Room 편지")] [SerializeField]
-    private Letter letter;
-
-    [SerializeField] private GameObject openText;
-    [SerializeField] private GameObject letterImage; // 편지 UI
+    [Header("Starting Room 편지")] 
+    [SerializeField] private GameObject LetterCanvas;
+    [SerializeField] private Letter letter;
+    private GameObject openText;
+    private GameObject letterImage; // 편지 UI
     [SerializeField] private Animator doorAnimator; // StartingRoom Animator 문
 
     [Header("Game Over - Monsters")] [SerializeField]
@@ -25,7 +25,6 @@ public class MapInitializer : MonoBehaviour
 
     [Header("EndCorridor")] [SerializeField]
     private EndCorridorGameManager endCorridor;
-
     [SerializeField] private GameObject holywayPrefab;
 
     [Header("EndingRoom")] [SerializeField]
@@ -36,12 +35,15 @@ public class MapInitializer : MonoBehaviour
         Debug.Log("외부 주입 시작");
         endCorridor = GameObject.Find("EndCorriderGameManager").GetComponent<EndCorridorGameManager>();
         GameObject player = GameObject.FindGameObjectWithTag("Player"); // 플레이어 오브젝트
-
+        LetterCanvas = GameObject.Find("LetterCanvas");
+        
         if (player != null)
         {
             if (letter != null)
             {
-                letter.PlayerTransform = player.transform;
+                letter.SetPlayerTransform(player.transform);
+                openText = LetterCanvas.gameObject.transform.GetChild(1).gameObject;
+                letterImage = LetterCanvas.gameObject.transform.GetChild(0).gameObject;
                 letter.SetupEnvironment(doorAnimator, openText, letterImage);
             }
 
