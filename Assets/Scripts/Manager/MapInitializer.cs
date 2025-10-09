@@ -41,10 +41,7 @@ public class MapInitializer : MonoBehaviour
         {
             if (letter != null)
             {
-                letter.SetPlayerTransform(player.transform);
-                openText = LetterCanvas.gameObject.transform.GetChild(1).gameObject;
-                letterImage = LetterCanvas.gameObject.transform.GetChild(0).gameObject;
-                letter.SetupEnvironment(doorAnimator, openText, letterImage);
+                StartCoroutine(LetterInjection(player.transform, LetterCanvas));
             }
 
             PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
@@ -81,6 +78,18 @@ public class MapInitializer : MonoBehaviour
                 mons.SetupPlayerTransform(playerTransform);
                 mons.OnPlayerSetupComplete();
             }
+        }
+    }
+    
+    private IEnumerator LetterInjection(Transform player, GameObject letterCanvas)
+    {
+        yield return null;
+        if (letterCanvas != null)
+        {
+            letter.SetPlayerTransform(player.transform);
+            openText = LetterCanvas.gameObject.transform.GetChild(1).gameObject;
+            letterImage = LetterCanvas.gameObject.transform.GetChild(0).gameObject;
+            letter.SetupEnvironment(doorAnimator, openText, letterImage);
         }
     }
 }
