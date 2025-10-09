@@ -19,6 +19,11 @@ public class EnemyAI : Monster
     
     void Update()
     {
+        // 할당되는 시간 
+        if (agent == null || animator == null)
+        {
+            return;
+        }
         switch (currentState)
         {
             case EnemyState.PATROL:

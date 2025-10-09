@@ -17,6 +17,10 @@ public class SubMonsterAI  : Monster
 
     void Update()
     {
+        if (agent == null || animator == null)
+        {
+            return;
+        }
         if (hasCaughtPlayer)
         {
             // 정지 상태 처음
