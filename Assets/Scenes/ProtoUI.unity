@@ -231,9 +231,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseCanvas: {fileID: 0}
   settingPanel: {fileID: 1948043872}
-  windowDropdown: {fileID: 0}
-  resolutionDropdown: {fileID: 0}
-  volumeScrollbar: {fileID: 0}
+  windowDropdown: {fileID: 1163003213129598958}
+  resolutionDropdown: {fileID: 1163003213129598957}
+  volumeScrollbar: {fileID: 1163003213129598956}
 --- !u!4 &188323771
 Transform:
   m_ObjectHideFlags: 0
@@ -2025,6 +2025,39 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
+--- !u!114 &1163003213129598956 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6045183685417862560, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
+  m_PrefabInstance: {fileID: 1163003213129598955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1163003213129598957 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3549577511792029501, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
+  m_PrefabInstance: {fileID: 1163003213129598955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1163003213129598958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6527110341531734693, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
+  m_PrefabInstance: {fileID: 1163003213129598955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5639800151845158913
 PrefabInstance:
   m_ObjectHideFlags: 0

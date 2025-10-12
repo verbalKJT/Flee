@@ -29,7 +29,7 @@ public class MapInitializer : MonoBehaviour
 
     [Header("EndingRoom")] [SerializeField]
     private EndingRoomDoor endingRoomDoor;
-
+        
     public void Initialize(GameManager manager)
     {
         Debug.Log("외부 주입 시작");

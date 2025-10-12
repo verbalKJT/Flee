@@ -13,7 +13,10 @@ public class DeadGameover : MonoBehaviour, IDeadMon
     private MonoBehaviour playerControllerScript; // PlayerMovement
 
     private bool hasPlayed = false;
-
+    
+    [Header("Player Respwan 위치")]
+    [SerializeField] private Transform playerRespwan;
+    
     void Start()
     {
         if (timeline != null)
@@ -52,6 +55,7 @@ public class DeadGameover : MonoBehaviour, IDeadMon
         }
         else
         {
+            GameManager.instance.PlayerReSpawn(playerRespwan,playerObject);
             gameOverUI.SetActive(true); 
             Destroy(gameObject); // fallback
         }
@@ -72,13 +76,16 @@ public class DeadGameover : MonoBehaviour, IDeadMon
 
         canvasGroup.alpha = 1f;
         
+        GameManager.instance.PlayerReSpawn(playerRespwan,playerObject); // 플레이어 리스폰
+        playerControllerScript.enabled = true; // 리스폰 후 플레이어 이동 활성화
+        gameOverUI.SetActive(false); // 게임오버 UI 비활성화 <- TimeLine으로 관리할거면 없애도 됨.
         // MiddleMon 오브젝트 삭제
         // Destroy(gameObject); 
     }
-    public void SetPlayerWithUi(GameObject player,  MonoBehaviour playerController, GameObject gameOverUI)
+    public void SetPlayerWithUi(GameObject playerObject,  MonoBehaviour playerControllerScript, GameObject gameOverUI)
     {
-        this.playerObject = player;
-        this.playerControllerScript = playerController;
+        this.playerObject = playerObject;
+        this.playerControllerScript = playerControllerScript;
         this.gameOverUI = gameOverUI;
     }
 }

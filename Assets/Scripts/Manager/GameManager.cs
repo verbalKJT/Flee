@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     
     [SerializeField]private string mapAddress; // 에셋 주소
     private GameObject currentMap; // 생성된 맵 저장
+    
     void Awake()
     {
         if (instance != null && instance != this)
@@ -131,4 +132,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void PlayerReSpawn(Transform spawnPoint,GameObject player)
+    {
+        player.transform.position = spawnPoint.position; // 플레이어 위치 변경으로 PlayerRespawn
+    }
 }
