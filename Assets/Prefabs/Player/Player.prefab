@@ -2998,6 +2998,7 @@ GameObject:
   - component: {fileID: 8147657804977701794}
   - component: {fileID: 3228663626056940185}
   - component: {fileID: 6133876491088500414}
+  - component: {fileID: 2848225750078456493}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3235,6 +3236,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   interactionText: {fileID: 0}
+--- !u!114 &2848225750078456493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6665924648948749789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40706dfa8c301214495a04f905bf40ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMouseLook
+  playerBody: {fileID: 2358491201124568288}
+  lookAction: {fileID: -5630151704836100654, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
+  yawSpeed: 2.5
 --- !u!1 &6761608561348423338
 GameObject:
   m_ObjectHideFlags: 0
@@ -4846,15 +4862,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1767310008238479403, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.027008059
+      value: 0.026999217
       objectReference: {fileID: 0}
     - target: {fileID: 1767310008238479403, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.12
+      value: 1.165
       objectReference: {fileID: 0}
     - target: {fileID: 1767310008238479403, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.012001043
+      value: 0.05199878
       objectReference: {fileID: 0}
     - target: {fileID: 1767310008238479403, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4901,19 +4917,61 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6516186515217206120, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2671443374469566552}
+      addedObject: {fileID: 3768679038312589541}
+    - targetCorrespondingSourceObject: {fileID: 8389100902610407732, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8949959255825231021}
   m_SourcePrefab: {fileID: 100100000, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
 --- !u!4 &3769461244133391361 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1767310008238479403, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
   m_PrefabInstance: {fileID: 3227231629195879466}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6387648826259322142 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8389100902610407732, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
+  m_PrefabInstance: {fileID: 3227231629195879466}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8949959255825231021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6387648826259322142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d54399b04b4fa48a73e121d4937dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePanTilt
+  ReferenceFrame: 0
+  RecenterTarget: 0
+  PanAxis:
+    Value: 3.0826428
+    Center: 0
+    Range: {x: -180, y: 180}
+    Wrap: 1
+    Recentering:
+      Enabled: 0
+      Wait: 1
+      Time: 2
+    Restrictions: 0
+  TiltAxis:
+    Value: -3.4387255
+    Center: 0
+    Range: {x: -80, y: 30}
+    Wrap: 0
+    Recentering:
+      Enabled: 0
+      Wait: 1
+      Time: 2
+    Restrictions: 0
 --- !u!1 &8549884940879556418 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516186515217206120, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
   m_PrefabInstance: {fileID: 3227231629195879466}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2671443374469566552
+--- !u!114 &3768679038312589541
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4922,11 +4980,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 8549884940879556418}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 346b648df46a7294db2616c89899adce, type: 3}
+  m_Script: {fileID: 11500000, guid: 89875cdc57c54474a8a74efd9b2a3b5d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  sensitivity: 200
-  playerBody: {fileID: 2358491201124568288}
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineInputAxisController
+  ScanRecursively: 1
+  SuppressInputWhileBlending: 1
+  IgnoreTimeScale: 0
+  m_ControllerManager:
+    Controllers:
+    - Name: Look X (Pan)
+      Owner: {fileID: 8949959255825231021}
+      Enabled: 0
+      Input:
+        InputAction: {fileID: -5630151704836100654, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
+        Gain: 1
+        LegacyInput: 
+        LegacyGain: 1
+        CancelDeltaTime: 0
+      InputValue: 0
+      Driver:
+        AccelTime: 0.2
+        DecelTime: 0.2
+    - Name: Look Y (Tilt)
+      Owner: {fileID: 8949959255825231021}
+      Enabled: 1
+      Input:
+        InputAction: {fileID: -5630151704836100654, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
+        Gain: -2.5
+        LegacyInput: 
+        LegacyGain: 1
+        CancelDeltaTime: 0
+      InputValue: -0
+      Driver:
+        AccelTime: 0.02
+        DecelTime: 0.02
+  PlayerIndex: -1
+  AutoEnableInputs: 1
 --- !u!1001 &5070738364132782260
 PrefabInstance:
   m_ObjectHideFlags: 0
