@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseCanvas;
+    public GameObject pauseCanvas;
     [SerializeField] private GameObject settingPanel;
     // 세팅 패널 내 Drowdown 및 Silder
     [SerializeField]private TMP_Dropdown windowDropdown;
     [SerializeField]private TMP_Dropdown resolutionDropdown;
     [SerializeField]private Scrollbar volumeScrollbar;
+    [SerializeField]private TMP_Text quitButton;
     public static UiManager instance { get; private set; } // Property를 통해 외부 사용
 
     void Awake()
@@ -31,6 +32,11 @@ public class UiManager : MonoBehaviour
         {
             settingPanel.SetActive(!settingPanel.activeSelf);
         }
+    }
+
+    public void OffPause()
+    {
+        pauseCanvas.SetActive(!pauseCanvas.activeSelf);
     }
 
     void Update()
@@ -59,11 +65,16 @@ public class UiManager : MonoBehaviour
     }
     public void Register(GameObject pause, GameObject setting, TMP_Dropdown windowDropdown, TMP_Dropdown resolutionDropdown, Scrollbar volumeScrollbar)
     {
-        pauseCanvas = pause != null ? pause : null;
-        settingPanel = setting != null ? setting : null;
-        windowDropdown = windowDropdown != null ? windowDropdown : null;
-        resolutionDropdown = resolutionDropdown != null ? resolutionDropdown : null;
-        volumeScrollbar = volumeScrollbar != null ? volumeScrollbar : null;
+        pauseCanvas = pause;
+        settingPanel = setting;
+        this.windowDropdown = windowDropdown;
+        this.resolutionDropdown = resolutionDropdown;
+        this.volumeScrollbar = volumeScrollbar;
+
+        pauseCanvas.transform.Find("contiuneB").GetComponent<Button>().onClick.AddListener( GameManager.instance.continueGame);
+        pauseCanvas.transform.Find("settingB").GetComponent<Button>().onClick.AddListener(OnSetting);
+        pauseCanvas.transform.Find("settingB").GetComponent<Button>().onClick.AddListener(OffPause);
+        pauseCanvas.transform.Find("exitB").GetComponent<Button>().onClick.AddListener( GameManager.instance.GoToMainMenu);
     }
     public void ApplySettings()
     {
