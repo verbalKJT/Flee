@@ -84,6 +84,9 @@ public class GameManager : MonoBehaviour
     public void continueGame()
     {
         Time.timeScale = 1;
+        UiManager.instance.pauseCanvas.gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void GoToMainMenu()

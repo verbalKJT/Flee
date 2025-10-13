@@ -234,6 +234,7 @@ MonoBehaviour:
   windowDropdown: {fileID: 1163003213129598958}
   resolutionDropdown: {fileID: 1163003213129598957}
   volumeScrollbar: {fileID: 1163003213129598956}
+  quitButton: {fileID: 0}
 --- !u!4 &188323771
 Transform:
   m_ObjectHideFlags: 0
@@ -1916,21 +1917,25 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1040066020591876937, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
-      propertyPath: m_Name
-      value: volumeScrollbar
+    - target: {fileID: 646111020890399909, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 188323770}
+    - target: {fileID: 646111020890399909, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSetting
+      objectReference: {fileID: 0}
+    - target: {fileID: 646111020890399909, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UiManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 646111020890399909, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2746098836997304952, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
       propertyPath: m_Name
       value: SettingPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 2746098836997304952, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3109167680080798147, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
-      propertyPath: m_Name
-      value: resolutionDropdown
       objectReference: {fileID: 0}
     - target: {fileID: 5760388498050318811, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
       propertyPath: m_Pivot.x
@@ -2011,10 +2016,6 @@ PrefabInstance:
     - target: {fileID: 5760388498050318811, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6176653504848924284, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
-      propertyPath: m_Name
-      value: windowDropdown
       objectReference: {fileID: 0}
     - target: {fileID: 8859976463416763728, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
