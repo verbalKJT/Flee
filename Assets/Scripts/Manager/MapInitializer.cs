@@ -7,8 +7,12 @@ using UnityEngine;
 /// </summary>
 public class MapInitializer : MonoBehaviour
 {
+    [Header("Main Camera")]
+    [SerializeField] private GameObject mainCamera;
+    
+    
     [Header("NavMeshMonsters")] [SerializeField]
-    private Monster[] navMeshMons;
+    private Monster[] navMeshMons; // Main , Middle, sub 순
 
     [Header("Starting Room 편지")] 
     [SerializeField] private GameObject LetterCanvas;
@@ -34,8 +38,12 @@ public class MapInitializer : MonoBehaviour
     {
         Debug.Log("외부 주입 시작");
         endCorridor = GameObject.Find("EndCorriderGameManager").GetComponent<EndCorridorGameManager>();
+        
         GameObject player = GameObject.FindGameObjectWithTag("Player"); // 플레이어 오브젝트
+        
         LetterCanvas = GameObject.Find("LetterCanvas");
+        
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         
         if (player != null)
         {
@@ -49,6 +57,11 @@ public class MapInitializer : MonoBehaviour
             {
                 mainMonGameOverScript.SetPlayerWithUi(player, playerMovement, gameOverUI);
                 middleMonGameOverScript.SetPlayerWithUi(player, playerMovement, gameOverUI);
+                if (mainCamera != null)
+                {
+                    mainMonGameOverScript.SetTrackBinding(mainCamera, mainMonGameOverScript.gameObject);
+                    middleMonGameOverScript.SetTrackBinding(mainCamera, middleMonGameOverScript.gameObject);
+                }
             }
 
             if (endingRoomDoor != null)
