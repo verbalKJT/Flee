@@ -15,8 +15,6 @@ public class Letter : MonoBehaviour
         }
     } 
     */
-    
-    
     [SerializeField] private Transform letterObject; // 편지 오브젝트 위치 (예: Newspapers_01)
     private GameObject openText;
     private float interactionDistance = 3f; // 상호작용 거리
@@ -31,6 +29,7 @@ public class Letter : MonoBehaviour
     {
         if (_player == null)
         {
+            return; // Player가 할당되기 전 Update 한번 종료 
             Debug.Log("Player is null");
         }
         // 플레이어와 편지 오브젝트 거리 계산
