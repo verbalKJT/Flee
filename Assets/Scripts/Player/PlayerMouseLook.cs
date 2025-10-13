@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem;   // 새 Input System
+using UnityEngine.InputSystem; // 새 Input System
 
 public class PlayerMouseLook : MonoBehaviour
 {
-    [Header("Refs")]
-    public Transform playerBody;                       // 반드시 할당(보통 Player 루트)
-    public InputActionReference lookAction;            // CM에서 쓰는 Look 액션과 동일한 것
+    [Header("Refs")] public Transform playerBody; // 반드시 할당(보통 Player 루트)
+    public InputActionReference lookAction; // CM에서 쓰는 Look 액션과 동일한 것
     [Range(0.1f, 1000f)] public float yawSpeed = 2.5f; // 감도
 
-    private InputAction _look;                         // 캐싱
+    private InputAction _look; // 캐싱
     private bool _useNewInput;
 
     void Awake()
@@ -18,11 +17,14 @@ public class PlayerMouseLook : MonoBehaviour
             _look = lookAction.action;
         if (playerBody == null)
             Debug.LogError("[PlayerMouseLook] playerBody가 비어 있습니다.");
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void OnEnable()
     {
-        _look?.Enable();   // null이면 호출 안 함
+        _look?.Enable(); // null이면 호출 안 함
     }
 
     void OnDisable()
@@ -40,7 +42,7 @@ public class PlayerMouseLook : MonoBehaviour
         {
             // 액션이 null이면 조용히 빠져나와 NRE 방지
             if (_look == null) return;
-            Vector2 look = _look.ReadValue<Vector2>();   // (x=Yaw, y=Tilt)
+            Vector2 look = _look.ReadValue<Vector2>(); // (x=Yaw, y=Tilt)
             yawDelta = look.x * yawSpeed * Time.deltaTime;
         }
         else
@@ -50,6 +52,21 @@ public class PlayerMouseLook : MonoBehaviour
             yawDelta = mx * yawSpeed * Time.deltaTime;
         }
 
-        playerBody.Rotate(0f, yawDelta, 0f);   // Yaw만 적용
+        playerBody.Rotate(0f, yawDelta, 0f); // Yaw만 적용
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (!Cursor.visible)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            Debug.Log(Cursor.lockState);
+        }
     }
 }
