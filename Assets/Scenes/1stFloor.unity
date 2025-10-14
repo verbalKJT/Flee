@@ -615,7 +615,6 @@ MonoBehaviour:
   windowDropdown: {fileID: 1021918385}
   resolutionDropdown: {fileID: 1021918384}
   volumeScrollbar: {fileID: 1021918383}
-  quitButton: {fileID: 1021918387}
 --- !u!4 &685488530
 Transform:
   m_ObjectHideFlags: 0
@@ -1025,17 +1024,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2746098836997304952, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
   m_PrefabInstance: {fileID: 1021918382}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1021918387 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2543555624702879, guid: 28e822a711b2847f8a4b36ad4c52e868, type: 3}
-  m_PrefabInstance: {fileID: 1021918382}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1052198349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2641,13 +2629,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3187917607321845632, guid: df47d30a06d404529bd2c8421dc9b1ce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3769461244133391361, guid: df47d30a06d404529bd2c8421dc9b1ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.027099611
+      value: 0.027100513
       objectReference: {fileID: 0}
     - target: {fileID: 3769461244133391361, guid: df47d30a06d404529bd2c8421dc9b1ce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.012027746
+      value: 0.012027912
       objectReference: {fileID: 0}
     - target: {fileID: 4691530129505930467, guid: df47d30a06d404529bd2c8421dc9b1ce, type: 3}
       propertyPath: hidePromptText
@@ -2754,7 +2746,7 @@ Transform:
   m_GameObject: {fileID: 2048909160273053012}
   serializedVersion: 2
   m_LocalRotation: {x: -0.020637713, y: 0.7255438, z: 0.021779047, w: 0.6875216}
-  m_LocalPosition: {x: -44.987972, y: 1.165, z: -35.0271}
+  m_LocalPosition: {x: -44.975945, y: 1.165, z: -35.0542}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
