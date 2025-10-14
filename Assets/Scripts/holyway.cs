@@ -5,7 +5,7 @@ using UnityEngine;
 //
 // 각 스테이지에 맞게 소켓을 준비하여 그 각 스테이지 인덱스에 맞게 소품을 설정함
 
-// ✅ 특정 소켓에 어떤 프리팹을 둘지 정의하는 구조체
+// 특정 소켓에 어떤 프리팹을 둘지 정의하는 구조체
 [Serializable]
 public class SocketItem
 {
@@ -15,7 +15,7 @@ public class SocketItem
     public GameObject prefab; // 놓을 프리팹(예: 문, 의자, 소품 등)
 }
 
-// ✅ 하나의 스테이지에 대한 구성 정보(소켓별 아이템, 추가 소품 등) .
+// 하나의 스테이지에 대한 구성 정보(소켓별 아이템, 추가 소품 등)
 [Serializable]
 public class StagePreset
 {
@@ -31,9 +31,12 @@ public class StagePreset
     public Vector3 extraJitter = new Vector3(0.12f, 0f, 0.12f); // 소품 랜덤 위치 오프셋 (겹침 방지)
 }
 
-// ✅ 실제로 소켓을 관리하고, 프리팹을 배치하는 메인 클래스
+// 실제로 소켓을 관리하고, 프리팹을 배치하는 메인 클래스
 public class holyway : MonoBehaviour
 {
+    [Header("holyway 내부의 하위 방들 (holyway1~4 등)")]
+    public GameObject[] roomGroups; // holyway1, holyway2, holyway3, holyway4 연결
+
     [Header("다음 스테이지로 이동 시 시작 위치(텔레포트 위치 등)")]
     public Transform startPoint;
 
@@ -43,18 +46,52 @@ public class holyway : MonoBehaviour
     [Header("스테이지별 프리셋 목록 (1,2,3...)")]
     public List<StagePreset> presets = new List<StagePreset>();
 
+    private int currentIndex = 0;
+
     // 매니저(상위 로직)가 새 스테이지를 스폰할 때 호출
     public void OnSpawned(int stageIndex)
     {
-        PlaceFor(stageIndex); // 해당 스테이지 프리셋을 기반으로 배치
+        // holyway1~4 활성화 관리
+        currentIndex = stageIndex - 1;
+        ActivateRoom(currentIndex);
+
+        // 기존 PlaceFor 로직 유지
+        PlaceFor(stageIndex);
     }
 
-    // 스테이지가 파괴되기 전 호출 (정리용)
+    // holyway 내부의 방 활성화 관리
+    private void ActivateRoom(int index)
+    {
+        if (roomGroups == null || roomGroups.Length == 0) return;
+
+        for (int i = 0; i < roomGroups.Length; i++)
+        {
+            if (roomGroups[i] != null)
+                roomGroups[i].SetActive(i == index);
+        }
+
+        Debug.Log($"[holyway] holyway{index + 1} 활성화됨");
+    }
+
+    // 다음 방 활성화
+    public void ActivateNextRoom()
+    {
+        currentIndex++;
+        if (currentIndex >= roomGroups.Length)
+        {
+            Debug.Log("[holyway] 더 이상 다음 방이 없습니다.");
+            return;
+        }
+        ActivateRoom(currentIndex);
+    }
+
+    // 스테이지가 파괴되기 전 호출 정리 싺
     public void OnBeforeDestroyed()
     {
         // 필요 시, 이 방(Stage)에서만 유지하던 상태를 정리
     }
-    // ✅ 지정된 스테이지 번호(stageIndex)에 맞게 프리팹 배치
+
+    // 지정된 스테이지 번호(stageIndex)에 맞게 프리팹 배치
     void PlaceFor(int stageIndex)
     {
         // 소켓이 없으면 바로 종료
@@ -89,7 +126,7 @@ public class holyway : MonoBehaviour
             }
         }
 
-        // 남는 소켓이 있을떄 이것으로 소품을 추가하여 랜덤 배치함
+        // 남는 소켓이 있을 때 이것으로 소품을 추가하여 랜덤 배치함
         if (preset.extraCount > 0 && preset.extras != null && preset.extras.Length > 0)
         {
             // 자식(물품)이 없는 빈 소켓을 수집
@@ -117,12 +154,13 @@ public class holyway : MonoBehaviour
                     col.convex = true;
                 }
 
-                // 무작위 배치 겹치지않도록 배정 (이건 오류가 있으므로 지금은 1:1 배치를 우선으로 두고있음)
+                // 무작위 배치 겹치지 않도록 배정
                 go.transform.localPosition += new Vector3(
                     UnityEngine.Random.Range(-preset.extraJitter.x, preset.extraJitter.x),
                     UnityEngine.Random.Range(-preset.extraJitter.y, preset.extraJitter.y),
                     UnityEngine.Random.Range(-preset.extraJitter.z, preset.extraJitter.z)
                 );
+
                 // 회전은 초기화
                 go.transform.localRotation = Quaternion.identity;
             }
