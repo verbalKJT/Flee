@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
@@ -9,8 +10,6 @@ public class DeadGameover : MonoBehaviour, IDeadMon
 {
     [Header("Timeline & UI")] [SerializeField]
     private PlayableDirector timeline;
-
-    private GameObject gameOverUI;
 
     [Header("Player Control")] private GameObject playerObject; // Player 오브젝트
     private MonoBehaviour playerControllerScript; // PlayerMovement
@@ -24,18 +23,23 @@ public class DeadGameover : MonoBehaviour, IDeadMon
     {
         if (timeline != null)
             timeline.stopped += OnTimelineFinished;
-
-        if (gameOverUI != null)
-            gameOverUI.SetActive(false);
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTimelineFinished(PlayableDirector obj)
+    {
+        StartCoroutine(CallReSpawn());
+    }
+
+
+    private void OnTriggerEnter(Collider other)
     {
         if (hasPlayed) return;
 
         if (other.CompareTag("Player"))
         {
             hasPlayed = true;
+            gameObject.GetComponent<CapsuleCollider>().enabled = false; // Collider 비활성화 추가 실행 방지
+            gameObject.GetComponent<NavMeshAgent>().isStopped = true; //몬스터들 이동 멈추기 
 
             // 플레이어 조작 끄기
             if (playerControllerScript != null)
@@ -43,67 +47,59 @@ public class DeadGameover : MonoBehaviour, IDeadMon
 
             // Timeline 실행
             if (timeline != null)
+            {
                 timeline.Play();
+            }
         }
     }
 
-    private void OnTimelineFinished(PlayableDirector director)
+    // 플레이어가 리스폰 되어서 몬스터와 떨어졌을 때
+    private void OnTriggerExit(Collider other)
     {
-        if (gameOverUI == null) return;
-        
-        CanvasGroup canvasGroup = gameOverUI.GetComponent<CanvasGroup>();
-        if (canvasGroup != null)
+        if (other.CompareTag("Player") && hasPlayed)
         {
-            StartCoroutine(FadeInUI(canvasGroup, 1.9f)); // 2초 동안 페이드 인
+            // 플레이어가 콜라이더 밖으로 완전히 나갔을 때만 리셋
+            hasPlayed = false;
+            gameObject.GetComponent<CapsuleCollider>().enabled = true; // 콜라이더 활성화
+            gameObject.GetComponent<NavMeshAgent>().isStopped = false; // 이동 재개
         }
-        else
+    }
+
+    private IEnumerator CallReSpawn()
+    {
+        Debug.Log("CallReSpawn 코루틴 시작");
+        yield return new WaitForSeconds(0.1f);
+
+        // null 체크
+        if (GameManager.instance == null) Debug.LogError("GameManager.instance is null!");
+        if (playerRespwan == null) Debug.LogError("playerRespwan is null!");
+        if (playerObject == null) Debug.LogError("playerObject is null!");
+
+        if (playerRespwan != null && playerObject != null && GameManager.instance != null)
         {
             GameManager.instance.PlayerReSpawn(playerRespwan, playerObject);
-            gameOverUI.SetActive(true);
-            Destroy(gameObject); // fallback
+            playerControllerScript.enabled = true;
+            Debug.Log("플레이어 리스폰 성공");
         }
     }
 
-    private IEnumerator FadeInUI(CanvasGroup canvasGroup, float duration)
+    public void SetPlayerWithUi(GameObject playerObject, MonoBehaviour playerControllerScript)
     {
-        Debug.Log(canvasGroup);
-        float elapsed = 0f;
-        canvasGroup.alpha = 0f;
-        canvasGroup.gameObject.SetActive(true);
-
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Clamp01(elapsed / duration);
-            yield return null; // 한 프레임 기다리기 
-        }
-
-        canvasGroup.alpha = 1f;
-        
-        GameManager.instance.PlayerReSpawn(playerRespwan, playerObject); // 플레이어 리스폰
-        playerControllerScript.enabled = true; // 리스폰 후 플레이어 이동 활성화
-        hasPlayed = false; // 리스폰 후 다시 OnTriggerEnter가 실행될 수 있도록
+        this.playerObject = playerObject;
+        this.playerControllerScript = playerControllerScript;
     }
 
-    // 동적할당 후 바인딩 메소드
-    public void SetTrackBinding(GameObject mainCamera, GameObject moster)
+    public void SetTrackBinding(GameObject mainCamera)
     {
-        if (timeline == null)
-        {
-            Debug.Log("Timeline is null");
-            return;
-        }
-
         // 트랙정보 가져오기
         TimelineAsset timelineAsset = timeline.playableAsset as TimelineAsset;
         if (timelineAsset == null)
         {
-            Debug.Log("timeline asset is null");
+            Debug.LogWarning("timeline asset is null");
         }
 
         // Track 정보 담을 변수
         TrackAsset cameraTrack = null;
-        TrackAsset monsterTrack = null;
 
         // 타임라인의 목록 전부 가져와서 시네머신 트랙 찾기
         IEnumerable<TrackAsset> tracks = timelineAsset.GetOutputTracks();
@@ -112,30 +108,17 @@ public class DeadGameover : MonoBehaviour, IDeadMon
         {
             foreach (TrackAsset track in tracks)
             {
-                if (track.name.Contains("Cinemachine Track"))
+                // Cinemachine Track을 찾아서 Main Camera의 CinemachineBrain에 바인딩
+                if (track is CinemachineTrack)
                 {
-                    cameraTrack = track; // 트택 찾아서 저장
-                }
-                else if (track.name.Contains("MainMon") || track.name.Contains("Middle Mon"))
-                {
-                    monsterTrack = track;
+                    CinemachineBrain brain = mainCamera.GetComponent<CinemachineBrain>();
+                    if (brain != null)
+                    {
+                        timeline.SetGenericBinding(track, brain);
+                        Debug.Log(gameObject.name + "Cinemachine Track bound to CinemachineBrain.");
+                    }
                 }
             }
         }
-
-        // 저장한 트랙 바인딩
-        if (cameraTrack != null && monsterTrack != null)
-        {
-            timeline.SetGenericBinding(cameraTrack, mainCamera.gameObject.GetComponent<CinemachineBrain>());
-            timeline.SetGenericBinding(monsterTrack, moster.GetComponent<Animator>());
-        }
-    }
-
-
-    public void SetPlayerWithUi(GameObject playerObject, MonoBehaviour playerControllerScript, GameObject gameOverUI)
-    {
-        this.playerObject = playerObject;
-        this.playerControllerScript = playerControllerScript;
-        this.gameOverUI = gameOverUI;
     }
 }
