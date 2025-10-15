@@ -3,10 +3,10 @@ using UnityEngine;
 public class CrosshairInteractor : MonoBehaviour
 {
     public GameObject cam;
-    //»óÈ£ÀÛ¿ë,¿¡ÀÓ Ray°Å¸® 
+    //ï¿½ï¿½È£ï¿½Û¿ï¿½,ï¿½ï¿½ï¿½ï¿½ Rayï¿½Å¸ï¿½ 
     public float interactDistance = 3f;
     public float aimDistance = 100f;
-    //»óÈ£ÀÛ¿ë(ÁÝ±â)¿ë , ¿¡ÀÓ¿ë(³õ±â) ³ª´©±â
+    //ï¿½ï¿½È£ï¿½Û¿ï¿½(ï¿½Ý±ï¿½)ï¿½ï¿½ , ï¿½ï¿½ï¿½Ó¿ï¿½(ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public LayerMask ObjectInteractLayer;
     public LayerMask AimInteractLayer;
 
@@ -20,13 +20,13 @@ public class CrosshairInteractor : MonoBehaviour
         
         current = null;
 
-        //Á¶ÁØ¿ë Ray
+        //ï¿½ï¿½ï¿½Ø¿ï¿½ Ray
         if (Physics.Raycast(ray, out hit, aimDistance, AimInteractLayer))
         {
             hitPoint = hit.point;
         }
 
-        //»óÈ£ÀÛ¿ë¿ë Ray
+        //ï¿½ï¿½È£ï¿½Û¿ï¿½ï¿½ Ray
         if (Physics.Raycast(ray, out hit, interactDistance, ObjectInteractLayer))
         {
             Debug.Log("Ray hit: " + hit.collider.name);            
@@ -35,7 +35,7 @@ public class CrosshairInteractor : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E)&&current!=null)
             {                        
-                current.Interact(); // ±âÁ¸ IInteractable ¿ÀºêÁ§Æ®¿Í »óÈ£ÀÛ¿ë               
+                current.Interact(); // ï¿½ï¿½ï¿½ï¿½ IInteractable ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È£ï¿½Û¿ï¿½               
             }
         }
     }

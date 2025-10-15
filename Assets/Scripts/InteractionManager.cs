@@ -32,8 +32,7 @@ public class InteractionManager : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, interactDistance, interactLayer))
         {
             // Ray에 맞은 오브젝트에서 IInteractable 찾기
-            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-
+            IInteractable interactable = hit.collider.GetComponentInParent<IInteractable>();
             if (interactable != null)
             {
                 currentInteractable = interactable;

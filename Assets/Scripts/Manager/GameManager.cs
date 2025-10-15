@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]private string mapAddress; // 에셋 주소
     private GameObject currentMap; // 생성된 맵 저장
     
+    private AsyncOperation asyncLoad;
+    
     void Awake()
     {
         if (instance != null && instance != this)
@@ -28,6 +30,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(ActiveUiMonster(3f));
+        // IntroCinematic 씬을 백그라운드에서 미리 로딩
+        asyncLoad = SceneManager.LoadSceneAsync("IntroCinematic");
+        asyncLoad.allowSceneActivation = false; // 아직 전환은 하지 않음
+        Debug.Log("▶ 씬 백그라운드 로딩 시작");
     }
 
     private IEnumerator ActiveUiMonster(float spawnTime)
@@ -42,7 +48,8 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("1stFloor");
+        asyncLoad.allowSceneActivation = true;
+        SceneManager.LoadScene("IntroCinematic");
     }
 
     public void ExitGame()

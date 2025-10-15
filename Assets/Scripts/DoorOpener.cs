@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class DoorOpener : MonoBehaviour
+public class DoorOpener : MonoBehaviour, IInteractable
 {
     private Animator animator;
     private bool isOpen = false;
@@ -30,5 +30,14 @@ public class DoorOpener : MonoBehaviour
     public bool IsOpen()
     {
         return isOpen;
+    }
+    // IInteractable 구현
+    public void Interact()
+    {
+        ToggleDoor();
+    }
+    public string GetPromptText()
+    {
+        return isOpen ? "[E] 문 닫기" : "[E] 문 열기";
     }
 }

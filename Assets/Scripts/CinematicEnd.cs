@@ -5,14 +5,40 @@ using UnityEngine.SceneManagement;
 public class CinematicEnd : MonoBehaviour
 {
     public PlayableDirector director;
+
+    private bool hasSkipped = false;
+
     void Start()
     {
-        // Å¸ÀÓ¶óÀÎ Àç»ıÀÌ ³¡³ª¸é ÀÌº¥Æ® È£Ãâ
+        // íƒ€ì„ë¼ì¸ ì¢…ë£Œ ì‹œ ì”¬ ì „í™˜
         director.stopped += OnTimelineFinished;
     }
+
+    // íƒ€ì„ë¼ì¸ì´ ìì—°ìŠ¤ëŸ½ê²Œ ëë‚¬ì„ ë•Œ
     void OnTimelineFinished(PlayableDirector pd)
     {
-        // ´ÙÀ½ ¾ÀÀ¸·Î ÀÌµ¿
+        if (!hasSkipped)
+        {
+            LoadNextScene();
+        }
+    }
+    
+    // ìŠ¤í‚µ ë²„íŠ¼ í´ë¦­ ì‹œ   
+    public void SkipCinematic()
+    {
+        if (hasSkipped) return;
+        hasSkipped = true;
+
+        // íƒ€ì„ë¼ì¸ ì¤‘ì§€
+        director.Stop();
+
+        // ë°”ë¡œ ë‹¤ìŒ ì”¬ìœ¼ë¡œ ì´ë™
+        LoadNextScene();
+    }
+
+    // ì”¬ ì´ë™ ì½”ë“œ ë¶„ë¦¬
+    private void LoadNextScene()
+    {
         SceneManager.LoadScene("1stFloor");
     }
 }
