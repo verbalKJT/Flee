@@ -23,6 +23,7 @@
         [Header("Game Over - Monsters")] [SerializeField]
         private DeadGameover mainMonGameOverScript;
         [SerializeField] private DeadGameover middleMonGameOverScript;
+        [SerializeField] private GameObject overPanel;
         
         [Header("EndCorridor")] [SerializeField]
         private EndCorridorGameManager endCorridor;
@@ -42,6 +43,7 @@
             
             mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             
+            overPanel = GameObject.Find("InteractionCanvas").transform.Find("MiddleMonPanel").gameObject;
             if (player != null)
             {
                 if (letter != null)
@@ -56,8 +58,8 @@
                     middleMonGameOverScript.SetPlayerWithUi(player, playerMovement);
                     if (mainCamera != null)
                     {
-                        mainMonGameOverScript.SetTrackBinding(mainCamera); // 타임라인 시네너신 브레인 바인딩
-                        middleMonGameOverScript.SetTrackBinding(mainCamera);
+                        mainMonGameOverScript.SetTrackBinding(mainCamera,overPanel); // 타임라인 시네너신 브레인 바인딩
+                        middleMonGameOverScript.SetTrackBinding(mainCamera,overPanel);
                     }
                 }
 
