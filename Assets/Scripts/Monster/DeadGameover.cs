@@ -89,7 +89,7 @@ public class DeadGameover : MonoBehaviour, IDeadMon
         this.playerControllerScript = playerControllerScript;
     }
 
-    public void SetTrackBinding(GameObject mainCamera)
+    public void SetTrackBinding(GameObject mainCamera, GameObject overPanel)
     {
         // 트랙정보 가져오기
         TimelineAsset timelineAsset = timeline.playableAsset as TimelineAsset;
@@ -103,7 +103,7 @@ public class DeadGameover : MonoBehaviour, IDeadMon
 
         // 타임라인의 목록 전부 가져와서 시네머신 트랙 찾기
         IEnumerable<TrackAsset> tracks = timelineAsset.GetOutputTracks();
-
+        
         if (tracks != null)
         {
             foreach (TrackAsset track in tracks)
@@ -117,6 +117,15 @@ public class DeadGameover : MonoBehaviour, IDeadMon
                         timeline.SetGenericBinding(track, brain);
                         Debug.Log(gameObject.name + "Cinemachine Track bound to CinemachineBrain.");
                     }
+                }
+                else if (track is AnimationTrack)
+                {
+                    AnimationTrack animator = mainCamera.GetComponent<AnimationTrack>();
+                    timeline.SetGenericBinding(track,animator);
+                }
+                else if (track is ActivationTrack || track.name.Contains("Panel"))
+                {
+                    timeline.SetGenericBinding(track, overPanel);
                 }
             }
         }
