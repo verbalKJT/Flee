@@ -71,8 +71,6 @@ public class DoorOpener : MonoBehaviour, IInteractable
                     break;
             }
         }
-
-        isOpen = true;
     }
     public string GetPromptText()
     {

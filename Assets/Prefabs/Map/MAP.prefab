@@ -220637,8 +220637,6 @@ GameObject:
   - component: {fileID: 7318674356941318095}
   - component: {fileID: 3334115932849560836}
   - component: {fileID: 6914935146972850537}
-  - component: {fileID: 2525275183765898191}
-  - component: {fileID: 3535868951439446942}
   - component: {fileID: 2969707789501287634}
   - component: {fileID: 2967970330738905745}
   - component: {fileID: 690885980030481148}
@@ -220766,32 +220764,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2525275183765898191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9056159964441957139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 808674de693764d6ca35d4b635e1355c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navMeshObstacle: {fileID: 0}
---- !u!114 &3535868951439446942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9056159964441957139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 808674de693764d6ca35d4b635e1355c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navMeshObstacle: {fileID: 0}
 --- !u!114 &2969707789501287634
 MonoBehaviour:
   m_ObjectHideFlags: 0
