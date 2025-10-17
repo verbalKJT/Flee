@@ -3204,6 +3204,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lanternLight: {fileID: 5661335231685544492}
+  lanternAudioSource: {fileID: 1145863333505786670}
+  lightOnClip: {fileID: 8300000, guid: 97885c49b17d1214eadd79663ab30aa0, type: 3}
+  lightOffClip: {fileID: 8300000, guid: 21f543974115aaf44b0c8d5f22d4a403, type: 3}
 --- !u!114 &3228663626056940185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4972,7 +4975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1767310008238479403, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.012059152
+      value: 0.012090988
       objectReference: {fileID: 0}
     - target: {fileID: 1767310008238479403, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
       propertyPath: m_LocalRotation.w

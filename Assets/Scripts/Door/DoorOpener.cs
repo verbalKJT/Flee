@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class DoorOpener : MonoBehaviour, IInteractable
 {
-    public enum BGMType { None, Start, LivingRoom, Middle, EndingCorridor }
+    public enum BGMType { None, LivingRoom, Middle, EndingCorridor }
 
     public BGMType bgmType = BGMType.None;
     public bool shouldChangeBGM = false;  // 이 문이 BGM을 바꿔야 하는가?

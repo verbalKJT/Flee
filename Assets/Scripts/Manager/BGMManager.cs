@@ -31,7 +31,7 @@ public class BGMManager : MonoBehaviour
         PlayBGMPlaylist(startBGM);
     }
 
-    // 🎵 단일 클립 재생 (기존 유지)
+    // 단일 클립 재생 (기존 유지)
     public void PlayBGM(AudioClip clip)
     {
         StopCurrentPlaylist(); // 중복 방지
@@ -41,7 +41,7 @@ public class BGMManager : MonoBehaviour
         bgmSource.clip = clip;
         bgmSource.Play();
     }
-    // 🎼 여러 클립 순차 재생
+    // 여러 클립 순차 재생
     public void PlayBGMPlaylist(AudioClip[] clips)
     {
         StopCurrentPlaylist();
