@@ -76,11 +76,7 @@ public class PlayerMovement : MonoBehaviour
         if (footstepClips.Length == 0 || footstepSource == null)
             return;
 
-        // 재생 중이면 중복 방지 (선택사항)
-        if (footstepSource.isPlaying) return;
-
         int index = Random.Range(0, footstepClips.Length);
-        footstepSource.clip = footstepClips[index];
-        footstepSource.Play();
+        footstepSource.PlayOneShot(footstepClips[index]);
     }
 }
