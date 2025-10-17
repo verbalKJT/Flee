@@ -7,10 +7,14 @@ public class CandleMirrorTrigger : MonoBehaviour, IInteractable
 
     [Header("공유 거울 오브젝트")]
     public GameObject[] mirrorObjects;         // 모든 촛불이 켜지면 보여줄 거울들
+    
+    [Header("공유 오디오 오브젝트")]
+    public AudioSource allCandlesLitSFX;       // 모든 촛불이 켜졌을 때 재생할 효과음
 
     private bool isLit = false;                // 이 촛불이 켜졌는지 여부
     private float messageTimer = 0f;           // 메시지 표시 타이머
     private string currentMessage = "";        // 현재 표시할 상호작용 문구
+    private static bool hasPlayedSFX = false;  // 오디오 중복 재생 방지
 
     public void Interact()
     {
@@ -33,6 +37,12 @@ public class CandleMirrorTrigger : MonoBehaviour, IInteractable
                 {
                     if (mirror != null)
                         mirror.SetActive(true);
+                }
+                // 효과음 재생 (한 번만)
+                if (!hasPlayedSFX && allCandlesLitSFX != null)
+                {
+                    allCandlesLitSFX.Play();
+                    hasPlayedSFX = true;
                 }
             }
         }
