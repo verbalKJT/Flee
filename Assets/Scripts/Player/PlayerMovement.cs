@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     public WaterManager InWater;
     [Header("속도 계수")]
     public float speedMultiplier = 0.5f;
+    [Header("Footstep Audio")]
+    public AudioSource footstepSource;
+    public AudioClip[] footstepClips;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -66,5 +69,18 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isRunning", isRunning);
         }
             
+    }
+    // 애니메이션 이벤트에서 호출
+    public void Footstep()
+    {
+        if (footstepClips.Length == 0 || footstepSource == null)
+            return;
+
+        // 재생 중이면 중복 방지 (선택사항)
+        if (footstepSource.isPlaying) return;
+
+        int index = Random.Range(0, footstepClips.Length);
+        footstepSource.clip = footstepClips[index];
+        footstepSource.Play();
     }
 }

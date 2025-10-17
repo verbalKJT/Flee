@@ -18,6 +18,8 @@ public class EndingRoomDoor : MonoBehaviour
     }
     void Update()
     {
+        if (player == null) return; // ✅ Null 체크 추가
+        
         float distance = Vector3.Distance(player.position, transform.position);
 
         if (distance <= interactDistance && !isOpened && Input.GetKeyDown(KeyCode.E))
