@@ -46,9 +46,9 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.85
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -146,11 +146,14 @@ MonoBehaviour:
   startBGM:
   - {fileID: 8300000, guid: 6b86dd65414fa144ab138acce7423098, type: 3}
   - {fileID: 8300000, guid: 3440b8cc18834634cbfb134d41f030f0, type: 3}
+  - {fileID: 8300000, guid: 202559e5e7ee41142b8ec1d595e829e1, type: 3}
   livingRoomBGM:
   - {fileID: 8300000, guid: 6b86dd65414fa144ab138acce7423098, type: 3}
   - {fileID: 8300000, guid: 46a7bfb58ea87844cbd23a06eac029be, type: 3}
+  - {fileID: 8300000, guid: 31502912239408042b20f1fa7a4eb927, type: 3}
   MiddleBGM:
   - {fileID: 8300000, guid: 6b86dd65414fa144ab138acce7423098, type: 3}
   - {fileID: 8300000, guid: 393b38369ea7ff943806492d6db3eabd, type: 3}
   - {fileID: 8300000, guid: 3c0bd06cb50253f4881dadef3575a0ff, type: 3}
+  - {fileID: 8300000, guid: d67a6e054b62607429c7c9d319340832, type: 3}
   EndingCorriderBGM: []
