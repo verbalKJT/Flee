@@ -144,6 +144,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerReSpawn(Transform spawnPoint,GameObject player)
     {
-        player.transform.position = spawnPoint.position; // 플레이어 위치 변경으로 PlayerRespawn
+        Debug.Log("Player respawn");
+        player.transform.position = spawnPoint.position; // 플레이어 위치 리스폰 위치로
     }
 }
