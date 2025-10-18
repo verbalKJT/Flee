@@ -135,6 +135,8 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Map initializer call.");
             }
             Debug.Log("Map loaded");
+            
+            Addressables.Release(handle); // map 메모리에서 해제 (누수 방지)
         }
         else
         {
