@@ -70,9 +70,27 @@
                     endCorridor.StartEndCorridor(); // 주입후 시작 
                 }
 
-            //마네킹
-            InjectMannequins(player);
+                //마네킹
+                InjectMannequins(player);
+            
+                // 책 UI 바인딩 처리
+                Transform interactionCanvas = GameObject.Find("InteractionCanvas")?.transform;
+                GameObject openBookUI = interactionCanvas?.Find("InteractionOpenBookImg")?.gameObject;
 
+                if (openBookUI == null)
+                {
+                    Debug.LogWarning("InteractionOpenBookImg를 찾을 수 없습니다.");
+                }
+                else
+                {
+                    InteractableBook[] books = FindObjectsOfType<InteractableBook>();
+
+                    foreach (var book in books)
+                    {
+                        book.hintUI = openBookUI;
+                        Debug.Log($"InteractableBook에 hintUI 연결 완료: {book.gameObject.name}");
+                    }
+                }
             }
             else
             {
