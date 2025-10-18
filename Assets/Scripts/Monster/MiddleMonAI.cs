@@ -7,7 +7,7 @@ public class MiddleMonAI : MonoBehaviour
     private bool isReactingToSound = false;
 
     [Header("반응 설정")]
-    public float hearingCooldown = 3f;   // 소리 반응 쿨다운
+    public float hearingCooldown = 5f;   // 소리 반응 쿨다운
     private float lastHeardTime = -999f;
 
     void OnEnable()
