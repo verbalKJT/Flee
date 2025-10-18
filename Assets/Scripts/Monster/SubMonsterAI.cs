@@ -71,8 +71,11 @@ public class SubMonsterAI  : Monster
         PlayerVision vision = player.GetComponent<PlayerVision>();
         if (vision != null)
         {
-            yield return vision.BlindForSeconds(5f); // 5초동안 암전
+            yield return vision.BlindForSeconds(5f); // 5초 동안 암전
         }
+
+        // 5초 후 몬스터 제거
+        Destroy(gameObject);
     }
 
     public override void OnPlayerSetupComplete()
