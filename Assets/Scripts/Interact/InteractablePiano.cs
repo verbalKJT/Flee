@@ -25,7 +25,7 @@ public class InteractablePiano : MonoBehaviour, IInteractable
 
     public string GetPromptText()
     {
-        return "[E] 피아노 연주하기";
+        return "[E] 피아노 멈추기";
     }
 
     private void DisablePlayerInput()

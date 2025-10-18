@@ -5,6 +5,7 @@ public class ThrownSoundEmitter : MonoBehaviour
 {
     public float soundRange = 15f;
     private bool hasEmitted = false;
+    public AudioClip emitSound;
 
     void OnCollisionEnter(Collision collision)
     {

@@ -58,8 +58,10 @@ public class PlayerInventory : MonoBehaviour
 
         if (col) col.enabled = true;
 
-        // 사운드 유도 기능 활성화용 스크립트 부착
-        heldObject.AddComponent<ThrownSoundEmitter>();
+        // 사운드 유도 기능 활성화
+        var emitter = heldObject.GetComponent<ThrownSoundEmitter>();
+        if (emitter != null)
+            emitter.enabled = true;
 
         heldObject = null;
     }
