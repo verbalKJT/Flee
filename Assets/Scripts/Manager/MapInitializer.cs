@@ -69,6 +69,10 @@
                     endCorridor.SetHolyway(holywayPrefab);
                     endCorridor.StartEndCorridor(); // 주입후 시작 
                 }
+
+            //마네킹
+            InjectMannequins(player);
+
             }
             else
             {
@@ -103,4 +107,20 @@
                 letter.SetupEnvironment(doorAnimator, openText, letterImage);
             }
         }
+
+    void InjectMannequins(GameObject player)
+    {
+        GameObject[] mannequins = GameObject.FindGameObjectsWithTag("Mannequin");
+
+        foreach (GameObject go in mannequins)
+        {
+            Mannequin mannequin = go.GetComponent<Mannequin>();
+            if (mannequin != null)
+            {
+                mannequin.SetPlayer(player.transform); 
+            }
+        }
+
+        Debug.Log($"마네킹 {mannequins.Length}개에 플레이어 주입 완료");
     }
+}
