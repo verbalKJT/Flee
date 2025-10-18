@@ -4,10 +4,10 @@ using UnityEngine.AI;
 public class HolywayMonsterAI : Monster
 {
     [Header("AI Settings")]
-    public float chaseRange = 10f;        // 감지 거리
+    public float chaseRange = 2f;        // 감지 거리
     public float stopDistance = 1.5f;     // 최소 거리
     [Range(10f, 180f)]
-    public float fieldOfView = 30f;       
+    public float fieldOfView = 5f;
     public LayerMask obstacleMask;        // 시야를 막는 오브젝트 레이어 지정용
 
     private NavMeshAgent agent;
@@ -80,6 +80,9 @@ public class HolywayMonsterAI : Monster
                 hasCaughtPlayer = true;
                 agent.isStopped = true;
                 animator.SetFloat("Speed", 0f);
+
+                // ✅ 플레이어 잡는 순간 바로 몬스터 제거
+                Destroy(gameObject);
             }
         }
         else
