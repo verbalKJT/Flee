@@ -89179,6 +89179,9 @@ MonoBehaviour:
   endCorridor: {fileID: 0}
   holywayPrefab: {fileID: 6033344933990544176, guid: e9f2a0d46cc3fb04191434ab2fa04219, type: 3}
   endingRoomDoor: {fileID: 7576040955254607739}
+  ceilingWaterTrigger: {fileID: 8262659138524502949}
+  waterManager: {fileID: 5740869518054859556}
+  resetBathroom: {fileID: 7888741147647845211}
 --- !u!1 &3777548637761604930
 GameObject:
   m_ObjectHideFlags: 0
@@ -105342,7 +105345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3218cd622f087974892d10cc3771e97d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Door: {fileID: 0}
+  Door: {fileID: 1827452298547579895}
   Wall_Trigger: {fileID: 1028826725551867838}
   Lamp: {fileID: 5794482188571439322}
   WaterStream: {fileID: 3316841935215309792}

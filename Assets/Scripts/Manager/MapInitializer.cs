@@ -31,9 +31,22 @@
 
         [Header("EndingRoom")] [SerializeField]
         private EndingRoomDoor endingRoomDoor;
-            
-        public void Initialize(GameManager manager)
-        {
+
+        //Bathroom 천장 트리거
+        [Header("CeilingWaterTrigger")][SerializeField]
+        private CeilingWaterTrigger ceilingWaterTrigger;
+
+        //WaterManager Water_Cam
+        [Header("WaterManager")][SerializeField]
+        private WaterManager waterManager;
+
+    //ResetBathroom Water_Cam
+    [Header("ResetBathroom")]
+    [SerializeField]
+    private ResetBathroom resetBathroom;
+
+    public void Initialize(GameManager manager)
+    {
             Debug.Log("외부 주입 시작");
             endCorridor = GameObject.Find("EndCorriderGameManager").GetComponent<EndCorridorGameManager>();
             
@@ -43,8 +56,10 @@
             
             mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             
-            monsterPanel = GameObject.Find("InteractionCanvas").transform.Find("MiddleMonPanel").gameObject;
-            if (player != null)
+            monsterPanel = GameObject.Find("InteractionCanvas").transform.Find("MiddleMonPanel").gameObject;       
+
+        
+        if (player != null)
             {
                 if (letter != null)
                 {
@@ -70,11 +85,16 @@
                     endCorridor.StartEndCorridor(); // 주입후 시작 
                 }
 
-                //마네킹
-                InjectMannequins(player);
-            
-                // 책 UI 바인딩 처리
-                Transform interactionCanvas = GameObject.Find("InteractionCanvas")?.transform;
+            //마네킹
+            InjectMannequins(player);
+
+            //Bathroom 천장 트리거                
+            ceilingWaterTrigger.setPlayer(player);
+
+            StartCoroutine(AssignWaterCam(player));
+
+            // 책 UI 바인딩 처리
+            Transform interactionCanvas = GameObject.Find("InteractionCanvas")?.transform;
                 GameObject openBookUI = interactionCanvas?.Find("InteractionOpenBookImg")?.gameObject;
 
                 if (openBookUI == null)
@@ -140,5 +160,26 @@
         }
 
         Debug.Log($"마네킹 {mannequins.Length}개에 플레이어 주입 완료");
+    }
+
+    IEnumerator AssignWaterCam(GameObject player)
+    {
+        yield return null; // 한 프레임 대기
+        GameObject water_Cam = GameObject.FindGameObjectWithTag("Water_Cam");
+        Debug.Log(water_Cam.tag);
+        if (water_Cam != null)
+        {
+            waterManager.setCameraOverlay(water_Cam.gameObject);
+            resetBathroom.setCameraOverlay(water_Cam.gameObject);
+            Debug.Log(" Water_Cam 연결 완료");
+
+            // 연결 후 비활성화
+            water_Cam.SetActive(false);
+            Debug.Log(" 연결 후 비활성화");
+        }
+        else
+        {
+            Debug.LogWarning("Water_Cam 오브젝트를 찾을 수 없습니다.");
+        }
     }
 }
