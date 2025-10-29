@@ -74,4 +74,9 @@ public class WaterManager : MonoBehaviour
             }            
         }
     }
+
+    public void setCameraOverlay(GameObject overlayObj)
+    {
+        this.cameraOverlayObject= overlayObj;
+    }
  }

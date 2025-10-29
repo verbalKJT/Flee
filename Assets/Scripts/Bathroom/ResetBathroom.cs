@@ -55,4 +55,9 @@ public class ResetBathroom : MonoBehaviour
 
         Debug.Log("방 초기화 완료");
     }
+
+    public void setCameraOverlay(GameObject overlayObj)
+    {
+        this.Water_Cam = overlayObj;
+    }
 }
