@@ -58,6 +58,8 @@ public class HeadBob : MonoBehaviour
     void Update()
     {
         float speed = GetHorizontalSpeed();
+
+        //플레이어가 움직이거나 땅에 붙어있고 플레이어가 숨지 않을 때 화면 흔들림이 실행되도록 하는 조건
         bool canBob = speed > minSpeedToBob && (!groundedOnly || IsGrounded() && !playerHider.IsHiding);
 
         if (canBob)
