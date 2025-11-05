@@ -1,7 +1,9 @@
-namespace Script
+﻿namespace Script
 {
     public enum EnemyState
     {
-        PATROL, CHASE
+        PATROL,
+        CHASE,
+        STUN        //기절 상태 추가
     }
 }

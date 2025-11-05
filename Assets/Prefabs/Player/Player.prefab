@@ -479,6 +479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1357872468683691416}
   - component: {fileID: 5708103234251061222}
+  - component: {fileID: 28558512678022833}
   m_Layer: 0
   m_Name: FlashHolder
   m_TagString: Untagged
@@ -521,6 +522,25 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   horizontalOffsetDegrees: 5
+--- !u!114 &28558512678022833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2302184129708614156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22066f3151ab30848925062a83000bc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlashStun
+  flashlightLight: {fileID: 4236414100283283354}
+  cam: {fileID: 3769461244133391361}
+  stunRange: 15
+  checkInterval: 0.1
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &2373066917592336959
 GameObject:
   m_ObjectHideFlags: 0
@@ -4673,6 +4693,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2010029433048357321}
   m_SourcePrefab: {fileID: 100100000, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
+--- !u!108 &4236414100283283354 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 108038271100546340, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
+  m_PrefabInstance: {fileID: 4302362688313309886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4298097763609160298 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4777606630871252, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
