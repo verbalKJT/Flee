@@ -25,6 +25,7 @@ public class HeadBob : MonoBehaviour
 
     Vector3 baseLocalPos;
     float phase;
+    PlayerHider playerHider;
 
     void Awake()
     {
@@ -32,6 +33,8 @@ public class HeadBob : MonoBehaviour
         baseLocalPos = bobTarget.localPosition;
         cc = GetComponentInParent<CharacterController>();
         rb = GetComponentInParent<Rigidbody>();
+
+        playerHider = GetComponentInParent<PlayerHider>();
     }
 
     float GetHorizontalSpeed()
@@ -55,7 +58,9 @@ public class HeadBob : MonoBehaviour
     void Update()
     {
         float speed = GetHorizontalSpeed();
-        bool canBob = speed > minSpeedToBob && (!groundedOnly || IsGrounded());
+
+        //플레이어가 움직이거나 땅에 붙어있고 플레이어가 숨지 않을 때 화면 흔들림이 실행되도록 하는 조건
+        bool canBob = speed > minSpeedToBob && (!groundedOnly || IsGrounded() && !playerHider.IsHiding);
 
         if (canBob)
         {

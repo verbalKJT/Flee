@@ -3297,6 +3297,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3509725777245678726, guid: df47d30a06d404529bd2c8421dc9b1ce, type: 3}
+      propertyPath: bobTarget
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3228663626056940185, guid: df47d30a06d404529bd2c8421dc9b1ce, type: 3}
       propertyPath: ItemSlotUI.Array.size
       value: 6
@@ -3334,6 +3338,10 @@ PrefabInstance:
       value: 0.012058429
       objectReference: {fileID: 0}
     - target: {fileID: 4691530129505930467, guid: df47d30a06d404529bd2c8421dc9b1ce, type: 3}
+      propertyPath: cameraHolder
+      value: 
+      objectReference: {fileID: 6849398088319656510}
+    - target: {fileID: 4691530129505930467, guid: df47d30a06d404529bd2c8421dc9b1ce, type: 3}
       propertyPath: hidePromptText
       value: 
       objectReference: {fileID: 789107589}
@@ -3358,6 +3366,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df47d30a06d404529bd2c8421dc9b1ce, type: 3}
+--- !u!4 &6849398088319656510 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2297372004899949883, guid: df47d30a06d404529bd2c8421dc9b1ce, type: 3}
+  m_PrefabInstance: {fileID: 6849398088319656509}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &8338797177241948513
 Camera:
   m_ObjectHideFlags: 0
