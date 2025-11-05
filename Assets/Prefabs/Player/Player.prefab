@@ -3128,6 +3128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c41da59de72bf8429bf57b320b168e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightAudioSource: {fileID: 1145863333505786670}
+  lightOnClip: {fileID: 8300000, guid: 97885c49b17d1214eadd79663ab30aa0, type: 3}
+  lightOffClip: {fileID: 8300000, guid: 21f543974115aaf44b0c8d5f22d4a403, type: 3}
 --- !u!114 &3228663626056940185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5201,7 +5204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6465473539313429002, guid: b694b8ec5c41f6247843a2b67222fda6, type: 3}
       propertyPath: m_Intensity
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
