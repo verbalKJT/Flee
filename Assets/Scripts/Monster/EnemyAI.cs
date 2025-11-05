@@ -1,4 +1,4 @@
-using Script;
+﻿using Script;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,6 +16,14 @@ public class EnemyAI : Monster
 
     private EnemyState currentState = EnemyState.PATROL; // 적의 현재 상태
     private NavMeshAgent agent; // 이동 제어
+
+    [Header("손전등 기절 설정")]
+    public bool canStun = false;    //미들 몬스터 프리펩에만 True로 설정
+    public float stunDuration = 3f; //기절 시간
+    public float stunCooltime = 5f; //기절 끝난 뒤 추가 쿨타임
+    private bool isStunned = false; //기절 상태
+    private float stunEndTime = 0f;
+    private float nextStunTime = 0f;    //이 시간이 지나야 다시 스턴 가능
     
     void Update()
     {
@@ -24,6 +32,22 @@ public class EnemyAI : Monster
         {
             return;
         }
+
+        //기절 상태 처리
+        if (isStunned)
+        {
+            if (Time.time >= stunEndTime)
+            {
+                isStunned = false;
+                if (agent != null)
+                    agent.isStopped = false;
+
+                changeState(EnemyState.PATROL);
+            }
+
+            return;
+        }
+
         switch (currentState)
         {
             case EnemyState.PATROL:
@@ -35,6 +59,8 @@ public class EnemyAI : Monster
                 ChasePlayer();
                 animator.speed = agent.velocity.magnitude / agent.speed * 1.8f;
                 animator.SetFloat("Action", 1f);
+                break;
+            case EnemyState.STUN:
                 break;
         }
     }
@@ -117,6 +143,10 @@ public class EnemyAI : Monster
                 animator.speed = agent.velocity.magnitude / agent.speed * 1.8f;
                 animator.SetFloat("Action", 1f);
                 break;
+            case EnemyState.STUN:
+                animator.SetFloat("Action", 0f);
+                animator.speed = 0f;
+                break;
         }
     }
 
@@ -127,5 +157,27 @@ public class EnemyAI : Monster
         agent.speed = 5f;
     }
 
-    
+
+    // 손전등에서 호출할 함수
+    public void StunByFlashlight()
+    {
+        if (!canStun) return;   // 메인 몬스터는 그냥 무시
+
+        if (Time.time < nextStunTime) return;   //쿨타임 지나야 스턴 되도록 설정
+        if (isStunned) return;  // 이미 기절 중이면 또 안 걸림
+
+        isStunned = true;
+        stunEndTime = Time.time + stunDuration;
+
+        nextStunTime = Time.time + stunDuration + stunCooltime;
+
+        // 상태를 STUN 으로 전환
+        changeState(EnemyState.STUN);
+
+        if (agent != null)
+        {
+            agent.isStopped = true;
+            agent.velocity = Vector3.zero;
+        }
+    }
 }
