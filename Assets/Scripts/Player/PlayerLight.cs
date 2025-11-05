@@ -1,35 +1,34 @@
 ﻿using UnityEngine;
 
-public class FlashlightToggle : MonoBehaviour
+public class PlayerLight : MonoBehaviour
 {
-    private Light flashlightLight;
-    private bool isOn = false;
-
-    public AudioSource lightAudioSource;
+    public Light lanternLight;
+    public AudioSource lanternAudioSource;
     public AudioClip lightOnClip;
     public AudioClip lightOffClip;
 
-    void Awake()
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
-        // 자식까지 전부 뒤져서 Light 하나 찾아옴
-        flashlightLight = GetComponentInChildren<Light>(true);
-
-        if (flashlightLight != null)
-            flashlightLight.enabled = false;   // 처음엔 꺼진 상태
+        if (lanternLight != null)
+        {
+            lanternLight.enabled = false;
+        }
     }
 
+    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if(Input.GetKeyDown(KeyCode.F))
         {
-            isOn = !isOn;
-
-            if (flashlightLight != null)
+            if(lanternLight != null)
             {
-                flashlightLight.enabled = isOn;
-                if (lightAudioSource != null && lightOnClip != null &&lightOffClip != null)
+                lanternLight.enabled = !lanternLight.enabled;
+                
+                // 효과음 재생
+                if (lanternAudioSource != null && lightOnClip != null &&  lightOffClip != null)
                 {
-                    lightAudioSource.PlayOneShot(isOn ? lightOnClip : lightOffClip);
+                    lanternAudioSource.PlayOneShot(lanternLight.enabled ? lightOnClip : lightOffClip);
                 }
             }
         }
