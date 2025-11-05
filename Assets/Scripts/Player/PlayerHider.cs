@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
@@ -16,6 +16,7 @@ public class PlayerHider : MonoBehaviour
     private Vector3 originalPosition;           //숨기 전 카메라의 위치 정보 저장을 위한 객체
     private Quaternion originalRotation;        //숨기 전 카메라의 회전
     public List<GameObject> BodyObjects;      //숨을때 숨겨 줄 오브젝트 리스트
+    public HeadBob headBob;
 
     private void Start()
     {
@@ -91,6 +92,8 @@ public class PlayerHider : MonoBehaviour
     {
         if (currentZone != null && currentZone.hidingSpot != null)
         {
+            headBob.enabled = false;
+
             //숨기전 플레이어의 위치 정보를 저장
             originalPosition = transform.position;
             originalRotation = transform.rotation;
@@ -102,7 +105,7 @@ public class PlayerHider : MonoBehaviour
             if (cameraHolder != null)
             {
                 //카메라의 위치를 플레이어 캐릭터의 시점과 맞춰줌
-                cameraHolder.localPosition = new Vector3(0, 0.5f, 0.5f);
+                cameraHolder.localPosition = new Vector3(0, 0.5f, 0.4f);
 
                 //시점이 벽을 보지 않도록 설정
                 Vector3 lookDirection = -currentZone.hidingSpot.forward; 
@@ -133,6 +136,8 @@ public class PlayerHider : MonoBehaviour
     //숨기 해제 기능 함수
     void ExitHide()
     {
+
+        headBob.enabled = true;
         //플레이어의 움직임을 다시 활성화
         if (playerMovement != null)
             playerMovement.enabled = true;
