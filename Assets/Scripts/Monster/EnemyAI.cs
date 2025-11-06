@@ -24,6 +24,7 @@ public class EnemyAI : Monster
     private bool isStunned = false; //기절 상태
     private float stunEndTime = 0f;
     private float nextStunTime = 0f;    //이 시간이 지나야 다시 스턴 가능
+    [SerializeField] private string stunTriggerName = "Stun";
     
     void Update()
     {
@@ -145,7 +146,7 @@ public class EnemyAI : Monster
                 break;
             case EnemyState.STUN:
                 animator.SetFloat("Action", 0f);
-                animator.speed = 0f;
+                animator.speed = 1f;
                 break;
         }
     }
@@ -170,6 +171,11 @@ public class EnemyAI : Monster
         stunEndTime = Time.time + stunDuration;
 
         nextStunTime = Time.time + stunDuration + stunCooltime;
+
+        if (animator != null && !string.IsNullOrEmpty(stunTriggerName))
+        {
+            animator.SetTrigger(stunTriggerName);
+        }
 
         // 상태를 STUN 으로 전환
         changeState(EnemyState.STUN);
