@@ -46,6 +46,8 @@ public class OVRGazePointer : OVRCursor
     public float depthScaleMultiplier = 0.03f;
 
     public bool matchNormalOnPhysicsColliders;
+    
+    [SerializeField]private LineRenderer lineRenderer;
 
     /// <summary>
     /// The gaze ray.
@@ -84,8 +86,7 @@ public class OVRGazePointer : OVRCursor
     /// </summary>
     private float lastHideRequestTime;
 
-    // Optionally present GUI element displaying progress when using gaze-to-select mechanics
-    private OVRProgressIndicator progressIndicator;
+  
 
     private static OVRGazePointer _instance;
 
@@ -141,17 +142,6 @@ public class OVRGazePointer : OVRCursor
             return Mathf.Min(strengthFromShowRequest, strengthFromHideRequest);
         }
     }
-
-    public float SelectionProgress
-    {
-        get { return progressIndicator ? progressIndicator.currentProgress : 0; }
-        set
-        {
-            if (progressIndicator)
-                progressIndicator.currentProgress = value;
-        }
-    }
-
     public void Awake()
     {
         currentScale = 1;
@@ -165,7 +155,7 @@ public class OVRGazePointer : OVRCursor
 
         _instance = this;
         
-        progressIndicator = transform.GetComponent<OVRProgressIndicator>();
+        lineRenderer = GetComponent<LineRenderer>();
     }
 
     void Update()
@@ -265,8 +255,8 @@ public class OVRGazePointer : OVRCursor
             cachedTransform.GetChild(i).gameObject.SetActive(false);
         }
 
-        if (GetComponent<LineRenderer>())
-            GetComponent<LineRenderer>().enabled = false;
+        if (lineRenderer)
+            lineRenderer.enabled = false;
         hidden = true;
     }
 
@@ -278,8 +268,8 @@ public class OVRGazePointer : OVRCursor
             cachedTransform.GetChild(i).gameObject.SetActive(true);
         }
 
-        if (GetComponent<LineRenderer>())
-            GetComponent<LineRenderer>().enabled = true;
+        if (lineRenderer)
+            lineRenderer.enabled = true;
         hidden = false;
     }
 }
