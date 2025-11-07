@@ -19,11 +19,11 @@ public static class ARAVRInput
         // Fire2,
         // Fire3,
         // Jump,
-        Interact,      // A 버튼
-        SettingsClick, // B 버튼
-        ToggleLight,   // Y 버튼
-        ToggleMenu,    // X 버튼
-        ThrowObject   // Hand Trigger
+        Interact,      
+        SettingsClick, 
+        ToggleLight,   
+        ToggleMenu,    
+        ThrowObject   
     }
 #elif Vive
     public enum ButtonTarget
@@ -50,13 +50,13 @@ public static class ARAVRInput
         Thumbstick = ButtonTarget.Interact, // 임시
         HandTrigger = ButtonTarget.ThrowObject, // q
 #elif Oculus
-        One = OVRInput.Button.One,
-        Two = OVRInput.Button.Two,
-        Three = OVRInput.Button.Three,
-        Four = OVRInput.Button.Four,
+        One = OVRInput.Button.One,      // A 버튼
+        Two = OVRInput.Button.Two,      // B 버튼
+        Three = OVRInput.Button.Three,  // Y 버튼
+        Four = OVRInput.Button.Four,    // X 버튼
         Thumbstick = OVRInput.Button.PrimaryThumbstick,
         IndexTrigger = OVRInput.Button.PrimaryIndexTrigger,
-        HandTrigger = OVRInput.Button.PrimaryHandTrigger
+        HandTrigger = OVRInput.Button.PrimaryHandTrigger // Hand Trigger
 #elif Vive
         One = ButtonTarget.InteractUI,
         Two = ButtonTarget.Jump,
