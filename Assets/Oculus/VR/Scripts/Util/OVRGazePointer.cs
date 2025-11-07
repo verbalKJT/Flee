@@ -29,7 +29,6 @@ using UnityEngine.UI;
 [HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_gaze_pointer")]
 public class OVRGazePointer : OVRCursor
 {
-    private Transform gazeIcon ; //the transform that rotates according to our movement
 
     [Tooltip("Should the pointer be hidden when not over interactive objects.")]
     public bool hideByDefault = true;
@@ -165,8 +164,7 @@ public class OVRGazePointer : OVRCursor
         }
 
         _instance = this;
-
-        gazeIcon = transform.Find("GazeIcon");
+        
         progressIndicator = transform.GetComponent<OVRProgressIndicator>();
     }
 
@@ -231,13 +229,7 @@ public class OVRGazePointer : OVRCursor
             newRot.SetLookRotation(rayTransform.forward, rayTransform.up);
             transform.rotation = newRot;
         }
-
-        /*
-        Quaternion iconRotation = gazeIcon.rotation;
-        iconRotation.SetLookRotation(transform.rotation * new Vector3(0, 0, 1));
-        gazeIcon.rotation = iconRotation;
-        */
-
+        
         positionSetsThisFrame = 0;
     }
 
@@ -273,8 +265,8 @@ public class OVRGazePointer : OVRCursor
             cachedTransform.GetChild(i).gameObject.SetActive(false);
         }
 
-        if (GetComponent<Renderer>())
-            GetComponent<Renderer>().enabled = false;
+        if (GetComponent<LineRenderer>())
+            GetComponent<LineRenderer>().enabled = false;
         hidden = true;
     }
 
@@ -286,8 +278,8 @@ public class OVRGazePointer : OVRCursor
             cachedTransform.GetChild(i).gameObject.SetActive(true);
         }
 
-        if (GetComponent<Renderer>())
-            GetComponent<Renderer>().enabled = true;
+        if (GetComponent<LineRenderer>())
+            GetComponent<LineRenderer>().enabled = true;
         hidden = false;
     }
 }
