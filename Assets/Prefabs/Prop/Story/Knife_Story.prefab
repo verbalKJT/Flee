@@ -122,7 +122,8 @@ GameObject:
   - component: {fileID: 395749695667032081}
   - component: {fileID: 4839086914600265568}
   - component: {fileID: -3328061831947429043}
-  m_Layer: 0
+  - component: {fileID: -7442125955801366151}
+  m_Layer: 3
   m_Name: Knife_Story
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,6 +188,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
   ItemData: {fileID: 11400000, guid: eb9562358f7f37847bd09401f029e2cf, type: 2}
+--- !u!65 &-7442125955801366151
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024055360694225579}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6, y: 0.46, z: 0.4}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2162896722679182293
 GameObject:
   m_ObjectHideFlags: 0
