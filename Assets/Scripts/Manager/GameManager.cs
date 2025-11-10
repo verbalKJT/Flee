@@ -78,6 +78,14 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+    public void DisableOVRCameraRig() // 엔딩시네마틱용
+    {
+        if (OVRCameraRig != null)
+        {
+            OVRCameraRig.SetActive(false);
+            Debug.Log("▶ OVRCameraRig 비활성화 (엔딩시네마틱용)");
+        }
+    }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (!scene.name.Equals("ProtoUI"))
