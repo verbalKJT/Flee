@@ -7,7 +7,7 @@ public class EndCorridorGameManager : MonoBehaviour
     public static EndCorridorGameManager I;
     void Awake() => I = this;
 
-    [Header("Prefabs & Refs")]
+    [Header("Prefabs & Refs")] 
     private GameObject holywayPrefab;   // ���� ������ (Holyway ������Ʈ ����)
     public Transform spawnRoot;        // ���� ���� ���� ��ġ/ȸ�� (GameManager �ڽ��� �ᵵ OK)
     public Transform player;           // �÷��̾� Transform
@@ -25,8 +25,7 @@ public class EndCorridorGameManager : MonoBehaviour
 
         // ����: ù ���� ���� (ó���� ������ ���� �ʴ� �䱸��� ���� �� �� �� Teleport�� ����)
         if (holywayPrefab != null)
-        {
-            ;
+        { ;
             current = SpawnNewRoom(currentStage);
         }
         // ó���� �������� �ʴ´� �� �ּ� ����
@@ -84,26 +83,5 @@ public class EndCorridorGameManager : MonoBehaviour
     public void SetHolyway(GameObject holyway)
     {
         this.holywayPrefab = holyway;
-    }
-    public void ResetCorridor()
-    {
-        Debug.Log("[EndCorridorGameManager] 복도 전체 초기화");
-
-        // 기존 holyway 삭제
-        foreach (Transform child in spawnRoot)
-        {
-            Destroy(child.gameObject);
-        }
-
-        // 스테이지 인덱스 초기화
-        currentStage = 1;
-
-        // 첫 복도 재생성
-        if (holywayPrefab != null)
-        {
-            current = SpawnNewRoom(currentStage);
-            TeleportTo(current.startPoint.position);
-            Debug.Log("첫 복도 재생성 완료");
-        }
     }
 }

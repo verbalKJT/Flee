@@ -8,11 +8,11 @@ public class DoorOpener : MonoBehaviour, IInteractable
 
     public BGMType bgmType = BGMType.None;
     public bool shouldChangeBGM = false;  // 이 문이 BGM을 바꿔야 하는가?
-
+    
     [Header("문 효과음")]
     public AudioClip doorOpenSFX;
     public AudioClip doorCloseSFX;
-
+    
     private Animator animator;
     private bool isOpen = false;
     private AudioSource audioSource;
@@ -32,7 +32,7 @@ public class DoorOpener : MonoBehaviour, IInteractable
         {
             animator.SetTrigger("Door1Open");
             animator.SetTrigger("Door2Open");
-
+            
             if (doorOpenSFX != null)
                 audioSource.PlayOneShot(doorOpenSFX);
         }
@@ -40,7 +40,7 @@ public class DoorOpener : MonoBehaviour, IInteractable
         {
             animator.SetTrigger("Door1Close");
             animator.SetTrigger("Door2Close");
-
+            
             if (doorCloseSFX != null)
                 audioSource.PlayOneShot(doorCloseSFX);
         }
@@ -50,28 +50,11 @@ public class DoorOpener : MonoBehaviour, IInteractable
     {
         return isOpen;
     }
-
-    // ✅ ForceCloseDoor 추가 (다른 부분은 전혀 수정 없음)
-    public void ForceCloseDoor()
-    {
-        if (isOpen)
-        {
-            isOpen = false;
-            animator.SetTrigger("Door1Close");
-            animator.SetTrigger("Door2Close");
-
-            if (doorCloseSFX != null)
-                audioSource.PlayOneShot(doorCloseSFX);
-
-            Debug.Log($"🔒 {gameObject.name} 강제로 닫힘 (ForceCloseDoor)");
-        }
-    }
-
     // IInteractable 구현
     public void Interact()
     {
         ToggleDoor();
-
+        
         // BGM 변경 로직
         if (shouldChangeBGM && BGMManager.Instance != null)
         {
@@ -89,7 +72,6 @@ public class DoorOpener : MonoBehaviour, IInteractable
             }
         }
     }
-
     public string GetPromptText()
     {
         return isOpen ? "[E] 문 닫기" : "[E] 문 열기";

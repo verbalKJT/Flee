@@ -29,6 +29,7 @@ using UnityEngine.UI;
 [HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_gaze_pointer")]
 public class OVRGazePointer : OVRCursor
 {
+    private Transform gazeIcon; //the transform that rotates according to our movement
 
     [Tooltip("Should the pointer be hidden when not over interactive objects.")]
     public bool hideByDefault = true;
@@ -46,8 +47,6 @@ public class OVRGazePointer : OVRCursor
     public float depthScaleMultiplier = 0.03f;
 
     public bool matchNormalOnPhysicsColliders;
-    
-    [SerializeField]private LineRenderer lineRenderer;
 
     /// <summary>
     /// The gaze ray.
@@ -86,7 +85,8 @@ public class OVRGazePointer : OVRCursor
     /// </summary>
     private float lastHideRequestTime;
 
-  
+    // Optionally present GUI element displaying progress when using gaze-to-select mechanics
+    private OVRProgressIndicator progressIndicator;
 
     private static OVRGazePointer _instance;
 
@@ -142,6 +142,17 @@ public class OVRGazePointer : OVRCursor
             return Mathf.Min(strengthFromShowRequest, strengthFromHideRequest);
         }
     }
+
+    public float SelectionProgress
+    {
+        get { return progressIndicator ? progressIndicator.currentProgress : 0; }
+        set
+        {
+            if (progressIndicator)
+                progressIndicator.currentProgress = value;
+        }
+    }
+
     public void Awake()
     {
         currentScale = 1;
@@ -154,8 +165,9 @@ public class OVRGazePointer : OVRCursor
         }
 
         _instance = this;
-        
-        lineRenderer = GetComponent<LineRenderer>();
+
+        gazeIcon = transform.Find("GazeIcon");
+        progressIndicator = transform.GetComponent<OVRProgressIndicator>();
     }
 
     void Update()
@@ -219,7 +231,11 @@ public class OVRGazePointer : OVRCursor
             newRot.SetLookRotation(rayTransform.forward, rayTransform.up);
             transform.rotation = newRot;
         }
-        
+
+        Quaternion iconRotation = gazeIcon.rotation;
+        iconRotation.SetLookRotation(transform.rotation * new Vector3(0, 0, 1));
+        gazeIcon.rotation = iconRotation;
+
         positionSetsThisFrame = 0;
     }
 
@@ -255,8 +271,8 @@ public class OVRGazePointer : OVRCursor
             cachedTransform.GetChild(i).gameObject.SetActive(false);
         }
 
-        if (lineRenderer)
-            lineRenderer.enabled = false;
+        if (GetComponent<Renderer>())
+            GetComponent<Renderer>().enabled = false;
         hidden = true;
     }
 
@@ -268,8 +284,8 @@ public class OVRGazePointer : OVRCursor
             cachedTransform.GetChild(i).gameObject.SetActive(true);
         }
 
-        if (lineRenderer)
-            lineRenderer.enabled = true;
+        if (GetComponent<Renderer>())
+            GetComponent<Renderer>().enabled = true;
         hidden = false;
     }
 }
