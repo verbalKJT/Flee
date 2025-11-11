@@ -1,17 +1,17 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class PlayerLightInventory : MonoBehaviour
 {
-    [Header("ÇÃ·¹ÀÌ¾î Á¶¸í ¿ÀºêÁ§Æ®")]
-    public GameObject candleLight;     // FlashHolder ¹Ø CandleLight
-    public GameObject flashlightObject; // FlashHolder ¹Ø Flashlight
+    [Header("í”Œë ˆì´ì–´ ì¡°ëª… ì˜¤ë¸Œì íŠ¸")]
+    public GameObject candleLight;     // FlashHolder ë°‘ CandleLight
+    public GameObject flashlightObject; // FlashHolder ë°‘ Flashlight
 
-    [Header("¼ÕÀüµî È¹µæ ¿©ºÎ")]
+    [Header("ì†ì „ë“± íšë“ ì—¬ë¶€")]
     public bool hasFlashlight = false;
 
     void Start()
     {
-        // °ÔÀÓ ½ÃÀÛ: ¾çÃÊºÒºû ÄÑ±â, ¼ÕÀüµî ²ô±â
+        // ê²Œì„ ì‹œì‘: ì–‘ì´ˆë¶ˆë¹› ì¼œê¸°, ì†ì „ë“± ë„ê¸°
         SetModeCandle();
     }
 
@@ -20,7 +20,7 @@ public class PlayerLightInventory : MonoBehaviour
         hasFlashlight = false;
 
         if (candleLight != null)
-            candleLight.SetActive(true);
+            candleLight.SetActive(false);
 
         if (flashlightObject != null)
             flashlightObject.SetActive(false);

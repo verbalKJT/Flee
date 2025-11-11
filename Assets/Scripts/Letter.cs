@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Letter : MonoBehaviour
@@ -94,7 +94,12 @@ public class Letter : MonoBehaviour
             //플레이어 양초 불 활성화
             if (playerCandleLight != null)
             {
+                Debug.Log("양초 불 활성화");
                 playerCandleLight.SetActive(true);
+            }
+            else
+            {
+                Debug.Log("양초 불 활성화 못함!");
             }
         }
     }
@@ -123,15 +128,27 @@ public class Letter : MonoBehaviour
 
         // 1. Player 태그 달린 오브젝트 찾기 (Addressables 로드된 플레이어)
         GameObject player = GameObject.FindGameObjectWithTag(playerTag);
-        if (player == null) return;
-
-        // 2. 그 아래에서 손에 들고 있는 CandleLight 자식 찾기
-        //    구조가  Player/root/.../FlashHolder/CandleLight 라면,
-        //    CandleLight 이름만 알면 Find 로 접근 가능
-        Transform t = player.transform.Find(playerCandleLightName);
-        if (t != null)
+        if (player == null)
         {
-            playerCandleLight = t.gameObject;
+            Debug.Log("Letter에서 Player 태그 오브젝트 못 찾음");
+            return;
+        }
+        // 2. 모든 자식 트랜스폼을 돌면서 이름이 playerCandleLightName 인 걸 찾기
+        //    (비활성화 포함)
+        Transform[] children = player.GetComponentsInChildren<Transform>(true);
+        foreach (var t in children)
+        {
+            if (t.name == playerCandleLightName)
+            {
+                playerCandleLight = t.gameObject;
+                Debug.Log("Letter: 플레이어 양초 불빛 찾음 -> " + t.name);
+                break;
+            }
+        }
+
+        if (playerCandleLight == null)
+        {
+            Debug.LogWarning($"Letter: 플레이어 자식에서 '{playerCandleLightName}' 이름을 찾지 못함");
         }
     }
 }
