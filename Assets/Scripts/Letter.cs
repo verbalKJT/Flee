@@ -28,8 +28,10 @@ public class Letter : MonoBehaviour
     // 🔥 책상 위에 있는 Candle_01 오브젝트 (MAP/Furniture/.../Candle_01)
     [SerializeField] private GameObject tableCandle;
 
-    // 🔥 플레이어가 들고 다니는 양초 불빛 오브젝트 (처음에는 비활성화 해두기)
-    [SerializeField] private GameObject playerCandleLight;
+    // Inspector 에선 비워두고 런타임에 찾는다
+    [SerializeField] private string playerTag = "Player";
+    [SerializeField] private string playerCandleLightName = "CandleLight";
+    private GameObject playerCandleLight;
     private bool candleActivated = false;
 
     void Update()
@@ -81,10 +83,15 @@ public class Letter : MonoBehaviour
         {
             candleActivated = true;
 
-            if(tableCandle !== null)
+            // 플레이어 프리펩에 존재하는 양초 불빛 오브젝트 찾기
+            TryFindPlayerCandle();
+
+            //책상 위의 촛불 제거(플레이어가 획득한 것처럼)
+            if(tableCandle != null)
             {
                 Destroy(tableCandle);
             }
+            //플레이어 양초 불 활성화
             if (playerCandleLight != null)
             {
                 playerCandleLight.SetActive(true);
@@ -109,5 +116,22 @@ public class Letter : MonoBehaviour
     public void SetPlayerTransform(Transform playerTransform)
     {
         this._player = playerTransform;
+    }
+    void TryFindPlayerCandle()
+    {
+        if (playerCandleLight != null) return;
+
+        // 1. Player 태그 달린 오브젝트 찾기 (Addressables 로드된 플레이어)
+        GameObject player = GameObject.FindGameObjectWithTag(playerTag);
+        if (player == null) return;
+
+        // 2. 그 아래에서 손에 들고 있는 CandleLight 자식 찾기
+        //    구조가  Player/root/.../FlashHolder/CandleLight 라면,
+        //    CandleLight 이름만 알면 Find 로 접근 가능
+        Transform t = player.transform.Find(playerCandleLightName);
+        if (t != null)
+        {
+            playerCandleLight = t.gameObject;
+        }
     }
 }
