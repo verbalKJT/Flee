@@ -24,7 +24,14 @@ public class Letter : MonoBehaviour
     private bool isInRange = false; // 플레이어가 범위 내에 있는지 여부
     private bool isReading = false; // 편지 UI가 열려있는지 여부
     private bool isOpenDoor = false; // 문이 열려있는지
-    
+
+    // 🔥 책상 위에 있는 Candle_01 오브젝트 (MAP/Furniture/.../Candle_01)
+    [SerializeField] private GameObject tableCandle;
+
+    // 🔥 플레이어가 들고 다니는 양초 불빛 오브젝트 (처음에는 비활성화 해두기)
+    [SerializeField] private GameObject playerCandleLight;
+    private bool candleActivated = false;
+
     void Update()
     {
         if (_player == null)
@@ -69,6 +76,20 @@ public class Letter : MonoBehaviour
     {
         letterImage.SetActive(false); // UI 숨김
         isReading = false;
+
+        if(!candleActivated)
+        {
+            candleActivated = true;
+
+            if(tableCandle !== null)
+            {
+                Destroy(tableCandle);
+            }
+            if (playerCandleLight != null)
+            {
+                playerCandleLight.SetActive(true);
+            }
+        }
     }
 
     private IEnumerator DelayOpenLetter()
