@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FlashlightToggle : MonoBehaviour
 {
@@ -10,10 +9,8 @@ public class FlashlightToggle : MonoBehaviour
     public AudioClip lightOnClip;
     public AudioClip lightOffClip;
 
-    private PlayerLightInventory inv;
     void Awake()
     {
-        inv = GetComponent<PlayerLightInventory>();
         // 자식까지 전부 뒤져서 Light 하나 찾아옴
         flashlightLight = GetComponentInChildren<Light>(true);
 
@@ -23,8 +20,6 @@ public class FlashlightToggle : MonoBehaviour
 
     void Update()
     {
-        if (!inv.hasFlashlight) return;
-
         if (Input.GetKeyDown(KeyCode.F))
         {
             isOn = !isOn;
