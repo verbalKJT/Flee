@@ -1,126 +1,136 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class HolywayMonsterAI : Monster
+public class HolywayMonsterAI : MonoBehaviour
 {
-    [Header("AI Settings")]
-    public float chaseRange = 2f;        // 감지 거리
-    public float stopDistance = 1.5f;     // 최소 거리
+    [Header("AI 기본 설정")]
+    public float detectRange = 10f;          // 플레이어 탐지 범위
+    public float chaseRange = 6f;            // 추격 시작 거리
+    public float stopDistance = 1.8f;        // 플레이어를 붙잡는 거리
     [Range(10f, 180f)]
-    public float fieldOfView = 5f;
-    public LayerMask obstacleMask;        // 시야를 막는 오브젝트 레이어 지정용
+    public float fieldOfView = 120f;         // 시야각
+    public LayerMask obstacleMask;           // 시야 가림 체크용 레이어
 
+    [Header("컴포넌트")]
     private NavMeshAgent agent;
     private Animator animator;
+    private Transform player;
     private bool hasCaughtPlayer = false;
     private bool isChasing = false;
     private bool hasSpottedPlayer = false;
 
-    void Start()
+    private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        animator.applyRootMotion = false;
 
-        if (player == null)
+        // Player 자동 탐색
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
         {
-            GameObject p = GameObject.FindGameObjectWithTag("Player");
-            if (p != null) player = p.transform;
+            player = playerObj.transform;
+            Debug.Log("🎯 [HolywayMonsterAI] Player 자동 연결 완료");
         }
-
-        agent.isStopped = true;
+        else
+        {
+            Debug.LogWarning("⚠️ [HolywayMonsterAI] Player를 찾을 수 없습니다!");
+        }
     }
 
-    void Update()
+    private void Update()
     {
-        if (agent == null || animator == null || player == null)
+        if (player == null || hasCaughtPlayer)
             return;
 
         float distance = Vector3.Distance(transform.position, player.position);
-        Vector3 directionToPlayer = (player.position - transform.position).normalized;
-        float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
 
-        // 시야각과 거리 조건 확인
-        if (distance <= chaseRange && angleToPlayer <= fieldOfView / 2)
+        // 시야각 내에 있는지 확인
+        Vector3 dirToPlayer = (player.position - transform.position).normalized;
+        float angle = Vector3.Angle(transform.forward, dirToPlayer);
+
+        if (angle < fieldOfView * 0.5f && distance <= detectRange)
         {
-            // 물체에 막히지 않은 경우만 본 걸로 처리
-            if (!Physics.Raycast(transform.position + Vector3.up * 1.5f, directionToPlayer, distance, obstacleMask))
+            // 시야에 들어오면 Raycast로 시야막힘 확인
+            if (!Physics.Linecast(transform.position + Vector3.up * 1.2f, player.position + Vector3.up * 1.2f, obstacleMask))
             {
                 hasSpottedPlayer = true;
             }
         }
 
-        // 플레이어를 봤거나 이미 추격 중이라면 계속 추격
-        if (hasSpottedPlayer && !hasCaughtPlayer)
+        if (hasSpottedPlayer)
         {
-            if (!isChasing)
-            {
-                isChasing = true;
-                agent.isStopped = false;
-                animator.SetFloat("Speed", 1f);
-            }
-
-            agent.SetDestination(player.position);
-
-            // 부드러운 회전
-            Vector3 lookDir = player.position - transform.position;
-            lookDir.y = 0f;
-            if (lookDir != Vector3.zero)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(lookDir);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
-            }
-
-            float speed = agent.velocity.magnitude;
-            if (speed > 0.05f)
-                animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), speed, Time.deltaTime * 5f));
-
-            if (distance <= stopDistance)
-            {
-                hasCaughtPlayer = true;
-                agent.isStopped = true;
-                animator.SetFloat("Speed", 0f);
-
-                // ✅ 플레이어 잡는 순간 바로 몬스터 제거
-                Destroy(gameObject);
-            }
+            ChasePlayer(distance);
         }
         else
         {
-            // 플레이어 못봤을 때만 Idle 유지
-            if (!hasSpottedPlayer)
-            {
-                if (isChasing)
-                {
-                    isChasing = false;
-                    agent.isStopped = true;
-                    agent.ResetPath();
-                }
-                animator.SetFloat("Speed", 0f);
-            }
+            Patrol();
         }
     }
 
-    public override void OnPlayerSetupComplete()
+    private void ChasePlayer(float distance)
     {
-        agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-        if (player == null)
-            player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        if (distance > chaseRange)
+        {
+            // 너무 멀어지면 추격 중단
+            hasSpottedPlayer = false;
+            isChasing = false;
+            animator.SetFloat("Speed", 0f);
+            return;
+        }
+
+        if (distance > stopDistance)
+        {
+            // 추격 중
+            isChasing = true;
+            agent.isStopped = false;
+            agent.SetDestination(player.position);
+            animator.SetFloat("Speed", 1f);
+        }
+        else
+        {
+            // 붙잡음
+            CatchPlayer();
+        }
     }
 
-#if UNITY_EDITOR
-    // Scene 뷰에서 시야 범위 시각화
-    void OnDrawGizmosSelected()
+    private void Patrol()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, chaseRange);
-
-        Vector3 leftBoundary = Quaternion.Euler(0, -fieldOfView / 2, 0) * transform.forward;
-        Vector3 rightBoundary = Quaternion.Euler(0, fieldOfView / 2, 0) * transform.forward;
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, transform.position + leftBoundary * chaseRange);
-        Gizmos.DrawLine(transform.position, transform.position + rightBoundary * chaseRange);
+        // 대기 또는 기본 Idle 애니메이션
+        animator.SetFloat("Speed", 0f);
     }
-#endif
+
+    /// <summary>
+    /// 플레이어를 붙잡았을 때 실행되는 함수
+    /// </summary>
+    private void CatchPlayer()
+    {
+        if (hasCaughtPlayer)
+            return;
+
+        hasCaughtPlayer = true;
+        agent.isStopped = true;
+        animator.SetFloat("Speed", 0f);
+
+        Debug.Log("💀 [HolywayMonsterAI] 플레이어를 붙잡음 - 컷씬 요청");
+
+        // ✅ DeadGameoverHolyway 스크립트 찾아서 컷씬 실행
+        DeadGameoverHolyway deathCutscene = FindObjectOfType<DeadGameoverHolyway>();
+        if (deathCutscene != null)
+        {
+            deathCutscene.PlayDeathCutscene(this);
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ [HolywayMonsterAI] DeadGameoverHolyway를 찾지 못했습니다!");
+        }
+    }
+
+    /// <summary>
+    /// 컷씬 종료 후 제거용 함수 (DeadGameoverHolyway에서 호출 가능)
+    /// </summary>
+    public void DespawnAfterCutscene()
+    {
+        Debug.Log("🧩 [HolywayMonsterAI] 컷씬 종료 후 몬스터 제거됨");
+        Destroy(gameObject);
+    }
 }
