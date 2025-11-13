@@ -1,3 +1,5 @@
+using NUnit.Framework.Constraints;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Animator animator;
 
-    private bool canMove = true;
+    private bool canMove = false;
 
     private PlayerStamina stamina;      //플레이어 스태미나
 
@@ -25,8 +27,14 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         stamina = GetComponent<PlayerStamina>();
+        // 3초 후 플레이어 움직임 적용 시킴 -> 맵 생성 중에 맵 바깥으로 떨어지지 않도록.
+        StartCoroutine(EnableMoveDelay()); 
     }
-
+    IEnumerator EnableMoveDelay()
+    {
+        yield return new WaitForSeconds(3f);
+        canMove = true;
+    }
     // Update is called once per frame
     void Update()
     {
