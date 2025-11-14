@@ -13,8 +13,12 @@ public class InteractionManager : MonoBehaviour
 
     void Update()
     {
+        // 1. 입력 감지 (키보드 'E' 또는 VR 컨트롤러 'A' 버튼)
+        // OVRInput.Button.One == 오른쪽 컨트롤러의 'A' 버튼입니다.
+        bool isInteracting = Input.GetKeyDown(KeyCode.E) || 
+                             OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch);
         //  UI가 열려 있으면 다른 입력 무시하고 E로 닫기
-        if (lastOpenedUIObject != null && Input.GetKeyDown(KeyCode.E))
+        if (lastOpenedUIObject != null && isInteracting)
         {
             lastOpenedUIObject.Interact();
 
@@ -41,8 +45,8 @@ public class InteractionManager : MonoBehaviour
                 interactionText.text = currentInteractable.GetPromptText();
                 interactionText.gameObject.SetActive(true);
 
-                // E키로 상호작용
-                if (Input.GetKeyDown(KeyCode.E))
+                // 2. 상호작용 (E키 또는 VR 버튼)
+                if (isInteracting)
                 {
                     currentInteractable.Interact();
 
