@@ -1105,7 +1105,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 298c3f7e070c3ee499b124534c804d11, type: 2}
   m_InitialState: 1
-  m_WrapMode: 0
+  m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
@@ -1131,6 +1131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082581e4554078844be042bfb0337866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundHold
+  pd: {fileID: 1251227445}
+  audioSource: {fileID: 2041322507}
 --- !u!114 &1303870641 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5224947140427790673, guid: a13d656f0e3bdd74d8acb6becae45274, type: 3}
@@ -1173,6 +1175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UiMon: {fileID: 425122089}
   mapAddress: Assets/Prefabs/Map/MAP.prefab
+  OVRCameraRig: {fileID: 0}
 --- !u!4 &1340164090
 Transform:
   m_ObjectHideFlags: 0
@@ -1582,7 +1585,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 8b22ac4d2ed8bc54ab351c67732141f2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2151,12 +2154,38 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1603880115075920090, guid: a13d656f0e3bdd74d8acb6becae45274, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2041865742}
+    - targetCorrespondingSourceObject: {fileID: 1603880115075920090, guid: a13d656f0e3bdd74d8acb6becae45274, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3308568711570079743}
   m_SourcePrefab: {fileID: 100100000, guid: a13d656f0e3bdd74d8acb6becae45274, type: 3}
 --- !u!120 &3308568711570079742 stripped
 LineRenderer:
   m_CorrespondingSourceObject: {fileID: 433848542588504104, guid: a13d656f0e3bdd74d8acb6becae45274, type: 3}
   m_PrefabInstance: {fileID: 3308568711570079741}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &3308568711570079743
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041754932}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
