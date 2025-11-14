@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class SoundHold : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class SoundHold : MonoBehaviour
     {
         if (audioSource != null)
         {
+            Debug.Log(audioSource.clip.name);
             audioSource.Play();
         }
     }
