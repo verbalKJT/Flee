@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FlashlightPickup : MonoBehaviour
 {
-    [Header("»óÈ£ÀÛ¿ë Å°")]
+    [Header("ï¿½ï¿½È£ï¿½Û¿ï¿½ Å°")]
     public KeyCode interactKey = KeyCode.E;
 
     bool pickedUp = false;
@@ -12,17 +12,17 @@ public class FlashlightPickup : MonoBehaviour
         if (pickedUp) return;
         if (!other.CompareTag("Player")) return;
 
-        // ¿©±â¼­ E Å° ´­·¶À» ¶§¸¸ Áİ±â
-        if (Input.GetKeyDown(interactKey))
+        // E í‚¤ ë˜ëŠ” A ë²„íŠ¼ìœ¼ë¡œ ìƒí˜¸ì‘ìš©
+        if (Input.GetKeyDown(interactKey) || OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
         {
             var inv = other.GetComponent<PlayerLightInventory>();
             if (inv != null)
             {
-                inv.SetModeFlashlight();   // ¾çÃÊ ºÒ ²ô°í ¼ÕÀüµî ¸ğµå·Î ÀüÈ¯
+                inv.SetModeFlashlight();   // ì†ì „ë“±ì„ ì¼œëŠ” ë¡œì§ 
             }
-
+            
             pickedUp = true;
-            Destroy(gameObject);           // ¹Ù´Ú¿¡ ÀÖ´Â ¼ÕÀüµî ¾ÆÀÌÅÛ Á¦°Å
+            Destroy(gameObject);           // ï¿½Ù´Ú¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
     }
 }
