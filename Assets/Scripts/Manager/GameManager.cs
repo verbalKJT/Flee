@@ -50,11 +50,6 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        if (OVRCameraRig != null)
-        {
-            OVRCameraRig.SetActive(false); // 움직임 비활성화
-            Debug.Log("▶ ProtoUI의 OVRCameraRig 비활성화");
-        }   
         asyncLoad.allowSceneActivation = true;
         // SceneManager.LoadScene("IntroCinematic");
     }
@@ -78,14 +73,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-    public void DisableOVRCameraRig() // 엔딩시네마틱용
-    {
-        if (OVRCameraRig != null)
-        {
-            OVRCameraRig.SetActive(false);
-            Debug.Log("▶ OVRCameraRig 비활성화 (엔딩시네마틱용)");
-        }
-    }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (!scene.name.Equals("ProtoUI"))
@@ -95,12 +82,6 @@ public class GameManager : MonoBehaviour
 
         if (scene.name.Equals("1stFloor"))
         {
-            // ✅ VR 카메라 다시 켜기
-            if (OVRCameraRig != null)
-            {
-                OVRCameraRig.SetActive(true);
-                Debug.Log("▶ 1stFloor에서 OVRCameraRig 다시 활성화");
-            }
             OnLoadMap();
         }
         else

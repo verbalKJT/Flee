@@ -7,10 +7,12 @@ public class InteractionManager : MonoBehaviour
     public float interactDistance = 2f;                // 상호작용 거리
     public LayerMask interactLayer;                    // 상호작용 가능한 레이어
     public TextMeshProUGUI interactionText;            // UI 텍스트 오브젝트
+    
+    public Transform rightHandRayOrigin;  // RightHandAnchor 연결
+
 
     private IInteractable currentInteractable;         // 현재 보고 있는 상호작용 대상
     private IInteractable lastOpenedUIObject;          // UI가 열린 상태의 오브젝트 (책 등)
-
     void Update()
     {
         // 1. 입력 감지 (키보드 'E' 또는 VR 컨트롤러 'A' 버튼)
@@ -32,7 +34,8 @@ public class InteractionManager : MonoBehaviour
         }
 
         // 카메라 앞으로 Raycast 쏴서 상호작용 대상 확인
-        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+        //Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward); //PC
+        Ray ray = new Ray(rightHandRayOrigin.position, rightHandRayOrigin.forward); // VR
         if (Physics.Raycast(ray, out RaycastHit hit, interactDistance, interactLayer))
         {
             // Ray에 맞은 오브젝트에서 IInteractable 찾기
