@@ -19,12 +19,6 @@ public class InteractablePiano : MonoBehaviour, IInteractable
         // 사용자 입력 차단
         DisablePlayerInput();
         
-        // Rig 끄기
-        var gm = GameManager.instance;
-        if (gm != null)
-        {
-            gm.DisableOVRCameraRig();
-        }
         // 음악 페이드 아웃 후 씬 이동
         StartCoroutine(FadeOutMusicAndLoadScene());
     }
