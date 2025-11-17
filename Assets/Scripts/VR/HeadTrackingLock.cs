@@ -4,14 +4,10 @@ using UnityEngine;
 public class HeadTrackingLock : MonoBehaviour
 {
     private OVRManager ovrManager;
-
-    void Start()
-    {
-        ovrManager = OVRManager.instance;
-    }
-
+    private bool isLockedTracking;
     private void SetHeadTrackingActive(bool IsActive)
     {
+        ovrManager = OVRManager.instance;
         if (ovrManager != null)
         {
             // 위치,회전 트래킹 비,활성화 
@@ -29,10 +25,26 @@ public class HeadTrackingLock : MonoBehaviour
     {
         StartCoroutine(LockingCorutine(time));
     }
-    IEnumerator LockingCorutine(float time)
+    public IEnumerator LockingCorutine(float time)
     {
         SetHeadTrackingActive(false);
+        isLockedTracking = true;
         yield return new WaitForSeconds(time);
         SetHeadTrackingActive(true);
+        isLockedTracking = false;
+    }
+
+    void LateUpdate()
+    {
+        if (ovrManager != null && isLockedTracking)
+        {
+            ovrManager.usePositionTracking = false;
+            ovrManager.useRotationTracking = false;
+        }
+        else
+        {
+            ovrManager.usePositionTracking = true;
+            ovrManager.useRotationTracking = true;
+        }
     }
 }
