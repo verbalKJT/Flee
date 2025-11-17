@@ -5,13 +5,9 @@ public class HeadTrackingLock : MonoBehaviour
 {
     private OVRManager ovrManager;
 
-    void Start()
-    {
-        ovrManager = OVRManager.instance;
-    }
-
     private void SetHeadTrackingActive(bool IsActive)
     {
+        ovrManager = OVRManager.instance;
         if (ovrManager != null)
         {
             // 위치,회전 트래킹 비,활성화 
@@ -29,7 +25,7 @@ public class HeadTrackingLock : MonoBehaviour
     {
         StartCoroutine(LockingCorutine(time));
     }
-    IEnumerator LockingCorutine(float time)
+    public IEnumerator LockingCorutine(float time)
     {
         SetHeadTrackingActive(false);
         yield return new WaitForSeconds(time);

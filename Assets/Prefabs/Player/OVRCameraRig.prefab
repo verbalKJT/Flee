@@ -162,6 +162,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8495653318370306016}
   - component: {fileID: 433848542588504104}
+  - component: {fileID: 4025520383165363234}
+  - component: {fileID: 2448804503913918212}
   m_Layer: 0
   m_Name: RightHandAnchor
   m_TagString: Untagged
@@ -200,7 +202,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603880115075920090}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -302,6 +304,48 @@ LineRenderer:
   m_UseWorldSpace: 0
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!223 &4025520383165363234
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603880115075920090}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 3097638741488229022}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &2448804503913918212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603880115075920090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aaf960227867044282d921171d2d7ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Oculus.VR::OVRRaycaster
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  pointer: {fileID: 1603880115075920090}
+  sortOrder: 0
 --- !u!1 &2236852293495543902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,6 +1334,7 @@ GameObject:
   - component: {fileID: 6420243523844688441}
   - component: {fileID: 7548782422195334787}
   - component: {fileID: 4245680893638059809}
+  - component: {fileID: 8444745645908683194}
   m_Layer: 0
   m_Name: OVRCameraRig
   m_TagString: Untagged
@@ -1417,6 +1462,18 @@ MonoBehaviour:
   resetHmdPoseByMiddleMouseButton: 1
   activateKeys: 3201000031010000
   pitchKeys: 3401000033010000
+--- !u!114 &8444745645908683194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9073184714631303531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5d1028b030e4dce98f60081ca274dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeadTrackingLock
 --- !u!1001 &371285241262722866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1574,6 +1631,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e201a24a09e942042b93390d0444d728, type: 3}
+--- !u!1 &370015770872887570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1581749144712736, guid: e201a24a09e942042b93390d0444d728, type: 3}
+  m_PrefabInstance: {fileID: 371285241262722866}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &371597147018438394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4288470492801480, guid: e201a24a09e942042b93390d0444d728, type: 3}
@@ -1835,12 +1897,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 947475995883024557, guid: ac996ce3895914db4b0a57c0468924d8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1879031606158840655, guid: ac996ce3895914db4b0a57c0468924d8, type: 3}
       propertyPath: pointer
       value: 
-      objectReference: {fileID: 1603880115075920090}
+      objectReference: {fileID: 370015770872887570}
+    - target: {fileID: 1879031606158840655, guid: ac996ce3895914db4b0a57c0468924d8, type: 3}
+      propertyPath: sortOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3282560405933252148, guid: ac996ce3895914db4b0a57c0468924d8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
