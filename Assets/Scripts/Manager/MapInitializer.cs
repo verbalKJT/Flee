@@ -63,7 +63,7 @@
             {
                 if (letter != null)
                 {
-                    StartCoroutine(LetterInjection(player.transform, LetterCanvas));
+                    StartCoroutine(LetterInjection(LetterCanvas));
                 }
                 ;
                 if (mainMonGameOverScript != null && middleMonGameOverScript != null)
@@ -134,15 +134,20 @@
             }
         }
         
-        private IEnumerator LetterInjection(Transform player, GameObject letterCanvas)
+        private IEnumerator LetterInjection(GameObject letterCanvas)
         {
             yield return null;
             if (letterCanvas != null)
             {
-                letter.SetPlayerTransform(player.transform);
-                openText = LetterCanvas.gameObject.transform.GetChild(1).gameObject;
-                letterImage = LetterCanvas.gameObject.transform.GetChild(0).gameObject;
-                letter.SetupEnvironment(doorAnimator, openText, letterImage);
+                // LetterImage 오브젝트 찾기
+                GameObject letterImage = letterCanvas.transform.Find("Letter")?.gameObject;
+                if (letterImage == null)
+                {
+                    Debug.LogWarning("LetterImage를 찾지 못했습니다.");
+                    yield break;
+                }
+                // 편지 객체에 UI와 Animator 연결
+                letter.SetupEnvironment(doorAnimator, letterImage);
             }
         }
 

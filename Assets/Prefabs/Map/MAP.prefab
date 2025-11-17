@@ -216192,7 +216192,8 @@ GameObject:
   - component: {fileID: 3863126058431075798}
   - component: {fileID: 3802797194541744502}
   - component: {fileID: 3153901514377147926}
-  m_Layer: 0
+  - component: {fileID: 5921691769256133704}
+  m_Layer: 8
   m_Name: Newspapers_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216305,6 +216306,27 @@ MonoBehaviour:
   tableCandle: {fileID: 7683336656349573671}
   playerTag: Player
   playerCandleLightName: CandleLight
+--- !u!65 &5921691769256133704
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8339031695950179974}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1456625, y: 0, z: 1.4148295}
+  m_Center: {x: 0.04663084, y: 0.019999994, z: 0.042204868}
 --- !u!1 &8340830671354307192
 GameObject:
   m_ObjectHideFlags: 0
