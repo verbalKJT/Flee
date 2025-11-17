@@ -4,7 +4,7 @@ using UnityEngine;
 public class HeadTrackingLock : MonoBehaviour
 {
     private OVRManager ovrManager;
-
+    private bool isLockedTracking;
     private void SetHeadTrackingActive(bool IsActive)
     {
         ovrManager = OVRManager.instance;
@@ -28,7 +28,23 @@ public class HeadTrackingLock : MonoBehaviour
     public IEnumerator LockingCorutine(float time)
     {
         SetHeadTrackingActive(false);
+        isLockedTracking = true;
         yield return new WaitForSeconds(time);
         SetHeadTrackingActive(true);
+        isLockedTracking = false;
+    }
+
+    void LateUpdate()
+    {
+        if (ovrManager != null && isLockedTracking)
+        {
+            ovrManager.usePositionTracking = false;
+            ovrManager.useRotationTracking = false;
+        }
+        else
+        {
+            ovrManager.usePositionTracking = true;
+            ovrManager.useRotationTracking = true;
+        }
     }
 }
