@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,9 @@ public class Inventory : MonoBehaviour
     //손에 드는 아이템
     public InventoryItem hand;
     public bool isHandEmty=true;
+
+    //스토리아이템 수집 체크
+    public bool hasAllStoryItems = false;
 
     void Awake()
     {
@@ -40,6 +44,7 @@ public class Inventory : MonoBehaviour
         Debug.Log(item.data.itemName + "획득");
         //슬롯에 이미지 띄우기
         ItemSlotUpdate();
+        CheckAllStoryItemsCollected();
     }
 
     //아이템 슬롯 업데이트
@@ -90,9 +95,34 @@ public class Inventory : MonoBehaviour
 
         //손 비움
         isHandEmty = true;
-        
-        
-    }   
 
-    
+
+    }
+
+    private void CheckAllStoryItemsCollected()
+    {
+        int count = 0;
+
+        foreach (var item in inventory)
+        {
+            if (item.data.isStoryItem)
+                count++;
+        }
+
+        //조건 충족 시 플래그 ture
+        if(count == 5)
+        {
+            if (!hasAllStoryItems)
+            {
+                hasAllStoryItems = true;
+                Debug.Log("모든 스토리 아이템을 수집했습니다!");
+                Debug.Log(hasAllStoryItems);
+            }
+        }
+        else
+        {
+            hasAllStoryItems = false;
+        }
+
+    }
 }
