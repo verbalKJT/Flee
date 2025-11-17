@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(ActiveUiMonster(3f));
+        HeadTrackingLock ht = FindObjectOfType<HeadTrackingLock>();
+        ht.LockTracking(9.5f);
         // IntroCinematic 씬을 백그라운드에서 미리 로딩
         asyncLoad = SceneManager.LoadSceneAsync("IntroCinematic");
         asyncLoad.allowSceneActivation = false; // 아직 전환은 하지 않음
