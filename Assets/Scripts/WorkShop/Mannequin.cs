@@ -7,6 +7,11 @@ public class Mannequin : MonoBehaviour
 
     [Header("응시 거리")]
     public float lookRange=3f;
+
+    private void Awake()
+    {
+        lookRange = 3f;
+    }
     void Update()
     {
         if (player == null) return;
