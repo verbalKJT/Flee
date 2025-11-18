@@ -23,6 +23,7 @@
         [Header("Game Over - Monsters")] [SerializeField]
         private DeadGameover mainMonGameOverScript;
         [SerializeField] private DeadGameover middleMonGameOverScript;
+        [SerializeField] private DeadGameoverSubMonster SubMonGameOverScript;
         [SerializeField] private GameObject monsterPanel;
         
         [Header("EndCorridor")] [SerializeField]
@@ -68,14 +69,16 @@
                     StartCoroutine(LetterInjection(LetterCanvas));
                 }
                 ;
-                if (mainMonGameOverScript != null && middleMonGameOverScript != null)
+                if (mainMonGameOverScript != null && middleMonGameOverScript != null && SubMonGameOverScript != null)
                 {
                     mainMonGameOverScript.SetPlayerWithUi(player);
                     middleMonGameOverScript.SetPlayerWithUi(player);
+                    SubMonGameOverScript.SetPlayerWithUi(player);
                     if (mainCamera != null)
                     {
                         mainMonGameOverScript.SetTrackBinding(mainCamera,monsterPanel); // 타임라인 시네너신 브레인 바인딩
                         middleMonGameOverScript.SetTrackBinding(mainCamera,monsterPanel);
+                        SubMonGameOverScript.SetTrackBinding(mainCamera, monsterPanel);
                     }
                 }
 
