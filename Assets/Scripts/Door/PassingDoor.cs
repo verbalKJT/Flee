@@ -18,7 +18,7 @@ public class PassingDoor : MonoBehaviour, IInteractable
     private AudioSource audioSource;
     private bool isOpen = false;
 
-    // 🔥 추가: 플레이어가 트리거 안에 있는지 체크
+    //플레이어가 트리거 안에 있는지 체크
     private bool playerInside = false;
 
     private bool monsterInside = false;
@@ -34,7 +34,7 @@ public class PassingDoor : MonoBehaviour, IInteractable
             navMeshObstacle = GetComponent<NavMeshObstacle>();
     }
 
-    // -------------------- 👤 플레이어 상호작용 (E키로 열고 닫기) --------------------
+    //플레이어 상호작용 (E키로 열고 닫기)
     public void Interact()
     {
         ToggleDoor();
