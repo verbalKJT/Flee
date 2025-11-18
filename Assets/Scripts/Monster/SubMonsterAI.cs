@@ -1,32 +1,24 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
-using System.Collections;
 
-public class SubMonsterAI  : Monster
+public class SubMonsterAI : Monster
 {
-    public float chaseRange = 10f;  
-    public float stopDistance = 1.5f;          // 정지 거리
-    public AudioClip foundPlayerSound;         // 사운드 클립
-    private AudioSource audioSource;           // 오디오 소스
-    private bool hasPlayedSound = false;       // 중복 방지
+    public float chaseRange = 10f;
+    public float stopDistance = 1.5f;
+
     private NavMeshAgent agent;
     private Animator animator;
-
     private bool hasCaughtPlayer = false;
-    
 
-    void Update()
+    private void Update()
     {
-        if (agent == null || animator == null)
-        {
-            return;
-        }
+        if (agent == null || animator == null) return;
+
         if (hasCaughtPlayer)
         {
-            // 정지 상태 처음
             agent.isStopped = true;
             agent.ResetPath();
-            animator.SetFloat("Speed", 0f);
+            animator.SetFloat("Speed", 0);
             return;
         }
 
@@ -36,54 +28,30 @@ public class SubMonsterAI  : Monster
         {
             agent.isStopped = false;
             agent.SetDestination(player.position);
-            animator.SetFloat("Speed", agent.velocity.magnitude); // Debug로 확인한 결과 약 7f
-
-            // 플레이어 처음 발견했을 때 효과음
-            if (!hasPlayedSound && foundPlayerSound != null)
-            {
-                audioSource.PlayOneShot(foundPlayerSound);
-                hasPlayedSound = true;
-            }
+            animator.SetFloat("Speed", agent.velocity.magnitude);
 
             if (distance <= stopDistance)
             {
-                StartCoroutine(CatchPlayerAndStop()); // 딱 붙잡히면 정지 + 블라인드
+                hasCaughtPlayer = true;
+
+                // ⭐ 몬스터 collider를 강제로 플레이어와 충돌시켜 Timeline 발동
+                var col = GetComponent<Collider>();
+                Physics.IgnoreCollision(col, player.GetComponent<Collider>(), false);
+
+                col.enabled = false;
+                col.enabled = true;
             }
         }
         else
         {
             agent.isStopped = true;
-            agent.ResetPath();
-            animator.SetFloat("Speed", 0f);
+            animator.SetFloat("Speed", 0);
         }
-    }
-
-    IEnumerator CatchPlayerAndStop()
-    {
-        hasCaughtPlayer = true;
-
-        // 한번 잡고 그 자리에서 멈춤
-        agent.ResetPath();
-        agent.isStopped = true;
-        animator.SetFloat("Speed", 0f);
-
-        // 시야 블라인드
-        PlayerVision vision = player.GetComponent<PlayerVision>();
-        if (vision != null)
-        {
-            yield return vision.BlindForSeconds(5f); // 5초 동안 암전
-        }
-
-        // 5초 후 몬스터 제거
-        Destroy(gameObject);
     }
 
     public override void OnPlayerSetupComplete()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
     }
 }

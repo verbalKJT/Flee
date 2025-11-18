@@ -90528,6 +90528,7 @@ MonoBehaviour:
   doorAnimator: {fileID: 497988272104654710}
   mainMonGameOverScript: {fileID: 3727265318494198616}
   middleMonGameOverScript: {fileID: 2808666910421829658}
+  SubMonGameOverScript: {fileID: 2144984972121745900}
   monsterPanel: {fileID: 0}
   endCorridor: {fileID: 0}
   holywayPrefab: {fileID: 6033344933990544176, guid: e9f2a0d46cc3fb04191434ab2fa04219, type: 3}
@@ -241964,6 +241965,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ba14f1b959ea92448b8a5ff75803c95, type: 3}
+--- !u!114 &2144984972121745900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1022989353446473682, guid: 2ba14f1b959ea92448b8a5ff75803c95, type: 3}
+  m_PrefabInstance: {fileID: 1438591196341524030}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22eb5cb3ba69ee84785c2a9e5b9ba7af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeadGameoverSubMonster
 --- !u!4 &3235747422195976628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4544492875090517898, guid: 2ba14f1b959ea92448b8a5ff75803c95, type: 3}
