@@ -52,12 +52,10 @@
             
             GameObject player = GameObject.FindGameObjectWithTag("Player"); // 플레이어 오브젝트
             
-            LetterCanvas = GameObject.Find("LetterCanvas"); 
-           
-			//PC 버전
-            //mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-            // VR 버전 Cam
-            mainCamera = GameObject.FindGameObjectWithTag("VRCam");
+            LetterCanvas = GameObject.Find("LetterCanvas");
+            
+            mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+            
             monsterPanel = GameObject.Find("InteractionCanvas").transform.Find("MiddleMonPanel").gameObject;       
 
         
