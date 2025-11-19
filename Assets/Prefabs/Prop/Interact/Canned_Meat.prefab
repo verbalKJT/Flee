@@ -210,9 +210,9 @@ GameObject:
   m_Component:
   - component: {fileID: 790022398467926356}
   - component: {fileID: 7121897104005094155}
-  - component: {fileID: 8942949869217343896}
   - component: {fileID: 7253816394120193806}
   - component: {fileID: 4780866894561474360}
+  - component: {fileID: 2586304161666689226}
   m_Layer: 12
   m_Name: Canned_Meat
   m_TagString: Untagged
@@ -260,19 +260,6 @@ LODGroup:
     renderers:
     - renderer: {fileID: 4315408450869470912}
   m_Enabled: 1
---- !u!114 &8942949869217343896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8584857949011864779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d4dbe39e1ccb1d4f8bfc473d81e1851, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemData: {fileID: 11400000, guid: 38d0010144531f04ba494d5f7933b666, type: 2}
 --- !u!65 &7253816394120193806
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -320,4 +307,16 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!114 &2586304161666689226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8584857949011864779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a683973f545a0eb418e11866a20f4451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrabItem

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5561129838190611370}
   - component: {fileID: 3160444288776070071}
   - component: {fileID: 7215799281957096039}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Key_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,10 +99,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5693746085949517207}
   - component: {fileID: 675012507718654694}
-  - component: {fileID: -3500125276849696891}
   - component: {fileID: 3472962746954578508}
   - component: {fileID: -9065672970638746051}
-  m_Layer: 3
+  - component: {fileID: 5353217700684052557}
+  m_Layer: 12
   m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,19 +154,6 @@ LODGroup:
     renderers:
     - renderer: {fileID: 7215799281957096039}
   m_Enabled: 1
---- !u!114 &-3500125276849696891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4922416016245061421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d4dbe39e1ccb1d4f8bfc473d81e1851, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Item
-  ItemData: {fileID: 11400000, guid: bef38f8ec31245d4d99511cbe5551bfd, type: 2}
 --- !u!65 &3472962746954578508
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -214,7 +201,19 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!114 &5353217700684052557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922416016245061421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a683973f545a0eb418e11866a20f4451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrabItem
 --- !u!1 &7235881170201423123
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +225,7 @@ GameObject:
   - component: {fileID: 3958848257674803623}
   - component: {fileID: 2341242516309782185}
   - component: {fileID: 1897883158125988487}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Key_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +314,7 @@ GameObject:
   - component: {fileID: 9213845358709875954}
   - component: {fileID: 3639455604036922404}
   - component: {fileID: 4641629930722702420}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Key_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
