@@ -20,7 +20,7 @@ public static class ARAVRInput
         // Fire3,
         // Jump,
         Interact,      
-        SettingsClick, 
+        Run, 
         ToggleLight,   
         ToggleMenu,    
         ThrowObject   
@@ -43,8 +43,8 @@ public static class ARAVRInput
         // Thumbstick = ButtonTarget.Fire1,
         // IndexTrigger = ButtonTarget.Fire3,
         // HandTrigger = ButtonTarget.Fire2
-        One = ButtonTarget.Interact, // e
-        Two = ButtonTarget.SettingsClick, // click
+        One = ButtonTarget.Interact, // e, 클릭
+        Two = ButtonTarget.Run, // shift
         Three = ButtonTarget.ToggleLight, // f
         Four = ButtonTarget.ToggleMenu, // esc
         Thumbstick = ButtonTarget.Interact, // 임시
