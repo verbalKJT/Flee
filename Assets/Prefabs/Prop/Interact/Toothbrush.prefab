@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: 6097365547978303309}
   - component: {fileID: 2480760590714061244}
   - component: {fileID: 1016904711852600584}
-  - component: {fileID: 2521005238402735184}
-  m_Layer: 8
+  - component: {fileID: 7887588254346394634}
+  m_Layer: 12
   m_Name: Toothbrush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4718053085598227922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b738de613788c3e428478f522cf58e34, type: 3}
   m_Name: 
@@ -287,7 +287,7 @@ MonoBehaviour:
   soundRange: 15
   emitSound: {fileID: 8300000, guid: cbe0288e1407ac146a129a61387ca01e, type: 3}
   isThrown: 0
---- !u!114 &2521005238402735184
+--- !u!114 &7887588254346394634
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -296,7 +296,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4718053085598227922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c75794ff899fb743bc8f6dd6ed9aec4, type: 3}
+  m_Script: {fileID: 11500000, guid: a683973f545a0eb418e11866a20f4451, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GrabbableItem
-  itemData: {fileID: 11400000, guid: c45bc26b8b778674784a3694c1f49810, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::GrabItem

@@ -49,8 +49,13 @@ public class EndingUIController : MonoBehaviour
     private void Update()
     {
         if (!isInputEnabled) return;
-
-        if (Input.anyKeyDown)
+        
+        // 키보드 입력
+        if (Input.anyKeyDown ||
+            // VR 컨트롤러 입력
+            OVRInput.GetDown(OVRInput.Button.One) ||
+            OVRInput.GetDown(OVRInput.Button.Two) ||
+            OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
         {
             // 아무 키 누르면 ProtoUI 씬으로 전환
             SceneManager.LoadScene("ProtoUI");
