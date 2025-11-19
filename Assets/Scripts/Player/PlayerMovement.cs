@@ -49,7 +49,9 @@ public class PlayerMovement : MonoBehaviour
         Vector3 input = new Vector3(h, 0, v);
         Vector3 move = transform.TransformDirection(input.normalized);
 
-        bool isRunning = Input.GetKey(KeyCode.LeftShift);       //달리기 키 입력(LShift)
+        //달리기 키 입력(LShift)
+        bool isRunning = Input.GetKey(KeyCode.LeftShift)|| 
+                         OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch);;       
 
         //스태미나가 0이하면 달리지 못하도록 설정
         if (!stamina.CanRun)
