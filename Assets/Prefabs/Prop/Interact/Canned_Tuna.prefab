@@ -210,9 +210,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5532893021455074369}
   - component: {fileID: 2631293257938256150}
-  - component: {fileID: 7588286425125253224}
   - component: {fileID: 1322149356323374713}
   - component: {fileID: 5288986963672488739}
+  - component: {fileID: 2953445357966422521}
   m_Layer: 12
   m_Name: Canned_Tuna
   m_TagString: Untagged
@@ -260,19 +260,6 @@ LODGroup:
     renderers:
     - renderer: {fileID: 4823752986898681145}
   m_Enabled: 1
---- !u!114 &7588286425125253224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6170138961138212647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d4dbe39e1ccb1d4f8bfc473d81e1851, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemData: {fileID: 11400000, guid: 8bd8436772068474ebede0fb153cfe6a, type: 2}
 --- !u!65 &1322149356323374713
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -320,4 +307,16 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!114 &2953445357966422521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6170138961138212647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a683973f545a0eb418e11866a20f4451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrabItem

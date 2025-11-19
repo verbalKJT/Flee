@@ -3454,6 +3454,7 @@ GameObject:
   - component: {fileID: 1145863333505786670}
   - component: {fileID: 4616579930363841916}
   - component: {fileID: 1439360795269774629}
+  - component: {fileID: 4970701704603427866}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3700,7 +3701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMouseLook
   playerBody: {fileID: 2358491201124568288}
   lookAction: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  yawSpeed: 2.5
+  yawSpeed: 60
 --- !u!114 &7957581771741302358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3888,6 +3889,24 @@ MonoBehaviour:
   candleLight: {fileID: 1423731012111256680}
   flashlightObject: {fileID: 4302802302201952498}
   hasFlashlight: 0
+--- !u!114 &4970701704603427866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6665924648948749789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466f4cd1f259b2f45a130eacedea5977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RightHandGrabber
+  grabbedLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  grabRange: 5
+  isRemoteGrab: 1
+  remoteGrabDistance: 20
 --- !u!1 &6761608561348423338
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,15 +7,25 @@ public class CinematicEnd : MonoBehaviour
     public PlayableDirector director;
 
     private bool hasSkipped = false;
-
+    private bool canSkip = false; // ⛔ 시작 직후엔 입력 막기
+    private float skipDelay = 5f; // 🎬 5초 후 스킵 가능
+    
     void Start()
     {
         // 타임라인 종료 시 씬 전환
         director.stopped += OnTimelineFinished;
+        
+        // ⏳ 일정 시간 뒤부터 입력 허용
+        Invoke(nameof(EnableSkip), skipDelay);
+    }
+    void EnableSkip()
+    {
+        canSkip = true;
+        Debug.Log("✅ 이제 스킵 가능");
     }
     void Update()
     {
-        if (hasSkipped) return;
+        if (!canSkip || hasSkipped) return;
 
         // VR 컨트롤러 버튼 (예: A 버튼, Start, 트리거 등) 아무거나
         if (OVRInput.GetDown(OVRInput.Button.One) ||
