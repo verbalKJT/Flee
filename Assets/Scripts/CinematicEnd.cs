@@ -13,6 +13,26 @@ public class CinematicEnd : MonoBehaviour
         // 타임라인 종료 시 씬 전환
         director.stopped += OnTimelineFinished;
     }
+    void Update()
+    {
+        if (hasSkipped) return;
+
+        // VR 컨트롤러 버튼 (예: A 버튼, Start, 트리거 등) 아무거나
+        if (OVRInput.GetDown(OVRInput.Button.One) ||
+            OVRInput.GetDown(OVRInput.Button.Two) ||
+            OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+        {
+            Debug.Log("🎮 VR 컨트롤러 입력으로 스킵");
+            SkipCinematic();
+        }
+
+        // 키보드 입력도 허용 (엔터, 스페이스 등)
+        if (Input.anyKeyDown)
+        {
+            Debug.Log("⌨️ 키보드 입력으로 스킵");
+            SkipCinematic();
+        }
+    }
 
     // 타임라인이 자연스럽게 끝났을 때
     void OnTimelineFinished(PlayableDirector pd)
