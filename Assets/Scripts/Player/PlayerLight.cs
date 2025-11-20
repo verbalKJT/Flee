@@ -1,7 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class FlashlightToggle : MonoBehaviour
+public class PlayerLight : MonoBehaviour
 {   
     //플레이어 프리펩의 손전등 Light 오브젝트 연결
     [SerializeField] private Light flashlightLight; 
