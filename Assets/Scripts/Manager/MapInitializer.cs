@@ -45,6 +45,9 @@
     [Header("ResetBathroom")]
     [SerializeField]
     private ResetBathroom resetBathroom;
+    
+    [Header("맵 속 손전등")]
+    [SerializeField] private FlashlightPickup _flashlightPickup;
 
     public void Initialize(GameManager manager)
     {
@@ -60,8 +63,7 @@
             // VR 버전
 			mainCamera = GameObject.FindGameObjectWithTag("VRCam");
             monsterPanel = GameObject.Find("InteractionCanvas").transform.Find("MiddleMonPanel").gameObject;       
-
-        
+            
         if (player != null)
             {
                 if (letter != null)
@@ -98,6 +100,11 @@
 
             StartCoroutine(AssignWaterCam(player));
 
+            // 손전등 바인딩
+            GameObject flashLight = player.transform.Find("Flashlight").gameObject; 
+            // 플레이어 하위 손전등 찾아서 바인딩
+            _flashlightPickup.SetFlashlight(flashLight);
+            
             // 책 UI 바인딩 처리
             Transform interactionCanvas = GameObject.Find("InteractionCanvas")?.transform;
                 GameObject openBookUI = interactionCanvas?.Find("InteractionOpenBookImg")?.gameObject;
@@ -113,7 +120,6 @@
                     foreach (var book in books)
                     {
                         book.hintUI = openBookUI;
-                        Debug.Log($"InteractableBook에 hintUI 연결 완료: {book.gameObject.name}");
                     }
                 }
             }
@@ -121,7 +127,7 @@
             {
                 Debug.Log("Player 못참음");
             }
-
+            
             StartCoroutine(ActiveNavMeshMons(navMeshMons, player.transform));
         }
 
