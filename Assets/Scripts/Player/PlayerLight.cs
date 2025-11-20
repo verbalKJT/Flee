@@ -66,10 +66,9 @@ public class PlayerLight : MonoBehaviour
         if (inv == null || flashlightLight == null) return;
         if (!inv.hasFlashlight) return;
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) || OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.LTouch))
         {
             ToggleFlashlight();
-            
         }
         //손전등 켜진 시간에 따라 깜박이도록 하는 메서드
         HandleOverheatAndFlicker();
@@ -79,8 +78,6 @@ public class PlayerLight : MonoBehaviour
 
     private void ToggleFlashlight()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
             isOn = !isOn;
 
             if (!isOn)
@@ -97,7 +94,6 @@ public class PlayerLight : MonoBehaviour
             {
                 lightAudioSource.PlayOneShot(isOn ? lightOnClip : lightOffClip);
             }
-        }
     }
 
     private void HandleOverheatAndFlicker()
