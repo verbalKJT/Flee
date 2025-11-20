@@ -50,10 +50,8 @@ public static class ARAVRInput
         Thumbstick = ButtonTarget.Interact, // 임시
         HandTrigger = ButtonTarget.ThrowObject, // q
 #elif Oculus
-        One = OVRInput.Button.One,      // A 버튼
-        Two = OVRInput.Button.Two,      // B 버튼
-        Three = OVRInput.Button.Three,  // Y 버튼
-        Four = OVRInput.Button.Four,    // X 버튼
+        One = OVRInput.Button.One,      // A 버튼, X 버튼
+        Two = OVRInput.Button.Two,      // B 버튼, Y 버튼
         Thumbstick = OVRInput.Button.PrimaryThumbstick,
         IndexTrigger = OVRInput.Button.PrimaryIndexTrigger,
         HandTrigger = OVRInput.Button.PrimaryHandTrigger // Hand Trigger
