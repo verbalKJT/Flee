@@ -21,11 +21,11 @@ public class FlashStun : MonoBehaviour
     private Camera cam;
 
     //손전등 토글 스크립트 참조
-    private FlashlightToggle flashlightToggle;
+    private PlayerLight playerLight;
     void Awake()
     {
         cam = Camera.main;   // 메인 카메라 자동 찾기 (Cinemachine이 움직이는 그 카메라)
-        flashlightToggle = GetComponentInParent<FlashlightToggle>();
+        playerLight = GetComponentInParent<PlayerLight>();
     }
 
     void Reset()
@@ -40,7 +40,7 @@ public class FlashStun : MonoBehaviour
 
         if (flashlightLight == null || !flashlightLight.enabled) return;
 
-        if (flashlightToggle != null && flashlightToggle.IsFlickering)
+        if (playerLight != null && playerLight.IsFlickering)
             return;
 
         // 혹시 씬 재로드 등으로 날아갔을 때 대비
