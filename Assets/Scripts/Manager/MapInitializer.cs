@@ -123,7 +123,7 @@
 
             // 손전등 바인딩
             GameObject flashLight = player.transform.
-                Find("OVRCameraRigGame/TrackingSpace/LeftHandAnchor/Flashlight").gameObject; 
+                Find("OVRCameraRigGame/TrackingSpace/LeftHandAnchor/OVRCustomHandPrefab_L/Flashlight").gameObject; 
             // 플레이어 하위 손전등 찾아서 바인딩
             _flashlightPickup.SetFlashlight(flashLight);
             

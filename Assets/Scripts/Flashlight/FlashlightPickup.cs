@@ -27,14 +27,16 @@ public class FlashlightPickup : MonoBehaviour
         }
     }
 */
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) 
     {
         if (other.CompareTag("LeftController"))
         {
             flashlight.SetActive(true);
 
             pickedUp = true;
-            Destroy(gameObject); //
+            Destroy(gameObject); 
+            
+            other.GetComponentInParent<LeftHandGrabFlash>().StartAnim();
         }
     }
 
