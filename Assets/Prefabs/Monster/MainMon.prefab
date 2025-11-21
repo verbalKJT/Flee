@@ -474,7 +474,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7376009180656548526}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf60cfdfefabf3346888906fbc5dd301, type: 3}
   m_Name: 
@@ -485,8 +485,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c695b58e20b06834789b1bf820c1bc96, type: 3}
   - {fileID: 8300000, guid: 8c1a17aca8d4a6443b29a0d8377f3a54, type: 3}
   - {fileID: 8300000, guid: 04db10a70d819b0428b22124247eda2d, type: 3}
+  - {fileID: 8300000, guid: ef32debae87e61541a8c4558d2b183a3, type: 3}
+  - {fileID: 8300000, guid: 843f311f5dfb1ef4fab35699a5a73fc1, type: 3}
   MiddleMonFootstepClips: []
-  volume: 0.777
+  MainMonRunFootstepClips:
+  - {fileID: 8300000, guid: 971e13ca6c7d33b45948686d4200c1ea, type: 3}
+  - {fileID: 8300000, guid: 9730d1eeb2c2d954eb5857b0ebe0bd45, type: 3}
+  - {fileID: 8300000, guid: daf05c8981b8ba94ab087b6ac0d2de6d, type: 3}
+  - {fileID: 8300000, guid: 2c552a2f221396642886a4ffa5433cc8, type: 3}
+  - {fileID: 8300000, guid: ef32debae87e61541a8c4558d2b183a3, type: 3}
+  MiddleMonRunFootstepClips: []
+  walkvolume: 0.8
+  runVolume: 1.3
   pitchRandomRange: 0.8
 --- !u!82 &3853255305834945304
 AudioSource:
@@ -510,9 +520,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 10
+  MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -520,23 +530,50 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      time: 0.0019310005
+      value: 0.9949417
+      inSlope: -0.009906759
+      outSlope: -0.009906759
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.9741108
+    - serializedVersion: 3
+      time: 0.25196677
+      value: 0.999478
+      inSlope: 0.014381282
+      outSlope: 0.014381282
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.5364792
+      value: 0.497818
+      inSlope: -2.647528
+      outSlope: -2.647528
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.5329955
+    - serializedVersion: 3
+      time: 0.80343324
+      value: 0.0018157959
+      inSlope: -0.07815612
+      outSlope: -0.07815612
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.05001994
+      outSlope: -0.05001994
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
