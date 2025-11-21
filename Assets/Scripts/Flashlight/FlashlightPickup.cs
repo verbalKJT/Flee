@@ -35,7 +35,7 @@ public class FlashlightPickup : MonoBehaviour
 
             pickedUp = true;
             Destroy(gameObject); 
-            
+            other.GetComponentInParent<PlayerLightInventory>().SetModeFlashlight(); // 여기서 hasFlashlight = true;
             other.GetComponentInParent<LeftHandGrabFlash>().StartAnim();
         }
     }
