@@ -12,6 +12,9 @@
         
         [Header("NavMeshMonsters")] [SerializeField]
         private Monster[] navMeshMons; // Main , Middle, sub 순
+        
+        [Header("VR Tutorial Canvas")]
+        [SerializeField] private GameObject tutorialCanvas;
 
         [Header("Starting Room 편지")] 
         [SerializeField] private GameObject LetterCanvas;
@@ -62,8 +65,26 @@
             //mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             // VR 버전
 			mainCamera = GameObject.FindGameObjectWithTag("VRCam");
+            tutorialCanvas = GameObject.Find("TutorialCanvas");
             monsterPanel = GameObject.Find("InteractionCanvas").transform.Find("MiddleMonPanel").gameObject;       
             
+            if (tutorialCanvas != null && mainCamera != null)
+            {
+                Canvas canvas = tutorialCanvas.GetComponent<Canvas>();
+                if (canvas != null)
+                {
+                    canvas.worldCamera = mainCamera.GetComponent<Camera>();
+                    Debug.Log("📌 TutorialCanvas에 Event Camera 설정 완료");
+                }
+                else
+                {
+                    Debug.LogWarning("TutorialCanvas에 Canvas 컴포넌트를 찾을 수 없습니다.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("TutorialCanvas 또는 MainCamera가 null입니다.");
+            }
         if (player != null)
             {
                 if (letter != null)
