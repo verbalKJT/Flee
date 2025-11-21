@@ -65,7 +65,7 @@ public class CutsceneSpawnTrigger : MonoBehaviour
         if (!hasSpawned && monsterPrefab != null && spawnPoint != null)
         {
             hasSpawned = true;
-            var monster = Instantiate(monsterPrefab, spawnPoint.position, spawnPoint.rotation);
+            var monster = Instantiate(monsterPrefab, spawnPoint.position, spawnPoint.rotation, spawnPoint);
             spawnedMonsters.Add(monster); // ✅ 리스트에 추가
 
         }
