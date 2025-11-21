@@ -12,7 +12,6 @@ public class Letter : MonoBehaviour, IInteractable
     [SerializeField] private GameObject tableCandle;
 
     // Inspector 에선 비워두고 런타임에 찾는다
-    [SerializeField] private string playerTag = "Player";
     [SerializeField] private string playerCandleLightName = "CandleLight";
     private GameObject playerCandleLight;
     private bool candleActivated = false;
@@ -32,7 +31,7 @@ public class Letter : MonoBehaviour, IInteractable
 
     public string GetPromptText()
     {
-        return isReading ? "[E] 편지 닫기" : "[E] 편지 읽기";
+        return isReading ? "[A] 편지 닫기" : "[A] 편지 읽기";
     }
     void OpenLetter()
     {
@@ -87,7 +86,7 @@ public class Letter : MonoBehaviour, IInteractable
         if (playerCandleLight != null) return;
 
         // 1. Player 태그 달린 오브젝트 찾기 (Addressables 로드된 플레이어)
-        GameObject player = GameObject.FindGameObjectWithTag(playerTag);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)
         {
             Debug.Log("Letter에서 Player 태그 오브젝트 못 찾음");
