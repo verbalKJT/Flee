@@ -101,7 +101,8 @@ GameObject:
   - component: {fileID: 2150663760013642544}
   - component: {fileID: 6514211224040935267}
   - component: {fileID: 4831933500585312382}
-  m_Layer: 0
+  - component: {fileID: 8348321324179505370}
+  m_Layer: 3
   m_Name: Letter_Story
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,6 +183,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
   ItemData: {fileID: 11400000, guid: 5bf7e41903203a44bbcda322ab5911d0, type: 2}
+--- !u!114 &8348321324179505370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5821322868026615547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc316d3d4db6e48879bde8418161f01a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Letter
+  letterObject: {fileID: 6594025093819923521}
+  tableCandle: {fileID: 0}
+  playerCandleLightName: CandleLight
 --- !u!1 &8731531363268874904
 GameObject:
   m_ObjectHideFlags: 0
