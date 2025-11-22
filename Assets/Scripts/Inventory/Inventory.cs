@@ -11,8 +11,8 @@ public class Inventory : MonoBehaviour
 
     //인벤토리 리스트
     public List <InventoryItem> inventory;
-    //아이템 슬롯 UI 배열(5칸)
-    public Image[] ItemSlotUI=new Image[5];    
+    //아이템 슬롯 UI 배열(6칸)
+    public Image[] ItemSlotUI=new Image[6];    
 
     //손에 드는 아이템
     public InventoryItem hand;
