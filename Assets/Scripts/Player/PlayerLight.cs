@@ -66,7 +66,7 @@ public class PlayerLight : MonoBehaviour
         if (inv == null || flashlightLight == null) return;
         if (!inv.hasFlashlight) return;
 
-        if (Input.GetKeyDown(KeyCode.F) || OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.LTouch))
+        if (Input.GetKeyDown(KeyCode.F) || ARAVRInput.GetDown(ARAVRInput.Button.One, ARAVRInput.Controller.LTouch))
         {
             ToggleFlashlight();
         }

@@ -7,6 +7,7 @@ public class UiManager : MonoBehaviour
 {
     public GameObject pauseCanvas;
     [SerializeField] private GameObject settingPanel;
+    [SerializeField] private GameObject vrManualPanel;
     // 세팅 패널 내 Drowdown 및 Silder
     [SerializeField]private TMP_Dropdown windowDropdown;
     [SerializeField]private TMP_Dropdown resolutionDropdown;
@@ -39,9 +40,21 @@ public class UiManager : MonoBehaviour
         pauseCanvas.SetActive(!pauseCanvas.activeSelf);
     }
 
+    public void OnVRManual()
+    {
+        if (vrManualPanel != null)
+            vrManualPanel.SetActive(true); // 패널 열기
+    }
+
+    public void CloseVRManual()
+    {
+        if (vrManualPanel != null)
+            vrManualPanel.SetActive(false); // 패널 닫기
+    }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.P) || 
+            ARAVRInput.GetDown(ARAVRInput.Button.Two, ARAVRInput.Controller.LTouch))
         {
             if (pauseCanvas != null)
             {
@@ -63,17 +76,20 @@ public class UiManager : MonoBehaviour
             }
         }
     }
-    public void Register(GameObject pause, GameObject setting, TMP_Dropdown windowDropdown, TMP_Dropdown resolutionDropdown, Scrollbar volumeScrollbar)
+    public void Register(GameObject pause, GameObject setting, GameObject manual, TMP_Dropdown windowDropdown, TMP_Dropdown resolutionDropdown, Scrollbar volumeScrollbar)
     {
         pauseCanvas = pause;
         settingPanel = setting;
+        vrManualPanel = manual;
         this.windowDropdown = windowDropdown;
         this.resolutionDropdown = resolutionDropdown;
         this.volumeScrollbar = volumeScrollbar;
 
         pauseCanvas.transform.Find("contiuneB").GetComponent<Button>().onClick.AddListener( GameManager.instance.continueGame);
         pauseCanvas.transform.Find("settingB").GetComponent<Button>().onClick.AddListener(OnSetting);
-        pauseCanvas.transform.Find("settingB").GetComponent<Button>().onClick.AddListener(OffPause);
+        settingPanel.transform.Find("quitB").GetComponent<Button>().onClick.AddListener(OffPause);
+        pauseCanvas.transform.Find("vrManualB").GetComponent<Button>().onClick.AddListener(OnVRManual);
+        vrManualPanel.transform.Find("quitB").GetComponent<Button>().onClick.AddListener(CloseVRManual);
         pauseCanvas.transform.Find("exitB").GetComponent<Button>().onClick.AddListener( GameManager.instance.GoToMainMenu);
     }
     public void ApplySettings()
