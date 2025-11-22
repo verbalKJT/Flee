@@ -8,10 +8,12 @@ public class FootstepSound : MonoBehaviour
     [Header("걷기 발소리")]
     public AudioClip[] MainMonFootstepClips;     // 발소리 여러 개 넣어두면 랜덤 재생
     public AudioClip[] MiddleMonFootstepClips;
+    public AudioClip[] SubMonFootstepClips;   // ★ 추가
 
     [Header("달리기 발소리")]
     public AudioClip[] MainMonRunFootstepClips;
     public AudioClip[] MiddleMonRunFootstepClips;
+    public AudioClip[] SubMonRunFootstepClips; // ★ 추가
 
     //메인 몬스터와 미들몬스터 발소리를 다르게 재생할 수 있도록 각각 배열 생성
 
@@ -41,6 +43,10 @@ public class FootstepSound : MonoBehaviour
         {
             playingFootstepClips = MiddleMonFootstepClips;
         }
+        else if (this.CompareTag("SubMon"))
+        {
+            playingFootstepClips = SubMonFootstepClips;  // 이 배열 새로 추가 필요
+        }
         else
             playingFootstepClips = null;
 
@@ -54,6 +60,8 @@ public class FootstepSound : MonoBehaviour
             playingFootstepClips = MainMonRunFootstepClips;
         else if (CompareTag("MiddleMon"))
             playingFootstepClips = MiddleMonRunFootstepClips;
+        else if (CompareTag("SubMon"))
+            playingFootstepClips = SubMonRunFootstepClips;
         else
             playingFootstepClips = null;
 
