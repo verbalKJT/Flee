@@ -21,6 +21,7 @@ public class Inventory : MonoBehaviour
     //스토리아이템 수집 체크
     public bool hasAllStoryItems = false;
 
+
     void Awake()
     {
         if (Instance == null) Instance = this;
