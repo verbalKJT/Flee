@@ -99,7 +99,7 @@ public class Inventory : MonoBehaviour
 
     }
 
-    private void CheckAllStoryItemsCollected()
+    public int CheckAllStoryItemsCollected()
     {
         int count = 0;
 
@@ -109,8 +109,8 @@ public class Inventory : MonoBehaviour
                 count++;
         }
 
-        //조건 충족 시 플래그 ture
-        if(count == 5)
+             //조건 충족 시 플래그 ture
+        if(count == 6)
         {
             if (!hasAllStoryItems)
             {
@@ -123,6 +123,11 @@ public class Inventory : MonoBehaviour
         {
             hasAllStoryItems = false;
         }
+        //아이템 갯수 반환
+        Debug.Log("스토리용 아이템 소지 개수 : "+count);
+        return count;
 
     }
+
+
 }
