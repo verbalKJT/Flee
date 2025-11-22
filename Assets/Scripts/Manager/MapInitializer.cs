@@ -12,7 +12,10 @@
         
         [Header("NavMeshMonsters")] [SerializeField]
         private Monster[] navMeshMons; // Main , Middle, sub 순
-        
+
+        [Header("Camera Holder")]
+        private GameObject playerCameraHolder;
+
         [Header("VR Tutorial Canvas")]
         [SerializeField] private GameObject tutorialCanvas;
 
@@ -60,15 +63,21 @@
             GameObject player = GameObject.FindGameObjectWithTag("Player"); // 플레이어 오브젝트
             
             LetterCanvas = GameObject.Find("LetterCanvas");
-            
-			// PC 버전
-            //mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-            // VR 버전
-			mainCamera = GameObject.FindGameObjectWithTag("VRCam");
+
+            Transform camHolder = player.transform.Find("CameraHolder"); // CameraHolder 찾기
+            if (camHolder != null)
+            {
+                SubMonGameOverScript.SetPlayerCameraHolder(camHolder.gameObject);
+            }
+        // PC 버전
+        //mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        // VR 버전
+        mainCamera = GameObject.FindGameObjectWithTag("VRCam");
             tutorialCanvas = GameObject.Find("TutorialCanvas");
-            monsterPanel = GameObject.Find("InteractionCanvas").transform.Find("MiddleMonPanel").gameObject;       
+            monsterPanel = GameObject.Find("InteractionCanvas").transform.Find("MiddleMonPanel").gameObject;
             
-            if (tutorialCanvas != null && mainCamera != null)
+
+        if (tutorialCanvas != null && mainCamera != null)
             {
                 Canvas canvas = tutorialCanvas.GetComponent<Canvas>();
                 if (canvas != null)
@@ -105,7 +114,7 @@
                     }
                 }
 
-                if (endingRoomDoor != null)
+            if (endingRoomDoor != null)
                     endingRoomDoor.SetupPlayerTransform(player.transform);
                 if (endCorridor != null)
                 {

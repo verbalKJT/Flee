@@ -12,10 +12,19 @@ public class DeadGameoverSubMonster : MonoBehaviour
     private GameObject playerObject;
     private GameObject mainCamera;
     private GameObject monsterPanel;
+    private GameObject playerCameraHolder;
+
+    private PlayerMouseLook playerMouseLook;
 
     private CinemachineBrain brain;
 
     private bool hasPlayed = true;
+
+    private Animator monsterAnimator;
+
+    // 천장 LayerMask (CeilingTest 기능)
+    [SerializeField] private LayerMask ceilingMask;
+
 
     void Start()
     {
@@ -23,7 +32,9 @@ public class DeadGameoverSubMonster : MonoBehaviour
             timeline.stopped += OnTimelineFinished;
 
         brain = FindObjectOfType<CinemachineBrain>();
+        monsterAnimator = GetComponent<Animator>();
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -32,36 +43,69 @@ public class DeadGameoverSubMonster : MonoBehaviour
 
         hasPlayed = false;
 
-        // 몬스터 이동/충돌 정지
-        GetComponent<NavMeshAgent>().isStopped = true;
+        // Animator 즉시 비활성화 (목 애니메이션 덮어쓰기 방지)
+        if (monsterAnimator != null)
+            monsterAnimator.enabled = false;
+
+        // NavMesh 멈춤
+        var agent = GetComponent<NavMeshAgent>();
+        if (agent != null) agent.enabled = false;
+
+        // 충돌 off
         GetComponent<Collider>().enabled = false;
 
+        // 1단계: 잡힌 순간 몬스터를 플레이어 위 천장으로 이동
+        AttachToCeiling(other.transform);
+
+        // 2단계: Timeline 실행
         StartCoroutine(StartTimeline());
+    }
+
+    private void AttachToCeiling(Transform player)
+    {
+        Debug.Log("AttachToCeiling 실행됨");
+        Vector3 origin = player.position + Vector3.up * 1f;
+
+        if (Physics.Raycast(origin, Vector3.up, out RaycastHit hit, 30f, ceilingMask))
+        {
+            // 바닥일 경우 무시 (y값이 player보다 낮으면 바닥)
+            if (hit.point.y < player.position.y)
+                return;
+
+            transform.position = hit.point;
+            transform.rotation = Quaternion.Euler(180f, 0f, 0f);
+        }
     }
 
     private IEnumerator StartTimeline()
     {
-        // 3초 딜레이 후 타임라인 재생
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.5f);
 
         SetTrackBinding(mainCamera, monsterPanel);
+
+        // MouseLook 잠금
+        if (playerMouseLook != null)
+            playerMouseLook.enabled = false;
+
+        timeline.stopped += OnTimelineEnd;
         timeline.Play();
     }
+
 
     private void OnTimelineFinished(PlayableDirector obj)
     {
         StartCoroutine(ReturnAndDestroy());
     }
 
+
     private IEnumerator ReturnAndDestroy()
     {
-        // 안정화 없으면 겹침 오류남
         yield return new WaitForSeconds(0.05f);
 
         if (monsterPanel != null)
             monsterPanel.SetActive(false);
 
-        // PlayerCam 확보
+        // 플레이어 카메라 복구
         Transform camHolder = playerObject.transform.Find("CameraHolder/PlayerCam");
         var playerCam = camHolder?.GetComponent<CinemachineVirtualCameraBase>();
 
@@ -78,7 +122,6 @@ public class DeadGameoverSubMonster : MonoBehaviour
             yield return null;
             yield return null;
 
-            // 화면 떨림 최소화를 위해 BlendTime만 잠시 0으로
             if (brain != null)
             {
                 float origin = brain.DefaultBlend.Time;
@@ -88,16 +131,23 @@ public class DeadGameoverSubMonster : MonoBehaviour
             }
         }
 
-        // 몬스터 삭제
         Destroy(gameObject);
     }
+
+
 
     public void SetPlayerWithUi(GameObject playerObject)
     {
         this.playerObject = playerObject;
+
+        playerMouseLook = playerObject.GetComponent<PlayerMouseLook>();
     }
 
-    // Timeline Track 바인딩
+    public void SetPlayerCameraHolder(GameObject holder)
+    {
+        this.playerCameraHolder = holder;
+    }
+
     public void SetTrackBinding(GameObject mainCamera, GameObject monsterPanel)
     {
         this.mainCamera = mainCamera;
@@ -117,6 +167,18 @@ public class DeadGameoverSubMonster : MonoBehaviour
             {
                 timeline.SetGenericBinding(track, monsterPanel);
             }
+            else if (track is AnimationTrack && track.name.Contains("CameraHolder"))
+            {
+                timeline.SetGenericBinding(track, playerCameraHolder);
+            }
         }
+    }
+    private void OnTimelineEnd(PlayableDirector director)
+    {
+        // MouseLook 다시 활성화
+        if (playerMouseLook != null)
+            playerMouseLook.enabled = true;
+
+        timeline.stopped -= OnTimelineEnd;
     }
 }
