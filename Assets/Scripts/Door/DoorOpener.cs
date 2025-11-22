@@ -70,7 +70,32 @@ public class DoorOpener : MonoBehaviour, IInteractable
     // IInteractable 구현
     public void Interact()
     {
-        ToggleDoor();
+        //StoryDoorLock.cs 유무 검사
+        StoryDoorLock storyDoorLock=GetComponent<StoryDoorLock>();
+        if(storyDoorLock != null)
+        {
+            //storyDoorLock.cs가 있다면 스토리용 아이템 개수 검사 후 로직 실행
+            Debug.Log("storyDoorLock 있음");
+            
+            if (storyDoorLock.CheckItemCount())
+            {//문동작 가능인경우(필요아이템 개수 조건 충족)
+                Debug.Log("소지 아이템 개수 충족!");
+                ToggleDoor();
+            }
+            else
+            {
+                        //아이템 개수 부족! 문을 열 수 없습니다 프롬프트 구현하기
+                Debug.Log("소지 아이템 개수 부족!");
+            }
+            
+        }
+        else
+        {
+            //storyDoorLock.cs가 안붙어있다면 그냥 일반 문 처럼 작동
+            ToggleDoor();
+        }
+
+           
 
         // BGM 변경 로직
         if (shouldChangeBGM && BGMManager.Instance != null)

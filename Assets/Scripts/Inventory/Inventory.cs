@@ -11,8 +11,8 @@ public class Inventory : MonoBehaviour
 
     //인벤토리 리스트
     public List <InventoryItem> inventory;
-    //아이템 슬롯 UI 배열(5칸)
-    public Image[] ItemSlotUI=new Image[5];    
+    //아이템 슬롯 UI 배열(6칸)
+    public Image[] ItemSlotUI=new Image[6];    
 
     //손에 드는 아이템
     public InventoryItem hand;
@@ -20,6 +20,7 @@ public class Inventory : MonoBehaviour
 
     //스토리아이템 수집 체크
     public bool hasAllStoryItems = false;
+
 
     void Awake()
     {
@@ -99,7 +100,7 @@ public class Inventory : MonoBehaviour
 
     }
 
-    private void CheckAllStoryItemsCollected()
+    public int CheckAllStoryItemsCollected()
     {
         int count = 0;
 
@@ -109,8 +110,8 @@ public class Inventory : MonoBehaviour
                 count++;
         }
 
-        //조건 충족 시 플래그 ture
-        if(count == 5)
+             //조건 충족 시 플래그 ture
+        if(count == 6)
         {
             if (!hasAllStoryItems)
             {
@@ -123,6 +124,11 @@ public class Inventory : MonoBehaviour
         {
             hasAllStoryItems = false;
         }
+        //아이템 갯수 반환
+        Debug.Log("스토리용 아이템 소지 개수 : "+count);
+        return count;
 
     }
+
+
 }

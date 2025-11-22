@@ -16,6 +16,9 @@ public class Letter : MonoBehaviour, IInteractable
     private GameObject playerCandleLight;
     private bool candleActivated = false;
 
+    [SerializeField] private ItemData storyItemData;//스토리아이템데이터(Letter_Story)
+    private bool isCollected = false;//중복체크
+
     // 📌 IInteractable 구현: 상호작용 시 실행됨
     public void Interact()
     {
@@ -38,6 +41,14 @@ public class Letter : MonoBehaviour, IInteractable
         letterImage.SetActive(true);
         isReading = true;
         doorAnimator.SetTrigger("Open");
+
+        if (!isCollected && storyItemData != null)
+        {
+            InventoryItem item = new InventoryItem(storyItemData, gameObject);
+            Inventory.Instance.AddInventory(item);
+            isCollected = true; // 중복 등록 방지
+            Debug.Log("스토리 아이템 획득: " + storyItemData.itemName);
+        }
     }
 
     void CloseLetter()
