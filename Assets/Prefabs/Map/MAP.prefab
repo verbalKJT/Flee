@@ -29919,6 +29919,37 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3957244651640389519, guid: 1b50647722b397b49abfc5332ea550fb, type: 3}
+--- !u!1 &1500914875221895473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 343208426690249908}
+  m_Layer: 0
+  m_Name: MonsterSpawnTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &343208426690249908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500914875221895473}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.993, y: 1.34, z: 16.634}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 95638412120611223}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1509539376454377149
 GameObject:
   m_ObjectHideFlags: 0
@@ -249051,6 +249082,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8489759341509981758, guid: 4f1acf5e065dc6e4fa54ce8e34513bbe, type: 3}
       insertIndex: 6
       addedObject: {fileID: 5653060162636037631}
+    - targetCorrespondingSourceObject: {fileID: 8489759341509981758, guid: 4f1acf5e065dc6e4fa54ce8e34513bbe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 343208426690249908}
     - targetCorrespondingSourceObject: {fileID: 5339273124678838396, guid: 4f1acf5e065dc6e4fa54ce8e34513bbe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 337450563825568019}
