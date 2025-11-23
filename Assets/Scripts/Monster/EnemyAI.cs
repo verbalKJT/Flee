@@ -26,6 +26,12 @@ public class EnemyAI : Monster
     private float nextStunTime = 0f;    //이 시간이 지나야 다시 스턴 가능
     [SerializeField] private string stunTriggerName = "Stun";
     
+    [Header("분노 상태 설정")]
+    public float angryDuration = 5f;
+    public float angrySpeedMultiplier = 1.5f;
+    private float angryEndTime = 0f;
+    private bool isAngry = false;
+    
     void Update()
     {
         // 할당되는 시간 
@@ -48,6 +54,20 @@ public class EnemyAI : Monster
 
             return;
         }
+        
+        // 분노
+        if (isAngry && Time.time >= angryEndTime)
+        {
+            isAngry = false;
+    
+            // 속도 원래대로 복구
+            agent.speed /= angrySpeedMultiplier;
+
+            // 상태 복귀
+            changeState(EnemyState.PATROL);
+
+            Debug.Log($"{gameObject.name} 이 분노 상태에서 벗어났습니다.");
+        }
 
         switch (currentState)
         {
@@ -62,6 +82,10 @@ public class EnemyAI : Monster
                 animator.SetFloat("Action", 1f);
                 break;
             case EnemyState.STUN:
+                break;
+            case EnemyState.ANGRY:
+                animator.speed = agent.velocity.magnitude / agent.speed * 2f;
+                animator.SetFloat("Action", 1f);
                 break;
         }
     }
@@ -148,6 +172,10 @@ public class EnemyAI : Monster
                 animator.SetFloat("Action", 0f);
                 animator.speed = 1f;
                 break;
+            case EnemyState.ANGRY:
+                animator.speed = agent.velocity.magnitude / agent.speed * 2f;
+                animator.SetFloat("Action", 1f);
+                break;
         }
     }
 
@@ -157,8 +185,25 @@ public class EnemyAI : Monster
         animator = GetComponent<Animator>();
         agent.speed = 5f;
     }
+    
+    // 오브젝트 맞았을 때 분노 함수
+    public void TriggerAnger()
+    {
+        if (!isAngry)
+        {
+            isAngry = true;
+            angryEndTime = Time.time + angryDuration;
 
+            // 속도 증가
+            agent.speed *= angrySpeedMultiplier;
 
+            // 상태 변경
+            changeState(EnemyState.ANGRY);
+
+            Debug.Log($"{gameObject.name} 이 분노 상태에 진입했습니다!");
+        }
+    }
+    
     // 손전등에서 호출할 함수
     public void StunByFlashlight()
     {
