@@ -1,13 +1,16 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlashlightPickup : MonoBehaviour
 {
-    [Header("��ȣ�ۿ� Ű")]
+    [Header("PC 상호작용 키")]
     public KeyCode interactKey = KeyCode.E;
     
     [SerializeField] private GameObject flashlight; // 왼쪽 컨트롤러에 손전등 오브젝트
     bool pickedUp = false;
+    
+    [SerializeField] private GameObject flashlightUI; // 손전등 게이지
 /*
     void OnTriggerStay(Collider other)
     {
@@ -32,7 +35,7 @@ public class FlashlightPickup : MonoBehaviour
         if (other.CompareTag("LeftController"))
         {
             flashlight.SetActive(true);
-
+            flashlightUI.SetActive(true);
             pickedUp = true;
             Destroy(gameObject); 
             other.GetComponentInParent<PlayerLightInventory>().SetModeFlashlight(); // 여기서 hasFlashlight = true;
@@ -40,8 +43,9 @@ public class FlashlightPickup : MonoBehaviour
         }
     }
 
-    public void SetFlashlight(GameObject flashLight)
+    public void SetFlashlight(GameObject flashlight, GameObject flashlightUI)
     {
-        this.flashlight = flashLight;
+        this.flashlight = flashlight;
+        this.flashlightUI = flashlightUI;
     }
 }
