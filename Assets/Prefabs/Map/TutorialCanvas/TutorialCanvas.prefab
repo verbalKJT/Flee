@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7573318718520919376}
   - component: {fileID: 4358040588927268874}
   - component: {fileID: 6690417257889888094}
+  - component: {fileID: 5847022303036301538}
   m_Layer: 8
   m_Name: GrabExplainText (1)
   m_TagString: Untagged
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 90.303925, w: -50.399666}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -157,8 +158,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 600, y: 100, z: 1}
+  m_Center: {x: -50, y: -25, z: 0}
+--- !u!114 &5847022303036301538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291064245722945780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10f64297d9e6cb4483e766548a489f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractTutorialText
+  targetPanelToClose: {fileID: 3893087307434968703}
 --- !u!1 &709561173146619485
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +185,7 @@ GameObject:
   - component: {fileID: 2220393894973504346}
   - component: {fileID: 4131445301897290268}
   - component: {fileID: 3361432145990839496}
+  - component: {fileID: 4552103886458390810}
   m_Layer: 8
   m_Name: ControlExplainText
   m_TagString: Untagged
@@ -315,8 +330,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 250, y: 50, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4552103886458390810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709561173146619485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10f64297d9e6cb4483e766548a489f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractTutorialText
+  targetPanelToClose: {fileID: 3925191963965213609}
 --- !u!1 &3893087307434968703
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +356,7 @@ GameObject:
   - component: {fileID: 5794293056400146857}
   - component: {fileID: 6414621444573886678}
   - component: {fileID: 2858077468101689349}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: VRGrabExplainPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +433,7 @@ GameObject:
   - component: {fileID: 5703510993044319624}
   - component: {fileID: 7411975630895034337}
   - component: {fileID: 1950010552373946304}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: VRLetterExplainPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +458,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3761, y: -38}
+  m_AnchoredPosition: {x: -3993, y: -38}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7411975630895034337
@@ -483,6 +511,7 @@ GameObject:
   - component: {fileID: 5981748209826936026}
   - component: {fileID: 3222804597481712097}
   - component: {fileID: 7037088856636354143}
+  - component: {fileID: 4122312021850884553}
   m_Layer: 8
   m_Name: ControlExplainText (1)
   m_TagString: Untagged
@@ -629,8 +658,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 700, y: 150, z: 1}
+  m_Center: {x: 0, y: -50, z: 0}
+--- !u!114 &4122312021850884553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4424994241859254291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10f64297d9e6cb4483e766548a489f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractTutorialText
+  targetPanelToClose: {fileID: 9113538204529662558}
 --- !u!1 &4694297011785580695
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,6 +685,7 @@ GameObject:
   - component: {fileID: 4284953322996659545}
   - component: {fileID: 6511319496353504494}
   - component: {fileID: 3713334767949052644}
+  - component: {fileID: 3065495384330035852}
   m_Layer: 8
   m_Name: 'LetterExplainText '
   m_TagString: Untagged
@@ -764,7 +807,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 76.56882, w: -97.827194}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -789,8 +832,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 620, y: 150, z: 1}
+  m_Center: {x: -50, y: -50, z: 0}
+--- !u!114 &3065495384330035852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4694297011785580695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10f64297d9e6cb4483e766548a489f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractTutorialText
+  targetPanelToClose: {fileID: 3925191963965213609}
 --- !u!1 &4814433305978072813
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,6 +963,7 @@ GameObject:
   - component: {fileID: 168973419977730062}
   - component: {fileID: 8580920676558430895}
   - component: {fileID: 4295406037576345481}
+  - component: {fileID: 6788319211168218535}
   m_Layer: 8
   m_Name: ControlExplainText
   m_TagString: Untagged
@@ -1051,8 +1108,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 250, y: 50, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6788319211168218535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199010438133862698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10f64297d9e6cb4483e766548a489f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractTutorialText
+  targetPanelToClose: {fileID: 3893087307434968703}
 --- !u!1 &8832795245118276864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,6 +1135,7 @@ GameObject:
   - component: {fileID: 776243117984605337}
   - component: {fileID: 98809282783292411}
   - component: {fileID: 7788110340935971657}
+  - component: {fileID: 812581027556288373}
   m_Layer: 8
   m_Name: ControlExplainText
   m_TagString: Untagged
@@ -1209,8 +1280,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 250, y: 50, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &812581027556288373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8832795245118276864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10f64297d9e6cb4483e766548a489f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractTutorialText
+  targetPanelToClose: {fileID: 9113538204529662558}
 --- !u!1 &9113538204529662558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,7 +1306,7 @@ GameObject:
   - component: {fileID: 1646097852453942844}
   - component: {fileID: 5473662514768043712}
   - component: {fileID: 6457076474105811402}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: VRControlExplainPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
