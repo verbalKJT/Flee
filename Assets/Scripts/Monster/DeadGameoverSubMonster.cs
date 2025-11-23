@@ -13,6 +13,11 @@ public class DeadGameoverSubMonster : MonoBehaviour
     private GameObject mainCamera;
     private GameObject monsterPanel;
     private GameObject playerCameraHolder;
+    private GameObject playerModel;
+    private CinemachineInputAxisController inputAxis;  // PlayerCam의 Y 회전 제어
+    private PlayerMovement playerMovement;             // Player의 이동 스크립트
+    private Animator playerAnimator;
+    private HeadBob headBob;
 
     private PlayerMouseLook playerMouseLook;
 
@@ -42,6 +47,8 @@ public class DeadGameoverSubMonster : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         hasPlayed = false;
+
+        DisablePlayerControlsImmediately();
 
         // Animator 즉시 비활성화 (목 애니메이션 덮어쓰기 방지)
         if (monsterAnimator != null)
@@ -79,13 +86,10 @@ public class DeadGameoverSubMonster : MonoBehaviour
 
     private IEnumerator StartTimeline()
     {
+        playerModel.SetActive(false);
         yield return new WaitForSeconds(0.5f);
 
         SetTrackBinding(mainCamera, monsterPanel);
-
-        // MouseLook 잠금
-        if (playerMouseLook != null)
-            playerMouseLook.enabled = false;
 
         timeline.stopped += OnTimelineEnd;
         timeline.Play();
@@ -140,7 +144,15 @@ public class DeadGameoverSubMonster : MonoBehaviour
     {
         this.playerObject = playerObject;
 
+        playerAnimator = playerObject.GetComponent<Animator>();
         playerMouseLook = playerObject.GetComponent<PlayerMouseLook>();
+        playerModel = playerObject.transform.Find("SK_Changeling_Boy").gameObject;
+        playerMovement = playerObject.GetComponent<PlayerMovement>();
+        inputAxis = playerObject.transform.Find("CameraHolder/PlayerCam")
+             ?.GetComponent<CinemachineInputAxisController>();
+        Transform cam = playerObject.transform.Find("CameraHolder/PlayerCam");
+        if (cam != null)
+            headBob = cam.GetComponent<HeadBob>();
     }
 
     public void SetPlayerCameraHolder(GameObject holder)
@@ -179,6 +191,51 @@ public class DeadGameoverSubMonster : MonoBehaviour
         if (playerMouseLook != null)
             playerMouseLook.enabled = true;
 
+        // PlayerMovement 다시 활성화
+        if (playerMovement != null)
+            playerMovement.enabled = true;
+
+        // Look X/Y 다시 활성화
+        if (inputAxis != null)
+            inputAxis.enabled = true;
+
+        if (playerAnimator != null)
+            playerAnimator.enabled = true;
+
+        if (headBob != null)
+        {
+            headBob.enabled = true;
+            Debug.Log("컷씬 종료 — HeadBob 다시 활성화");
+        }
+
+        playerModel.SetActive(true);
+
         timeline.stopped -= OnTimelineEnd;
     }
-}
+    private void DisablePlayerControlsImmediately()
+    {
+        if (headBob != null)
+        {
+            headBob.enabled = false;
+            Debug.Log("컷씬 시작 — HeadBob 비활성화 완료");
+        }
+
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetFloat("Speed", 0f);   // Idle 파라미터
+            playerAnimator.enabled = false;         // 애니 완전 정지
+        }
+
+        // 1) PlayerMovement 끄기
+        if (playerMovement != null)
+            playerMovement.enabled = false;
+
+        // 2) PlayerMouseLook 끄기
+        if (playerMouseLook != null)
+            playerMouseLook.enabled = false;
+
+        // 3) Cinemachine 상하/좌우 끄기
+        if (inputAxis != null)
+            inputAxis.enabled = false;
+    }
+    }
