@@ -25,13 +25,17 @@ public class FlashLightGaze : MonoBehaviour
 
         // 비율 가져오기
         float heatRatio = playerLight.GetHeatRatio();
-
+        
         // 이미지가 줄어들도록
         flashGaze.fillAmount = 1f - heatRatio;
 
         if (flashGaze.fillAmount <= 0.3f)
         {
             flashGaze.color = Color.red;
+        }
+        else
+        {
+            flashGaze.color = Color.white;
         }
     }
 }
