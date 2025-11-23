@@ -396,7 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RootUI
   pauseCanvas: {fileID: 112074041}
   settingCanvas: {fileID: 1021918386}
-  vrManualPanel: {fileID: 0}
+  vrManualPanel: {fileID: 8006606470196810337}
   windowDropdown: {fileID: 1021918385}
   resolutionDropdown: {fileID: 1021918384}
   volumeScrollbar: {fileID: 1021918383}
@@ -554,7 +554,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122970820}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
@@ -615,7 +615,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122970820}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f1a9a1d119a5944aacfb87d1ec283a2, type: 3}
   m_Name: 
@@ -2444,6 +2444,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 6038725152207139764}
+    - target: {fileID: 1997174327592346793, guid: 4e6192fe5e2da4c4781e88a6f7a77559, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997174327592346793, guid: 4e6192fe5e2da4c4781e88a6f7a77559, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3884158877939658138, guid: 4e6192fe5e2da4c4781e88a6f7a77559, type: 3}
       propertyPath: m_Name
       value: LetterCanvas
@@ -2454,6 +2462,10 @@ PrefabInstance:
       objectReference: {fileID: 8030757039284722160}
     - target: {fileID: 6349659168638648397, guid: 4e6192fe5e2da4c4781e88a6f7a77559, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859829069456856498, guid: 4e6192fe5e2da4c4781e88a6f7a77559, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8886747650984278845, guid: 4e6192fe5e2da4c4781e88a6f7a77559, type: 3}
@@ -2486,7 +2498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &3581038110475358331 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 255484798420741658, guid: df47d30a06d404529bd2c8421dc9b1ce, type: 3}
@@ -2660,6 +2672,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df47d30a06d404529bd2c8421dc9b1ce, type: 3}
+--- !u!1 &8006606470196810337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6754866100367117030, guid: df47d30a06d404529bd2c8421dc9b1ce, type: 3}
+  m_PrefabInstance: {fileID: 8006606470196810336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8030757039284722160 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8250366473490675398, guid: df47d30a06d404529bd2c8421dc9b1ce, type: 3}
@@ -2725,7 +2742,7 @@ Transform:
   m_GameObject: {fileID: 2048909160273053012}
   serializedVersion: 2
   m_LocalRotation: {x: -0.020637527, y: 0.72554386, z: 0.021778861, w: 0.68752164}
-  m_LocalPosition: {x: -30.376019, y: 1.1650002, z: -33.195087}
+  m_LocalPosition: {x: -44.976017, y: 1.1650002, z: -34.995087}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

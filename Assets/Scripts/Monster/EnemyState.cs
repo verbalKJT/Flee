@@ -4,6 +4,7 @@
     {
         PATROL,
         CHASE,
-        STUN        //기절 상태 추가
+        STUN,        //기절 상태 추가
+        ANGRY
     }
 }
