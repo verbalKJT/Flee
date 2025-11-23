@@ -1,4 +1,5 @@
     using System.Collections;
+    using Microsoft.Unity.VisualStudio.Editor;
     using UnityEngine;
 
     /// <summary>
@@ -132,9 +133,11 @@
 
             // 손전등 바인딩
             GameObject flashLight = player.transform.
-                Find("OVRCameraRigGame/TrackingSpace/LeftHandAnchor/OVRCustomHandPrefab_L/Flashlight").gameObject; 
+                Find("OVRCameraRigGame/TrackingSpace/LeftHandAnchor/OVRCustomHandPrefab_L/Flashlight").gameObject;
+            GameObject flashlightUI = player.transform.Find("OVRCameraRigGame/TrackingSpace/CenterEyeAnchor" +
+                                                            "/CanvasHolder/CrosshairCanvas/FlashLightUI").gameObject;
             // 플레이어 하위 손전등 찾아서 바인딩
-            _flashlightPickup.SetFlashlight(flashLight);
+            _flashlightPickup.SetFlashlight(flashLight,flashlightUI);
             
             // 책 UI 바인딩 처리
             Transform interactionCanvas = GameObject.Find("InteractionCanvas")?.transform;
