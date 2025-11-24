@@ -26,7 +26,7 @@ public class FlashlightPickup : MonoBehaviour
             }
             
             pickedUp = true;
-            Destroy(gameObject);           // �ٴڿ� �ִ� ������ ������ ����
+            Destroy(gameObject);           // 
         }
     }
 */
@@ -34,7 +34,7 @@ public class FlashlightPickup : MonoBehaviour
     {
         if (other.CompareTag("LeftController"))
         {
-            flashlight.SetActive(true);
+            flashlight.SetActive(true); // 손에 달려있는 손전등
             flashlightUI.SetActive(true);
             pickedUp = true;
             Destroy(gameObject); 

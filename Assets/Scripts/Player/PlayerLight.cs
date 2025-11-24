@@ -67,23 +67,42 @@ public class PlayerLight : MonoBehaviour
         if (inv == null || flashlightLight == null) return;
         if (!inv.hasFlashlight) return;
 
-        if (Input.GetKeyDown(KeyCode.F) || ARAVRInput.GetDown(ARAVRInput.Button.One, ARAVRInput.Controller.LTouch))
+        if (Input.GetKeyDown(KeyCode.F) ) 
         {
             ToggleFlashlight();
         }
+
+        if (ARAVRInput.GetDown(ARAVRInput.Button.One, ARAVRInput.Controller.LTouch))
+        {
+            Debug.Log("L touch");
+            ToggleFlashlight();
+        }
+        
         //손전등 켜진 시간에 따라 깜박이도록 하는 메서드
         HandleOverheatAndFlicker();
-
-        Debug.Log("손전등 켜진 시간: " + onTimer);
     }
 
     private void ToggleFlashlight()
     {
             isOn = !isOn;
 
-            if (!isOn)
+            if (isOn)
             {
-                // 끌 때는 과열/깜빡임 관련 상태 초기화용 타이머 돌리기
+                // 식는 속도 비율 (예: 20초/3초 = 약 6.6배 빨리 식음)
+                float coolDownRatio = overheatTime / cooldownTime;
+            
+                // 꺼져있던 시간 * 비율 = 식은 열기 양
+                float cooledAmount = offTimer * coolDownRatio;
+            
+                // 현재 onTimer에서 식은 만큼 빼주기 (0보다 작아지진 않게)
+                onTimer = Mathf.Clamp(onTimer - cooledAmount, 0f, overheatTime);
+            
+                // 적용 후 offTimer 초기화
+                offTimer = 0f;
+            }
+            else
+            {
+                // 끌 때는 그냥 offTimer 초기화
                 offTimer = 0f;
             }
 

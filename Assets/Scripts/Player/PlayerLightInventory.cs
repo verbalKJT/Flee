@@ -21,9 +21,6 @@ public class PlayerLightInventory : MonoBehaviour
 
         if (candleLight != null)
             candleLight.SetActive(false);
-
-        if (flashlightObject != null)
-            flashlightObject.SetActive(false);
     }
 
     public void SetModeFlashlight()
