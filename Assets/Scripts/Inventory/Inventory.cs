@@ -21,6 +21,8 @@ public class Inventory : MonoBehaviour
     //스토리아이템 수집 체크
     public bool hasAllStoryItems = false;
 
+    //벽난로 기믹 수행 체크
+    public bool MonInFireplace = false;
 
     void Awake()
     {
@@ -111,7 +113,7 @@ public class Inventory : MonoBehaviour
         }
 
              //조건 충족 시 플래그 ture
-        if(count == 6)
+        if(count >= 6)
         {
             if (!hasAllStoryItems)
             {
