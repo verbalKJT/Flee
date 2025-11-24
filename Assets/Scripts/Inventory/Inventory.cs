@@ -111,7 +111,7 @@ public class Inventory : MonoBehaviour
         }
 
              //조건 충족 시 플래그 ture
-        if(count == 6)
+        if(count >= 6)
         {
             if (!hasAllStoryItems)
             {

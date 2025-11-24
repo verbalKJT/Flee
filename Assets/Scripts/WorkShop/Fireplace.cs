@@ -8,6 +8,8 @@ public class Fireplace : MonoBehaviour
         {
             
             Debug.Log("몬스터 벽난로 충돌");
+            other.gameObject.SetActive(false);
+            
         }
        
     }
