@@ -10,6 +10,9 @@ public class RightHandGrabber : MonoBehaviour
     GameObject grabbedObject; // 잡고 있는 물체
     public LayerMask grabbedLayer; // 잡은 물체의 종류
     public float grabRange = 0.2f; // 잡을 수 있는 거리
+    
+    // [수정 1] 손 프리팹을 넣을 변수 추가
+    public Transform handMeshTransform;
 
     Vector3 prevPos; // 이전 위치
     Quaternion prevRot; // 이전 회전
@@ -129,7 +132,7 @@ public class RightHandGrabber : MonoBehaviour
                 // 잡은 물체에 대한 기억
                 grabbedObject = hitObjects[closest].gameObject;
                 // 잡은 물체를 손의 자식으로 등록
-                grabbedObject.transform.parent = ARAVRInput.RHand;
+                grabbedObject.transform.parent = handMeshTransform;
                 // 물리 ㄱ ㅣ능 해제
                 grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
                 // 초기 위치 값 지정
@@ -162,7 +165,7 @@ public class RightHandGrabber : MonoBehaviour
             }
             // 잡은 물체를 손의 자식으로 등록
             grabbedObject.transform.position = targetLocation;
-            grabbedObject.transform.parent = ARAVRInput.RHand;
+            grabbedObject.transform.parent = handMeshTransform;
         }
     }
 }
