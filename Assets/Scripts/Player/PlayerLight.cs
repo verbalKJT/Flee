@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using Unity.Mathematics.Geometry;
 using UnityEngine;
 
 public class PlayerLight : MonoBehaviour
@@ -66,7 +67,7 @@ public class PlayerLight : MonoBehaviour
         if (inv == null || flashlightLight == null) return;
         if (!inv.hasFlashlight) return;
 
-        if (Input.GetKeyDown(KeyCode.F) || OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.LTouch))
+        if (Input.GetKeyDown(KeyCode.F) || ARAVRInput.GetDown(ARAVRInput.Button.One, ARAVRInput.Controller.LTouch))
         {
             ToggleFlashlight();
         }
@@ -185,6 +186,25 @@ public class PlayerLight : MonoBehaviour
             float noise = Random.Range(-0.1f, 0.1f);
             float mul = Mathf.Clamp(flickerIntensityMultiplier + noise, 0.1f, flickerIntensityMultiplier + 0.2f);
             flashlightLight.intensity = baseIntensity * mul;
+        }
+    }
+
+    public float GetHeatRatio()
+    {
+        if (IsOn)
+        {
+            // 현재시간 / 최대시간 (0.0 ~ 1.0)
+            return Mathf.Clamp01(onTimer / overheatTime);
+        }
+        else
+        {
+            // 쿨다운 비율
+            float coolDawnRatio = overheatTime / cooldownTime;
+            // 켜져있던 시간에서 꺼져있는 시간 * 비율 만큼 뺴기 = 현재 열기
+            float heatTime = onTimer - offTimer * coolDawnRatio;
+            
+            // 현재 열기 
+            return Mathf.Clamp01(heatTime/overheatTime);
         }
     }
 }

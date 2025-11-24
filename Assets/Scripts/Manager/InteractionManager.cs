@@ -18,7 +18,7 @@ public class InteractionManager : MonoBehaviour
         // 1. 입력 감지 (키보드 'E' 또는 VR 컨트롤러 'A' 버튼)
         // OVRInput.Button.One == 오른쪽 컨트롤러의 'A' 버튼입니다.
         bool isInteracting = Input.GetKeyDown(KeyCode.E) || 
-                             OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch);
+                             ARAVRInput.GetDown(ARAVRInput.Button.One, ARAVRInput.Controller.RTouch);
         //  UI가 열려 있으면 다른 입력 무시하고 E로 닫기
         if (lastOpenedUIObject != null && isInteracting)
         {

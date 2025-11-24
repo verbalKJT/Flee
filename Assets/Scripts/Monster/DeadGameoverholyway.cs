@@ -56,7 +56,7 @@ public class DeadGameoverHolyway : MonoBehaviour
         hasPlayed = true;
         caughtMonster = monster;
 
-        // ✅ 여기에서 즉시 Player 찾기 (FailSafe)
+        // 여기에서 즉시 Player 찾기 (FailSafe)
         if (playerObject == null)
         {
             playerObject = GameObject.FindGameObjectWithTag("Player");

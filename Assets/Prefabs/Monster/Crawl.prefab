@@ -653,14 +653,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392138935361566607}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0063574845, y: 0.0019540791, z: 0.3139282, w: 0.94942343}
+  m_LocalRotation: {x: -0.009855498, y: 0.053431407, z: 0.0005273722, w: 0.9985227}
   m_LocalPosition: {x: -0.06946001, y: -0.0065102438, z: -0.000022302847}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4605021056091730150}
   m_Father: {fileID: 5483092097168645248}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.131, y: 6.126, z: 0}
 --- !u!1 &1426730806855289914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,7 +1265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3760104154382098056}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0065716384, y: -0.0015692477, z: -0.23447458, w: 0.9720988}
+  m_LocalRotation: {x: -0.010073003, y: 0.058576267, z: -0.4372394, w: 0.897379}
   m_LocalPosition: {x: -0.022280794, y: -0.000000055879354, z: 0.0000000027939673}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2887,6 +2887,14 @@ PrefabInstance:
       value: -150.10034
       objectReference: {fileID: 0}
     - target: {fileID: 730246504201664317, guid: d8832a0efa5cc4051912bb3bad0dda62, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 730246504201664317, guid: d8832a0efa5cc4051912bb3bad0dda62, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 730246504201664317, guid: d8832a0efa5cc4051912bb3bad0dda62, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
       objectReference: {fileID: 0}
@@ -2897,6 +2905,10 @@ PrefabInstance:
     - target: {fileID: 730246504201664317, guid: d8832a0efa5cc4051912bb3bad0dda62, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160020983166994074, guid: d8832a0efa5cc4051912bb3bad0dda62, type: 3}
+      propertyPath: Priority.Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5240194968734627318, guid: d8832a0efa5cc4051912bb3bad0dda62, type: 3}
       propertyPath: ReactionSettings.m_NoiseOffsets.x

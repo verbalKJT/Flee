@@ -12,7 +12,12 @@ public class SubMonsterAI : Monster
 
     private void Update()
     {
-        if (agent == null || animator == null) return;
+        // NavMeshAgent가 꺼졌거나 NavMesh 위가 아니면 즉시 종료 (오류 방지)
+        if (agent == null || !agent.enabled || !agent.isOnNavMesh)
+            return;
+
+        if (animator == null)
+            return;
 
         if (hasCaughtPlayer)
         {
@@ -34,7 +39,6 @@ public class SubMonsterAI : Monster
             {
                 hasCaughtPlayer = true;
 
-                // ⭐ 몬스터 collider를 강제로 플레이어와 충돌시켜 Timeline 발동
                 var col = GetComponent<Collider>();
                 Physics.IgnoreCollision(col, player.GetComponent<Collider>(), false);
 
@@ -48,6 +52,7 @@ public class SubMonsterAI : Monster
             animator.SetFloat("Speed", 0);
         }
     }
+
 
     public override void OnPlayerSetupComplete()
     {
