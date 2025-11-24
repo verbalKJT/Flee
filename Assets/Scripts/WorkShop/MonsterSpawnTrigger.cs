@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class MonsterSpawnTrigger : MonoBehaviour
+public class MonsterSpawnTrigger : MonoBehaviour, IInteractable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    
+
+    public void Interact()
     {
-        
+        Debug.Log("작업실 몬스터 스폰!");
     }
 
-    // Update is called once per frame
-    void Update()
+    public string GetPromptText()
     {
-        
+        return "소환";
     }
 }
