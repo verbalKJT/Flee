@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class Fireplace : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.collider.CompareTag("WorkshopMon"))
+        {
+            Debug.Log("몬스터 벽난로 충돌");
+        }
+       
     }
 }
