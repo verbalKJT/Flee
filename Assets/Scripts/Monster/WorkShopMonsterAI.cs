@@ -7,6 +7,9 @@ public class WorkShopMonsterAI : MonoBehaviour
     private Transform target;
     private NavMeshAgent agent;
 
+    //커브구간 진입 트리거
+    private bool inCurveZone = false;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -42,5 +45,18 @@ public class WorkShopMonsterAI : MonoBehaviour
             return;
 
         agent.SetDestination(target.position);
+    }
+
+    public void EnterCurveZone()
+    {
+        inCurveZone = true;
+        // 코너 들어오면 회전속도 크게 낮추기
+        agent.angularSpeed = 30f;
+        // 직진 가속도 증가
+        agent.acceleration = 80f;
+        // 속도 증가로 미끄러지는 느낌
+        agent.speed += 2f;
+
+        Debug.Log("몬스터 커브 진입 : 회전 저하 + 가속 증가");
     }
 }
