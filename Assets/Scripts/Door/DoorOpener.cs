@@ -77,7 +77,7 @@ public class DoorOpener : MonoBehaviour, IInteractable
             //storyDoorLock.cs가 있다면 스토리용 아이템 개수 검사 후 로직 실행
             Debug.Log("storyDoorLock 있음");
             
-            if (storyDoorLock.CheckItemCount())
+            if (storyDoorLock.IsPossibleOpen())
             {//문동작 가능인경우(필요아이템 개수 조건 충족)
                 Debug.Log("소지 아이템 개수 충족!");
                 ToggleDoor();
@@ -85,7 +85,7 @@ public class DoorOpener : MonoBehaviour, IInteractable
             else
             {
                         //아이템 개수 부족! 문을 열 수 없습니다 프롬프트 구현하기
-                Debug.Log("소지 아이템 개수 부족!");
+                Debug.Log("소지 아이템 개수 부족!or 필요 동작 미수행");
             }
             
         }
