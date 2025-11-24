@@ -311,7 +311,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.5
-  m_BaseOffset: 0.18
+  m_BaseOffset: 0.05
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &3498849891025847653
@@ -326,8 +326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce90e6b216e9ab7499b182c0f721dc35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorkShopMonsterAI
-  target: {fileID: 2358491201124568288, guid: df47d30a06d404529bd2c8421dc9b1ce, type: 3}
-  agent: {fileID: 48989376711004700}
 --- !u!1 &790169262990238223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,7 +1661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4921827630135577179}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0043091066, y: -0, z: -0, w: 0.99999076}
+  m_LocalRotation: {x: -0.2532748, y: -0, z: -0, w: 0.9673944}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1672,7 +1670,7 @@ Transform:
   - {fileID: 1337582043322910311}
   - {fileID: 6267527753744335226}
   m_Father: {fileID: 4474304689677721339}
-  m_LocalEulerAnglesHint: {x: 0.494, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -29.343, y: 0, z: 0}
 --- !u!1 &5239421389212974813
 GameObject:
   m_ObjectHideFlags: 0
