@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class Fireplace : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.CompareTag("WorkshopMon"))
+        if (other.CompareTag("WorkshopMon"))
         {
+            
             Debug.Log("몬스터 벽난로 충돌");
         }
        

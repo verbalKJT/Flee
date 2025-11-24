@@ -50,6 +50,7 @@ public class WorkShopMonsterAI : MonoBehaviour
     public void EnterCurveZone()
     {
         inCurveZone = true;
+        Debug.Log(inCurveZone);
         // 코너 들어오면 회전속도 크게 낮추기
         agent.angularSpeed = 30f;
         // 직진 가속도 증가
