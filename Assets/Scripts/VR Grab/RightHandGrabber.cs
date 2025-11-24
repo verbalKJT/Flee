@@ -11,12 +11,14 @@ public class RightHandGrabber : MonoBehaviour
     public LayerMask grabbedLayer; // 잡은 물체의 종류
     public float grabRange = 0.2f; // 잡을 수 있는 거리
     
-    // [수정 1] 손 프리팹을 넣을 변수 추가
+    // 손 프리팹을 넣을 변수 추가
     public Transform handMeshTransform;
+    // 손 애니메이터를 넣을 변수
+    public Animator handAnimator;
 
     Vector3 prevPos; // 이전 위치
     Quaternion prevRot; // 이전 회전
-    float throwPower = 10; // 던질 힘
+    public float throwPower = 10; // 던질 힘
 
     public bool isRemoteGrab = true; // 원거리에서 물체를 잡는 기능 활성화 여부
     public float remoteGrabDistance = 20; // 원거리에서 물체를 잡을 수 있는 거리
@@ -75,7 +77,11 @@ public class RightHandGrabber : MonoBehaviour
             // 잡은 물체가 없도록 설정
             grabbedObject = null;
             
-
+            // [추가 3] 놓았을 때 애니메이션 해제
+            if (handAnimator != null)
+            {
+                handAnimator.SetBool("IsGrab", false);
+            }
         }
     }
     void TryGrab()
@@ -98,6 +104,12 @@ public class RightHandGrabber : MonoBehaviour
                     isGrabbing = true; // 잡은 상태로 전환
                     grabbedObject = hitInfo.transform.gameObject; // 잡은 물체에 대한 기억
                     StartCoroutine(GrabbingAnimator()); // 물체가 끌려오는 기능 실행
+                    
+                    // [추가 2] 잡았을 때 애니메이션 실행 (파라미터 이름이 "IsGrab"이라고 가정)
+                    if (handAnimator != null)
+                    {
+                        handAnimator.SetBool("IsGrab", true);
+                    }
                 }
                 return;
             }
@@ -139,6 +151,12 @@ public class RightHandGrabber : MonoBehaviour
                 prevPos = ARAVRInput.RHandPosition; 
                 // 초기 회전 값 지정
                 prevRot = ARAVRInput.RHand.rotation;
+                
+                // 근거리에서도 애니메이션 실행
+                if (handAnimator != null)
+                {
+                    handAnimator.SetBool("IsGrab", true);
+                }
             }
         }
         IEnumerator GrabbingAnimator()
