@@ -56,6 +56,9 @@
     [Header("맵 속 손전등")]
     [SerializeField] private FlashlightPickup _flashlightPickup;
 
+    [Header("텔레포트 위치")]
+    [SerializeField] private Transform teleportPoint;
+    
     public void Initialize(GameManager manager)
     {
             Debug.Log("외부 주입 시작");
@@ -76,7 +79,10 @@
         mainCamera = GameObject.FindGameObjectWithTag("VRCam");
             tutorialCanvas = GameObject.Find("TutorialCanvas");
             monsterPanel = GameObject.Find("InteractionCanvas").transform.Find("MiddleMonPanel").gameObject;
-            
+        
+            // 텔레포트 위치 바인딩
+            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+            playerMovement.SetTeleportPoint(teleportPoint);
 
         if (tutorialCanvas != null && mainCamera != null)
             {

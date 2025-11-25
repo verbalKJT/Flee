@@ -90987,6 +90987,7 @@ Transform:
   - {fileID: 2810989327455743742}
   - {fileID: 4462194088764996927}
   - {fileID: 870146924833970144}
+  - {fileID: 5462601839430099405}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5092160343950292205
@@ -91021,6 +91022,7 @@ MonoBehaviour:
   waterManager: {fileID: 5740869518054859556}
   resetBathroom: {fileID: 7888741147647845211}
   _flashlightPickup: {fileID: 6230817758827904044}
+  teleportPoint: {fileID: 5462601839430099405}
 --- !u!1 &3768817520433659435
 GameObject:
   m_ObjectHideFlags: 0
@@ -193530,6 +193532,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7382970179644350303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5462601839430099405}
+  m_Layer: 0
+  m_Name: TeleportPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5462601839430099405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382970179644350303}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.663, y: 0.235, z: 31.926}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7597732446721032688}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7387766544995177790
 GameObject:
   m_ObjectHideFlags: 0

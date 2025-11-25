@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Footstep Audio")]
     public AudioSource footstepSource;
     public AudioClip[] footstepClips;
+    
+    [Header("텔레포트 위치")]
+        [SerializeField] private Transform teleportPoint;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -78,6 +81,15 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("isRunning", isRunning);
         }
+        // 왼쪽을 누르면서 오른쪽을 누르던지 아니면 그 반대
+        if ((ARAVRInput.Get(ARAVRInput.Button.IndexTrigger, ARAVRInput.Controller.LTouch) 
+             && ARAVRInput.GetDown(ARAVRInput.Button.IndexTrigger, ARAVRInput.Controller.RTouch))
+            || 
+            (ARAVRInput.Get(ARAVRInput.Button.IndexTrigger, ARAVRInput.Controller.RTouch) 
+             && ARAVRInput.GetDown(ARAVRInput.Button.IndexTrigger, ARAVRInput.Controller.LTouch)))
+        {
+            transform.position = teleportPoint.transform.position;
+        }
             
     }
     // 애니메이션 이벤트에서 호출
@@ -88,5 +100,10 @@ public class PlayerMovement : MonoBehaviour
 
         int index = Random.Range(0, footstepClips.Length);
         footstepSource.PlayOneShot(footstepClips[index]);
+    }
+
+    public void SetTeleportPoint(Transform teleportPoint)
+    {
+        this.teleportPoint = teleportPoint;
     }
 }
