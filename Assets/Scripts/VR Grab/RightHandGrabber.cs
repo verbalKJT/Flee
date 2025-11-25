@@ -38,7 +38,7 @@ public class RightHandGrabber : MonoBehaviour
     void TryUnGrab()
     {
         // 던질 방향
-        Vector3 throwDirection = (ARAVRInput.RHandPosition - prevPos);
+        Vector3 throwDirection = (ARAVRInput.RHandPosition - prevPos) / Time.deltaTime;
         // 위치 기억
         prevPos = ARAVRInput.RHandPosition;
         
@@ -64,7 +64,8 @@ public class RightHandGrabber : MonoBehaviour
             grabbedObject.transform.parent = null;
 
             // 던지기
-            grabbedObject.GetComponent<Rigidbody>().linearVelocity = ARAVRInput.RHandDirection * throwPower;
+            //grabbedObject.GetComponent<Rigidbody>().linearVelocity = ARAVRInput.RHandDirection * throwPower; // 그냥 던지기
+            grabbedObject.GetComponent<Rigidbody>().linearVelocity = throwDirection * throwPower; // 내가 직접 던지기
             
             // 각 속도 = (1/dt) * d0 (특정 축 기준 변위 각도)
             float angle; // 회전 각도
@@ -182,8 +183,10 @@ public class RightHandGrabber : MonoBehaviour
                 yield return null;
             }
             // 잡은 물체를 손의 자식으로 등록
-            grabbedObject.transform.position = targetLocation;
+            // grabbedObject.transform.position = targetLocation;
             grabbedObject.transform.parent = handMeshTransform;
+            grabbedObject.transform.localPosition = Vector3.zero;        // GrabHold의 정중앙 위치로 이동
+            grabbedObject.transform.localRotation = Quaternion.identity; // GrabHold의 회전값과 일치시킴
         }
     }
 }
