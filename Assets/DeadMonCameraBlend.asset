@@ -36,17 +36,6 @@ MonoBehaviour:
         m_PostInfinity: 0
         m_RotationOrder: 0
   - From: PlayerCam
-    To: submonsterDeathCam
-    Blend:
-      Style: 0
-      Time: 0
-      CustomCurve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 0
-        m_PostInfinity: 0
-        m_RotationOrder: 0
-  - From: PlayerCam
     To: CrawlDeathCam
     Blend:
       Style: 0
@@ -59,6 +48,17 @@ MonoBehaviour:
         m_RotationOrder: 0
   - From: PlayerCam
     To: UICam
+    Blend:
+      Style: 0
+      Time: 0
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - From: PlayerCam
+    To: submonsterDeathCam
     Blend:
       Style: 0
       Time: 0

@@ -4090,6 +4090,7 @@ MonoBehaviour:
   footstepClips:
   - {fileID: 8300000, guid: 971e13ca6c7d33b45948686d4200c1ea, type: 3}
   - {fileID: 8300000, guid: 9730d1eeb2c2d954eb5857b0ebe0bd45, type: 3}
+  teleportPoint: {fileID: 0}
 --- !u!114 &8045422685957426787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6927,6 +6928,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 631d851f61a60b5429c54905ed7f7da9, type: 2}
+    - target: {fileID: 1116868818754815184, guid: 5d42ad4c5ed768b46add2b0fa2ce8ba2, type: 3}
+      propertyPath: CustomBlends
+      value: 
+      objectReference: {fileID: 11400000, guid: 859c4f5b2eebb414fb40fa1046f969f9, type: 2}
     - target: {fileID: 1423660679176829691, guid: 5d42ad4c5ed768b46add2b0fa2ce8ba2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.034000404

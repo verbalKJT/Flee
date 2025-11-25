@@ -35,8 +35,6 @@ public class DeadGameoverSubMonster : MonoBehaviour
     {
         if (timeline != null)
             timeline.stopped += OnTimelineFinished;
-
-        brain = FindObjectOfType<CinemachineBrain>();
         monsterAnimator = GetComponent<Animator>();
     }
 
@@ -88,9 +86,7 @@ public class DeadGameoverSubMonster : MonoBehaviour
     {
         playerModel.SetActive(false);
         yield return new WaitForSeconds(0.5f);
-
-        SetTrackBinding(mainCamera, monsterPanel);
-
+        
         timeline.stopped += OnTimelineEnd;
         timeline.Play();
     }
@@ -138,8 +134,6 @@ public class DeadGameoverSubMonster : MonoBehaviour
         Destroy(gameObject);
     }
 
-
-
     public void SetPlayerWithUi(GameObject playerObject)
     {
         this.playerObject = playerObject;
@@ -181,7 +175,7 @@ public class DeadGameoverSubMonster : MonoBehaviour
             }
             else if (track is AnimationTrack && track.name.Contains("CameraHolder"))
             {
-                timeline.SetGenericBinding(track, playerCameraHolder);
+                timeline.SetGenericBinding(track, playerObject); // playerCameraHolder에서 교체
             }
         }
     }
@@ -223,7 +217,7 @@ public class DeadGameoverSubMonster : MonoBehaviour
         if (playerAnimator != null)
         {
             playerAnimator.SetFloat("Speed", 0f);   // Idle 파라미터
-            playerAnimator.enabled = false;         // 애니 완전 정지
+            //playerAnimator.enabled = false;         // 애니 완전 정지 -> vr에서 잠시 막기
         }
 
         // 1) PlayerMovement 끄기
