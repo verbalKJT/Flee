@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(AudioSource))]  // AudioSource 필수 추가
@@ -16,6 +16,9 @@ public class DoorOpener : MonoBehaviour, IInteractable
     private Animator animator;
     private bool isOpen = false;
     private AudioSource audioSource;
+
+    //문 잠김 여부
+    public bool isLocked = false;
 
     void Start()
     {
@@ -50,6 +53,17 @@ public class DoorOpener : MonoBehaviour, IInteractable
     {
         return isOpen;
     }
+    //문 잠그기
+    public void LockDoor()
+    {
+        isLocked = true;
+        Debug.Log($"{gameObject.name} 문 잠금");
+    }
+    public void UnlockDoor()
+    {
+        isLocked = false;
+        Debug.Log($"{gameObject.name} 문 잠금 해제");
+    }
 
     // ✅ ForceCloseDoor 추가 (다른 부분은 전혀 수정 없음)
     public void ForceCloseDoor()
@@ -70,6 +84,12 @@ public class DoorOpener : MonoBehaviour, IInteractable
     // IInteractable 구현
     public void Interact()
     {
+        if (isLocked)
+        {
+            Debug.Log($"{gameObject.name} 은(는) 열리지 않는다.");
+            return;
+        }
+
         //StoryDoorLock.cs 유무 검사
         StoryDoorLock storyDoorLock=GetComponent<StoryDoorLock>();
         if(storyDoorLock != null)
@@ -117,6 +137,12 @@ public class DoorOpener : MonoBehaviour, IInteractable
 
     public string GetPromptText()
     {
+        //문이 닫혀있고 잠겨있을 때 출력할 메세지-> 미스테리 룸
+        if(isLocked && !isOpen)
+        {
+            return "문이 열리지 않습니다";
+        }
+
         return isOpen ? "[E] 문 닫기" : "[E] 문 열기";
     }
 }

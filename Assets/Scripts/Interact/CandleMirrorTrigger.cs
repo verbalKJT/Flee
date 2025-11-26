@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CandleMirrorTrigger : MonoBehaviour, IInteractable
 {
@@ -10,6 +10,8 @@ public class CandleMirrorTrigger : MonoBehaviour, IInteractable
     
     [Header("공유 오디오 오브젝트")]
     public AudioSource allCandlesLitSFX;       // 모든 촛불이 켜졌을 때 재생할 효과음
+
+    public DoorOpener linkedDoor;              //모든 촛불이 켜지면 열릴 문
 
     private bool isLit = false;                // 이 촛불이 켜졌는지 여부
     private float messageTimer = 0f;           // 메시지 표시 타이머
@@ -43,6 +45,20 @@ public class CandleMirrorTrigger : MonoBehaviour, IInteractable
                 {
                     allCandlesLitSFX.Play();
                     hasPlayedSFX = true;
+                }
+                //막힌 미스테리 문 해제
+                if (linkedDoor != null)
+                {
+                    // 일단 잠금 해제
+                    linkedDoor.UnlockDoor();
+
+                    // 아직 닫혀 있다면 자동으로 열어주기
+                    if (!linkedDoor.IsOpen())
+                    {
+                        linkedDoor.ToggleDoor();
+                    }
+
+                    Debug.Log("모든 촛불 ON → 문 잠금 해제 + 열림");
                 }
             }
         }
