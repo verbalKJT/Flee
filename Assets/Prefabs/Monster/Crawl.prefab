@@ -2911,6 +2911,10 @@ PrefabInstance:
       propertyPath: Priority.Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3160020983166994074, guid: d8832a0efa5cc4051912bb3bad0dda62, type: 3}
+      propertyPath: Priority.m_Value
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5240194968734627318, guid: d8832a0efa5cc4051912bb3bad0dda62, type: 3}
       propertyPath: ReactionSettings.m_NoiseOffsets.x
       value: 714.8235
@@ -2929,7 +2933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8074165255181027823, guid: d8832a0efa5cc4051912bb3bad0dda62, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

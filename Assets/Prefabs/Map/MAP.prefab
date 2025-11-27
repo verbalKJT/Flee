@@ -241315,14 +241315,6 @@ PrefabInstance:
       propertyPath: 'patrolPoints.Array.data[3]'
       value: 
       objectReference: {fileID: 6032371145019460551}
-    - target: {fileID: 2071308367702242032, guid: 005da0c5ae75b9b4da16d1819b9f7573, type: 3}
-      propertyPath: m_SceneBindings.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2071308367702242032, guid: 005da0c5ae75b9b4da16d1819b9f7573, type: 3}
-      propertyPath: m_SceneBindings.Array.data[8].key
-      value: 
-      objectReference: {fileID: 5910961934990077218, guid: 735fcf5c8d28ea84487adcfb2d1aa9f5, type: 2}
     - target: {fileID: 3322015945951124322, guid: 005da0c5ae75b9b4da16d1819b9f7573, type: 3}
       propertyPath: glitchVolume
       value: 
@@ -242139,33 +242131,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3872796229902967918}
     m_Modifications:
-    - target: {fileID: 1258226915796354229, guid: 2ba14f1b959ea92448b8a5ff75803c95, type: 3}
-      propertyPath: m_SceneBindings.Array.size
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1258226915796354229, guid: 2ba14f1b959ea92448b8a5ff75803c95, type: 3}
-      propertyPath: m_SceneBindings.Array.data[8].key
-      value: 
-      objectReference: {fileID: -2218110259917074981, guid: 47b88fd84c674bd41b871fc2fd866da1, type: 2}
-    - target: {fileID: 1258226915796354229, guid: 2ba14f1b959ea92448b8a5ff75803c95, type: 3}
-      propertyPath: m_SceneBindings.Array.data[9].key
-      value: 
-      objectReference: {fileID: 926479802544216557, guid: 47b88fd84c674bd41b871fc2fd866da1, type: 2}
-    - target: {fileID: 1258226915796354229, guid: 2ba14f1b959ea92448b8a5ff75803c95, type: 3}
-      propertyPath: m_SceneBindings.Array.data[10].key
-      value: 
-      objectReference: {fileID: -2511587859631267258, guid: 47b88fd84c674bd41b871fc2fd866da1, type: 2}
-    - target: {fileID: 1258226915796354229, guid: 2ba14f1b959ea92448b8a5ff75803c95, type: 3}
-      propertyPath: m_SceneBindings.Array.data[10].value
-      value: 
-      objectReference: {fileID: 7947140174862985217}
     - target: {fileID: 3772495440816112944, guid: 2ba14f1b959ea92448b8a5ff75803c95, type: 3}
       propertyPath: m_Name
       value: subMonster
-      objectReference: {fileID: 0}
-    - target: {fileID: 4503892198051788776, guid: 2ba14f1b959ea92448b8a5ff75803c95, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4544492875090517898, guid: 2ba14f1b959ea92448b8a5ff75803c95, type: 3}
       propertyPath: m_LocalPosition.x
@@ -242239,11 +242207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af95df99abef3d4793339dfa134037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &7947140174862985217 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9060977399985962559, guid: 2ba14f1b959ea92448b8a5ff75803c95, type: 3}
-  m_PrefabInstance: {fileID: 1438591196341524030}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1598711247086134300
 PrefabInstance:
   m_ObjectHideFlags: 0
