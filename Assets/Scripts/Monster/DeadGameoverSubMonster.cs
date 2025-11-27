@@ -68,7 +68,6 @@ public class DeadGameoverSubMonster : MonoBehaviour
 
     private void AttachToCeiling(Transform player)
     {
-        Debug.Log("AttachToCeiling 실행됨");
         Vector3 origin = player.position + Vector3.up * 1f;
 
         if (Physics.Raycast(origin, Vector3.up, out RaycastHit hit, 30f, ceilingMask))
@@ -86,7 +85,6 @@ public class DeadGameoverSubMonster : MonoBehaviour
     {
         playerModel.SetActive(false);
         yield return new WaitForSeconds(0.5f);
-        
         timeline.stopped += OnTimelineEnd;
         timeline.Play();
     }
@@ -101,7 +99,7 @@ public class DeadGameoverSubMonster : MonoBehaviour
     private IEnumerator ReturnAndDestroy()
     {
         yield return new WaitForSeconds(0.05f);
-
+        playerObject.transform.Find("CameraHolder/PlayerCam").gameObject.SetActive(true);
         if (monsterPanel != null)
             monsterPanel.SetActive(false);
 
@@ -176,6 +174,10 @@ public class DeadGameoverSubMonster : MonoBehaviour
             else if (track is AnimationTrack && track.name.Contains("CameraHolder"))
             {
                 timeline.SetGenericBinding(track, playerObject); // playerCameraHolder에서 교체
+            }
+            else if (track is ActivationTrack && track.name.Contains("PlayerCam"))
+            {
+                timeline.SetGenericBinding(track, playerObject.transform.Find("CameraHolder/PlayerCam").gameObject);
             }
         }
     }

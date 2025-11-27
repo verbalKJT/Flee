@@ -74,12 +74,12 @@
                 SubMonGameOverScript.SetPlayerCameraHolder(camHolder.gameObject);
             }
         // PC 버전
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        //mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         // VR 버전
-        /*mainCamera = GameObject.FindGameObjectWithTag("VRCam");
+        mainCamera = GameObject.FindGameObjectWithTag("VRCam");
             tutorialCanvas = GameObject.Find("TutorialCanvas");
             monsterPanel = GameObject.Find("InteractionCanvas").transform.Find("MiddleMonPanel").gameObject;
-        */
+        
             // 텔레포트 위치 바인딩
             PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
             playerMovement.SetTeleportPoint(teleportPoint);
