@@ -177,7 +177,7 @@ public class DeadGameoverSubMonster : MonoBehaviour
             {
                 timeline.SetGenericBinding(track, playerObject); // playerCameraHolder에서 교체
             }
-            // 🔥 여기! Player 애니메이션 트랙 자동 바인딩
+            // Player 애니메이션 트랙 자동 바인딩
             else if (track is AnimationTrack && track.name.Contains("Player"))
             {
                 timeline.SetGenericBinding(track, playerObject);
