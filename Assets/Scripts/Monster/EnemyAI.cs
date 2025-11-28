@@ -74,18 +74,26 @@ public class EnemyAI : Monster
             case EnemyState.PATROL:
                 Patrol();
                 animator.SetFloat("Action", 0.5f);
-                animator.speed = agent.velocity.magnitude / agent.speed * 1.5f;
+                //animator.speed = agent.velocity.magnitude / agent.speed * 1.2f;
+                animator.speed = 1f; //애니메이션 재생 속도를 애니메이터 설정대로 재생.
+                animator.SetBool("isRunning", false);
                 break;
             case EnemyState.CHASE:
                 ChasePlayer();
-                animator.speed = agent.velocity.magnitude / agent.speed * 1.8f;
+                //animator.speed = agent.velocity.magnitude / agent.speed * 1.2f;
+                animator.speed = 1f; //애니메이션 재생 속도를 애니메이터 설정대로 재생.
                 animator.SetFloat("Action", 1f);
+                animator.SetBool("isRunning", true);
                 break;
             case EnemyState.STUN:
+                animator.SetBool("isRunning", false);
+                animator.speed = 1f;
                 break;
             case EnemyState.ANGRY:
-                animator.speed = agent.velocity.magnitude / agent.speed * 2f;
+                //animator.speed = agent.velocity.magnitude / agent.speed * 1.8f;
+                animator.speed = 1f; //애니메이션 재생 속도를 애니메이터 설정대로 재생.
                 animator.SetFloat("Action", 1f);
+                animator.SetBool("isRunning", true);
                 break;
         }
     }
@@ -162,10 +170,10 @@ public class EnemyAI : Monster
         {
             case EnemyState.PATROL:
                 animator.SetFloat("Action", 0.5f);
-                animator.speed = agent.velocity.magnitude / agent.speed * 1.5f;
+                //animator.speed = agent.velocity.magnitude / agent.speed * 1.5f;
                 break;
             case EnemyState.CHASE:
-                animator.speed = agent.velocity.magnitude / agent.speed * 1.8f;
+                //animator.speed = agent.velocity.magnitude / agent.speed * 1.8f;
                 animator.SetFloat("Action", 1f);
                 break;
             case EnemyState.STUN:
@@ -173,7 +181,7 @@ public class EnemyAI : Monster
                 animator.speed = 1f;
                 break;
             case EnemyState.ANGRY:
-                animator.speed = agent.velocity.magnitude / agent.speed * 2f;
+                //animator.speed = agent.velocity.magnitude / agent.speed * 2f;
                 animator.SetFloat("Action", 1f);
                 break;
         }
