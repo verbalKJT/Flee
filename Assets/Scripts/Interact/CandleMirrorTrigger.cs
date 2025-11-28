@@ -8,6 +8,9 @@ public class CandleMirrorTrigger : MonoBehaviour, IInteractable
     [Header("공유 거울 오브젝트")]
     public GameObject[] mirrorObjects;         // 모든 촛불이 켜지면 보여줄 거울들
     
+    [Header("귀신 오브젝트")] 
+    public GameObject ghostCharacter;          // 모든 촛불이 켜지면 활성화할 귀신 캐릭터
+    
     [Header("공유 오디오 오브젝트")]
     public AudioSource allCandlesLitSFX;       // 모든 촛불이 켜졌을 때 재생할 효과음
 
@@ -32,13 +35,19 @@ public class CandleMirrorTrigger : MonoBehaviour, IInteractable
             isLit = true;
             currentMessage = "";
 
-            // 모든 촛불이 켜졌으면 거울 활성화
+            // 모든 촛불이 켜졌으면 거울, 귀신활성화
             if (AllCandlesLit())
             {
                 foreach (var mirror in mirrorObjects)
                 {
                     if (mirror != null)
                         mirror.SetActive(true);
+                }
+                // 👻 새로 추가: 귀신 캐릭터 활성화
+                if (ghostCharacter != null)
+                {
+                    ghostCharacter.SetActive(true);
+                    Debug.Log("귀신 캐릭터 활성화!");
                 }
                 // 효과음 재생 (한 번만)
                 if (!hasPlayedSFX && allCandlesLitSFX != null)

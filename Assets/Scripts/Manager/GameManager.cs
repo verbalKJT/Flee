@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.AI; // 👈 추가
+using Unity.Cinemachine; // 👈 추가
 
 public class GameManager : MonoBehaviour
 {
@@ -145,6 +147,55 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("Failed to load map");
+        }
+    }
+    // 몬스터 오브젝트가 비활성화되어도 안전하게 리스폰 프로세스를 시작합니다.
+    public void StartRespawnRoutine(Transform respawnPos, GameObject player, GameObject mainCam, GameObject monsterUI, NavMeshAgent agent, CapsuleCollider collider)
+    {
+        // GameManager 오브젝트는 씬이 넘어가도 DestroyOnLoad로 유지되므로 안전합니다.
+        StartCoroutine(CallReSpawn(respawnPos, player, mainCam, monsterUI, agent, collider));
+    }
+    private IEnumerator CallReSpawn(Transform respawnPos, GameObject player, GameObject mainCam, GameObject monsterUI, NavMeshAgent agent, CapsuleCollider collider)
+    {
+        Debug.Log("GameManager에서 리스폰 코루틴 시작.");
+        yield return new WaitForSeconds(0.2f); // 타임라인 종료 대기
+
+        if (respawnPos != null && player != null)
+        {
+            // 1. Cinemachine Brain 참조 및 원본 Blend Time 저장
+            CinemachineBrain brain = mainCam.GetComponent<CinemachineBrain>();
+            float originalBlendTime = 0f;
+    
+            if (brain != null)
+            {
+                originalBlendTime = brain.DefaultBlend.Time;
+                brain.DefaultBlend.Time = 0f; // 즉시 전환 강제
+            }
+        
+            if (monsterUI != null) monsterUI.SetActive(false); // 패널 비활성화
+        
+            yield return new WaitForSeconds(0.1f); 
+
+            // 몬스터 상태 리셋
+            if (collider != null) collider.enabled = true; // 콜라이더 활성화
+            if (agent != null) agent.isStopped = false; // 이동 재개
+
+            // 플레이어 리스폰 (GameManager에 이미 PlayerReSpawn 함수가 있음)
+            PlayerReSpawn(respawnPos, player); 
+            player.SetActive(true);
+        
+            // ✅ 가장 중요: 몬스터 상태 (hasPlayed) 리셋
+            // DeadGameover.cs에서 hasPlayed를 public static으로 변경했으므로 직접 접근 가능합니다.
+            DeadGameover.hasPlayed = true; 
+        
+            // 카메라 블렌드 시간 복구
+            if (brain != null)
+            {
+                yield return null; 
+                brain.DefaultBlend.Time = originalBlendTime;
+            }
+        
+            Debug.Log("리스폰 완료 및 몬스터 상태 리셋.");
         }
     }
 
