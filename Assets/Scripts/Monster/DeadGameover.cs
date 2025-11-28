@@ -15,7 +15,7 @@ public class DeadGameover : MonoBehaviour, IDeadMon
     [Header("Player Control")] private GameObject playerObject; // Player 오브젝트
     private MonoBehaviour playerControllerScript; // PlayerMovement
 
-    private bool hasPlayed = true;
+    public static bool hasPlayed = true;
 
     [Header("Player Respwan 위치")] [SerializeField]
     private Transform playerRespwan;
@@ -35,7 +35,23 @@ public class DeadGameover : MonoBehaviour, IDeadMon
 
     private void OnTimelineFinished(PlayableDirector obj)
     {
-        StartCoroutine(CallReSpawn());
+        // StartCoroutine(CallReSpawn());
+        // ✅ GameManager에게 리스폰 실행을 위임합니다.
+        if (GameManager.instance != null)
+        {
+            // 리스폰에 필요한 모든 정보를 GameManager로 전달합니다.
+            GameManager.instance.StartRespawnRoutine(
+                playerRespwan, 
+                playerObject, 
+                mainCamera, 
+                monsterPanel, 
+                gameObject.GetComponent<NavMeshAgent>(),
+                gameObject.GetComponent<CapsuleCollider>()
+            );
+        
+            // 몬스터의 hasPlayed 상태를 리셋할 필요 없이,
+            // GameManager 코루틴이 끝난 후 (안전하게) static hasPlayed를 true로 리셋할 것입니다.
+        }
     }
 
 
@@ -66,8 +82,9 @@ public class DeadGameover : MonoBehaviour, IDeadMon
             }
         }
     }
-    private IEnumerator CallReSpawn()
+    /*private IEnumerator CallReSpawn()
     {
+        
         Debug.Log("CallReSpawn 코루틴 시작");
         yield return new WaitForSeconds(0.2f); // 타임라인이 끝나고 안정화 때까지 대기
 
@@ -103,7 +120,7 @@ public class DeadGameover : MonoBehaviour, IDeadMon
                 brain.DefaultBlend.Time = originalBlendTime;
             }
         }
-    }
+    }*/
 
     public void SetPlayerWithUi(GameObject playerObject)
     {
