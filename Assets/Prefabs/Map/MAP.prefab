@@ -140107,13 +140107,15 @@ GameObject:
   - component: {fileID: 4718567108107504968}
   - component: {fileID: 4755598336307322413}
   - component: {fileID: 5271322764146699364}
+  - component: {fileID: 6856365100562441017}
+  - component: {fileID: 5781840512560904805}
   m_Layer: 0
   m_Name: MirrorMon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4718567108107504968
 Transform:
   m_ObjectHideFlags: 0
@@ -140165,6 +140167,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518380c3c145d0c45a3140e3f99c4524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MirrorMonTouch
+--- !u!65 &6856365100562441017
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029500847790203987}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 1.2, z: 0.5}
+  m_Center: {x: 0, y: 0.7, z: 0}
+--- !u!54 &5781840512560904805
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029500847790203987}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5032254781945510762
 GameObject:
   m_ObjectHideFlags: 0
@@ -257985,10 +258035,6 @@ PrefabInstance:
       propertyPath: 'patrolPoints.Array.data[3]'
       value: 
       objectReference: {fileID: 6032371145019460551}
-    - target: {fileID: 3189694284710468269, guid: 005da0c5ae75b9b4da16d1819b9f7573, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3322015945951124322, guid: 005da0c5ae75b9b4da16d1819b9f7573, type: 3}
       propertyPath: glitchVolume
       value: 
