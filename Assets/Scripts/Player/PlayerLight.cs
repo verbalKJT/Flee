@@ -97,6 +97,12 @@ public class PlayerLight : MonoBehaviour
                 // 현재 onTimer에서 식은 만큼 빼주기 (0보다 작아지진 않게)
                 onTimer = Mathf.Clamp(onTimer - cooledAmount, 0f, overheatTime);
             
+                // 깜빡임 상태 해제
+                if (isFlickering && onTimer < overheatTime)
+                {
+                    StopFlicker();
+                }
+                
                 // 적용 후 offTimer 초기화
                 offTimer = 0f;
             }
