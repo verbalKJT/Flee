@@ -67,16 +67,19 @@ public class DeadGameoverSubMonster : MonoBehaviour
     }
 
     private void AttachToCeiling(Transform player)
-    {
-        Vector3 origin = player.position + Vector3.up * 1f;
+    {   // 플레이어 캠 위로 가게 변경
+        Vector3 origin = player.transform.Find("CameraHolder/PlayerCam").position + Vector3.up * 1f;
 
         if (Physics.Raycast(origin, Vector3.up, out RaycastHit hit, 30f, ceilingMask))
         {
             // 바닥일 경우 무시 (y값이 player보다 낮으면 바닥)
             if (hit.point.y < player.position.y)
                 return;
-
-            transform.position = hit.point;
+            // 서브몬스터 위치에서 플레이어캠에 더 가깝게
+            Vector3 finalPos = hit.point;
+            finalPos.x -= 1.0f;
+            transform.position = finalPos;
+            
             transform.rotation = Quaternion.Euler(180f, 0f, 0f);
         }
     }
@@ -92,13 +95,22 @@ public class DeadGameoverSubMonster : MonoBehaviour
 
     private void OnTimelineFinished(PlayableDirector obj)
     {
-        StartCoroutine(ReturnAndDestroy());
+        // pc
+        //StartCoroutine(ReturnAndDestroy());
     }
 
+    public void DropToPlayerSignal(){
+        // vr -> 서브몬이 플레이어를 향해 떨어지는 기믹으로 변경
+        // 타임라인 시그널 트랙으로 호출
+        StartCoroutine(DropToPlayer());
+    }
 
+/*
     private IEnumerator ReturnAndDestroy()
     {
         yield return new WaitForSeconds(0.05f);
+        
+        vr에서 시점 변경이 안되는 문제로 인해 기믹 변경 -> 아래 코드 필요 없음
         playerObject.transform.Find("CameraHolder/PlayerCam").gameObject.SetActive(true);
         if (monsterPanel != null)
             monsterPanel.SetActive(false);
@@ -128,7 +140,58 @@ public class DeadGameoverSubMonster : MonoBehaviour
                 brain.DefaultBlend.Time = origin;
             }
         }
+        
+        // 서브몬스터가 플레이어 방향으로 떨어짐
+        
+        //Destroy(gameObject);
+    } */
 
+    private IEnumerator DropToPlayer()
+    {
+        if (monsterPanel != null)
+            monsterPanel.SetActive(false);
+        
+        // NavMeshAgent 찾아서 끔
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.enabled = false;
+        
+        // rb 찾아서 끔
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.isKinematic = false; // 물리연산 끄기
+        
+
+        // 콜라이더 다시 키기
+        Collider col = GetComponent<Collider>();
+        col.enabled = true;
+        
+        col.isTrigger = false; // OnCollisionEnter 사용하기 위해
+        
+        // 목표: PlayerCam
+        Transform target = playerObject.transform.Find("CameraHolder/PlayerCam");
+        
+        if (target != null)
+        {
+            
+            transform.LookAt(target,Vector3.down);
+            
+            transform.Rotate(90f,0f,0f,Space.Self);
+            
+            Vector3 finalPos = target.position + target.right*(-0.5f);
+            
+            // (목표 위치 - 내 위치)
+            Vector3 direction = (finalPos - transform.position).normalized;
+            
+            // * dropPower 숫자 조절
+            float dropPower = 4.0f;
+            rb.AddForce(direction * dropPower, ForceMode.Impulse); // ForceMode.Impulse -> 순각적인 추진력
+            yield return new WaitForSeconds(0.1f);
+            transform.localScale = new Vector3(3f, 3f, 3f);
+            
+            // 애니메이션 변경 -> 리깅 할지
+        }
+        
+        yield return new WaitForSeconds(1f); // 떨어질 시간    
+        
         Destroy(gameObject);
     }
 
@@ -171,13 +234,9 @@ public class DeadGameoverSubMonster : MonoBehaviour
             {
                 timeline.SetGenericBinding(track, monsterPanel);
             }
-            else if (track is AnimationTrack && track.name.Contains("CameraHolder"))
+            else if (track is AnimationTrack && track.name.Contains("Player"))
             {
-                timeline.SetGenericBinding(track, playerObject); // playerCameraHolder에서 교체
-            }
-            else if (track is ActivationTrack && track.name.Contains("PlayerCam"))
-            {
-                timeline.SetGenericBinding(track, playerObject.transform.Find("CameraHolder/PlayerCam").gameObject);
+                timeline.SetGenericBinding(track, playerObject); 
             }
         }
     }
@@ -234,4 +293,24 @@ public class DeadGameoverSubMonster : MonoBehaviour
         if (inputAxis != null)
             inputAxis.enabled = false;
     }
+    
+    
+    // 물리적 충돌이 일어났을 때 실행되는 함수
+    private void OnCollisionEnter(Collision collision)
+    {
+        // 플레이어와 부딪혔다면
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                // (정지)
+                rb.linearVelocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+
+                // 물리 연산 제거, 제자리에 고정
+                rb.isKinematic = true; 
+            }
+        }
     }
+}
