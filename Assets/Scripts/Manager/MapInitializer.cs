@@ -58,7 +58,12 @@
 
     [Header("텔레포트 위치")]
     [SerializeField] private Transform teleportPoint;
-    
+
+    [Header ("작업실 맵")]
+    [SerializeField] private GameObject map1;
+    [SerializeField] private GameObject map2;
+
+
     public void Initialize(GameManager manager)
     {
             Debug.Log("외부 주입 시작");
@@ -131,6 +136,13 @@
 
             //마네킹
             InjectMannequins(player);
+
+            //map2비활성화
+            if(map2 != null)
+            {
+                map2.SetActive(false);
+                Debug.Log("초기화: Map2 비활성화");
+            }
 
             //Bathroom 천장 트리거                
             ceilingWaterTrigger.setPlayer(player);
