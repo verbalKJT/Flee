@@ -6,6 +6,11 @@ public class MonsterSpawnTrigger : MonoBehaviour, IInteractable
     public GameObject Map1;
     public GameObject Map2;
 
+    [Header("작업실 몬스터")]
+    public GameObject WorkshopMon;
+    [Header("작업실 몬스터 생성위치")]
+    public Transform MonPosition;
+
     //맵 변경 함수
     public void SwitchMap()
     {
@@ -23,6 +28,13 @@ public class MonsterSpawnTrigger : MonoBehaviour, IInteractable
         }
            
     }
+
+    public void SpawnMonster()
+    {
+        Instantiate(WorkshopMon, MonPosition.position, Quaternion.identity);
+        Debug.Log("작업실몬스터생성!");
+    }
+
     public void Interact()
     {
         
@@ -32,7 +44,8 @@ public class MonsterSpawnTrigger : MonoBehaviour, IInteractable
             Debug.Log("아이템 6개 수집 완료"+ Inventory.Instance.hasAllStoryItems);
             Debug.Log("작업실 몬스터 스폰!");
             //맵 교체
-            SwitchMap();           
+            SwitchMap();
+            SpawnMonster();
         }
         else
         {
