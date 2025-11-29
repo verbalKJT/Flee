@@ -1305,12 +1305,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashStun
   flashlightLight: {fileID: 8461090811885979761}
+  rayOrigin: {fileID: 3278609418077876340}
+  rayLocalDirection: {x: 0, y: 0, z: 1}
   stunRange: 15
+  stunRadius: 1.5
   checkInterval: 0.1
   enemyLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  alignFlashToRay: 0
+  debugRay: 1
 --- !u!1 &2360184454438569486
 GameObject:
   m_ObjectHideFlags: 0
@@ -7105,6 +7108,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OVRCameraRigGame
       objectReference: {fileID: 0}
+    - target: {fileID: 4822191257550933517, guid: 5d42ad4c5ed768b46add2b0fa2ce8ba2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4965891401851847804, guid: 5d42ad4c5ed768b46add2b0fa2ce8ba2, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7347,7 +7354,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1767310008238479403, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.027086675
+      value: 0.027086668
       objectReference: {fileID: 0}
     - target: {fileID: 1767310008238479403, guid: 6f5c89de9c90e46858810b535bbcf29b, type: 3}
       propertyPath: m_LocalPosition.y
