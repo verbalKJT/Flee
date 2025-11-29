@@ -137,12 +137,6 @@
             //마네킹
             InjectMannequins(player);
 
-            //map2비활성화
-            if(map2 != null)
-            {
-                map2.SetActive(false);
-                Debug.Log("초기화: Map2 비활성화");
-            }
 
             //Bathroom 천장 트리거                
             ceilingWaterTrigger.setPlayer(player);
@@ -250,4 +244,6 @@
             Debug.LogWarning("Water_Cam 오브젝트를 찾을 수 없습니다.");
         }
     }
+
+    
 }
