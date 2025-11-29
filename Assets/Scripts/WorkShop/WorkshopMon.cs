@@ -5,10 +5,7 @@ using UnityEngine.AI;
 
 public class WorkshopMon : MonoBehaviour
 {
-    [Header("플레이어")]
-    public GameObject player;
-
-    
+  
     private Transform playerPosition;
     private Transform monsterPosition;
 
@@ -25,6 +22,8 @@ public class WorkshopMon : MonoBehaviour
 
         Debug.Log($"[WorkshopMon] 충돌 감지됨: {other.name}");
 
+        GameObject player = other.gameObject;
+
         if (player == null)
         {
             Debug.LogError("player가 null입니다.");
@@ -38,7 +37,7 @@ public class WorkshopMon : MonoBehaviour
             return;
         }
 
-        StartCoroutine(TeleportPlayer(cc));
+        StartCoroutine(TeleportPlayer(player,cc));
 
         // 몬스터 순간이동
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
@@ -53,20 +52,17 @@ public class WorkshopMon : MonoBehaviour
             }
         }
 
-    IEnumerator TeleportPlayer(CharacterController cc)
+    IEnumerator TeleportPlayer(GameObject player, CharacterController cc)
     {
         cc.enabled = false;
-        Debug.Log(cc.enabled);
-        yield return null;  // 한 프레임 쉬기
-        yield return null;  // 한 프레임 쉬기
+        yield return null; // 한 프레임 대기
+        yield return null; // 두 프레임 대기 (더 안정성 확보)
+
         player.transform.position = playerPosition.position;
-        Debug.Log(player.transform.position);
+
         cc.enabled = true;
-        Debug.Log(cc.enabled);
-
-        Debug.Log("플레이어 순간이동 완료");
+        Debug.Log("플레이어 순간이동 완료: " + player.transform.position);
     }
-
 }
 
 
