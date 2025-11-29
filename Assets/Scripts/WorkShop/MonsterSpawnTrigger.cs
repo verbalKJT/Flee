@@ -50,6 +50,9 @@ public class MonsterSpawnTrigger : MonoBehaviour, IInteractable
         else
         {
             Debug.Log("아이템 수집 개수가 부족합니다!"+Inventory.Instance.CheckAllStoryItemsCollected());
+            //맵 교체
+            //SwitchMap();
+           // SpawnMonster();
         }
     }
 
