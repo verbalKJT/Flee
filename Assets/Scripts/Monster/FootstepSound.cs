@@ -1,40 +1,42 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class FootstepSound : MonoBehaviour
 {
-    [Header("¹ß¼Ò¸® ¼³Á¤")]
-    public AudioSource audioSource;       // Ä³¸¯ÅÍ¿¡ ºÙ¾î ÀÖ´Â AudioSource
+    [Header("ë°œì†Œë¦¬ ì„¤ì •")]
+    public AudioSource audioSource;       // ìºë¦­í„°ì— ë¶™ì–´ ìˆëŠ” AudioSource
 
-    [Header("°È±â ¹ß¼Ò¸®")]
-    public AudioClip[] MainMonFootstepClips;     // ¹ß¼Ò¸® ¿©·¯ °³ ³Ö¾îµÎ¸é ·£´ı Àç»ı
+    [Header("ê±·ê¸° ë°œì†Œë¦¬")]
+    public AudioClip[] MainMonFootstepClips;     // ë°œì†Œë¦¬ ì—¬ëŸ¬ ê°œ ë„£ì–´ë‘ë©´ ëœë¤ ì¬ìƒ
     public AudioClip[] MiddleMonFootstepClips;
-    public AudioClip[] SubMonFootstepClips;   // ¡Ú Ãß°¡
+    public AudioClip[] SubMonFootstepClips;   // â˜… ì¶”ê°€
+    public AudioClip[] CrawlMonFootstepClips;   // â˜… ì¶”ê°€
 
-    [Header("´Ş¸®±â ¹ß¼Ò¸®")]
+    [Header("ë‹¬ë¦¬ê¸° ë°œì†Œë¦¬")]
     public AudioClip[] MainMonRunFootstepClips;
     public AudioClip[] MiddleMonRunFootstepClips;
-    public AudioClip[] SubMonRunFootstepClips; // ¡Ú Ãß°¡
+    public AudioClip[] SubMonRunFootstepClips; // â˜… ì¶”ê°€
+    public AudioClip[] CrawlMonRunFootstepClips; // â˜… ì¶”ê°€
 
-    //¸ŞÀÎ ¸ó½ºÅÍ¿Í ¹Ìµé¸ó½ºÅÍ ¹ß¼Ò¸®¸¦ ´Ù¸£°Ô Àç»ıÇÒ ¼ö ÀÖµµ·Ï °¢°¢ ¹è¿­ »ı¼º
+    //ë©”ì¸ ëª¬ìŠ¤í„°ì™€ ë¯¸ë“¤ëª¬ìŠ¤í„° ë°œì†Œë¦¬ë¥¼ ë‹¤ë¥´ê²Œ ì¬ìƒí•  ìˆ˜ ìˆë„ë¡ ê°ê° ë°°ì—´ ìƒì„±
 
-    private AudioClip[] playingFootstepClips; //°¢°¢ ½ÇÁ¦ Àç»ıÇÒ ¿Àµğ¿À Å¬¸³
+    private AudioClip[] playingFootstepClips; //ê°ê° ì‹¤ì œ ì¬ìƒí•  ì˜¤ë””ì˜¤ í´ë¦½
     
-    //º¼·ı ±ÇÀå ¹üÀ§´Â 0~1, 1ÀÌ»ó ³Ñ¾î°¡¸é ±úÁö´Â ¼Ò¸® µé¸± ¼öµµ ÀÖ´Ù°í ÇÔ
+    //ë³¼ë¥¨ ê¶Œì¥ ë²”ìœ„ëŠ” 0~1, 1ì´ìƒ ë„˜ì–´ê°€ë©´ ê¹¨ì§€ëŠ” ì†Œë¦¬ ë“¤ë¦´ ìˆ˜ë„ ìˆë‹¤ê³  í•¨
     [Range(0.0f, 2.0f)]
     public float walkvolume = 0.8f;
 
     [Range(0.0f, 2.0f)]
     public float runVolume = 1.3f;
-    //¸Å¹ø ¶È°°Àº ¹ß¼Ò¸®°¡ ¾Æ´Ï¶ó ¾à°£ ´Ù¸¥ ¼Ò¸®°¡ µé¸®µµ·Ï,
-    //¹ß¼Ò¸® Å¬¸³¿¡ ÇÇÄ¡¸¦ Á¶Á¤ÇÏ¿© ¼Ò¸®¸¦ ³ô°Å³ª ³·°Ô ÇÔ.
+    //ë§¤ë²ˆ ë˜‘ê°™ì€ ë°œì†Œë¦¬ê°€ ì•„ë‹ˆë¼ ì•½ê°„ ë‹¤ë¥¸ ì†Œë¦¬ê°€ ë“¤ë¦¬ë„ë¡,
+    //ë°œì†Œë¦¬ í´ë¦½ì— í”¼ì¹˜ë¥¼ ì¡°ì •í•˜ì—¬ ì†Œë¦¬ë¥¼ ë†’ê±°ë‚˜ ë‚®ê²Œ í•¨.
     [Range(0.8f, 1.2f)]
-    public float pitchRandomRange = 0.05f;   // ÇÇÄ¡ »ìÂ¦ ·£´ı
+    public float pitchRandomRange = 0.05f;   // í”¼ì¹˜ ì‚´ì§ ëœë¤
 
-    // ¡Ú Animation Event ¿¡¼­ È£ÃâÇÒ ÇÔ¼ö
-    //°ÈÀ» ¶§ ¼Ò¸®¸¦ Àç»ıÇÒ ÇÔ¼ö
+    // â˜… Animation Event ì—ì„œ í˜¸ì¶œí•  í•¨ìˆ˜
+    //ê±·ì„ ë•Œ ì†Œë¦¬ë¥¼ ì¬ìƒí•  í•¨ìˆ˜
     public void PlayFootstep()
     {
-        //ÅÂ±×¸¦ ºñ±³ÇØ Àç»ıÇÒ ¹ß¼Ò¸® ¿Àµğ¿À Å¬¸³À» playingFootstepClips¿¡ ÀúÀå
+        //íƒœê·¸ë¥¼ ë¹„êµí•´ ì¬ìƒí•  ë°œì†Œë¦¬ ì˜¤ë””ì˜¤ í´ë¦½ì„ playingFootstepClipsì— ì €ì¥
         if (this.CompareTag("MainMon"))
         {
             playingFootstepClips = MainMonFootstepClips;
@@ -45,7 +47,11 @@ public class FootstepSound : MonoBehaviour
         }
         else if (this.CompareTag("SubMon"))
         {
-            playingFootstepClips = SubMonFootstepClips;  // ÀÌ ¹è¿­ »õ·Î Ãß°¡ ÇÊ¿ä
+            playingFootstepClips = SubMonFootstepClips;  // ì´ ë°°ì—´ ìƒˆë¡œ ì¶”ê°€ í•„ìš”
+        }
+        else if (this.CompareTag("CrawlMon"))
+        {
+            playingFootstepClips = CrawlMonFootstepClips;  // ì´ ë°°ì—´ ìƒˆë¡œ ì¶”ê°€ í•„ìš”
         }
         else
             playingFootstepClips = null;
@@ -53,7 +59,7 @@ public class FootstepSound : MonoBehaviour
         PlayFromArray(playingFootstepClips, walkvolume);
     }
 
-    // --- ´Ş¸®±â ---
+    // --- ë‹¬ë¦¬ê¸° ---
     public void PlayRunFootstep()
     {
         if (CompareTag("MainMon"))
@@ -62,6 +68,8 @@ public class FootstepSound : MonoBehaviour
             playingFootstepClips = MiddleMonRunFootstepClips;
         else if (CompareTag("SubMon"))
             playingFootstepClips = SubMonRunFootstepClips;
+        else if (CompareTag("CrawlMon"))
+            playingFootstepClips = CrawlMonRunFootstepClips;
         else
             playingFootstepClips = null;
 
@@ -79,7 +87,7 @@ public class FootstepSound : MonoBehaviour
         float randomPitch = 1f + Random.Range(-pitchRandomRange, pitchRandomRange);
         audioSource.pitch = randomPitch;
 
-        // AudioSource.volume(ÀÎ½ºÆåÅÍ °ª)¿¡ volumeScale °öÇØ¼­ ÃÖÁ¾ º¼·ı °áÁ¤
+        // AudioSource.volume(ì¸ìŠ¤í™í„° ê°’)ì— volumeScale ê³±í•´ì„œ ìµœì¢… ë³¼ë¥¨ ê²°ì •
         audioSource.PlayOneShot(clip, volumeScale);
     }
 }
