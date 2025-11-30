@@ -34,8 +34,8 @@ public class InteractionManager : MonoBehaviour
         }
 
         // 카메라 앞으로 Raycast 쏴서 상호작용 대상 확인
-        //Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward); //PC
-        Ray ray = new Ray(rightHandRayOrigin.position, rightHandRayOrigin.forward); // VR
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward); //PC
+        //Ray ray = new Ray(rightHandRayOrigin.position, rightHandRayOrigin.forward); // VR
         if (Physics.Raycast(ray, out RaycastHit hit, interactDistance, interactLayer))
         {
             // Ray에 맞은 오브젝트에서 IInteractable 찾기
