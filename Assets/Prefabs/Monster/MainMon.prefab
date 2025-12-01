@@ -153,11 +153,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 730246504201664317, guid: d8832a0efa5cc4051912bb3bad0dda62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.032
+      value: 0.985
       objectReference: {fileID: 0}
     - target: {fileID: 730246504201664317, guid: d8832a0efa5cc4051912bb3bad0dda62, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.435
+      value: 0.523
       objectReference: {fileID: 0}
     - target: {fileID: 730246504201664317, guid: d8832a0efa5cc4051912bb3bad0dda62, type: 3}
       propertyPath: m_LocalRotation.w
@@ -169,15 +169,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 730246504201664317, guid: d8832a0efa5cc4051912bb3bad0dda62, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9941557
+      value: 0.99029565
       objectReference: {fileID: 0}
     - target: {fileID: 730246504201664317, guid: d8832a0efa5cc4051912bb3bad0dda62, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.107956104
+      value: 0.13897678
       objectReference: {fileID: 0}
     - target: {fileID: 730246504201664317, guid: d8832a0efa5cc4051912bb3bad0dda62, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -12.395
+      value: -15.977
       objectReference: {fileID: 0}
     - target: {fileID: 730246504201664317, guid: d8832a0efa5cc4051912bb3bad0dda62, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -221,7 +221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8074165255181027823, guid: d8832a0efa5cc4051912bb3bad0dda62, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -519,7 +519,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -565,10 +565,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd7e8592320b44899ea8a3531fb5104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightRange: 5
-  sightAngle: 90
+  sightRange: 7
+  sightAngle: 100
   attackRange: 1
   patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
