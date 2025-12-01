@@ -36,6 +36,9 @@ public class FootstepSound : MonoBehaviour
     //걷을 때 소리를 재생할 함수
     public void PlayFootstep()
     {
+        // 메인 몬스터 타임라인 재생 중일 때 발소리가 안나도록
+        if (DeadGameover.IsGameoverTimelinePlaying) return;
+
         //태그를 비교해 재생할 발소리 오디오 클립을 playingFootstepClips에 저장
         if (this.CompareTag("MainMon"))
         {
@@ -62,6 +65,9 @@ public class FootstepSound : MonoBehaviour
     // --- 달리기 ---
     public void PlayRunFootstep()
     {
+        // 메인 몬스터 타임라인 재생 중일 때 발소리가 안나도록
+        if (DeadGameover.IsGameoverTimelinePlaying) return;
+
         if (CompareTag("MainMon"))
             playingFootstepClips = MainMonRunFootstepClips;
         else if (CompareTag("MiddleMon"))

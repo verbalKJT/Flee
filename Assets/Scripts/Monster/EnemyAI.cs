@@ -270,7 +270,7 @@ public class EnemyAI : Monster
     // 손전등에서 호출할 함수
     public void StunByFlashlight()
     {
-        if (!canStun) return;   // 메인 몬스터는 그냥 무시
+        if (!canStun) return;   // 인스펙터 CanStun 옵션에 따라 스턴 여부 판정
 
         if (Time.time < nextStunTime) return;   //쿨타임 지나야 스턴 되도록 설정
         if (isStunned) return;  // 이미 기절 중이면 또 안 걸림

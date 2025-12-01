@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -26,7 +26,11 @@ public class DeadGameover : MonoBehaviour, IDeadMon
 
     [Header("Global Volume")]
     [SerializeField]private GameObject glitchVolume;
-    
+
+    //타임 라인 재생 중이면 발소리가 안나도록
+    //FootstepSound 스크립트에서 사용할 수 있도록 static 플래그 변수 선언
+    public static bool IsGameoverTimelinePlaying = false;
+
     void Start()
     {
         if (timeline != null)
@@ -35,6 +39,9 @@ public class DeadGameover : MonoBehaviour, IDeadMon
 
     private void OnTimelineFinished(PlayableDirector obj)
     {
+        // 타임 라인 끝남
+        DeadGameover.IsGameoverTimelinePlaying = false;
+
         // StartCoroutine(CallReSpawn());
         // ✅ GameManager에게 리스폰 실행을 위임합니다.
         if (GameManager.instance != null)
@@ -65,9 +72,13 @@ public class DeadGameover : MonoBehaviour, IDeadMon
         if (other.CompareTag("Player"))
         {
             hasPlayed = false;
+
+            //타임 라인 시작
+            DeadGameover.IsGameoverTimelinePlaying = true;
+
             gameObject.GetComponent<CapsuleCollider>().enabled = false; // Collider 비활성화 추가 실행 방지
             gameObject.GetComponent<NavMeshAgent>().isStopped = true; //몬스터들 이동 멈추기 
-    
+            
             Debug.Log(gameObject.name);
             if(playerObject != null)
              playerObject.SetActive(false); // 플레이어 잠시 비활성화
