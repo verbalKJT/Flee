@@ -509,11 +509,9 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 2964579314882438969, guid: 8a62345e4fefa4eac8b0956f39b50d39, type: 2}
-    value: {fileID: 1380511476}
+    value: {fileID: 3308568711570079744}
   - key: {fileID: 694705930868754764, guid: 8a62345e4fefa4eac8b0956f39b50d39, type: 2}
     value: {fileID: 297068436}
-  - key: {fileID: -2133878180419292389, guid: 8a62345e4fefa4eac8b0956f39b50d39, type: 2}
-    value: {fileID: 3308568711570079742}
   m_ExposedReferences:
     m_References:
     - c0ee8acd6301c40148ec2ce8d7a55187: {fileID: 0}
@@ -1031,6 +1029,10 @@ PrefabInstance:
     - target: {fileID: 7539151100266492347, guid: ac996ce3895914db4b0a57c0468924d8, type: 3}
       propertyPath: m_Name
       value: Intro
+      objectReference: {fileID: 0}
+    - target: {fileID: 7539151100266492347, guid: ac996ce3895914db4b0a57c0468924d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1663,11 +1665,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a13d656f0e3bdd74d8acb6becae45274, type: 3}
---- !u!1 &3308568711570079742 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6853405927865430870, guid: a13d656f0e3bdd74d8acb6becae45274, type: 3}
+--- !u!114 &3308568711570079744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4334373824415373953, guid: a13d656f0e3bdd74d8acb6becae45274, type: 3}
   m_PrefabInstance: {fileID: 3308568711570079741}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBrain
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
