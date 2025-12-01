@@ -32,6 +32,11 @@ public class EnemyAI : Monster
     private float angryEndTime = 0f;
     private bool isAngry = false;
     
+    [Header("메인 몬스터 설정")]
+    private bool isMain = false;
+    private const int essential_PointIndex = 4;
+    private int previousPatrolIndex = 0; // 이전 패트롤 위치
+    
     void Update()
     {
         // 할당되는 시간 
@@ -66,7 +71,7 @@ public class EnemyAI : Monster
             // 상태 복귀
             changeState(EnemyState.PATROL);
 
-            Debug.Log($"{gameObject.name} 이 분노 상태에서 벗어났습니다.");
+            
         }
 
         switch (currentState)
@@ -103,8 +108,52 @@ public class EnemyAI : Monster
         // 현재 목적지에 거의 도착 + 경로가 아직 계산 중이 아니면
         if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
         {
-            // 다음 목적지 무작위 설정
-            currentPatrolIndex = Random.Range(0, patrolPoints.Length);
+            int nextPoint = Random.Range(0, patrolPoints.Length);
+
+            if (isMain){ 
+                    // 현재 위치가 '문' 인경우
+                if (currentPatrolIndex == essential_PointIndex)
+                {
+                    // 이전이 낮은 구역(0~3) -> 높은 구역(5~)으로 보냄
+                    if (previousPatrolIndex < essential_PointIndex)
+                    {
+                        nextPoint = Random.Range(essential_PointIndex + 1, patrolPoints.Length);
+                    }
+                    // 이전이 높은 구역(5~) -> 낮은 구역(0~3)으로 보냄
+                    else
+                    {
+                        nextPoint = Random.Range(0, essential_PointIndex);
+                    }
+                }
+                // 위치가 일반
+                else
+                {
+                    nextPoint = Random.Range(0, patrolPoints.Length); // 일단 랜덤
+
+                    // 맵 크기가 충분하다면 가로지르기 검사
+                    if (patrolPoints.Length > essential_PointIndex)
+                    {
+                        bool up = currentPatrolIndex < essential_PointIndex && nextPoint > essential_PointIndex;
+                        bool down = currentPatrolIndex > essential_PointIndex && nextPoint < essential_PointIndex;
+
+                        // 선을 넘으려고 하면 4번(문)으로 강제 변경
+                        if (up || down)
+                        {
+                            nextPoint = essential_PointIndex;
+                        }
+                    }
+                }
+            }
+            else 
+            {
+                // 미들 몬은아무 조건 없이 그냥 무작위 이동
+                nextPoint = Random.Range(0, patrolPoints.Length);
+            }
+            
+        
+            previousPatrolIndex = currentPatrolIndex; // 현재 위치 저장
+            currentPatrolIndex = nextPoint;           // 목적지 갱신
+        
             agent.SetDestination(patrolPoints[currentPatrolIndex].position);
         }
         // 탐지
@@ -153,7 +202,7 @@ public class EnemyAI : Monster
         // 목적지 플레이어 위치로
         agent.SetDestination(player.position);
         // 달리기
-        agent.speed = 7.5f;
+        agent.speed = 7f;
 
         // 플레이어 사이의 거리 계산
         float distance = Vector3.Distance(transform.position, player.position);
@@ -191,7 +240,13 @@ public class EnemyAI : Monster
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        agent.speed = 5f;
+        agent.speed = 4f;
+
+        if (gameObject.name == "MainMon")
+        {
+            isMain = true;
+            agent.speed = 3.5f;
+        }
     }
     
     // 오브젝트 맞았을 때 분노 함수
