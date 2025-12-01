@@ -1,104 +1,95 @@
-using NUnit.Framework.Constraints;
 using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float walkSpeed = 1.5f;  //걷기 속도
-    public float runSpeed = 3f;     //달리기 속도
+    public float walkSpeed = 1.5f; //걷기 속도
+    public float runSpeed = 3f; //달리기 속도
 
-    private CharacterController controller;
+    [Header("Water_Object할당")] public WaterManager InWater;
+
+    [Header("속도 계수")] public float speedMultiplier = 0.5f;
+
+    [Header("Footstep Audio")] public AudioSource footstepSource;
+
+    public AudioClip[] footstepClips;
+
+    [Header("텔레포트 위치")] [SerializeField] private Transform teleportPoint;
+
     private Animator animator;
 
-    private bool canMove = false;
+    private bool canMove;
 
-    private PlayerStamina stamina;      //플레이어 스태미나
+    private CharacterController controller;
 
-    [Header("Water_Object할당")]
-    public WaterManager InWater;
-    [Header("속도 계수")]
-    public float speedMultiplier = 0.5f;
-    [Header("Footstep Audio")]
-    public AudioSource footstepSource;
-    public AudioClip[] footstepClips;
-    
-    [Header("텔레포트 위치")]
-        [SerializeField] private Transform teleportPoint;
+    private PlayerStamina stamina; //플레이어 스태미나
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         stamina = GetComponent<PlayerStamina>();
         // 3초 후 플레이어 움직임 적용 시킴 -> 맵 생성 중에 맵 바깥으로 떨어지지 않도록.
-        StartCoroutine(EnableMoveDelay()); 
+        StartCoroutine(EnableMoveDelay());
     }
-    IEnumerator EnableMoveDelay()
-    {
-        yield return new WaitForSeconds(3f);
-        canMove = true;
-    }
+
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (!canMove || FindObjectOfType<PlayerHider>().IsHiding)
-        {
-            return;
-        }
+        if (!canMove || FindObjectOfType<PlayerHider>().IsHiding) return;
 
-        float h = Input.GetAxis("Horizontal");      //앞뒤 이동 키 입력(w,s)
-        float v = Input.GetAxis("Vertical");        //양옆 이동 키 입력(a,d)
+        var h = Input.GetAxis("Horizontal"); //앞뒤 이동 키 입력(w,s)
+        var v = Input.GetAxis("Vertical"); //양옆 이동 키 입력(a,d)
 
-        Vector3 input = new Vector3(h, 0, v);
-        Vector3 move = transform.TransformDirection(input.normalized);
+        var input = new Vector3(h, 0, v);
+        var move = transform.TransformDirection(input.normalized);
 
         //달리기 키 입력(LShift)
-        bool isRunning = Input.GetKey(KeyCode.LeftShift)|| 
-                         ARAVRInput.Get(ARAVRInput.Button.Two, ARAVRInput.Controller.RTouch);     
+        var isRunning = Input.GetKey(KeyCode.LeftShift) ||
+                        ARAVRInput.Get(ARAVRInput.Button.Two);
 
         //스태미나가 0이하면 달리지 못하도록 설정
         if (!stamina.CanRun)
             isRunning = false;
 
-        stamina.isRunning = isRunning;   //스태미나 조절을 위해 전달
+        stamina.isRunning = isRunning; //스태미나 조절을 위해 전달
 
-        
+
         //InWater조건에 따라 속도계수 조정
-        float speedFactor = 1f;
-        if (InWater != null && InWater.InWater)
-        {
-            speedFactor = speedMultiplier;
-        }
+        var speedFactor = 1f;
+        if (InWater != null && InWater.InWater) speedFactor = speedMultiplier;
 
-        float currentSpeed = (isRunning ? runSpeed : walkSpeed) * speedFactor;
-       // Debug.Log("현재속도" + currentSpeed);
+        var currentSpeed = (isRunning ? runSpeed : walkSpeed) * speedFactor;
+        // Debug.Log("현재속도" + currentSpeed);
 
         controller.SimpleMove(move * currentSpeed);
 
         // 이동 속도를 기반으로 애니메이션 전이
         animator.SetFloat("Speed", input.magnitude * currentSpeed);
-        if(currentSpeed > 0)
-        {
-            animator.SetBool("isRunning", isRunning);
-        }
+        if (currentSpeed > 0) animator.SetBool("isRunning", isRunning);
         // 왼쪽을 누르면서 오른쪽을 누르던지 아니면 그 반대
-        if ((ARAVRInput.Get(ARAVRInput.Button.IndexTrigger, ARAVRInput.Controller.LTouch) 
-             && ARAVRInput.GetDown(ARAVRInput.Button.IndexTrigger, ARAVRInput.Controller.RTouch))
-            || 
-            (ARAVRInput.Get(ARAVRInput.Button.IndexTrigger, ARAVRInput.Controller.RTouch) 
+        if ((ARAVRInput.Get(ARAVRInput.Button.IndexTrigger, ARAVRInput.Controller.LTouch)
+             && ARAVRInput.GetDown(ARAVRInput.Button.IndexTrigger))
+            ||
+            (ARAVRInput.Get(ARAVRInput.Button.IndexTrigger)
              && ARAVRInput.GetDown(ARAVRInput.Button.IndexTrigger, ARAVRInput.Controller.LTouch)))
-        {
             transform.position = teleportPoint.transform.position;
-        }
-            
     }
+
+    private IEnumerator EnableMoveDelay()
+    {
+        yield return new WaitForSeconds(3f);
+        canMove = true;
+    }
+
     // 애니메이션 이벤트에서 호출
     public void Footstep()
     {
         if (footstepClips.Length == 0 || footstepSource == null)
             return;
 
-        int index = Random.Range(0, footstepClips.Length);
+        var index = Random.Range(0, footstepClips.Length);
         footstepSource.PlayOneShot(footstepClips[index]);
     }
 
