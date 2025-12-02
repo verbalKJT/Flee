@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class Item : MonoBehaviour, IInteractable
 {
-    [Header("������ ������")] public ItemData ItemData;
+    [Header("스토리용 아이템")] public ItemData ItemData;
     private IInteractable _interactableImplementation;
 
 
     //����ĳ��Ʈ ���Ҷ���
     public string GetPromptText()
     {
-        return "�ݱ�";
+        return "줍기";
     }
 
     // VR 손과 트리거 충돌 시 호출되는 함수
@@ -70,6 +70,6 @@ public class Item : MonoBehaviour, IInteractable
         }
         //������ ��Ȱ��ȭ
         gameObject.SetActive(false);
-        Debug.Log(item.data.itemName + "ȹ��");
+        Debug.Log(item.data.itemName + "줍기");
     } 
 }
