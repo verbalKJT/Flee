@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class WaterManager : MonoBehaviour
 {
@@ -13,9 +14,22 @@ public class WaterManager : MonoBehaviour
     private float startY;
     private bool rising = false;      // 상승 중 여부
 
+    public AudioClip underwaterClip;
+    private AudioSource audioSource;
+
     void Start()
     {
         startY = transform.position.y;
+
+        // 오디오소스 가져오기 또는 추가
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        audioSource.loop = true;
+        audioSource.playOnAwake = false;
     }
 
     void Update()
@@ -55,7 +69,14 @@ public class WaterManager : MonoBehaviour
             {
                 cameraOverlayObject.SetActive(true);                
             }
-                       
+
+            if (underwaterClip != null && audioSource != null)
+            {
+                audioSource.clip = underwaterClip;
+                audioSource.loop = true;
+                audioSource.Play();
+            }
+
         }
     }
 
@@ -70,8 +91,18 @@ public class WaterManager : MonoBehaviour
             // 카메라 오버레이 해제
             if (cameraOverlayObject != null)
             {
-                cameraOverlayObject.SetActive(false);                
-            }            
+                cameraOverlayObject.SetActive(false);
+            }
+
+            // 사운드 정지
+            if (audioSource != null && audioSource.isPlaying)
+            {
+                Debug.Log("사운드 정지정지"+ audioSource+ audioSource.isPlaying);
+                audioSource.Stop();
+                audioSource.clip = null;
+                audioSource.loop = false;
+                Debug.Log("물 사운드 정지됨");
+            }
         }
     }
 

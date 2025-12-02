@@ -42,7 +42,16 @@ public class ResetBathroom : MonoBehaviour
         if (waterManager != null)
         {
             waterManager.StopRising();
-            waterManager.transform.position = waterInitialPosition; 
+            waterManager.transform.position = waterInitialPosition;
+
+            AudioSource source = waterManager.GetComponent<AudioSource>();
+            if (source != null && source.isPlaying)
+            {
+                source.Stop();
+                source.clip = null;
+                source.loop = false;
+                Debug.Log("ResetBathroom에서 직접 사운드 정지");
+            }
         }
 
         //물에 잠기는 효과 비활성화
