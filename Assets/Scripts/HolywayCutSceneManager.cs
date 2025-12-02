@@ -1,19 +1,25 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Playables;
-using System.Collections;
 
 public class HolywayCutsceneManager : MonoBehaviour
 {
     [Header("🎬 컷씬 설정")]
-    public PlayableDirector timeline;          // 실행시킬 타임라인
-    public bool playOnce = true;               // 한 번만 실행되게 할지
-    public bool autoPlayOnTrigger = true;      // 트리거 진입 시 자동 실행 여부
+    public PlayableDirector timeline;
+    public bool playOnce = true;
+    public bool autoPlayOnTrigger = true;
 
     [Header("🚪 문 제어 설정")]
-    public DoorOpener targetDoor;              // 닫을 문 오브젝트
-    public float doorCloseDelay = 1.0f;        // 닫기까지 딜레이 시간
+    public DoorOpener targetDoor;
+    public float doorCloseDelay = 1.0f;
+
+    private FootstepSound[] crawlFootsteps;
+    private AudioSource[] crawlAudioSources;
 
     private bool hasPlayed = false;
+    private bool isCutscenePlaying = false;
+
     private PlayerMovement playerMovement;
 
     private void Awake()
@@ -32,34 +38,21 @@ public class HolywayCutsceneManager : MonoBehaviour
             // Player의 PlayableDirector 자동 연결
             if (timeline == null)
             {
-                var playerDirector = player.GetComponent<PlayableDirector>();
-                if (playerDirector != null)
+                var pd = player.GetComponent<PlayableDirector>();
+                if (pd != null)
                 {
-                    timeline = playerDirector;
+                    timeline = pd;
                     Debug.Log("🎬 [AutoAssign] Player의 PlayableDirector 자동 연결 완료");
                 }
             }
         }
-        else
-        {
-            Debug.LogWarning("⚠️ [AutoAssign] Player 태그를 가진 오브젝트를 찾지 못했습니다!");
-        }
-            // (EndDoor 태그 자동 탐색)
+
+        // EndDoor 자동 연결
         if (targetDoor == null)
         {
-            var endDoor = GameObject.FindGameObjectWithTag("EndDoor");
-            if (endDoor != null)
-            {
-                targetDoor = endDoor.GetComponent<DoorOpener>();
-                if (targetDoor != null)
-                    Debug.Log($"[AutoAssign] EndDoor 자동 연결 완료: {targetDoor.name}");
-                else
-                    Debug.LogWarning("[AutoAssign] EndDoor 오브젝트에 DoorOpener 컴포넌트가 없습니다!");
-            }
-            else
-            {
-                Debug.LogWarning("[AutoAssign] EndDoor 태그를 가진 오브젝트를 찾지 못했습니다!");
-            }
+            var endDoorObj = GameObject.FindGameObjectWithTag("EndDoor");
+            if (endDoorObj != null)
+                targetDoor = endDoorObj.GetComponent<DoorOpener>();
         }
     }
 
@@ -70,7 +63,6 @@ public class HolywayCutsceneManager : MonoBehaviour
         if (hasPlayed && playOnce) return;
 
         hasPlayed = true;
-        Debug.Log("컷씬 트리거 진입 — 타임라인 실행 및 문 닫기 시작");
 
         if (targetDoor != null)
             StartCoroutine(CloseDoorAfterDelay());
@@ -83,14 +75,7 @@ public class HolywayCutsceneManager : MonoBehaviour
         yield return new WaitForSeconds(doorCloseDelay);
 
         if (targetDoor != null)
-        {
             targetDoor.ForceCloseDoor();
-            Debug.Log($"[AutoClose] {targetDoor.name} 문 닫힘 완료");
-        }
-        else
-        {
-            Debug.LogWarning("닫을 문이 설정되어 있지 않습니다!");
-        }
     }
 
     private IEnumerator PlayCutscene()
@@ -101,39 +86,124 @@ public class HolywayCutsceneManager : MonoBehaviour
             yield break;
         }
 
-        // ✅ 컷씬 시작 시 플레이어 이동 비활성화
-        if (playerMovement != null)
-        {
-            playerMovement.enabled = false;
-            Debug.Log("🧍 플레이어 이동 잠금 (컷씬 중)");
-        }
+        isCutscenePlaying = true;
 
-        // ✅ Animator를 Idle 상태로 전환
+        // 플레이어 이동 잠금
+        if (playerMovement != null)
+            playerMovement.enabled = false;
+
+        // Animator를 Idle로 강제
         var animator = playerMovement != null ? playerMovement.GetComponent<Animator>() : null;
         if (animator != null)
-        {
             animator.SetFloat("Speed", 0f);
-            Debug.Log("컷씬 시작 — Animator를 Idle 상태로 전환");
-        }
 
+        // CrawlMon 관련 사운드 구성요소 찾기
+        TryFindCrawlFootsteps();
+        TryFindCrawlAudioSources();
+
+        // 소리 차단
+        MuteCrawlFootsteps();
+        MuteCrawlAudio();
 
         timeline.RebuildGraph();
         yield return new WaitForEndOfFrame();
-
         timeline.Play();
-        Debug.Log("컷씬 타임라인 재생 시작");
 
-      
+        // 타임라인 정지까지 대기
         yield return new WaitForSeconds((float)timeline.duration + 0.1f);
 
         timeline.Stop();
-        Debug.Log("컷씬 타임라인 정지 완료");
 
-        // ✅ 컷씬 종료 후 플레이어 이동 복원
+        // 컷씬 종료 → 소리 재활성화
+        UnmuteCrawlFootsteps();
+        UnmuteCrawlAudio();
+
+        // 이동 복원
         if (playerMovement != null)
-        {
             playerMovement.enabled = true;
-            Debug.Log("컷씬 종료  플레이어 이동 복원");
+
+        isCutscenePlaying = false;
+    }
+
+    private void Update()
+    {
+        // 타임라인 중에는 활성화되는 CrawlMon 오브젝트를 계속 점검하여 즉시 소리 차단
+        if (isCutscenePlaying)
+        {
+            TryFindCrawlFootsteps();
+            TryFindCrawlAudioSources();
+
+            MuteCrawlFootsteps();
+            MuteCrawlAudio();
         }
+    }
+
+    // FootStepSound 및 AudioSource 컴포넌트 탐색
+    private void TryFindCrawlFootsteps()
+    {
+        if (crawlFootsteps != null && crawlFootsteps.Length > 0)
+            return;
+
+        var crawls = GameObject.FindGameObjectsWithTag("CrawlMon");
+        List<FootstepSound> list = new List<FootstepSound>();
+
+        foreach (var c in crawls)
+            list.AddRange(c.GetComponentsInChildren<FootstepSound>(true));
+
+        if (list.Count > 0)
+            crawlFootsteps = list.ToArray();
+    }
+
+    private void TryFindCrawlAudioSources()
+    {
+        if (crawlAudioSources != null && crawlAudioSources.Length > 0)
+            return;
+
+        var crawls = GameObject.FindGameObjectsWithTag("CrawlMon");
+        List<AudioSource> list = new List<AudioSource>();
+
+        foreach (var c in crawls)
+            list.AddRange(c.GetComponentsInChildren<AudioSource>(true));
+
+        if (list.Count > 0)
+            crawlAudioSources = list.ToArray();
+    }
+
+    // 소리 일절 차단
+    private void MuteCrawlFootsteps()
+    {
+        if (crawlFootsteps == null) return;
+
+        foreach (var f in crawlFootsteps)
+            if (f != null)
+                f.enabled = false;
+    }
+
+    private void MuteCrawlAudio()
+    {
+        if (crawlAudioSources == null) return;
+
+        foreach (var a in crawlAudioSources)
+            if (a != null)
+                a.enabled = false;
+    }
+
+    // 소리 재생
+    private void UnmuteCrawlFootsteps()
+    {
+        if (crawlFootsteps == null) return;
+
+        foreach (var f in crawlFootsteps)
+            if (f != null)
+                f.enabled = true;
+    }
+
+    private void UnmuteCrawlAudio()
+    {
+        if (crawlAudioSources == null) return;
+
+        foreach (var a in crawlAudioSources)
+            if (a != null)
+                a.enabled = true;
     }
 }
