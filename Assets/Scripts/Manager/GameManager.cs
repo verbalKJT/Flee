@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     
     private AsyncOperation asyncLoad;
     
+    private AsyncOperationHandle<GameObject> mapHandle;
+    
     void Awake()
     {
         if (instance != null && instance != this)
@@ -114,7 +116,9 @@ public class GameManager : MonoBehaviour
             Destroy(currentMap);
         }
         // 비동기 로드 시작
-        Addressables.LoadAssetAsync<GameObject>(mapAddress).Completed += OnMapLoadCompleted;
+        var op = Addressables.LoadAssetAsync<GameObject>(mapAddress);
+        op.Completed += OnMapLoadCompleted;
+        mapHandle = op;
     }
     private void DestroyMap()
     {
@@ -122,6 +126,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(currentMap);
             currentMap = null;
+        }
+
+        if (mapHandle.IsValid())
+        {
+            Addressables.Release(mapHandle);
         }
     }
 
@@ -141,8 +150,6 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Map initializer call.");
             }
             Debug.Log("Map loaded");
-            
-            Addressables.Release(handle); // map 메모리에서 해제 (누수 방지)
         }
         else
         {

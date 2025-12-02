@@ -227,7 +227,7 @@
     IEnumerator AssignWaterCam(GameObject player)
     {
         yield return null; // 한 프레임 대기
-        GameObject water_Cam = GameObject.FindGameObjectWithTag("Water_Cam");
+        /*GameObject water_Cam = GameObject.FindGameObjectWithTag("Water_Cam");
         Debug.Log(water_Cam.tag);
         if (water_Cam != null)
         {
@@ -243,6 +243,7 @@
         {
             Debug.LogWarning("Water_Cam 오브젝트를 찾을 수 없습니다.");
         }
+        */
     }
 
     
