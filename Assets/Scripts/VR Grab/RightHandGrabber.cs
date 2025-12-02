@@ -22,6 +22,11 @@ public class RightHandGrabber : MonoBehaviour
 
     public bool isRemoteGrab = true; // 원거리에서 물체를 잡는 기능 활성화 여부
     public float remoteGrabDistance = 20; // 원거리에서 물체를 잡을 수 있는 거리
+    
+    // 속도 스무딩을 위한 리스트
+    private List<Vector3> velocityHistory = new List<Vector3>();
+    // 속도 기록을 유지할 프레임 수 (예: 5~10 프레임)
+    public int velocityHistoryLength = 8;
 
     // Update is called once per frame
     void Update()
@@ -32,13 +37,42 @@ public class RightHandGrabber : MonoBehaviour
         }
         else
         {
+            RecordHandVelocity(); // 잡고 있는 동안 속도 기록
             TryUnGrab(); // 물체 놓기
         }
+    }
+    void RecordHandVelocity()
+    {
+        // 현재 속도 계산 (현재 위치 - 이전 위치) / Time.deltaTime
+        Vector3 currentVelocity = (ARAVRInput.RHandPosition - prevPos) / Time.deltaTime;
+        
+        // 속도 리스트에 추가
+        velocityHistory.Add(currentVelocity);
+
+        // 리스트 크기 유지 (오래된 속도는 제거)
+        if (velocityHistory.Count > velocityHistoryLength)
+        {
+            velocityHistory.RemoveAt(0);
+        }
+
+        // 이전 위치 업데이트
+        prevPos = ARAVRInput.RHandPosition;
     }
     void TryUnGrab()
     {
         // 던질 방향
-        Vector3 throwDirection = (ARAVRInput.RHandPosition - prevPos) / Time.deltaTime;
+        //Vector3 throwDirection = (ARAVRInput.RHandPosition - prevPos) / Time.deltaTime; // 던지기 직전 현재위치-이전위치만 사용
+        
+        // [수정] 던질 방향을 기록된 속도의 평균으로 계산
+        Vector3 throwDirection = Vector3.zero;
+        if (velocityHistory.Count > 0)
+        {
+            foreach (Vector3 velocity in velocityHistory)
+            {
+                throwDirection += velocity;
+            }
+            throwDirection /= velocityHistory.Count; // 평균 속도
+        }
         // 위치 기억
         prevPos = ARAVRInput.RHandPosition;
         
@@ -78,7 +112,10 @@ public class RightHandGrabber : MonoBehaviour
             // 잡은 물체가 없도록 설정
             grabbedObject = null;
             
-            // [추가 3] 놓았을 때 애니메이션 해제
+            // [수정] 던지고 나면 기록된 속도 초기화
+            velocityHistory.Clear();
+            
+            // 놓았을 때 애니메이션 해제
             if (handAnimator != null)
             {
                 handAnimator.SetBool("IsGrab", false);
@@ -106,7 +143,7 @@ public class RightHandGrabber : MonoBehaviour
                     grabbedObject = hitInfo.transform.gameObject; // 잡은 물체에 대한 기억
                     StartCoroutine(GrabbingAnimator()); // 물체가 끌려오는 기능 실행
                     
-                    // [추가 2] 잡았을 때 애니메이션 실행 (파라미터 이름이 "IsGrab"이라고 가정)
+                    // 잡았을 때 애니메이션 실행 (파라미터 이름이 "IsGrab"이라고 가정)
                     if (handAnimator != null)
                     {
                         handAnimator.SetBool("IsGrab", true);
