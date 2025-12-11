@@ -14,7 +14,9 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioClip[] footstepClips;
 
-    [Header("텔레포트 위치")] [SerializeField] private Transform teleportPoint;
+    [Header("텔레포트 위치")] [SerializeField] private Transform middlCorriderPos;
+    [Header("텔레포트 위치")] [SerializeField] private Transform lastCorriderPos;
+    [Header("텔레포트 위치")] [SerializeField] private Transform endRoomPos;
 
     private Animator animator;
 
@@ -68,13 +70,21 @@ public class PlayerMovement : MonoBehaviour
         // 이동 속도를 기반으로 애니메이션 전이
         animator.SetFloat("Speed", input.magnitude * currentSpeed);
         if (currentSpeed > 0) animator.SetBool("isRunning", isRunning);
-        // 왼쪽을 누르면서 오른쪽을 누르던지 아니면 그 반대
-        if ((ARAVRInput.Get(ARAVRInput.Button.IndexTrigger, ARAVRInput.Controller.LTouch)
-             && ARAVRInput.GetDown(ARAVRInput.Button.IndexTrigger))
-            ||
-            (ARAVRInput.Get(ARAVRInput.Button.IndexTrigger)
-             && ARAVRInput.GetDown(ARAVRInput.Button.IndexTrigger, ARAVRInput.Controller.LTouch)))
-            transform.position = teleportPoint.transform.position;
+        // 텔레포트 -> 빌드 시 삭제 필요
+        // 오른쪽 인덱스 트리거 -> 중간 복도
+        if (ARAVRInput.GetDown(ARAVRInput.Button.IndexTrigger, ARAVRInput.Controller.RTouch))
+        {
+            transform.position = middlCorriderPos.transform.position;
+        } // 왼쪽 핸드트리거 시 마지막 복도 시작 부분
+        else if (ARAVRInput.GetDown(ARAVRInput.Button.HandTrigger, ARAVRInput.Controller.LTouch))
+        {
+            transform.position = lastCorriderPos.transform.position;
+        }// 왼쪽 인덱스 트리거 시 엔딩룸 안
+        else if(ARAVRInput.GetDown(ARAVRInput.Button.IndexTrigger, ARAVRInput.Controller.LTouch))
+        {
+            transform.position = endRoomPos.transform.position;
+        }
+            
     }
 
     private IEnumerator EnableMoveDelay()
@@ -93,8 +103,10 @@ public class PlayerMovement : MonoBehaviour
         footstepSource.PlayOneShot(footstepClips[index]);
     }
 
-    public void SetTeleportPoint(Transform teleportPoint)
+    public void SetTeleportPoint(Transform middlCorriderPos, Transform lastCorriderPos, Transform endRoomPos)
     {
-        this.teleportPoint = teleportPoint;
+        this.middlCorriderPos = middlCorriderPos;
+        this.lastCorriderPos = lastCorriderPos;
+        this.endRoomPos = endRoomPos;
     }
 }
